@@ -390,6 +390,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   customer: {fileID: 5406188428552185062, guid: 3e0821510a0fc474fa8f4d82e38f5afd,
     type: 3}
+  maxCustomer: 1
 --- !u!4 &463282668
 Transform:
   m_ObjectHideFlags: 0

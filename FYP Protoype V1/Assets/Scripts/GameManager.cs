@@ -6,12 +6,13 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager gm;
 
+    //public variable
     public GameObject customer;
+    public int maxCustomer = 5;
 
     //private variable
     private float counter = 10;
     private int currentCustomer = 0;
-    private int maxCustomer = 5;
 
     void Awake()
     {
