@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public GameObject customer;
 
     //private variable
-    private float counter = 0;
+    private float counter = 10;
     private int currentCustomer = 0;
     private int maxCustomer = 5;
 
@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     {
         counter += Time.deltaTime;
 
-        if(counter > 2) //more than 2 seconds instantiate customer
+        if(counter > 10) //more than 10 seconds instantiate customer
         {
             if(currentCustomer < maxCustomer)
             {
