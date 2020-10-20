@@ -100,6 +100,8 @@ public class Customer : MonoBehaviour
                 {
                     //leave the restaurant
                     //destroy current game object
+                    //update chair 
+                    //update game manager
                 }
             }
         }
@@ -116,5 +118,7 @@ public class Customer : MonoBehaviour
         _coroutineRunning = false;
         //leave the shop
         //destroy current game object
+        //update chair 
+        //update game manager
     }
 }
