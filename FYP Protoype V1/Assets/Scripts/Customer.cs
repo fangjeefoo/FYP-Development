@@ -9,6 +9,7 @@ public class Customer : MonoBehaviour
     public GameObject[] chair;
     public GameObject door;
     public GameObject[] moodIndicator;
+    public GameObject orderCanvas;
     [Tooltip("time to decrease one star (Mood)")]
     public float moodCounter; 
     public float finishMealCounter;
@@ -21,17 +22,21 @@ public class Customer : MonoBehaviour
     private int _mood; //current star of the customer (max = 5)
     private bool _isServing; //check customer is serving by player
     private bool _coroutineRunning; //check coroutine "FinishMeal" is running
+    private float _speed;
+    private bool _chairFound;
 
     /// <summary>
     /// Initialize all private variable
     /// </summary>
     void Start()
     {
-        _isSitting = true;
+        _isSitting = false;
         _isServing = false;
         _coroutineRunning = false;
+        _chairFound = false;
         _moodCounter = 0f;
         _mood = 5;
+        _speed = 1f;
     }
 
     void Update()
@@ -39,28 +44,35 @@ public class Customer : MonoBehaviour
         //if is sitting false, means the customer just reach the restaurant
         if (!_isSitting)
         {
-            _chairCounter = int.MaxValue;
-
-            //check the chair is available
-            for (int i = 0; i < chair.Length; i++)
+            if (!_chairFound)
             {
-                if (!chair[i].GetComponent<Chair>().occupied)
+                //check the chair is available
+                for (int i = 0; i < chair.Length; i++)
                 {
-                    chair[i].GetComponent<Chair>().occupied = true;
-                    _chairCounter = i;
-                    break;
+                    if (!chair[i].GetComponent<Chair>().occupied)
+                    {
+                        chair[i].GetComponent<Chair>().occupied = true;
+                        _chairCounter = i;
+                        break;
+                    }
                 }
-            }
-
-            //not enough chair
-            if (_chairCounter == int.MaxValue)
-            {
-                //go out the restaurant
+                _chairFound = true;
             }
             else
             {
-                _isSitting = true;
-                //move towwards the chair
+                float direction = chair[_chairCounter].transform.position.x - transform.position.x;
+                if(direction > 0.1f)
+                {
+                    Debug.Log("Moving");
+                    transform.position = new Vector3(transform.position.x + _speed * direction * Time.deltaTime, transform.position.y, transform.position.z);
+                }
+                else
+                {
+                    Debug.Log("Sitting");
+                    transform.GetChild(0).rotation = Quaternion.Euler(0f, 180f, 0f);
+                    _isSitting = true;
+                    orderCanvas.SetActive(true);
+                }                
             }
         }
         else //customer waiting to be served
@@ -80,7 +92,7 @@ public class Customer : MonoBehaviour
             {
                 _moodCounter += Time.deltaTime;
             }
-            Debug.Log(_moodCounter);
+            
             if(_moodCounter > moodCounter) //customer wait for too long, decrease one mood indicator
             {
                 _moodCounter = 0;

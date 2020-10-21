@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1472580306388762201
 RectTransform:
   m_ObjectHideFlags: 0
@@ -111,7 +111,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 379e7ebbd3604844eae7033fd2c92cda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chair: []
+  chair:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   door: {fileID: 0}
   moodIndicator:
   - {fileID: 1242633867125356001}
@@ -119,6 +123,7 @@ MonoBehaviour:
   - {fileID: 1242633868771875473}
   - {fileID: 1242633867851587788}
   - {fileID: 1242633868116560078}
+  orderCanvas: {fileID: 1497784734254230576}
   moodCounter: 5
   finishMealCounter: 10
 --- !u!1 &6916805085068080929
@@ -210,7 +215,7 @@ PrefabInstance:
     - target: {fileID: 1593663895543535279, guid: 4b9c56b8683b06544b8ecef7fa23b1f5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.2018867
+      value: 2.57
       objectReference: {fileID: 0}
     - target: {fileID: 1593663895543535279, guid: 4b9c56b8683b06544b8ecef7fa23b1f5,
         type: 3}
