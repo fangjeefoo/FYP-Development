@@ -6,7 +6,6 @@ using UnityEngine;
 public class Customer : MonoBehaviour
 {
     //public variable
-    public GameObject[] chair;
     public GameObject door;
     public GameObject[] moodIndicator;
     public GameObject orderCanvas;
@@ -24,6 +23,7 @@ public class Customer : MonoBehaviour
     private bool _coroutineRunning; //check coroutine "FinishMeal" is running
     private float _speed;
     private bool _chairFound;
+    private GameObject[] _chair;
 
     /// <summary>
     /// Initialize all private variable
@@ -37,6 +37,7 @@ public class Customer : MonoBehaviour
         _moodCounter = 0f;
         _mood = 5;
         _speed = 1f;
+        _chair = GameObject.FindGameObjectsWithTag("Chair");
     }
 
     void Update()
@@ -47,11 +48,11 @@ public class Customer : MonoBehaviour
             if (!_chairFound)
             {
                 //check the chair is available
-                for (int i = 0; i < chair.Length; i++)
+                for (int i = 0; i < _chair.Length; i++)
                 {
-                    if (!chair[i].GetComponent<Chair>().occupied)
+                    if (!_chair[i].GetComponent<Chair>().occupied)
                     {
-                        chair[i].GetComponent<Chair>().occupied = true;
+                        _chair[i].GetComponent<Chair>().occupied = true;
                         _chairCounter = i;
                         break;
                     }
@@ -60,15 +61,13 @@ public class Customer : MonoBehaviour
             }
             else
             {
-                float direction = chair[_chairCounter].transform.position.x - transform.position.x;
-                if(direction > 0.1f)
+                Vector3 direction = _chair[_chairCounter].transform.position - transform.position;
+                if(direction.normalized.x > 0.1f)
                 {
-                    Debug.Log("Moving");
-                    transform.position = new Vector3(transform.position.x + _speed * direction * Time.deltaTime, transform.position.y, transform.position.z);
+                    transform.position = new Vector3(transform.position.x + _speed * direction.normalized.x * Time.deltaTime, transform.position.y, transform.position.z);                    
                 }
                 else
                 {
-                    Debug.Log("Sitting");
                     transform.GetChild(0).rotation = Quaternion.Euler(0f, 180f, 0f);
                     _isSitting = true;
                     orderCanvas.SetActive(true);
@@ -107,15 +106,31 @@ public class Customer : MonoBehaviour
                     {
                         moodIndicator[i].SetActive(false);
                     }
-                }
-                if(_mood <= 0)
-                {
-                    //leave the restaurant
-                    //destroy current game object
-                    //update chair 
-                    //update game manager
-                }
+                }                
             }
+
+            if (_mood <= 0)
+            {
+                LeaveShop();
+            }
+        }
+    }
+
+    public void LeaveShop()
+    {
+        orderCanvas.SetActive(false);
+        Vector3 direction = door.transform.position - transform.position;
+        if (direction.normalized.x > 0.1f)
+        {
+            if (transform.GetChild(0).rotation.y != 90f)
+                transform.GetChild(0).rotation = Quaternion.Euler(0f, 90f, 0f);
+            transform.position = new Vector3(transform.position.x + _speed * direction.normalized.x * Time.deltaTime, transform.position.y, transform.position.z);
+        }
+        else
+        {
+            _chair[_chairCounter].GetComponent<Chair>().occupied = false;
+            GameManager.gm.UpdateCustomer();
+            Destroy(this.gameObject);
         }
     }
 
@@ -126,11 +141,9 @@ public class Customer : MonoBehaviour
     IEnumerator FinishMeal()
     {
         _coroutineRunning = true;
+        orderCanvas.SetActive(false);
         yield return new WaitForSeconds(finishMealCounter);
         _coroutineRunning = false;
-        //leave the shop
-        //destroy current game object
-        //update chair 
-        //update game manager
+        LeaveShop();
     }
 }

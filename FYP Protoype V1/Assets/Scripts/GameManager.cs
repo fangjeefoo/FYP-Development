@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
     {
         _counter += Time.deltaTime;
 
-        if(_counter > spawnCustomer) //more than 10 seconds instantiate customer
+        if(_counter > spawnCustomer) 
         {
             if(_currentCustomer < maxCustomer)
             {
@@ -65,5 +65,10 @@ public class GameManager : MonoBehaviour
             }            
             _counter = 0f;
         }
+    }
+
+    public void UpdateCustomer()
+    {
+        _currentCustomer--;
     }
 }
