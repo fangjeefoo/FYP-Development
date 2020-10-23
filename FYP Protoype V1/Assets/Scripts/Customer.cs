@@ -24,6 +24,7 @@ public class Customer : MonoBehaviour
     private float _speed;
     private bool _chairFound;
     private GameObject[] _chair;
+    private Animator animator;
 
     /// <summary>
     /// Initialize all private variable
@@ -38,6 +39,12 @@ public class Customer : MonoBehaviour
         _mood = 5;
         _speed = 1f;
         _chair = GameObject.FindGameObjectsWithTag("Chair");
+        animator = transform.GetChild(0).GetComponent<Animator>();
+        if(animator != null)
+        {
+            animator.SetBool("Grounded", true);
+            animator.SetFloat("MoveSpeed", _speed);
+        }
     }
 
     void Update()
@@ -62,7 +69,7 @@ public class Customer : MonoBehaviour
             else
             {
                 Vector3 direction = _chair[_chairCounter].transform.position - transform.position;
-                if(direction.normalized.x > 0.1f)
+                if(direction.normalized.x > 0.2f)
                 {
                     transform.position = new Vector3(transform.position.x + _speed * direction.normalized.x * Time.deltaTime, transform.position.y, transform.position.z);                    
                 }
@@ -71,6 +78,7 @@ public class Customer : MonoBehaviour
                     transform.GetChild(0).rotation = Quaternion.Euler(0f, 180f, 0f);
                     _isSitting = true;
                     orderCanvas.SetActive(true);
+                    animator.SetFloat("MoveSpeed", 0f);
                 }                
             }
         }
@@ -119,8 +127,9 @@ public class Customer : MonoBehaviour
     public void LeaveShop()
     {
         orderCanvas.SetActive(false);
+        animator.SetFloat("MoveSpeed", _speed);
         Vector3 direction = door.transform.position - transform.position;
-        if (direction.normalized.x > 0.1f)
+        if (direction.normalized.x > 0.2f)
         {
             if (transform.GetChild(0).rotation.y != 90f)
                 transform.GetChild(0).rotation = Quaternion.Euler(0f, 90f, 0f);
