@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
 
         if(_counter > spawnCustomer) 
         {
-            if(_currentCustomer < maxCustomer)
+            if(_currentCustomer <= maxCustomer)
             {
                 Instantiate(customer);
                 _currentCustomer++;

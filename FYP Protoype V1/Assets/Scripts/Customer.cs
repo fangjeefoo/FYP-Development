@@ -60,6 +60,7 @@ public class Customer : MonoBehaviour
                     if (!_chair[i].GetComponent<Chair>().occupied)
                     {
                         _chair[i].GetComponent<Chair>().occupied = true;
+                        _chair[i].GetComponent<Chair>().currentCustomer = this.gameObject;
                         _chairCounter = i;
                         break;
                     }
@@ -79,6 +80,7 @@ public class Customer : MonoBehaviour
                     _isSitting = true;
                     orderCanvas.SetActive(true);
                     animator.SetFloat("MoveSpeed", 0f);
+                    _chair[_chairCounter].GetComponent<Chair>().GeneratePlate();
                 }                
             }
         }
@@ -137,7 +139,7 @@ public class Customer : MonoBehaviour
         }
         else
         {
-            _chair[_chairCounter].GetComponent<Chair>().occupied = false;
+            _chair[_chairCounter].GetComponent<Chair>().MyReset();
             GameManager.gm.UpdateCustomer();
             Destroy(this.gameObject);
         }

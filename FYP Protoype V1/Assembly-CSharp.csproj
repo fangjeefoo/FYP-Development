@@ -345,6 +345,7 @@
     <Compile Include="Assets\Other People Asset\Customer\Scripts\DemoFree.cs" />
     <Compile Include="Assets\Other People Asset\Customer\Scripts\FreeCameraLogic.cs" />
     <Compile Include="Assets\Other People Asset\Customer\Scripts\SimpleSampleCharacterControl.cs" />
+    <Compile Include="Assets\Plate.cs" />
     <Compile Include="Assets\Scripts\Chair.cs" />
     <Compile Include="Assets\Scripts\Customer.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
