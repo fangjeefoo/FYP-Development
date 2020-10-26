@@ -22,6 +22,7 @@ public class Customer : MonoBehaviour
     private bool _isServing; //check customer is serving by player
     private bool _coroutineRunning; //check coroutine "FinishMeal" is running
     private float _speed;
+    private bool _reset;
     private bool _chairFound;
     private GameObject[] _chair;
     private Animator animator;
@@ -35,6 +36,7 @@ public class Customer : MonoBehaviour
         _isServing = false;
         _coroutineRunning = false;
         _chairFound = false;
+        _reset = false;
         _moodCounter = 0f;
         _mood = 5;
         _speed = 1f;
@@ -92,10 +94,6 @@ public class Customer : MonoBehaviour
                 {
                     StartCoroutine(FinishMeal());
                 }
-                else //if coroutine running, return
-                {
-                    return;
-                }
             }
             else //if not serve by player, add time on mood counter
             {
@@ -105,18 +103,19 @@ public class Customer : MonoBehaviour
             if(_moodCounter > moodCounter) //customer wait for too long, decrease one mood indicator
             {
                 _moodCounter = 0;
-                _mood--;
-                for(int i = 0; i < moodIndicator.Length; i++)
+                _mood--;               
+            }
+
+            for (int i = 0; i < moodIndicator.Length; i++) //display mood indicator
+            {
+                if (i < _mood)
                 {
-                    if(i < _mood)
-                    {
-                        moodIndicator[i].SetActive(true);
-                    }                        
-                    else
-                    {
-                        moodIndicator[i].SetActive(false);
-                    }
-                }                
+                    moodIndicator[i].SetActive(true);
+                }
+                else
+                {
+                    moodIndicator[i].SetActive(false);
+                }
             }
 
             if (_mood <= 0)
@@ -131,20 +130,31 @@ public class Customer : MonoBehaviour
         orderCanvas.SetActive(false);
         animator.SetFloat("MoveSpeed", _speed);
         Vector3 direction = door.transform.position - transform.position;
+
+        if (!_reset)
+        {
+            _reset = true;
+            _chair[_chairCounter].GetComponent<Chair>().MyReset();
+            GameManager.gm.UpdateCustomer();
+        }
+
         if (direction.normalized.x > 0.2f)
         {
+            Debug.Log("Moving");
             if (transform.GetChild(0).rotation.y != 90f)
                 transform.GetChild(0).rotation = Quaternion.Euler(0f, 90f, 0f);
             transform.position = new Vector3(transform.position.x + _speed * direction.normalized.x * Time.deltaTime, transform.position.y, transform.position.z);
         }
         else
-        {
-            _chair[_chairCounter].GetComponent<Chair>().MyReset();
-            GameManager.gm.UpdateCustomer();
+        {           
             Destroy(this.gameObject);
         }
     }
 
+    public void SetServing(bool set)
+    {
+        _isServing = set;
+    }
     /// <summary>
     /// activate this function when player place the food in front of player
     /// take time to finish meal and leave
@@ -154,7 +164,7 @@ public class Customer : MonoBehaviour
         _coroutineRunning = true;
         orderCanvas.SetActive(false);
         yield return new WaitForSeconds(finishMealCounter);
-        _coroutineRunning = false;
+        _mood = 0;
         LeaveShop();
     }
 }

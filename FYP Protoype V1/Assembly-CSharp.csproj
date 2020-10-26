@@ -345,11 +345,11 @@
     <Compile Include="Assets\Other People Asset\Customer\Scripts\DemoFree.cs" />
     <Compile Include="Assets\Other People Asset\Customer\Scripts\FreeCameraLogic.cs" />
     <Compile Include="Assets\Other People Asset\Customer\Scripts\SimpleSampleCharacterControl.cs" />
-    <Compile Include="Assets\Plate.cs" />
     <Compile Include="Assets\Scripts\Chair.cs" />
     <Compile Include="Assets\Scripts\Customer.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\Plate.cs" />
     <None Include="Assets\LMC\LeapMotion\Core\Version.txt" />
     <None Include="Assets\LMC\LeapMotion\Core\Shaders\RuntimeGizmos.shader" />
     <None Include="Assets\Kitchen Asset\README.txt" />
