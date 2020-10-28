@@ -140,7 +140,6 @@ public class Customer : MonoBehaviour
 
         if (direction.normalized.x > 0.2f)
         {
-            Debug.Log("Moving");
             if (transform.GetChild(0).rotation.y != 90f)
                 transform.GetChild(0).rotation = Quaternion.Euler(0f, 90f, 0f);
             transform.position = new Vector3(transform.position.x + _speed * direction.normalized.x * Time.deltaTime, transform.position.y, transform.position.z);
@@ -161,6 +160,7 @@ public class Customer : MonoBehaviour
     /// </summary>
     IEnumerator FinishMeal()
     {
+        Debug.Log("Eating");
         _coroutineRunning = true;
         orderCanvas.SetActive(false);
         yield return new WaitForSeconds(finishMealCounter);
