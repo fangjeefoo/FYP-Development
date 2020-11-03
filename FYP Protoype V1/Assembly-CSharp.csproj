@@ -496,6 +496,7 @@
     <None Include="Assets\LMC\LeapMotion\Core\Shaders\VertexOffsetShader.shader" />
     <None Include="Assets\GoogleVR\Plugins\Android\AndroidManifest-Daydream.xml" />
     <None Include="Assets\HealthHeartSystem\readme.txt" />
+    <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-auth-unity\maven-metadata.xml" />
     <None Include="Assets\LMC\LeapMotion\Core\Shaders\PassthroughBackground.shader" />
     <None Include="Assets\LMC\LeapMotion\Core\Shaders\PassthroughForeground.shader" />
     <None Include="Assets\LMC\LeapMotion\Core\Shaders\AlphaToWhite.shader" />
@@ -506,6 +507,7 @@
     <None Include="Assets\GoogleVR\Shaders\GvrUnlitTransparentOverlay.shader" />
     <None Include="Assets\Other People Asset\Customer\Shaders\SupercyanShaderLighting.cginc" />
     <None Include="Assets\GoogleVR\Shaders\GvrUnlitTextureOverlay.shader" />
+    <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-database-unity\maven-metadata.xml" />
     <None Include="Assets\GoogleVR\Shaders\GvrController.shader" />
     <None Include="Assets\LMC\LeapMotion\Core\Shaders\ThresholdOverlay.shader" />
     <None Include="Assets\LMC\LeapMotion\Core\Resources\LeapCG.cginc" />
@@ -692,17 +694,17 @@
     <Reference Include="InteractionEngineUtility">
       <HintPath>C:/Github/FYP-Development/FYP Protoype V1/Assets/LMC/InteractionEngine/Modules/InteractionEngine/Plugins/InteractionEngineUtility.dll</HintPath>
     </Reference>
-    <Reference Include="Firebase.App">
-      <HintPath>C:/Github/FYP-Development/FYP Protoype V1/Library/PackageCache/com.google.firebase.app@6.16.1/Firebase/Plugins/Firebase.App.dll</HintPath>
-    </Reference>
     <Reference Include="Firebase.Analytics">
       <HintPath>C:/Github/FYP-Development/FYP Protoype V1/Library/PackageCache/com.google.firebase.analytics@6.16.1/Firebase/Plugins/Firebase.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="Firebase.App">
+      <HintPath>C:/Github/FYP-Development/FYP Protoype V1/Library/PackageCache/com.google.firebase.app@6.16.1/Firebase/Plugins/Firebase.App.dll</HintPath>
     </Reference>
     <Reference Include="Firebase.Platform">
       <HintPath>C:/Github/FYP-Development/FYP Protoype V1/Library/PackageCache/com.google.firebase.app@6.16.1/Firebase/Plugins/Firebase.Platform.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Tasks">
-      <HintPath>C:/Github/FYP-Development/FYP Protoype V1/Library/PackageCache/com.google.firebase.app@6.16.1/Parse/Plugins/dotNet45/Unity.Tasks.dll</HintPath>
+    <Reference Include="Firebase.TaskExtension">
+      <HintPath>C:/Github/FYP-Development/FYP Protoype V1/Library/PackageCache/com.google.firebase.app@6.16.1/Firebase/Plugins/Firebase.TaskExtension.dll</HintPath>
     </Reference>
     <Reference Include="Google.MiniJson">
       <HintPath>C:/Github/FYP-Development/FYP Protoype V1/Library/PackageCache/com.google.firebase.app@6.16.1/Firebase/Plugins/Google.MiniJson.dll</HintPath>
@@ -710,8 +712,14 @@
     <Reference Include="Unity.Compat">
       <HintPath>C:/Github/FYP-Development/FYP Protoype V1/Library/PackageCache/com.google.firebase.app@6.16.1/Parse/Plugins/dotNet45/Unity.Compat.dll</HintPath>
     </Reference>
-    <Reference Include="Firebase.TaskExtension">
-      <HintPath>C:/Github/FYP-Development/FYP Protoype V1/Library/PackageCache/com.google.firebase.app@6.16.1/Firebase/Plugins/Firebase.TaskExtension.dll</HintPath>
+    <Reference Include="Unity.Tasks">
+      <HintPath>C:/Github/FYP-Development/FYP Protoype V1/Library/PackageCache/com.google.firebase.app@6.16.1/Parse/Plugins/dotNet45/Unity.Tasks.dll</HintPath>
+    </Reference>
+    <Reference Include="Firebase.Auth">
+      <HintPath>C:/Github/FYP-Development/FYP Protoype V1/Assets/Firebase/Plugins/Firebase.Auth.dll</HintPath>
+    </Reference>
+    <Reference Include="Firebase.Database">
+      <HintPath>C:/Github/FYP-Development/FYP Protoype V1/Assets/Firebase/Plugins/Firebase.Database.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.11f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
