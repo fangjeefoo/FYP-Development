@@ -6,8 +6,6 @@ using UnityEngine.Events;
 
 public class FirebaseInit : MonoBehaviour
 {
-    public UnityEvent OnFirebaseInitialized = new UnityEvent();
-
     // Start is called before the first frame update
     void Start()
     {
@@ -18,8 +16,6 @@ public class FirebaseInit : MonoBehaviour
                 Debug.LogError("Failed to initialize fire base with" + task.Exception);
                 return;
             }
-
-            OnFirebaseInitialized.Invoke();
         });
     }
 }
