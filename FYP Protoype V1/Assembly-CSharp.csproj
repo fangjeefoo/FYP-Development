@@ -471,9 +471,11 @@
     <Compile Include="Assets\Other People Asset\Customer\Scripts\SimpleSampleCharacterControl.cs" />
     <Compile Include="Assets\Scripts\Chair.cs" />
     <Compile Include="Assets\Scripts\Customer.cs" />
-    <Compile Include="Assets\Scripts\FirebaseInit.cs" />
-    <Compile Include="Assets\Scripts\GameManager.cs" />
-    <Compile Include="Assets\Scripts\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\Manager\FirebaseInit.cs" />
+    <Compile Include="Assets\Scripts\Manager\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Manager\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\Manager\Setting.cs" />
+    <Compile Include="Assets\Scripts\Normal Class\Customization.cs" />
     <Compile Include="Assets\Scripts\Plate.cs" />
     <None Include="Assets\LMC\LeapMotion\Core\Version.txt" />
     <None Include="Assets\LMC\LeapMotion\Core\Shaders\RuntimeGizmos.shader" />
