@@ -1,13 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Firebase;
+using Firebase.Database;
+using Firebase.Unity.Editor;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class Setting : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    private FirebaseDatabase _database;
+
+   
     void Start()
     {
-        
+        _database = FirebaseDatabase.DefaultInstance;
     }
 
     // Update is called once per frame
@@ -19,16 +24,40 @@ public class Setting : MonoBehaviour
     /// <summary>
     /// Push data to firebase
     /// </summary>
-    void PostData()
+    public void PostData()
     {
+        Customization customize = new Customization(1,"s", 2, 2.3f);
+
+        _database.GetReference("Customization").SetRawJsonValueAsync(JsonUtility.ToJson(customize));
+
 
     }
 
     /// <summary>
     /// Retrieve data from firebase
     /// </summary>
-    void RetrieveData()
+    public async Task<Customization> RetrieveData()
     {
+        var dataSnapshot = await _database.GetReference("Customization").GetValueAsync();
+        if (!dataSnapshot.Exists)
+        {
+            return null;
+        }
+        return JsonUtility.FromJson<Customization>(dataSnapshot.GetRawJsonValue());
+    }
 
+    /// <summary>
+    /// Check data is save properly in database
+    /// </summary>
+    /// <returns></returns>
+    public async Task<bool> Save()
+    {
+        var dataSnapshot = await _database.GetReference("Customization").GetValueAsync();
+        return dataSnapshot.Exists;
+    }
+
+    public void OnDestroy()
+    {
+        _database = null;
     }
 }

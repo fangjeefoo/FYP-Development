@@ -9,7 +9,7 @@ public class Customization
     public int exerciseTime; //need to perform how many times
     public float volume;
 
-    Customization(int ed, string se, int et, float vol)
+    public Customization(int ed, string se, int et, float vol)
     {
         exerciseDuration = ed;
         selectedExercise = se;
