@@ -213,9 +213,6 @@
     <Compile Include="Assets\GoogleVR\Scripts\Utilities\Internal\GvrCursorHelper.cs" />
     <Compile Include="Assets\GoogleVR\Scripts\Utilities\Internal\SuppressMemoryAllocationErrorAttribute.cs" />
     <Compile Include="Assets\GoogleVR\Scripts\Video\GvrVideoPlayerTexture.cs" />
-    <Compile Include="Assets\HealthHeartSystem\Scripts\HealthBarController.cs" />
-    <Compile Include="Assets\HealthHeartSystem\Scripts\HealthBarHUDTester.cs" />
-    <Compile Include="Assets\HealthHeartSystem\Scripts\PlayerStats.cs" />
     <Compile Include="Assets\LMC\InteractionEngine\Modules\InteractionEngine\Examples\2. Basic UI\MovePoseExample.cs" />
     <Compile Include="Assets\LMC\InteractionEngine\Modules\InteractionEngine\Examples\3. Interaction Callbacks\Scripts\TransformHandle.cs" />
     <Compile Include="Assets\LMC\InteractionEngine\Modules\InteractionEngine\Examples\3. Interaction Callbacks\Scripts\TransformRotationHandle.cs" />
@@ -497,7 +494,6 @@
     <None Include="Assets\GoogleVR\Shaders\GvrControllerReticle.shader" />
     <None Include="Assets\LMC\LeapMotion\Core\Shaders\VertexOffsetShader.shader" />
     <None Include="Assets\GoogleVR\Plugins\Android\AndroidManifest-Daydream.xml" />
-    <None Include="Assets\HealthHeartSystem\readme.txt" />
     <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-auth-unity\maven-metadata.xml" />
     <None Include="Assets\LMC\LeapMotion\Core\Shaders\PassthroughBackground.shader" />
     <None Include="Assets\LMC\LeapMotion\Core\Shaders\PassthroughForeground.shader" />
