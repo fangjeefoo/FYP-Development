@@ -6,26 +6,26 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     private enum Choice { start, setting, quit };
-    private float counter;
-    private bool click;
-    private Choice choice;
+    private float _counter;
+    private bool _click;
+    private Choice _choice;
 
     public void Start()
     {
-        counter = 0f;
-        click = false;
+        _counter = 0f;
+        _click = false;
     }
 
     public void Update()
     {
-        if (click)
+        if (_click)
         {
-            counter += Time.deltaTime;                
+            _counter += Time.deltaTime;                
         }
 
-        if(counter >= 2.0f)
+        if(_counter >= 2.0f)
         {
-            switch (choice)
+            switch (_choice)
             {
                 case Choice.start:
                     StartGame();
@@ -57,25 +57,25 @@ public class MainMenu : MonoBehaviour
 
     public void StartGameOnEnter()
     {
-        click = true;
-        choice = Choice.start;
+        _click = true;
+        _choice = Choice.start;
     }
 
     public void SettingOnEnter()
     {
-        click = true;
-        choice = Choice.setting;
+        _click = true;
+        _choice = Choice.setting;
     }
 
     public void QuitGameOnEnter()
     {
-        click = true;
-        choice = Choice.quit;
+        _click = true;
+        _choice = Choice.quit;
     }
 
     public void OnExit()
     {
-        click = false;
-        counter = 0f;
+        _click = false;
+        _counter = 0f;
     }
 }
