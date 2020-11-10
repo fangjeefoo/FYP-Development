@@ -3,25 +3,33 @@ using Firebase.Database;
 using Firebase.Unity.Editor;
 using System.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Setting : MonoBehaviour
 {
     //public variable 
     public GameObject[] exercise;
+    public GameObject volumeSlider;
+    public GameObject exerciseDurationInput;
+    public GameObject performedTimesInput;
 
     //private variable
     private FirebaseDatabase _database;
-    private enum Choice { exercise1, exercise2, exercise3, exercise4, back, submit}
+    private enum Choice { exercise1, exercise2, exercise3, exercise4, back, save}
     private bool _click;
     private float _counter;
     private Choice _choice;
+    private string _dbName;
 
     void Start()
     {
         _click = false;
         _counter = 0f;
         _database = FirebaseDatabase.DefaultInstance;
+        _dbName = "Customization";
+
+        //ExtractData();
     }
 
     // Update is called once per frame
@@ -33,20 +41,58 @@ public class Setting : MonoBehaviour
         }
 
         if(_counter >= 2f)
-        {
+        {           
             switch (_choice)
             {
                 case Choice.exercise1:
+                    if (exercise[0].GetComponent<Image>().color == Color.green)
+                    {
+                        exercise[0].GetComponent<Image>().color = Color.white;
+                    }
+                    else
+                    {
+                        exercise[0].GetComponent<Image>().color = Color.green;
+                    }                        
+                    OnExit();
                     break;
                 case Choice.exercise2:
+                    if (exercise[1].GetComponent<Image>().color == Color.green)
+                    {
+                        exercise[1].GetComponent<Image>().color = Color.white;
+                    }
+                    else
+                    {
+                        exercise[1].GetComponent<Image>().color = Color.green;
+                    }
+                    OnExit();
                     break;
                 case Choice.exercise3:
+                    if (exercise[2].GetComponent<Image>().color == Color.green)
+                    {
+                        exercise[2].GetComponent<Image>().color = Color.white;
+                    }
+                    else
+                    {
+                        exercise[2].GetComponent<Image>().color = Color.green;
+                    }
+                    OnExit();
                     break;
                 case Choice.exercise4:
+                    if (exercise[3].GetComponent<Image>().color == Color.green)
+                    {
+                        exercise[3].GetComponent<Image>().color = Color.white;
+                    }
+                    else
+                    {
+                        exercise[3].GetComponent<Image>().color = Color.green;
+                    }
+                    OnExit();
                     break;
                 case Choice.back:
+                    SceneManager.LoadScene("Menu");
                     break;
-                case Choice.submit:
+                case Choice.save:
+                    PostData();
                     break;
             }
         }
@@ -82,10 +128,32 @@ public class Setting : MonoBehaviour
         _choice = Choice.back;
     }
 
-    public void SubmitOnEnter()
+    public void SaveOnEnter()
     {
         _click = true;
-        _choice = Choice.submit;
+        _choice = Choice.save;
+    }
+
+    public void OnExit()
+    {
+        _click = false;
+        _counter = 0;
+    }
+
+    /// <summary>
+    /// Create a object to store all informations
+    /// </summary>
+    /// <returns></returns>
+    public Customization PackData()
+    {
+        Customization customize = new Customization();
+
+        return customize;
+    }
+
+    public void ExtractData()
+    {
+        Customization customize = RetrieveData().Result;
     }
 
     /// <summary>
@@ -93,11 +161,7 @@ public class Setting : MonoBehaviour
     /// </summary>
     public void PostData()
     {
-        Customization customize = new Customization(1,"s", 2, 2.3f);
-
-        _database.GetReference("Customization").SetRawJsonValueAsync(JsonUtility.ToJson(customize));
-
-
+        _database.GetReference(_dbName).SetRawJsonValueAsync(JsonUtility.ToJson(PackData()));
     }
 
     /// <summary>
@@ -105,7 +169,7 @@ public class Setting : MonoBehaviour
     /// </summary>
     public async Task<Customization> RetrieveData()
     {
-        var dataSnapshot = await _database.GetReference("Customization").GetValueAsync();
+        var dataSnapshot = await _database.GetReference(_dbName).GetValueAsync();
         if (!dataSnapshot.Exists)
         {
             return null;
@@ -119,7 +183,7 @@ public class Setting : MonoBehaviour
     /// <returns></returns>
     public async Task<bool> Save()
     {
-        var dataSnapshot = await _database.GetReference("Customization").GetValueAsync();
+        var dataSnapshot = await _database.GetReference(_dbName).GetValueAsync();
         return dataSnapshot.Exists;
     }
 
