@@ -23,7 +23,7 @@ public class MainMenu : MonoBehaviour
             _counter += Time.deltaTime;                
         }
 
-        if(_counter >= 2.0f)
+        if(_counter >= 1.5f)
         {
             switch (_choice)
             {

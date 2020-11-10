@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class Setting : MonoBehaviour
 {
@@ -16,11 +17,12 @@ public class Setting : MonoBehaviour
 
     //private variable
     private FirebaseDatabase _database;
-    private enum Choice { exercise1, exercise2, exercise3, exercise4, back, save}
+    private enum Choice { exercise1, exercise2, exercise3, exercise4, back, save, exerciseDuration, performedTimes}
     private bool _click;
     private float _counter;
     private Choice _choice;
     private string _dbName;
+    private bool _drag;
 
     void Start()
     {
@@ -28,6 +30,7 @@ public class Setting : MonoBehaviour
         _counter = 0f;
         _database = FirebaseDatabase.DefaultInstance;
         _dbName = "Customization";
+        _drag = false;
 
         //ExtractData();
     }
@@ -40,7 +43,7 @@ public class Setting : MonoBehaviour
             _counter += Time.deltaTime;
         }
 
-        if(_counter >= 2f)
+        if(_counter >= 1.5f)
         {           
             switch (_choice)
             {
@@ -96,6 +99,15 @@ public class Setting : MonoBehaviour
                     break;
             }
         }
+
+        if (_drag)
+        {
+            Debug.Log("Drag here");
+            PointerEventData e = new PointerEventData(EventSystem.current);
+            Debug.Log(e.button);
+            Debug.Log(PointerEventData.InputButton.Left);
+            volumeSlider.GetComponent<Slider>().OnDrag(e);
+        }
     }
 
     public void Exercise1OnEnter()
@@ -134,12 +146,37 @@ public class Setting : MonoBehaviour
         _choice = Choice.save;
     }
 
+    public void ExerciseDurationInputOnEnter()
+    {
+        _choice = Choice.exerciseDuration;
+        exerciseDurationInput.GetComponent<InputField>().ActivateInputField();
+    }
+
+    public void PerformedTimesInputOnEnter()
+    {
+        _choice = Choice.performedTimes;
+        performedTimesInput.GetComponent<InputField>().ActivateInputField();
+    }
+
+    public void VolumeSliderOnEnter()
+    {
+        Debug.Log("Enter");
+        PointerEventData e = new PointerEventData(EventSystem.current);
+        volumeSlider.GetComponent<Slider>().OnPointerDown(e);
+        _drag = true;
+    }
     public void OnExit()
     {
         _click = false;
         _counter = 0;
     }
 
+    public void SliderOnExit()
+    {
+        PointerEventData e = new PointerEventData(EventSystem.current);
+        volumeSlider.GetComponent<Slider>().OnPointerUp(e);
+        _drag = false;
+    }
     /// <summary>
     /// Create a object to store all informations
     /// </summary>
