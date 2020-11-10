@@ -6,14 +6,16 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using TalesFromTheRift;
 
 public class Setting : MonoBehaviour
-{
+{ 
     //public variable 
     public GameObject[] exercise;
     public GameObject volumeSlider;
     public GameObject exerciseDurationInput;
     public GameObject performedTimesInput;
+    public GameObject keyboardManager;
 
     //private variable
     private FirebaseDatabase _database;
@@ -30,7 +32,7 @@ public class Setting : MonoBehaviour
         _counter = 0f;
         _database = FirebaseDatabase.DefaultInstance;
         _dbName = "Customization";
-        _drag = false;
+        _drag = false;        
 
         //ExtractData();
     }
@@ -150,12 +152,16 @@ public class Setting : MonoBehaviour
     {
         _choice = Choice.exerciseDuration;
         exerciseDurationInput.GetComponent<InputField>().ActivateInputField();
+        keyboardManager.GetComponent<OpenCanvasKeyboard>().OpenKeyboard();
+        keyboardManager.GetComponent<OpenCanvasKeyboard>().inputObject = exerciseDurationInput;
     }
 
     public void PerformedTimesInputOnEnter()
     {
         _choice = Choice.performedTimes;
         performedTimesInput.GetComponent<InputField>().ActivateInputField();
+        keyboardManager.GetComponent<OpenCanvasKeyboard>().OpenKeyboard();
+        keyboardManager.GetComponent<OpenCanvasKeyboard>().inputObject = performedTimesInput;
     }
 
     public void VolumeSliderOnEnter()

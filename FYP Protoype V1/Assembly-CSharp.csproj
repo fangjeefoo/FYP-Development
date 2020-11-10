@@ -63,32 +63,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\CoffeeShopStarterPack\Scripts\BewerageMaker.cs" />
-    <Compile Include="Assets\CoffeeShopStarterPack\Scripts\CookableProduct.cs" />
-    <Compile Include="Assets\CoffeeShopStarterPack\Scripts\CookingGameObject.cs" />
-    <Compile Include="Assets\CoffeeShopStarterPack\Scripts\CreateProductOnPlaceHolder.cs" />
-    <Compile Include="Assets\CoffeeShopStarterPack\Scripts\DeleteProductOnSlot.cs" />
-    <Compile Include="Assets\CoffeeShopStarterPack\Scripts\DrinkableProduct.cs" />
-    <Compile Include="Assets\CoffeeShopStarterPack\Scripts\FillCupHelper.cs" />
-    <Compile Include="Assets\CoffeeShopStarterPack\Scripts\HeatableProduct.cs" />
-    <Compile Include="Assets\CoffeeShopStarterPack\Scripts\Microwave.cs" />
-    <Compile Include="Assets\CoffeeShopStarterPack\Scripts\OnClickCoverHelper.cs" />
-    <Compile Include="Assets\CoffeeShopStarterPack\Scripts\OrderGenerator.cs" />
-    <Compile Include="Assets\CoffeeShopStarterPack\Scripts\PanGameObject.cs" />
-    <Compile Include="Assets\CoffeeShopStarterPack\Scripts\PlayerSlots.cs" />
-    <Compile Include="Assets\CoffeeShopStarterPack\Scripts\Product.cs" />
-    <Compile Include="Assets\CoffeeShopStarterPack\Scripts\ProductGameObject.cs" />
-    <Compile Include="Assets\CoffeeShopStarterPack\Scripts\ProductManager.cs" />
-    <Compile Include="Assets\CoffeeShopStarterPack\Scripts\ProductType.cs" />
-    <Compile Include="Assets\CoffeeShopStarterPack\Scripts\ProductWithCover.cs" />
-    <Compile Include="Assets\CoffeeShopStarterPack\Scripts\ProgressHelper.cs" />
-    <Compile Include="Assets\CoffeeShopStarterPack\Scripts\ReadyToServe.cs" />
-    <Compile Include="Assets\CoffeeShopStarterPack\Scripts\ServeOrder.cs" />
-    <Compile Include="Assets\CoffeeShopStarterPack\Scripts\StoveGameObject.cs" />
-    <Compile Include="Assets\CoffeeShopStarterPack\Scripts\Utilities\BasicCameraControl.cs" />
-    <Compile Include="Assets\CoffeeShopStarterPack\Scripts\Utilities\BasicGameEvents.cs" />
-    <Compile Include="Assets\CoffeeShopStarterPack\Scripts\Utilities\ScreenShotHelper.cs" />
-    <Compile Include="Assets\CoffeeShopStarterPack\Scripts\Utilities\SliceHelper.cs" />
     <Compile Include="Assets\GoogleVR\Beta\Demos\Scripts\DemoObjectController6DoF.cs" />
     <Compile Include="Assets\GoogleVR\Beta\Demos\Scripts\DemoSeeThroughController.cs" />
     <Compile Include="Assets\GoogleVR\Beta\Scripts\GvrBetaControllerInput.cs" />
@@ -466,6 +440,32 @@
     <Compile Include="Assets\Other People Asset\Customer\Scripts\DemoFree.cs" />
     <Compile Include="Assets\Other People Asset\Customer\Scripts\FreeCameraLogic.cs" />
     <Compile Include="Assets\Other People Asset\Customer\Scripts\SimpleSampleCharacterControl.cs" />
+    <Compile Include="Assets\Other People Asset\Food\CoffeeShopStarterPack\Scripts\BewerageMaker.cs" />
+    <Compile Include="Assets\Other People Asset\Food\CoffeeShopStarterPack\Scripts\CookableProduct.cs" />
+    <Compile Include="Assets\Other People Asset\Food\CoffeeShopStarterPack\Scripts\CookingGameObject.cs" />
+    <Compile Include="Assets\Other People Asset\Food\CoffeeShopStarterPack\Scripts\CreateProductOnPlaceHolder.cs" />
+    <Compile Include="Assets\Other People Asset\Food\CoffeeShopStarterPack\Scripts\DeleteProductOnSlot.cs" />
+    <Compile Include="Assets\Other People Asset\Food\CoffeeShopStarterPack\Scripts\DrinkableProduct.cs" />
+    <Compile Include="Assets\Other People Asset\Food\CoffeeShopStarterPack\Scripts\FillCupHelper.cs" />
+    <Compile Include="Assets\Other People Asset\Food\CoffeeShopStarterPack\Scripts\HeatableProduct.cs" />
+    <Compile Include="Assets\Other People Asset\Food\CoffeeShopStarterPack\Scripts\Microwave.cs" />
+    <Compile Include="Assets\Other People Asset\Food\CoffeeShopStarterPack\Scripts\OnClickCoverHelper.cs" />
+    <Compile Include="Assets\Other People Asset\Food\CoffeeShopStarterPack\Scripts\OrderGenerator.cs" />
+    <Compile Include="Assets\Other People Asset\Food\CoffeeShopStarterPack\Scripts\PanGameObject.cs" />
+    <Compile Include="Assets\Other People Asset\Food\CoffeeShopStarterPack\Scripts\PlayerSlots.cs" />
+    <Compile Include="Assets\Other People Asset\Food\CoffeeShopStarterPack\Scripts\Product.cs" />
+    <Compile Include="Assets\Other People Asset\Food\CoffeeShopStarterPack\Scripts\ProductGameObject.cs" />
+    <Compile Include="Assets\Other People Asset\Food\CoffeeShopStarterPack\Scripts\ProductManager.cs" />
+    <Compile Include="Assets\Other People Asset\Food\CoffeeShopStarterPack\Scripts\ProductType.cs" />
+    <Compile Include="Assets\Other People Asset\Food\CoffeeShopStarterPack\Scripts\ProductWithCover.cs" />
+    <Compile Include="Assets\Other People Asset\Food\CoffeeShopStarterPack\Scripts\ProgressHelper.cs" />
+    <Compile Include="Assets\Other People Asset\Food\CoffeeShopStarterPack\Scripts\ReadyToServe.cs" />
+    <Compile Include="Assets\Other People Asset\Food\CoffeeShopStarterPack\Scripts\ServeOrder.cs" />
+    <Compile Include="Assets\Other People Asset\Food\CoffeeShopStarterPack\Scripts\StoveGameObject.cs" />
+    <Compile Include="Assets\Other People Asset\Food\CoffeeShopStarterPack\Scripts\Utilities\BasicCameraControl.cs" />
+    <Compile Include="Assets\Other People Asset\Food\CoffeeShopStarterPack\Scripts\Utilities\BasicGameEvents.cs" />
+    <Compile Include="Assets\Other People Asset\Food\CoffeeShopStarterPack\Scripts\Utilities\ScreenShotHelper.cs" />
+    <Compile Include="Assets\Other People Asset\Food\CoffeeShopStarterPack\Scripts\Utilities\SliceHelper.cs" />
     <Compile Include="Assets\Scripts\Chair.cs" />
     <Compile Include="Assets\Scripts\Customer.cs" />
     <Compile Include="Assets\Scripts\Manager\FirebaseInit.cs" />
@@ -475,16 +475,27 @@
     <Compile Include="Assets\Scripts\Manager\SoundManager.cs" />
     <Compile Include="Assets\Scripts\Normal Class\Customization.cs" />
     <Compile Include="Assets\Scripts\Plate.cs" />
+    <Compile Include="Assets\Tales From The Rift\CanvasKeyboard\Demo\CanvasKeyboardEditableButton.cs" />
+    <Compile Include="Assets\Tales From The Rift\CanvasKeyboard\Demo\ToggleKeyboard.cs" />
+    <Compile Include="Assets\Tales From The Rift\CanvasKeyboard\Scripts\CanvasKeyboard.cs" />
+    <Compile Include="Assets\Tales From The Rift\CanvasKeyboard\Scripts\CanvasKeyboardASCII.cs" />
+    <Compile Include="Assets\Tales From The Rift\CanvasKeyboard\Scripts\OpenCanvasKeyboard.cs" />
+    <Compile Include="Assets\Tales From The Rift\Gaze\Demo\ButtonListener.cs" />
+    <Compile Include="Assets\Tales From The Rift\Gaze\Demo\CubeListener.cs" />
+    <Compile Include="Assets\Tales From The Rift\Gaze\Demo\GazeCrosshairOnOff.cs" />
+    <Compile Include="Assets\Tales From The Rift\Gaze\GazeInputModule.cs" />
+    <Compile Include="Assets\Tales From The Rift\Gaze\GazeInputModuleCrosshair.cs" />
     <None Include="Assets\LMC\LeapMotion\Core\Version.txt" />
     <None Include="Assets\LMC\LeapMotion\Core\Shaders\RuntimeGizmos.shader" />
+    <None Include="Assets\_Firebase\Plugins\Android\FirebaseApp.androidlib\res\values\google-services.xml" />
     <None Include="Assets\GoogleVR\Shaders\GvrUIOverlayFont.shader" />
-    <None Include="Assets\Kitchen Asset\README.txt" />
+    <None Include="Assets\Other People Asset\Kitchen Asset\README.txt" />
     <None Include="Assets\Other People Asset\Customer\Shaders\Legacy\CelShader.shader" />
     <None Include="Assets\GoogleVR\Shaders\GvrReticleShader.shader" />
     <None Include="Assets\GoogleVR\Beta\Shaders\GvrSeeThroughUI.shader" />
     <None Include="Assets\LMC\LeapMotion\Core\readme.txt" />
     <None Include="Assets\LMC\LeapMotion\Core\README_BEFORE_UPDATING.txt" />
-    <None Include="Assets\FREE Food Pack\Shaders\Food.shader" />
+    <None Include="Assets\Other People Asset\Food\FREE Food Pack\Shaders\Food.shader" />
     <None Include="Assets\GoogleVR\Plugins\Android\AndroidManifest-Cardboard.xml" />
     <None Include="Assets\GoogleVR\Shaders\GvrUnlitTransparentOverlayColor.shader" />
     <None Include="Assets\GoogleVR\Shaders\GvrUIOverlay.shader" />
@@ -495,19 +506,20 @@
     <None Include="Assets\GoogleVR\Shaders\GvrControllerReticle.shader" />
     <None Include="Assets\LMC\LeapMotion\Core\Shaders\VertexOffsetShader.shader" />
     <None Include="Assets\GoogleVR\Plugins\Android\AndroidManifest-Daydream.xml" />
-    <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-auth-unity\maven-metadata.xml" />
+    <None Include="Assets\_Firebase\Firebase\m2repository\com\google\firebase\firebase-auth-unity\maven-metadata.xml" />
     <None Include="Assets\LMC\LeapMotion\Core\Shaders\PassthroughBackground.shader" />
     <None Include="Assets\LMC\LeapMotion\Core\Shaders\PassthroughForeground.shader" />
     <None Include="Assets\LMC\LeapMotion\Core\Shaders\AlphaToWhite.shader" />
     <None Include="Assets\GoogleVR\Shaders\Video\VideoUnlitShader.shader" />
     <None Include="Assets\LMC\LeapMotion\Core\Dependencies.txt" />
     <None Include="Assets\GoogleVR\Demos\Shaders\HelloVR\HelloVRUnlitGrayscaleToColor.shader" />
-    <None Include="Assets\FoodAndGrocery\Info.txt" />
+    <None Include="Assets\Other People Asset\Food\FoodAndGrocery\Info.txt" />
     <None Include="Assets\GoogleVR\Shaders\GvrUnlitTransparentOverlay.shader" />
     <None Include="Assets\Other People Asset\Customer\Shaders\SupercyanShaderLighting.cginc" />
     <None Include="Assets\GoogleVR\Shaders\GvrUnlitTextureOverlay.shader" />
-    <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-database-unity\maven-metadata.xml" />
+    <None Include="Assets\_Firebase\Firebase\m2repository\com\google\firebase\firebase-database-unity\maven-metadata.xml" />
     <None Include="Assets\GoogleVR\Shaders\GvrController.shader" />
+    <None Include="Assets\_Firebase\Plugins\Android\FirebaseApp.androidlib\AndroidManifest.xml" />
     <None Include="Assets\LMC\LeapMotion\Core\Shaders\ThresholdOverlay.shader" />
     <None Include="Assets\LMC\LeapMotion\Core\Resources\LeapCG.cginc" />
     <Reference Include="UnityEngine">
@@ -687,12 +699,6 @@
     <Reference Include="UnityEditor">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.11f1/Editor/Data/Managed/UnityEditor.dll</HintPath>
     </Reference>
-    <Reference Include="Firebase.Auth">
-      <HintPath>C:/Github/FYP-Development/FYP Protoype V1/Assets/Firebase/Plugins/Firebase.Auth.dll</HintPath>
-    </Reference>
-    <Reference Include="Firebase.Database">
-      <HintPath>C:/Github/FYP-Development/FYP Protoype V1/Assets/Firebase/Plugins/Firebase.Database.dll</HintPath>
-    </Reference>
     <Reference Include="Google.ProtocolBuffers">
       <HintPath>C:/Github/FYP-Development/FYP Protoype V1/Assets/GoogleVR/Plugins/Google.ProtocolBuffers.dll</HintPath>
     </Reference>
@@ -719,6 +725,12 @@
     </Reference>
     <Reference Include="Unity.Tasks">
       <HintPath>C:/Github/FYP-Development/FYP Protoype V1/Library/PackageCache/com.google.firebase.app@6.16.1/Parse/Plugins/dotNet45/Unity.Tasks.dll</HintPath>
+    </Reference>
+    <Reference Include="Firebase.Auth">
+      <HintPath>C:/Github/FYP-Development/FYP Protoype V1/Assets/_Firebase/Firebase/Plugins/Firebase.Auth.dll</HintPath>
+    </Reference>
+    <Reference Include="Firebase.Database">
+      <HintPath>C:/Github/FYP-Development/FYP Protoype V1/Assets/_Firebase/Firebase/Plugins/Firebase.Database.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.11f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>

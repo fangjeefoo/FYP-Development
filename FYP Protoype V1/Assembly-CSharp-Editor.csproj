@@ -63,12 +63,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\CoffeeShopStarterPack\Scripts\Editor\BewerageMakerEditor.cs" />
-    <Compile Include="Assets\CoffeeShopStarterPack\Scripts\Editor\ProductEditor.cs" />
-    <Compile Include="Assets\CoffeeShopStarterPack\Scripts\Editor\ProductManagerEditor.cs" />
-    <Compile Include="Assets\CoffeeShopStarterPack\Scripts\Editor\ScreenShotHelperEditor.cs" />
-    <Compile Include="Assets\CoffeeShopStarterPack\Scripts\Editor\ScreenShotImportSettings.cs" />
-    <Compile Include="Assets\CoffeeShopStarterPack\Scripts\Editor\SliceHelperEditor.cs" />
     <Compile Include="Assets\GoogleVR\Demos\Editor\DemoInputManagerEditor.cs" />
     <Compile Include="Assets\GoogleVR\Demos\Editor\PermissionsDemoBuildProcessor.cs" />
     <Compile Include="Assets\GoogleVR\Editor\Controller\GvrControllerVisualEditor.cs" />
@@ -145,10 +139,16 @@
     <Compile Include="Assets\LMC\LeapMotion\Core\Tests\Editor\UtilsTests.cs" />
     <Compile Include="Assets\LMC\LeapMotion\Core\Tests\Editor\VectorHandTests.cs" />
     <Compile Include="Assets\LMC\LeapMotion\Core\Tests\Editor\VectorTests.cs" />
-    <None Include="Assets\Firebase\Editor\FirebaseAuth_version-6.16.1_manifest.txt" />
-    <None Include="Assets\Firebase\Editor\FirebaseDatabase_version-6.16.1_manifest.txt" />
-    <None Include="Assets\Firebase\Editor\AuthDependencies.xml" />
-    <None Include="Assets\Firebase\Editor\DatabaseDependencies.xml" />
+    <Compile Include="Assets\Other People Asset\Food\CoffeeShopStarterPack\Scripts\Editor\BewerageMakerEditor.cs" />
+    <Compile Include="Assets\Other People Asset\Food\CoffeeShopStarterPack\Scripts\Editor\ProductEditor.cs" />
+    <Compile Include="Assets\Other People Asset\Food\CoffeeShopStarterPack\Scripts\Editor\ProductManagerEditor.cs" />
+    <Compile Include="Assets\Other People Asset\Food\CoffeeShopStarterPack\Scripts\Editor\ScreenShotHelperEditor.cs" />
+    <Compile Include="Assets\Other People Asset\Food\CoffeeShopStarterPack\Scripts\Editor\ScreenShotImportSettings.cs" />
+    <Compile Include="Assets\Other People Asset\Food\CoffeeShopStarterPack\Scripts\Editor\SliceHelperEditor.cs" />
+    <None Include="Assets\_Firebase\Firebase\Editor\FirebaseAuth_version-6.16.1_manifest.txt" />
+    <None Include="Assets\_Firebase\Firebase\Editor\FirebaseDatabase_version-6.16.1_manifest.txt" />
+    <None Include="Assets\_Firebase\Firebase\Editor\AuthDependencies.xml" />
+    <None Include="Assets\_Firebase\Firebase\Editor\DatabaseDependencies.xml" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.11f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -347,12 +347,6 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/16.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
-    <Reference Include="Firebase.Auth">
-      <HintPath>C:/Github/FYP-Development/FYP Protoype V1/Assets/Firebase/Plugins/Firebase.Auth.dll</HintPath>
-    </Reference>
-    <Reference Include="Firebase.Database">
-      <HintPath>C:/Github/FYP-Development/FYP Protoype V1/Assets/Firebase/Plugins/Firebase.Database.dll</HintPath>
-    </Reference>
     <Reference Include="Google.ProtocolBuffers">
       <HintPath>C:/Github/FYP-Development/FYP Protoype V1/Assets/GoogleVR/Plugins/Google.ProtocolBuffers.dll</HintPath>
     </Reference>
@@ -397,6 +391,12 @@
     </Reference>
     <Reference Include="Unity.Tasks">
       <HintPath>C:/Github/FYP-Development/FYP Protoype V1/Library/PackageCache/com.google.firebase.app@6.16.1/Parse/Plugins/dotNet45/Unity.Tasks.dll</HintPath>
+    </Reference>
+    <Reference Include="Firebase.Auth">
+      <HintPath>C:/Github/FYP-Development/FYP Protoype V1/Assets/_Firebase/Firebase/Plugins/Firebase.Auth.dll</HintPath>
+    </Reference>
+    <Reference Include="Firebase.Database">
+      <HintPath>C:/Github/FYP-Development/FYP Protoype V1/Assets/_Firebase/Firebase/Plugins/Firebase.Database.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>C:/Github/FYP-Development/FYP Protoype V1/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
