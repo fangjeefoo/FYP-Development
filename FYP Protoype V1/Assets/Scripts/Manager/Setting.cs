@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.Diagnostics.Tracing;
+using Firebase.Auth;
 
 public class Setting : MonoBehaviour
 { 
@@ -41,7 +42,7 @@ public class Setting : MonoBehaviour
         _exerciseDurationText = "Exercise Duration: ";
         _volumeText = "Volume: ";
 
-        //ExtractData();
+        ExtractData();
 
         exerciseDurationText.text = _exerciseDurationText + exerciseDurationSlider.GetComponent<Slider>().value;
         performedTimesText.text = _performedTimesText + performedTimesSlider.GetComponent<Slider>().value;
@@ -112,7 +113,6 @@ public class Setting : MonoBehaviour
                     break;
             }
         }
-
 
         switch (_choice)
         {
@@ -229,22 +229,39 @@ public class Setting : MonoBehaviour
     /// <returns></returns>
     public Customization PackData()
     {
-        Customization customize = new Customization();
+        int exerciseDuration = (int)exerciseDurationSlider.GetComponent<Slider>().value;
+        int performedTimes = (int)performedTimesSlider.GetComponent<Slider>().value;
+        float vol = volumeSlider.GetComponent<Slider>().value;
+        bool[] exerciseArray = new bool[4];
+        
+        for(int i = 0; i < exercise.Length; i++)
+        {
+            if (exercise[i].GetComponent<Image>().color == Color.green)
+                exerciseArray[i] = true;
+            else
+                exerciseArray[i] = false;
+        }
+
+        Customization customize = new Customization(exerciseDuration, exerciseArray[0], exerciseArray[1], exerciseArray[2], exerciseArray[3], performedTimes, vol);
 
         return customize;
     }
 
     public void ExtractData()
     {
+        Debug.Log("start extract");
         Customization customize = RetrieveData().Result;
+        Debug.Log("extract done");
     }
 
     /// <summary>
-    /// Push data to firebase
+    /// Push data to firebase, return back to main menu
     /// </summary>
     public void PostData()
     {
         _database.GetReference(_dbName).SetRawJsonValueAsync(JsonUtility.ToJson(PackData()));
+
+        SceneManager.LoadScene("Menu");
     }
 
     /// <summary>
@@ -252,11 +269,25 @@ public class Setting : MonoBehaviour
     /// </summary>
     public async Task<Customization> RetrieveData()
     {
-        var dataSnapshot = await _database.GetReference(_dbName).GetValueAsync();
-        if (!dataSnapshot.Exists)
+        DataSnapshot dataSnapshot = null;
+
+        await _database.GetReference(_dbName).GetValueAsync().ContinueWith(task =>
+        {
+            if (task.IsFaulted)
+            {
+                Debug.Log("Failed to retrieve data");
+            }
+            else if (task.IsCompleted)
+            {
+                dataSnapshot = task.Result;
+            }
+        });
+
+        if (dataSnapshot == null)
         {
             return null;
         }
+
         return JsonUtility.FromJson<Customization>(dataSnapshot.GetRawJsonValue());
     }
 
