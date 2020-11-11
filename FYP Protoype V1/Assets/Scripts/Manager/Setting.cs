@@ -6,35 +6,46 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using TalesFromTheRift;
+using System.Diagnostics.Tracing;
 
 public class Setting : MonoBehaviour
 { 
     //public variable 
     public GameObject[] exercise;
     public GameObject volumeSlider;
-    public GameObject exerciseDurationInput;
-    public GameObject performedTimesInput;
-    public GameObject keyboardManager;
+    public GameObject exerciseDurationSlider;
+    public GameObject performedTimesSlider;
+    public Text exerciseDurationText;
+    public Text performedTimesText;
+    public Text volumeText;
+    public Camera cam;
 
     //private variable
     private FirebaseDatabase _database;
-    private enum Choice { exercise1, exercise2, exercise3, exercise4, back, save, exerciseDuration, performedTimes}
+    private enum Choice { exercise1, exercise2, exercise3, exercise4, back, save, exerciseDuration, performedTimes, volume, none}
     private bool _click;
     private float _counter;
     private Choice _choice;
     private string _dbName;
-    private bool _drag;
+    private string _performedTimesText;
+    private string _exerciseDurationText;
+    private string _volumeText;
 
     void Start()
     {
         _click = false;
         _counter = 0f;
         _database = FirebaseDatabase.DefaultInstance;
-        _dbName = "Customization";
-        _drag = false;        
+        _dbName = "Customization";        
+        _performedTimesText = "Exercise Performed Times: ";
+        _exerciseDurationText = "Exercise Duration: ";
+        _volumeText = "Volume: ";
 
         //ExtractData();
+
+        exerciseDurationText.text = _exerciseDurationText + exerciseDurationSlider.GetComponent<Slider>().value;
+        performedTimesText.text = _performedTimesText + performedTimesSlider.GetComponent<Slider>().value;
+        volumeText.text = _volumeText + volumeSlider.GetComponent<Slider>().value;
     }
 
     // Update is called once per frame
@@ -102,14 +113,42 @@ public class Setting : MonoBehaviour
             }
         }
 
-        if (_drag)
+
+        switch (_choice)
         {
-            Debug.Log("Drag here");
-            PointerEventData e = new PointerEventData(EventSystem.current);
-            Debug.Log(e.button);
-            Debug.Log(PointerEventData.InputButton.Left);
-            volumeSlider.GetComponent<Slider>().OnDrag(e);
+            case Choice.exerciseDuration:
+                exerciseDurationSlider.GetComponent<Slider>().value += 1f;
+                exerciseDurationText.text = _exerciseDurationText + exerciseDurationSlider.GetComponent<Slider>().value;
+                break;
+            case Choice.performedTimes:
+                performedTimesSlider.GetComponent<Slider>().value += 1f;
+                performedTimesText.text = _performedTimesText + performedTimesSlider.GetComponent<Slider>().value;
+                break;
+            case Choice.volume:
+                volumeSlider.GetComponent<Slider>().value += 0.01f;
+                volumeText.text = _volumeText + volumeSlider.GetComponent<Slider>().value;
+                break;
         }
+        //if (_drag)
+        //{
+        //    Transform child = volumeSlider.transform.GetChild(2).transform.GetChild(0);
+        //    Vector3 p = cam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, cam.nearClipPlane));
+        //    Vector3 q = cam.ScreenToWorldPoint(new Vector3(child.position.x, child.position.y, cam.nearClipPlane));
+        //    Debug.Log(p);
+        //    Debug.Log(q);
+        //    if (p.x > q.x)
+        //        volumeSlider.GetComponent<Slider>().value += 0.01f;
+        //    else if (p.x < q.x)
+        //        volumeSlider.GetComponent<Slider>().value -= 0.01f;
+        //    else
+        //        VolumeSliderOnExit();
+        //    //Debug.Log("Drag here");
+        //    //PointerEventData e = new PointerEventData(EventSystem.current);
+        //    //var myevent = e;
+        //    //Debug.Log(myevent.pressPosition);
+        //    //Debug.Log(PointerEventData.InputButton.Left);
+        //    //volumeSlider.GetComponent<Slider>().OnDrag(e);
+        //}
     }
 
     public void Exercise1OnEnter()
@@ -148,41 +187,42 @@ public class Setting : MonoBehaviour
         _choice = Choice.save;
     }
 
-    public void ExerciseDurationInputOnEnter()
+    public void ExerciseDurationSliderOnEnter()
     {
         _choice = Choice.exerciseDuration;
-        exerciseDurationInput.GetComponent<InputField>().ActivateInputField();
-        keyboardManager.GetComponent<OpenCanvasKeyboard>().OpenKeyboard();
-        keyboardManager.GetComponent<OpenCanvasKeyboard>().inputObject = exerciseDurationInput;
     }
 
-    public void PerformedTimesInputOnEnter()
+    public void PerformedTimesSliderOnEnter()
     {
         _choice = Choice.performedTimes;
-        performedTimesInput.GetComponent<InputField>().ActivateInputField();
-        keyboardManager.GetComponent<OpenCanvasKeyboard>().OpenKeyboard();
-        keyboardManager.GetComponent<OpenCanvasKeyboard>().inputObject = performedTimesInput;
     }
 
     public void VolumeSliderOnEnter()
     {
-        Debug.Log("Enter");
-        PointerEventData e = new PointerEventData(EventSystem.current);
-        volumeSlider.GetComponent<Slider>().OnPointerDown(e);
-        _drag = true;
+        _choice = Choice.volume;
+        //Debug.Log("Enter");
+        //PointerEventData e = new PointerEventData(EventSystem.current);
+        ////Vector3 p = cam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0.5f));
+        //Vector3 p = cam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, cam.nearClipPlane));
+        ////Vector3 q = cam.ViewportToWorldPoint(new Vector3(volumeSlider.transform.position.x, volumeSlider.transform.position.y, cam.nearClipPlane));
+        //Transform child = volumeSlider.transform.GetChild(2).transform.GetChild(0);
+        //Vector3 q = cam.ScreenToWorldPoint(new Vector3(child.position.x, child.position.y,child.position.z));
+        //float posXMax = Camera.main.pixelWidth;
+        //Debug.Log(p);
+        //Debug.Log(q);
+        // Debug.Log(posXMax);
+        //volumeSlider.GetComponent<Slider>().OnPointerDown(e);
+       // volumeSlider.GetComponent<Slider>().value = p.x / q.x;
+       // Debug.Log(p.x / q.x);
+        //_drag = true;
     }
     public void OnExit()
     {
         _click = false;
         _counter = 0;
+        _choice = Choice.none;
     }
 
-    public void SliderOnExit()
-    {
-        PointerEventData e = new PointerEventData(EventSystem.current);
-        volumeSlider.GetComponent<Slider>().OnPointerUp(e);
-        _drag = false;
-    }
     /// <summary>
     /// Create a object to store all informations
     /// </summary>

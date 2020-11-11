@@ -475,16 +475,6 @@
     <Compile Include="Assets\Scripts\Manager\SoundManager.cs" />
     <Compile Include="Assets\Scripts\Normal Class\Customization.cs" />
     <Compile Include="Assets\Scripts\Plate.cs" />
-    <Compile Include="Assets\Tales From The Rift\CanvasKeyboard\Demo\CanvasKeyboardEditableButton.cs" />
-    <Compile Include="Assets\Tales From The Rift\CanvasKeyboard\Demo\ToggleKeyboard.cs" />
-    <Compile Include="Assets\Tales From The Rift\CanvasKeyboard\Scripts\CanvasKeyboard.cs" />
-    <Compile Include="Assets\Tales From The Rift\CanvasKeyboard\Scripts\CanvasKeyboardASCII.cs" />
-    <Compile Include="Assets\Tales From The Rift\CanvasKeyboard\Scripts\OpenCanvasKeyboard.cs" />
-    <Compile Include="Assets\Tales From The Rift\Gaze\Demo\ButtonListener.cs" />
-    <Compile Include="Assets\Tales From The Rift\Gaze\Demo\CubeListener.cs" />
-    <Compile Include="Assets\Tales From The Rift\Gaze\Demo\GazeCrosshairOnOff.cs" />
-    <Compile Include="Assets\Tales From The Rift\Gaze\GazeInputModule.cs" />
-    <Compile Include="Assets\Tales From The Rift\Gaze\GazeInputModuleCrosshair.cs" />
     <None Include="Assets\LMC\LeapMotion\Core\Version.txt" />
     <None Include="Assets\LMC\LeapMotion\Core\Shaders\RuntimeGizmos.shader" />
     <None Include="Assets\_Firebase\Plugins\Android\FirebaseApp.androidlib\res\values\google-services.xml" />
@@ -705,6 +695,12 @@
     <Reference Include="InteractionEngineUtility">
       <HintPath>C:/Github/FYP-Development/FYP Protoype V1/Assets/LMC/InteractionEngine/Modules/InteractionEngine/Plugins/InteractionEngineUtility.dll</HintPath>
     </Reference>
+    <Reference Include="Firebase.Auth">
+      <HintPath>C:/Github/FYP-Development/FYP Protoype V1/Assets/_Firebase/Firebase/Plugins/Firebase.Auth.dll</HintPath>
+    </Reference>
+    <Reference Include="Firebase.Database">
+      <HintPath>C:/Github/FYP-Development/FYP Protoype V1/Assets/_Firebase/Firebase/Plugins/Firebase.Database.dll</HintPath>
+    </Reference>
     <Reference Include="Firebase.Analytics">
       <HintPath>C:/Github/FYP-Development/FYP Protoype V1/Library/PackageCache/com.google.firebase.analytics@6.16.1/Firebase/Plugins/Firebase.Analytics.dll</HintPath>
     </Reference>
@@ -725,12 +721,6 @@
     </Reference>
     <Reference Include="Unity.Tasks">
       <HintPath>C:/Github/FYP-Development/FYP Protoype V1/Library/PackageCache/com.google.firebase.app@6.16.1/Parse/Plugins/dotNet45/Unity.Tasks.dll</HintPath>
-    </Reference>
-    <Reference Include="Firebase.Auth">
-      <HintPath>C:/Github/FYP-Development/FYP Protoype V1/Assets/_Firebase/Firebase/Plugins/Firebase.Auth.dll</HintPath>
-    </Reference>
-    <Reference Include="Firebase.Database">
-      <HintPath>C:/Github/FYP-Development/FYP Protoype V1/Assets/_Firebase/Firebase/Plugins/Firebase.Database.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.11f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
