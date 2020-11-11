@@ -31,6 +31,7 @@ public class Setting : MonoBehaviour
     private string _performedTimesText;
     private string _exerciseDurationText;
     private string _volumeText;
+    private Customization _customize;
 
     void Start()
     {
@@ -42,11 +43,7 @@ public class Setting : MonoBehaviour
         _exerciseDurationText = "Exercise Duration: ";
         _volumeText = "Volume: ";
 
-        ExtractData();
-
-        exerciseDurationText.text = _exerciseDurationText + exerciseDurationSlider.GetComponent<Slider>().value;
-        performedTimesText.text = _performedTimesText + performedTimesSlider.GetComponent<Slider>().value;
-        volumeText.text = _volumeText + volumeSlider.GetComponent<Slider>().value;
+        RetrieveData();        
     }
 
     // Update is called once per frame
@@ -242,16 +239,29 @@ public class Setting : MonoBehaviour
                 exerciseArray[i] = false;
         }
 
-        Customization customize = new Customization(exerciseDuration, exerciseArray[0], exerciseArray[1], exerciseArray[2], exerciseArray[3], performedTimes, vol);
+        Customization customize = new Customization(exerciseDuration, exerciseArray, performedTimes, vol);
 
         return customize;
     }
 
+    /// <summary>
+    /// extract data from json
+    /// </summary>
     public void ExtractData()
     {
-        Debug.Log("start extract");
-        Customization customize = RetrieveData().Result;
-        Debug.Log("extract done");
+        for (int i = 0; i < _customize.exercise.Length; i++)
+        {
+            if (_customize.exercise[i])
+                exercise[i].GetComponent<Image>().color = Color.green;
+        }
+
+        exerciseDurationSlider.GetComponent<Slider>().value = _customize.exerciseDuration;
+        performedTimesSlider.GetComponent<Slider>().value = _customize.exerciseTime;
+        volumeSlider.GetComponent<Slider>().value = _customize.volume;
+
+        exerciseDurationText.text = _exerciseDurationText + exerciseDurationSlider.GetComponent<Slider>().value;
+        performedTimesText.text = _performedTimesText + performedTimesSlider.GetComponent<Slider>().value;
+        volumeText.text = _volumeText + volumeSlider.GetComponent<Slider>().value;
     }
 
     /// <summary>
@@ -267,7 +277,7 @@ public class Setting : MonoBehaviour
     /// <summary>
     /// Retrieve data from firebase
     /// </summary>
-    public async Task<Customization> RetrieveData()
+    public async void RetrieveData()
     {
         DataSnapshot dataSnapshot = null;
 
@@ -280,15 +290,11 @@ public class Setting : MonoBehaviour
             else if (task.IsCompleted)
             {
                 dataSnapshot = task.Result;
+                _customize = JsonUtility.FromJson<Customization>(dataSnapshot.GetRawJsonValue());
             }
         });
 
-        if (dataSnapshot == null)
-        {
-            return null;
-        }
-
-        return JsonUtility.FromJson<Customization>(dataSnapshot.GetRawJsonValue());
+        ExtractData();
     }
 
     /// <summary>
