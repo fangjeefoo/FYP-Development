@@ -20,6 +20,8 @@ public class Setting : MonoBehaviour
     public Text performedTimesText;
     public Text volumeText;
     public Camera cam;
+    [HideInInspector]
+    public GameObject soundManager;
 
     //private variable
     private FirebaseDatabase _database;
@@ -42,6 +44,7 @@ public class Setting : MonoBehaviour
         _performedTimesText = "Exercise Performed Times: ";
         _exerciseDurationText = "Exercise Duration: ";
         _volumeText = "Volume: ";
+        soundManager = GameObject.FindGameObjectWithTag("SoundManager");
 
         RetrieveData();        
     }
@@ -215,6 +218,9 @@ public class Setting : MonoBehaviour
     }
     public void OnExit()
     {
+        if (_choice == Choice.volume && soundManager != null)
+            soundManager.GetComponent<AudioSource>().volume = volumeSlider.GetComponent<Slider>().value;
+           
         _click = false;
         _counter = 0;
         _choice = Choice.none;
@@ -295,16 +301,6 @@ public class Setting : MonoBehaviour
         });
 
         ExtractData();
-    }
-
-    /// <summary>
-    /// Check data is save properly in database
-    /// </summary>
-    /// <returns></returns>
-    public async Task<bool> Save()
-    {
-        var dataSnapshot = await _database.GetReference(_dbName).GetValueAsync();
-        return dataSnapshot.Exists;
     }
 
     public void OnDestroy()

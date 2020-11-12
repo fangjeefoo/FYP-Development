@@ -3,19 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SoundManager : MonoBehaviour
-{
+{   
     //private variable
     private float _volume;
     private AudioSource _audio;
+    private static SoundManager _soundManager;
 
 
     public void Awake()
     {
-        _volume = 1.0f;
         DontDestroyOnLoad(this.gameObject);
 
-        _audio = gameObject.GetComponent<AudioSource>();
+        if (_soundManager == null)
+            _soundManager = this;
+        else
+            Destroy(this.gameObject);
 
+        _volume = 1.0f;     
+        _audio = gameObject.GetComponent<AudioSource>();
         _audio.loop = true;
         _volume = _audio.volume;
     }

@@ -1,19 +1,32 @@
-﻿using System.Collections;
+﻿using Firebase.Database;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    //public variable
+    [HideInInspector]
+    public GameObject soundManager;
+
+    //private variable
     private enum Choice { start, setting, quit };
     private float _counter;
     private bool _click;
     private Choice _choice;
+    private FirebaseDatabase _database;
+    private string _dbName;
 
     public void Start()
     {
         _counter = 0f;
         _click = false;
+        _database = FirebaseDatabase.DefaultInstance;
+        _dbName = "Customization";
+        soundManager = GameObject.FindGameObjectWithTag("SoundManager");
+
+        RetrieveData();
     }
 
     public void Update()
@@ -77,5 +90,34 @@ public class MainMenu : MonoBehaviour
     {
         _click = false;
         _counter = 0f;
+    }
+
+    /// <summary>
+    /// Retrieve data from firebase
+    /// </summary>
+    public async void RetrieveData()
+    {
+        DataSnapshot dataSnapshot = null;
+        Customization customize;
+        float vol = 0f;
+            
+        await _database.GetReference(_dbName).GetValueAsync().ContinueWith(task =>
+        {
+            if (task.IsFaulted)
+            {
+                Debug.Log("Failed to retrieve data");
+            }
+            else if (task.IsCompleted)
+            {
+                dataSnapshot = task.Result;
+                customize = JsonUtility.FromJson<Customization>(dataSnapshot.GetRawJsonValue());
+                vol = customize.volume;
+            }
+        });
+
+        if (soundManager != null)
+            soundManager.GetComponent<AudioSource>().volume = vol;           
+        else
+            Debug.Log("Sound Manager not found");
     }
 }
