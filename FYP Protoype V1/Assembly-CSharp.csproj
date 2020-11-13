@@ -474,6 +474,8 @@
     <Compile Include="Assets\Scripts\Manager\Setting.cs" />
     <Compile Include="Assets\Scripts\Manager\SoundManager.cs" />
     <Compile Include="Assets\Scripts\Normal Class\Customization.cs" />
+    <Compile Include="Assets\Scripts\Normal Class\LevelData.cs" />
+    <Compile Include="Assets\Scripts\Normal Class\PerformanceData.cs" />
     <Compile Include="Assets\Scripts\Plate.cs" />
     <None Include="Assets\LMC\LeapMotion\Core\Version.txt" />
     <None Include="Assets\LMC\LeapMotion\Core\Shaders\RuntimeGizmos.shader" />
