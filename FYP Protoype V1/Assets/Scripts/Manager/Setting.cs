@@ -45,13 +45,16 @@ public class Setting : MonoBehaviour
         _exerciseDurationText = "Exercise Duration: ";
         _volumeText = "Volume: ";
         soundManager = GameObject.FindGameObjectWithTag("SoundManager");
-
+        
         RetrieveData();        
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Vector3 v = cam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, cam.nearClipPlane));
+        //v = Quaternion.AngleAxis(cam.transform.eulerAngles.y, Vector3.down) * Quaternion.AngleAxis(cam.transform.eulerAngles.x, Vector3.left) * v;
+        //Debug.Log("P: " + v);
         if (_click)
         {
             _counter += Time.deltaTime;
@@ -125,30 +128,33 @@ public class Setting : MonoBehaviour
                 performedTimesText.text = _performedTimesText + performedTimesSlider.GetComponent<Slider>().value;
                 break;
             case Choice.volume:
-                volumeSlider.GetComponent<Slider>().value += 0.01f;
+                Transform child = volumeSlider.transform.GetChild(2).transform.GetChild(0);
+
+                Vector3 cameraPos = cam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, cam.nearClipPlane));
+                cameraPos = Quaternion.AngleAxis(cam.transform.eulerAngles.y, Vector3.down) * Quaternion.AngleAxis(cam.transform.eulerAngles.x, Vector3.left) * cameraPos;
+
+                //Slider length = 80 - 220
+                //reticle = 53 - 153 
+                //1 reticle position = 1.4 slider position
+                float knobPosition = child.position.x / 1.4f;
+
+                if (Mathf.Abs(knobPosition - cameraPos.x) <= 0.5)
+                {
+                    if ((153f - cameraPos.x) <= 3)
+                        volumeSlider.GetComponent<Slider>().value = 1.0f;
+                    else if((cameraPos.x - 53f) <= 3)
+                        volumeSlider.GetComponent<Slider>().value = 0f;
+                    volumeText.text = _volumeText + volumeSlider.GetComponent<Slider>().value;
+                    OnExit();
+                }
+                else if (cameraPos.x > knobPosition)
+                    volumeSlider.GetComponent<Slider>().value += 0.01f;
+                else if(cameraPos.x < knobPosition)
+                    volumeSlider.GetComponent<Slider>().value -= 0.01f;
+
                 volumeText.text = _volumeText + volumeSlider.GetComponent<Slider>().value;
                 break;
         }
-        //if (_drag)
-        //{
-        //    Transform child = volumeSlider.transform.GetChild(2).transform.GetChild(0);
-        //    Vector3 p = cam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, cam.nearClipPlane));
-        //    Vector3 q = cam.ScreenToWorldPoint(new Vector3(child.position.x, child.position.y, cam.nearClipPlane));
-        //    Debug.Log(p);
-        //    Debug.Log(q);
-        //    if (p.x > q.x)
-        //        volumeSlider.GetComponent<Slider>().value += 0.01f;
-        //    else if (p.x < q.x)
-        //        volumeSlider.GetComponent<Slider>().value -= 0.01f;
-        //    else
-        //        VolumeSliderOnExit();
-        //    //Debug.Log("Drag here");
-        //    //PointerEventData e = new PointerEventData(EventSystem.current);
-        //    //var myevent = e;
-        //    //Debug.Log(myevent.pressPosition);
-        //    //Debug.Log(PointerEventData.InputButton.Left);
-        //    //volumeSlider.GetComponent<Slider>().OnDrag(e);
-        //}
     }
 
     public void Exercise1OnEnter()
@@ -200,21 +206,6 @@ public class Setting : MonoBehaviour
     public void VolumeSliderOnEnter()
     {
         _choice = Choice.volume;
-        //Debug.Log("Enter");
-        //PointerEventData e = new PointerEventData(EventSystem.current);
-        ////Vector3 p = cam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0.5f));
-        //Vector3 p = cam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, cam.nearClipPlane));
-        ////Vector3 q = cam.ViewportToWorldPoint(new Vector3(volumeSlider.transform.position.x, volumeSlider.transform.position.y, cam.nearClipPlane));
-        //Transform child = volumeSlider.transform.GetChild(2).transform.GetChild(0);
-        //Vector3 q = cam.ScreenToWorldPoint(new Vector3(child.position.x, child.position.y,child.position.z));
-        //float posXMax = Camera.main.pixelWidth;
-        //Debug.Log(p);
-        //Debug.Log(q);
-        // Debug.Log(posXMax);
-        //volumeSlider.GetComponent<Slider>().OnPointerDown(e);
-       // volumeSlider.GetComponent<Slider>().value = p.x / q.x;
-       // Debug.Log(p.x / q.x);
-        //_drag = true;
     }
     public void OnExit()
     {
