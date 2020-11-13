@@ -1,13 +1,7 @@
-﻿using Firebase;
-using Firebase.Database;
-using Firebase.Unity.Editor;
-using System.Threading.Tasks;
+﻿using Firebase.Database;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
-using System.Diagnostics.Tracing;
-using Firebase.Auth;
 
 public class Setting : MonoBehaviour
 { 
@@ -49,12 +43,8 @@ public class Setting : MonoBehaviour
         RetrieveData();        
     }
 
-    // Update is called once per frame
     void Update()
     {
-        //Vector3 v = cam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, cam.nearClipPlane));
-        //v = Quaternion.AngleAxis(cam.transform.eulerAngles.y, Vector3.down) * Quaternion.AngleAxis(cam.transform.eulerAngles.x, Vector3.left) * v;
-        //Debug.Log("P: " + v);
         if (_click)
         {
             _counter += Time.deltaTime;
@@ -66,46 +56,30 @@ public class Setting : MonoBehaviour
             {
                 case Choice.exercise1:
                     if (exercise[0].GetComponent<Image>().color == Color.green)
-                    {
                         exercise[0].GetComponent<Image>().color = Color.white;
-                    }
                     else
-                    {
-                        exercise[0].GetComponent<Image>().color = Color.green;
-                    }                        
+                        exercise[0].GetComponent<Image>().color = Color.green;                      
                     OnExit();
                     break;
                 case Choice.exercise2:
                     if (exercise[1].GetComponent<Image>().color == Color.green)
-                    {
                         exercise[1].GetComponent<Image>().color = Color.white;
-                    }
                     else
-                    {
                         exercise[1].GetComponent<Image>().color = Color.green;
-                    }
                     OnExit();
                     break;
                 case Choice.exercise3:
                     if (exercise[2].GetComponent<Image>().color == Color.green)
-                    {
                         exercise[2].GetComponent<Image>().color = Color.white;
-                    }
                     else
-                    {
                         exercise[2].GetComponent<Image>().color = Color.green;
-                    }
                     OnExit();
                     break;
                 case Choice.exercise4:
                     if (exercise[3].GetComponent<Image>().color == Color.green)
-                    {
                         exercise[3].GetComponent<Image>().color = Color.white;
-                    }
                     else
-                    {
                         exercise[3].GetComponent<Image>().color = Color.green;
-                    }
                     OnExit();
                     break;
                 case Choice.back:
@@ -117,33 +91,69 @@ public class Setting : MonoBehaviour
             }
         }
 
+        Vector3 cameraPos = cam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, cam.nearClipPlane));
+        cameraPos = Quaternion.AngleAxis(cam.transform.eulerAngles.y, Vector3.down) * Quaternion.AngleAxis(cam.transform.eulerAngles.x, Vector3.left) * cameraPos;
+        Transform child;
+        //Slider length = 80 - 220
+        //reticle = 53 - 153 
+        //1 reticle position = 1.4 slider position
+        float knobPosition;
+
         switch (_choice)
         {
             case Choice.exerciseDuration:
-                exerciseDurationSlider.GetComponent<Slider>().value += 1f;
+                child = exerciseDurationSlider.transform.GetChild(2).transform.GetChild(0);
+                knobPosition = child.position.x / 1.4f;
+
+                if (Mathf.Abs(knobPosition - cameraPos.x) <= 2)
+                {
+                    if ((153f - cameraPos.x) <= 3)
+                        exerciseDurationSlider.GetComponent<Slider>().value = exerciseDurationSlider.GetComponent<Slider>().maxValue;
+                    else if ((cameraPos.x - 53f) <= 3)
+                        exerciseDurationSlider.GetComponent<Slider>().value = exerciseDurationSlider.GetComponent<Slider>().minValue;
+
+                    exerciseDurationText.text = _exerciseDurationText + exerciseDurationSlider.GetComponent<Slider>().value;
+                    OnExit();
+                }
+                else if (cameraPos.x > knobPosition)
+                    exerciseDurationSlider.GetComponent<Slider>().value += 1f;                    
+                else if (cameraPos.x < knobPosition)
+                    exerciseDurationSlider.GetComponent<Slider>().value -= 1f;            
+
                 exerciseDurationText.text = _exerciseDurationText + exerciseDurationSlider.GetComponent<Slider>().value;
                 break;
             case Choice.performedTimes:
-                performedTimesSlider.GetComponent<Slider>().value += 1f;
+                child = performedTimesSlider.transform.GetChild(2).transform.GetChild(0);
+                knobPosition = child.position.x / 1.4f;
+
+                if (Mathf.Abs(knobPosition - cameraPos.x) <= 2)
+                {
+                    if ((153f - cameraPos.x) <= 3)
+                        performedTimesSlider.GetComponent<Slider>().value = performedTimesSlider.GetComponent<Slider>().maxValue;
+                    else if ((cameraPos.x - 53f) <= 3)
+                        performedTimesSlider.GetComponent<Slider>().value = performedTimesSlider.GetComponent<Slider>().minValue;
+
+                    performedTimesText.text = _performedTimesText + performedTimesSlider.GetComponent<Slider>().value;
+                    OnExit();
+                }
+                else if (cameraPos.x > knobPosition)
+                    performedTimesSlider.GetComponent<Slider>().value += 1f;
+                else if (cameraPos.x < knobPosition)
+                    performedTimesSlider.GetComponent<Slider>().value -= 1f;
+
                 performedTimesText.text = _performedTimesText + performedTimesSlider.GetComponent<Slider>().value;
                 break;
             case Choice.volume:
-                Transform child = volumeSlider.transform.GetChild(2).transform.GetChild(0);
-
-                Vector3 cameraPos = cam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, cam.nearClipPlane));
-                cameraPos = Quaternion.AngleAxis(cam.transform.eulerAngles.y, Vector3.down) * Quaternion.AngleAxis(cam.transform.eulerAngles.x, Vector3.left) * cameraPos;
-
-                //Slider length = 80 - 220
-                //reticle = 53 - 153 
-                //1 reticle position = 1.4 slider position
-                float knobPosition = child.position.x / 1.4f;
+                child = volumeSlider.transform.GetChild(2).transform.GetChild(0);
+                knobPosition = child.position.x / 1.4f;
 
                 if (Mathf.Abs(knobPosition - cameraPos.x) <= 0.5)
                 {
                     if ((153f - cameraPos.x) <= 3)
-                        volumeSlider.GetComponent<Slider>().value = 1.0f;
-                    else if((cameraPos.x - 53f) <= 3)
-                        volumeSlider.GetComponent<Slider>().value = 0f;
+                        volumeSlider.GetComponent<Slider>().value = volumeSlider.GetComponent<Slider>().maxValue;
+                    else if ((cameraPos.x - 53f) <= 3)
+                        volumeSlider.GetComponent<Slider>().value = volumeSlider.GetComponent<Slider>().minValue;
+
                     volumeText.text = _volumeText + volumeSlider.GetComponent<Slider>().value;
                     OnExit();
                 }
@@ -251,7 +261,6 @@ public class Setting : MonoBehaviour
             if (_customize.exercise[i])
                 exercise[i].GetComponent<Image>().color = Color.green;
         }
-
         exerciseDurationSlider.GetComponent<Slider>().value = _customize.exerciseDuration;
         performedTimesSlider.GetComponent<Slider>().value = _customize.exerciseTime;
         volumeSlider.GetComponent<Slider>().value = _customize.volume;
