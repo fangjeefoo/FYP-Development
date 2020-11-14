@@ -120,4 +120,9 @@ public class MainMenu : MonoBehaviour
         else
             Debug.Log("Sound Manager not found");
     }
+
+    public void OnDestroy()
+    {
+        _database = null;
+    }
 }

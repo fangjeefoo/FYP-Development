@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Firebase.Database;
 
 public class GameManager : MonoBehaviour
 {
@@ -26,6 +27,10 @@ public class GameManager : MonoBehaviour
     private string _goalText;
     private string _timerText;
     private string _currentGoal;
+    private string _dbName;
+    private LevelData _level1;
+    private PerformanceData _performanceData;
+    private FirebaseDatabase _database;
 
     void Awake()
     {
@@ -45,6 +50,8 @@ public class GameManager : MonoBehaviour
         _scoreText = "Score: ";
         _goalText = "Goal: ";
         _timerText = "Timer: ";
+        _dbName = "Performance Data";
+        _database = FirebaseDatabase.DefaultInstance;
 
         //Initialize the HUD
         scoreText.text = _scoreText + _currentScore;
@@ -70,5 +77,27 @@ public class GameManager : MonoBehaviour
     public void UpdateCustomer()
     {
         _currentCustomer--;
+    }
+
+    /// <summary>
+    /// Post data to firebase
+    /// </summary>
+    void PostData()
+    {
+        //fake information
+        //int[] performedTimes = new int[4] { 0, 5, 4, 3 };
+        //_level1 = new LevelData(1, performedTimes, 210);
+        //bool[] selectedExercise = new bool[4] { true, true, false, false };
+        //LevelData[] level = new LevelData[1] { _level1 };
+        //_performanceData = new PerformanceData(30, selectedExercise);
+
+        var key = _database.GetReference(_dbName).Push().Key;
+        _database.GetReference(_dbName).Child(key).Push().SetRawJsonValueAsync(JsonUtility.ToJson(_performanceData));
+        _database.GetReference(_dbName).Child(key).Push().SetRawJsonValueAsync(JsonUtility.ToJson(_level1));
+    }
+
+    public void OnDestroy()
+    {
+        _database = null;
     }
 }
