@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public Text goalText;
     public Text timerText;
     public Text scoreText;
+    public int currentLevel;
 
     //private variable
     private float _counter;
@@ -28,7 +29,11 @@ public class GameManager : MonoBehaviour
     private string _timerText;
     private string _currentGoal;
     private string _dbName;
-    private LevelData _level1;
+    private int _totalDuration;
+    private int _levelDuration;
+    private bool[] _selectedExercise;
+    private int[] _performedTimes;
+    private LevelData _currentLevel;
     private PerformanceData _performanceData;
     private FirebaseDatabase _database;
 
@@ -52,11 +57,14 @@ public class GameManager : MonoBehaviour
         _timerText = "Timer: ";
         _dbName = "Performance Data";
         _database = FirebaseDatabase.DefaultInstance;
+        _performedTimes = new int[4] { 0, 0, 0, 0 };
 
         //Initialize the HUD
         scoreText.text = _scoreText + _currentScore;
         timerText.text = _timerText + _currentTimer;
         goalText.text = _goalText + _currentGoal;
+
+        RetrieveData();
     }
 
     void Update()
@@ -84,18 +92,48 @@ public class GameManager : MonoBehaviour
     /// </summary>
     void PostData()
     {
-        //fake information
-        //int[] performedTimes = new int[4] { 0, 5, 4, 3 };
-        //_level1 = new LevelData(1, performedTimes, 210);
-        //bool[] selectedExercise = new bool[4] { true, true, false, false };
-        //LevelData[] level = new LevelData[1] { _level1 };
-        //_performanceData = new PerformanceData(30, selectedExercise);
+        string key = null;
 
-        var key = _database.GetReference(_dbName).Push().Key;
-        _database.GetReference(_dbName).Child(key).Push().SetRawJsonValueAsync(JsonUtility.ToJson(_performanceData));
-        _database.GetReference(_dbName).Child(key).Push().SetRawJsonValueAsync(JsonUtility.ToJson(_level1));
+        if(currentLevel == 1)
+        {
+            key = _database.GetReference(_dbName).Push().Key;
+            PlayerPrefs.SetString("Database Key", key);
+            _performanceData = new PerformanceData(_totalDuration,_selectedExercise);
+            _database.GetReference(_dbName).Child(key).Push().SetRawJsonValueAsync(JsonUtility.ToJson(_performanceData));
+        }
+        else
+        {
+            PlayerPrefs.GetString("Database Key");
+            _currentLevel = new LevelData(currentLevel, _performedTimes, _currentScore, _levelDuration);
+            _database.GetReference(_dbName).Child(key).Push().SetRawJsonValueAsync(JsonUtility.ToJson(_currentLevel));
+        }
     }
 
+    /// <summary>
+    /// Retrieve data from firebase
+    /// </summary>
+    public async void RetrieveData()
+    {
+        DataSnapshot dataSnapshot = null;
+        Customization customize;
+
+        await _database.GetReference(_dbName).GetValueAsync().ContinueWith(task =>
+        {
+            if (task.IsFaulted)
+            {
+                Debug.Log("Failed to retrieve data");
+            }
+            else if (task.IsCompleted)
+            {
+                dataSnapshot = task.Result;
+                customize = JsonUtility.FromJson<Customization>(dataSnapshot.GetRawJsonValue());
+
+                _selectedExercise = new bool[4];
+                _selectedExercise = customize.exercise;
+                _totalDuration = customize.exerciseDuration;
+            }
+        });
+    }
     public void OnDestroy()
     {
         _database = null;
