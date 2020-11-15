@@ -16,20 +16,17 @@ public class GameManager : MonoBehaviour
     public float spawnCustomer;
     public Text goalText;
     public Text timerText;
-    public Text scoreText;
     public int currentLevel;
+    public int goalScore; 
 
     //private variable
     private float _counter;
     private int _currentCustomer;
     private int _currentScore;
     private float _currentTimer;
-    private string _scoreText;
     private string _goalText;
     private string _timerText;
-    private string _currentGoal;
     private string _dbName;
-    private int _totalDuration;
     private int _levelDuration;
     private bool[] _selectedExercise;
     private int[] _performedTimes;
@@ -52,7 +49,6 @@ public class GameManager : MonoBehaviour
         _counter = spawnCustomer;
         _currentCustomer = 1;
         _currentScore = 0;
-        _scoreText = "Score: ";
         _goalText = "Goal: ";
         _timerText = "Timer: ";
         _dbName = "Performance Data";
@@ -60,9 +56,8 @@ public class GameManager : MonoBehaviour
         _performedTimes = new int[4] { 0, 0, 0, 0 };
 
         //Initialize the HUD
-        scoreText.text = _scoreText + _currentScore;
         timerText.text = _timerText + _currentTimer;
-        goalText.text = _goalText + _currentGoal;
+        goalText.text = _goalText + _currentScore + "/" + goalScore;
 
         RetrieveData();
     }
@@ -98,13 +93,13 @@ public class GameManager : MonoBehaviour
         {
             key = _database.GetReference(_dbName).Push().Key;
             PlayerPrefs.SetString("Database Key", key);
-            _performanceData = new PerformanceData(_totalDuration,_selectedExercise);
+            _performanceData = new PerformanceData(_levelDuration,_selectedExercise);
             _database.GetReference(_dbName).Child(key).Push().SetRawJsonValueAsync(JsonUtility.ToJson(_performanceData));
         }
         else
         {
             PlayerPrefs.GetString("Database Key");
-            _currentLevel = new LevelData(currentLevel, _performedTimes, _currentScore, _levelDuration);
+            _currentLevel = new LevelData(currentLevel, _performedTimes, _currentScore);
             _database.GetReference(_dbName).Child(key).Push().SetRawJsonValueAsync(JsonUtility.ToJson(_currentLevel));
         }
     }
@@ -130,7 +125,7 @@ public class GameManager : MonoBehaviour
 
                 _selectedExercise = new bool[4];
                 _selectedExercise = customize.exercise;
-                _totalDuration = customize.exerciseDuration;
+                _levelDuration = customize.exerciseDurationPerLevel;
             }
         });
     }

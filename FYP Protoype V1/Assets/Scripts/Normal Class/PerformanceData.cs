@@ -6,14 +6,14 @@ using System;
 [Serializable]
 public class PerformanceData
 {
-    public int totalDuration;
+    public int durationPerLevel;
     public bool[] selectedExercise;
     public string dateTime;
 
-    public PerformanceData(int totalDuration, bool[] selectedExercise)
+    public PerformanceData(int duration, bool[] selectedExercise)
     {
-        this.selectedExercise = new bool[4];    
-        this.totalDuration = totalDuration;
+        this.selectedExercise = new bool[4];
+        durationPerLevel = duration;
         this.selectedExercise = selectedExercise;
 
         dateTime = DateTime.Now.ToString();

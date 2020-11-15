@@ -36,7 +36,7 @@ public class Setting : MonoBehaviour
         _database = FirebaseDatabase.DefaultInstance;
         _dbName = "Customization";        
         _performedTimesText = "Exercise Performed Times: ";
-        _exerciseDurationText = "Exercise Duration: ";
+        _exerciseDurationText = "Exercise Duration Per Level: ";
         _volumeText = "Volume: ";
         soundManager = GameObject.FindGameObjectWithTag("SoundManager");
         
@@ -261,7 +261,7 @@ public class Setting : MonoBehaviour
             if (_customize.exercise[i])
                 exercise[i].GetComponent<Image>().color = Color.green;
         }
-        exerciseDurationSlider.GetComponent<Slider>().value = _customize.exerciseDuration;
+        exerciseDurationSlider.GetComponent<Slider>().value = _customize.exerciseDurationPerLevel;
         performedTimesSlider.GetComponent<Slider>().value = _customize.exerciseTime;
         volumeSlider.GetComponent<Slider>().value = _customize.volume;
 

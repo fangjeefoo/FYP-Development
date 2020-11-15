@@ -1118,7 +1118,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Exercise Duration
+  m_Text: Exercise Duration Per Level
 --- !u!222 &922559212
 CanvasRenderer:
   m_ObjectHideFlags: 0
