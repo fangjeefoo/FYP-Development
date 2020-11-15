@@ -111,9 +111,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 379e7ebbd3604844eae7033fd2c92cda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chair:
-  - {fileID: 5594016403958251283, guid: f740c411121faf740853e29cd3d6412f, type: 3}
-  - {fileID: 780086364172220330, guid: fe67ff23bedbd9044b09919f08d1dccc, type: 3}
   door: {fileID: 1764296797408371309, guid: fadcf8d41b1fa114181cdf1ecb597fc3, type: 3}
   moodIndicator:
   - {fileID: 1242633867125356001}
@@ -124,6 +121,7 @@ MonoBehaviour:
   orderCanvas: {fileID: 1497784734254230576}
   moodCounter: 5
   finishMealCounter: 10
+  score: 100
 --- !u!1 &6916805085068080929
 GameObject:
   m_ObjectHideFlags: 0

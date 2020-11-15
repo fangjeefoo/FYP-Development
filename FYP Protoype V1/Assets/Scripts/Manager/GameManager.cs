@@ -98,10 +98,12 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            PlayerPrefs.GetString("Database Key");
-            _currentLevel = new LevelData(currentLevel, _performedTimes, _currentScore);
-            _database.GetReference(_dbName).Child(key).Push().SetRawJsonValueAsync(JsonUtility.ToJson(_currentLevel));
+            key = PlayerPrefs.GetString("Database Key");           
         }
+
+        _currentLevel = new LevelData(currentLevel, _performedTimes, _currentScore);
+        _database.GetReference(_dbName).Child(key).Push().SetRawJsonValueAsync(JsonUtility.ToJson(_currentLevel));
+
     }
 
     /// <summary>
@@ -132,5 +134,14 @@ public class GameManager : MonoBehaviour
     public void OnDestroy()
     {
         _database = null;
+    }
+
+    public void UpdateScore(int score, bool increase)
+    {
+        if(increase)
+            _currentScore += score;
+        else
+            _currentScore -= score;
+        goalText.text = _goalText + _currentScore + "/" + goalScore;
     }
 }

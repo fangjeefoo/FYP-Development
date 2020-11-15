@@ -12,6 +12,8 @@ public class Customer : MonoBehaviour
     [Tooltip("time to decrease one star (Mood)")]
     public float moodCounter; 
     public float finishMealCounter;
+    [Tooltip("Score per heart")]
+    public int score;
 
 
     //private variable
@@ -24,6 +26,7 @@ public class Customer : MonoBehaviour
     private float _speed;
     private bool _reset;
     private bool _chairFound;
+    private bool _isLeaving;
     private GameObject[] _chair;
     private Animator animator;
 
@@ -37,6 +40,7 @@ public class Customer : MonoBehaviour
         _coroutineRunning = false;
         _chairFound = false;
         _reset = false;
+        _isLeaving = false;
         _moodCounter = 0f;
         _mood = 5;
         _speed = 1f;
@@ -100,10 +104,16 @@ public class Customer : MonoBehaviour
                 _moodCounter += Time.deltaTime;
             }
             
-            if(_moodCounter > moodCounter) //customer wait for too long, decrease one mood indicator
+            if(_moodCounter > moodCounter && !_isLeaving) //customer wait for too long, decrease one mood indicator
             {
                 _moodCounter = 0;
-                _mood--;               
+                _mood--;         
+                
+                if(_mood <= 0)
+                {
+                    GameManager.gm.UpdateScore(score * moodIndicator.Length / 2, false);
+                    _isLeaving = true;
+                }
             }
 
             for (int i = 0; i < moodIndicator.Length; i++) //display mood indicator
@@ -118,7 +128,7 @@ public class Customer : MonoBehaviour
                 }
             }
 
-            if (_mood <= 0)
+            if (_isLeaving)
             {
                 LeaveShop();
             }
@@ -135,7 +145,7 @@ public class Customer : MonoBehaviour
         {
             _reset = true;
             _chair[_chairCounter].GetComponent<Chair>().MyReset();
-            GameManager.gm.UpdateCustomer();
+            GameManager.gm.UpdateCustomer();            
         }
 
         if (direction.normalized.x > 0.2f)
@@ -164,7 +174,8 @@ public class Customer : MonoBehaviour
         _coroutineRunning = true;
         orderCanvas.SetActive(false);
         yield return new WaitForSeconds(finishMealCounter);
+        GameManager.gm.UpdateScore(_mood * score, true);
         _mood = 0;
-        LeaveShop();
+        _isLeaving = true;
     }
 }

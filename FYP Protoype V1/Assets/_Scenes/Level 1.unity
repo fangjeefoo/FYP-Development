@@ -440,7 +440,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   customer: {fileID: 5406188428552185062, guid: 3e0821510a0fc474fa8f4d82e38f5afd,
     type: 3}
-  maxCustomer: 5
+  maxCustomer: 1
   spawnCustomer: 10
   goalText: {fileID: 621890280}
   timerText: {fileID: 1398349749}
