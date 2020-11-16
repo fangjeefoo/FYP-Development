@@ -74,13 +74,15 @@ public class GameManager : MonoBehaviour
         if(_currentTimer <= 0)
         {
             PostData();
+            PlayerPrefs.SetInt("level", currentLevel);
+            PlayerPrefs.SetInt("duration", _levelDuration);
+            PlayerPrefs.SetInt("score", _currentScore);
+            PlayerPrefs.SetInt("goal", goalScore);
+
             if (_currentScore >= goalScore)
-            {
-                PlayerPrefs.SetInt("level", currentLevel);
-                SceneManager.LoadScene("");
-            }                
+                SceneManager.LoadScene("Win");             
             else
-                SceneManager.LoadScene("");
+                SceneManager.LoadScene("Lose");
         }
 
         if (_counter > spawnCustomer) 
