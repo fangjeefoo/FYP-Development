@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
     private int _levelDuration;
     private bool[] _selectedExercise;
     private int[] _performedTimes;
-    private LevelData _currentLevel;
+    private LevelData _currentLevelData;
     private PerformanceData _performanceData;
     private FirebaseDatabase _database;
 
@@ -75,7 +75,10 @@ public class GameManager : MonoBehaviour
         {
             PostData();
             if (_currentScore >= goalScore)
+            {
+                PlayerPrefs.SetInt("level", currentLevel);
                 SceneManager.LoadScene("");
+            }                
             else
                 SceneManager.LoadScene("");
         }
@@ -115,8 +118,8 @@ public class GameManager : MonoBehaviour
             key = PlayerPrefs.GetString("Database Key");           
         }
 
-        _currentLevel = new LevelData(currentLevel, _performedTimes, _currentScore);
-        _database.GetReference(_dbName).Child(key).Push().SetRawJsonValueAsync(JsonUtility.ToJson(_currentLevel));
+        _currentLevelData = new LevelData(currentLevel, _performedTimes, _currentScore);
+        _database.GetReference(_dbName).Child(key).Push().SetRawJsonValueAsync(JsonUtility.ToJson(_currentLevelData));
 
     }
 
