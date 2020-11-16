@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Firebase.Database;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -69,6 +70,15 @@ public class GameManager : MonoBehaviour
         _currentTimer -= Time.deltaTime;
         _counter += Time.deltaTime;
         timerText.text = _timerText + Mathf.Round(_currentTimer);
+
+        if(_currentTimer <= 0)
+        {
+            PostData();
+            if (_currentScore >= goalScore)
+                SceneManager.LoadScene("");
+            else
+                SceneManager.LoadScene("");
+        }
 
         if (_counter > spawnCustomer) 
         {
