@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     private string _goalText;
     private string _timerText;
     private string _dbName;
+    private string _retrieveDbName;
     private int _levelDuration;
     private bool[] _selectedExercise;
     private int[] _performedTimes;
@@ -52,21 +53,24 @@ public class GameManager : MonoBehaviour
         _goalText = "Goal: ";
         _timerText = "Timer: ";
         _dbName = "Performance Data";
+        _retrieveDbName = "Customization";
         _database = FirebaseDatabase.DefaultInstance;
         _performedTimes = new int[4] { 0, 0, 0, 0 };
 
-        //Initialize the HUD
-        timerText.text = _timerText + _currentTimer;
+        //Initialize the HUD        
         goalText.text = _goalText + _currentScore + "/" + goalScore;
+        timerText.text = _timerText + _currentTimer;
 
         RetrieveData();
     }
 
     void Update()
     {
+        _currentTimer -= Time.deltaTime;
         _counter += Time.deltaTime;
+        timerText.text = _timerText + Mathf.Round(_currentTimer);
 
-        if(_counter > spawnCustomer) 
+        if (_counter > spawnCustomer) 
         {
             if(_currentCustomer <= maxCustomer)
             {
@@ -111,10 +115,9 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public async void RetrieveData()
     {
-        DataSnapshot dataSnapshot = null;
         Customization customize;
 
-        await _database.GetReference(_dbName).GetValueAsync().ContinueWith(task =>
+        await _database.GetReference(_retrieveDbName).GetValueAsync().ContinueWith(task =>
         {
             if (task.IsFaulted)
             {
@@ -122,12 +125,13 @@ public class GameManager : MonoBehaviour
             }
             else if (task.IsCompleted)
             {
-                dataSnapshot = task.Result;
+                var dataSnapshot = task.Result;
                 customize = JsonUtility.FromJson<Customization>(dataSnapshot.GetRawJsonValue());
 
                 _selectedExercise = new bool[4];
                 _selectedExercise = customize.exercise;
                 _levelDuration = customize.exerciseDurationPerLevel;
+                _currentTimer = _levelDuration * 60f;
             }
         });
     }
