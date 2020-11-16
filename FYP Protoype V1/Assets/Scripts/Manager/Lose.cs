@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class Lose : MonoBehaviour
 {
     //public variable
-    public GameObject restartButton;
     public Text scoreText;
     public Text durationText;
 
@@ -25,9 +24,6 @@ public class Lose : MonoBehaviour
         _durationText = "Duration: ";
         _counter = 0;
         _click = false;
-
-        if (!PlayerPrefs.HasKey("level"))
-            restartButton.GetComponent<Button>().interactable = false;
 
         durationText.text = _durationText + PlayerPrefs.GetInt("duration");
         scoreText.text = _scoreText + PlayerPrefs.GetInt("score") + "/" + PlayerPrefs.GetInt("goal");
