@@ -1,4 +1,5 @@
 ﻿using Firebase.Database;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -276,7 +277,6 @@ public class Setting : MonoBehaviour
     public void PostData()
     {
         _database.GetReference(_dbName).SetRawJsonValueAsync(JsonUtility.ToJson(PackData()));
-
         SceneManager.LoadScene("Menu");
     }
 
