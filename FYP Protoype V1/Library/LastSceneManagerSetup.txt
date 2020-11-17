@@ -1,17 +1,5 @@
 sceneSetups:
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-- path: Assets/_Scenes/Setting.unity
-=======
-- path: Assets/_Scenes/Lose.unity
->>>>>>> parent of 3667508... Update
-=======
-- path: Assets/_Scenes/Lose.unity
->>>>>>> parent of 3667508... Update
-=======
-- path: Assets/_Scenes/Lose.unity
->>>>>>> parent of 3667508... Update
+- path: Assets/_Scenes/Level 1.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
