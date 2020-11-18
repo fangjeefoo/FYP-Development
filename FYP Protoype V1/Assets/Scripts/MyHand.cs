@@ -20,29 +20,37 @@ public class MyHand : MonoBehaviour
     {
         Frame frame = _controller.Frame(0);
 
-        Debug.Log("Frame hand count: " + frame.Hands.Count);
-
         if (frame.Hands.Count > 0)
         {
             List<Hand> hands = frame.Hands;
             if(frame.Hands.Count > 0)
             {
                 _leftHand = frame.Hands[0];
-                Debug.Log("Hand Position: " + _leftHand.PalmPosition);
-                Debug.Log("Hand rotation: " + _leftHand.Rotation);
-                Debug.Log("Arm rotation: " + _leftHand.Arm.Rotation);
-                Debug.Log("Wrist position: " + _leftHand.Arm.WristPosition);
 
-                if (_leftHand.IsLeft)
-                    Debug.Log("Left hand");
-                else
-                    Debug.Log("right hand");
+                //ForearmExercise();
+
 
             }
                 
         }
+    }
 
-        
-        //Debug.Log("Right hand: " + _rightHand.PalmPosition);
+    public void ForearmExercise()
+    {
+        //https://stackoverflow.com/questions/42051951/how-to-detect-if-hand-in-leap-motion-is-facing-up-c-unity
+        if (_leftHand.PalmNormal.y < 0)
+            Debug.Log("Palm facing down");
+        else
+            Debug.Log("Palm facing up");
+    }
+
+    public void ElbowAExercise()
+    {
+
+    }
+
+    public void WristExercise()
+    {
+
     }
 }
