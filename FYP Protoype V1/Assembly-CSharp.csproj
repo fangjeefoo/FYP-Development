@@ -482,7 +482,6 @@
     <Compile Include="Assets\Scripts\Plate.cs" />
     <None Include="Assets\LMC\LeapMotion\Core\Version.txt" />
     <None Include="Assets\LMC\LeapMotion\Core\Shaders\RuntimeGizmos.shader" />
-    <None Include="Assets\_Firebase\Plugins\Android\FirebaseApp.androidlib\res\values\google-services.xml" />
     <None Include="Assets\GoogleVR\Shaders\GvrUIOverlayFont.shader" />
     <None Include="Assets\Other People Asset\Kitchen Asset\README.txt" />
     <None Include="Assets\Other People Asset\Customer\Shaders\Legacy\CelShader.shader" />
@@ -501,7 +500,6 @@
     <None Include="Assets\GoogleVR\Shaders\GvrControllerReticle.shader" />
     <None Include="Assets\LMC\LeapMotion\Core\Shaders\VertexOffsetShader.shader" />
     <None Include="Assets\GoogleVR\Plugins\Android\AndroidManifest-Daydream.xml" />
-    <None Include="Assets\_Firebase\Firebase\m2repository\com\google\firebase\firebase-auth-unity\maven-metadata.xml" />
     <None Include="Assets\LMC\LeapMotion\Core\Shaders\PassthroughBackground.shader" />
     <None Include="Assets\LMC\LeapMotion\Core\Shaders\PassthroughForeground.shader" />
     <None Include="Assets\LMC\LeapMotion\Core\Shaders\AlphaToWhite.shader" />
@@ -512,9 +510,7 @@
     <None Include="Assets\GoogleVR\Shaders\GvrUnlitTransparentOverlay.shader" />
     <None Include="Assets\Other People Asset\Customer\Shaders\SupercyanShaderLighting.cginc" />
     <None Include="Assets\GoogleVR\Shaders\GvrUnlitTextureOverlay.shader" />
-    <None Include="Assets\_Firebase\Firebase\m2repository\com\google\firebase\firebase-database-unity\maven-metadata.xml" />
     <None Include="Assets\GoogleVR\Shaders\GvrController.shader" />
-    <None Include="Assets\_Firebase\Plugins\Android\FirebaseApp.androidlib\AndroidManifest.xml" />
     <None Include="Assets\LMC\LeapMotion\Core\Shaders\ThresholdOverlay.shader" />
     <None Include="Assets\LMC\LeapMotion\Core\Resources\LeapCG.cginc" />
     <Reference Include="UnityEngine">
@@ -700,12 +696,6 @@
     <Reference Include="InteractionEngineUtility">
       <HintPath>C:/Github/FYP-Development/FYP Protoype V1/Assets/LMC/InteractionEngine/Modules/InteractionEngine/Plugins/InteractionEngineUtility.dll</HintPath>
     </Reference>
-    <Reference Include="Firebase.Auth">
-      <HintPath>C:/Github/FYP-Development/FYP Protoype V1/Assets/_Firebase/Firebase/Plugins/Firebase.Auth.dll</HintPath>
-    </Reference>
-    <Reference Include="Firebase.Database">
-      <HintPath>C:/Github/FYP-Development/FYP Protoype V1/Assets/_Firebase/Firebase/Plugins/Firebase.Database.dll</HintPath>
-    </Reference>
     <Reference Include="Firebase.Analytics">
       <HintPath>C:/Github/FYP-Development/FYP Protoype V1/Library/PackageCache/com.google.firebase.analytics@6.16.1/Firebase/Plugins/Firebase.Analytics.dll</HintPath>
     </Reference>
@@ -726,6 +716,12 @@
     </Reference>
     <Reference Include="Unity.Tasks">
       <HintPath>C:/Github/FYP-Development/FYP Protoype V1/Library/PackageCache/com.google.firebase.app@6.16.1/Parse/Plugins/dotNet45/Unity.Tasks.dll</HintPath>
+    </Reference>
+    <Reference Include="Firebase.Auth">
+      <HintPath>C:/Github/FYP-Development/FYP Protoype V1/Library/PackageCache/com.google.firebase.auth@6.16.1/Firebase/Plugins/Firebase.Auth.dll</HintPath>
+    </Reference>
+    <Reference Include="Firebase.Database">
+      <HintPath>C:/Github/FYP-Development/FYP Protoype V1/Library/PackageCache/com.google.firebase.database@6.16.1/Firebase/Plugins/Firebase.Database.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.11f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>

@@ -294,12 +294,6 @@
     <Reference Include="InteractionEngineUtility">
       <HintPath>C:/Github/FYP-Development/FYP Protoype V1/Assets/LMC/InteractionEngine/Modules/InteractionEngine/Plugins/InteractionEngineUtility.dll</HintPath>
     </Reference>
-    <Reference Include="Firebase.Auth">
-      <HintPath>C:/Github/FYP-Development/FYP Protoype V1/Assets/_Firebase/Firebase/Plugins/Firebase.Auth.dll</HintPath>
-    </Reference>
-    <Reference Include="Firebase.Database">
-      <HintPath>C:/Github/FYP-Development/FYP Protoype V1/Assets/_Firebase/Firebase/Plugins/Firebase.Database.dll</HintPath>
-    </Reference>
     <Reference Include="Google.IOSResolver_v1.2.161">
       <HintPath>C:/Github/FYP-Development/FYP Protoype V1/Library/PackageCache/com.google.external-dependency-manager@1.2.161/ExternalDependencyManager/Editor/Google.IOSResolver_v1.2.161.dll</HintPath>
     </Reference>
@@ -338,6 +332,12 @@
     </Reference>
     <Reference Include="Unity.Tasks">
       <HintPath>C:/Github/FYP-Development/FYP Protoype V1/Library/PackageCache/com.google.firebase.app@6.16.1/Parse/Plugins/dotNet45/Unity.Tasks.dll</HintPath>
+    </Reference>
+    <Reference Include="Firebase.Auth">
+      <HintPath>C:/Github/FYP-Development/FYP Protoype V1/Library/PackageCache/com.google.firebase.auth@6.16.1/Firebase/Plugins/Firebase.Auth.dll</HintPath>
+    </Reference>
+    <Reference Include="Firebase.Database">
+      <HintPath>C:/Github/FYP-Development/FYP Protoype V1/Library/PackageCache/com.google.firebase.database@6.16.1/Firebase/Plugins/Firebase.Database.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.11f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>

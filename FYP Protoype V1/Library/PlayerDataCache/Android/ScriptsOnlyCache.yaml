@@ -21,18 +21,12 @@ ScriptsOnlyBuild:
     - Leap.Unity.LeapServiceProvider
     - Lose
     - MainMenu
+    - MyHand
     - Plate
     - Setting
     - SoundManager
-    - Win
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
-    UnityEditor.Graphs.dll:
-    - UnityEditor.Graphs.AnimationBlendTree.Graph
-    - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.Graph
-    - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -99,47 +93,49 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11408}
     - Class: 114
-      Script: {instanceID: 11460}
+      Script: {instanceID: 11462}
     - Class: 114
-      Script: {instanceID: 11576}
+      Script: {instanceID: 11578}
     - Class: 114
-      Script: {instanceID: 11766}
+      Script: {instanceID: 11768}
     - Class: 114
-      Script: {instanceID: 12016}
+      Script: {instanceID: 12018}
     - Class: 114
-      Script: {instanceID: 12056}
+      Script: {instanceID: 12058}
     - Class: 114
-      Script: {instanceID: 12326}
+      Script: {instanceID: 12328}
     - Class: 114
-      Script: {instanceID: 12768}
+      Script: {instanceID: 12770}
     - Class: 114
-      Script: {instanceID: 12920}
+      Script: {instanceID: 12922}
     - Class: 114
-      Script: {instanceID: 12988}
+      Script: {instanceID: 12990}
     - Class: 114
-      Script: {instanceID: 13102}
+      Script: {instanceID: 13104}
     - Class: 114
-      Script: {instanceID: 13206}
+      Script: {instanceID: 13190}
     - Class: 114
-      Script: {instanceID: 13318}
+      Script: {instanceID: 13210}
     - Class: 114
-      Script: {instanceID: 13534}
+      Script: {instanceID: 13322}
     - Class: 114
-      Script: {instanceID: 13584}
+      Script: {instanceID: 13538}
     - Class: 114
-      Script: {instanceID: 13704}
+      Script: {instanceID: 13588}
     - Class: 114
-      Script: {instanceID: 13770}
+      Script: {instanceID: 13708}
     - Class: 114
-      Script: {instanceID: 13820}
+      Script: {instanceID: 13774}
     - Class: 114
-      Script: {instanceID: 13972}
+      Script: {instanceID: 13824}
     - Class: 114
-      Script: {instanceID: 14290}
+      Script: {instanceID: 13976}
     - Class: 114
-      Script: {instanceID: 14338}
+      Script: {instanceID: 14294}
     - Class: 114
-      Script: {instanceID: 14388}
+      Script: {instanceID: 14342}
+    - Class: 114
+      Script: {instanceID: 14392}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 124
@@ -194,23 +190,23 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11404}
     - Class: 114
-      Script: {instanceID: 11766}
+      Script: {instanceID: 11768}
     - Class: 114
-      Script: {instanceID: 12056}
+      Script: {instanceID: 12058}
     - Class: 114
-      Script: {instanceID: 13584}
+      Script: {instanceID: 13588}
     - Class: 114
-      Script: {instanceID: 13770}
+      Script: {instanceID: 13774}
     - Class: 114
-      Script: {instanceID: 13820}
+      Script: {instanceID: 13824}
     - Class: 114
-      Script: {instanceID: 13960}
+      Script: {instanceID: 13964}
     - Class: 114
-      Script: {instanceID: 14290}
+      Script: {instanceID: 14294}
     - Class: 114
-      Script: {instanceID: 14330}
+      Script: {instanceID: 14334}
     - Class: 114
-      Script: {instanceID: 14388}
+      Script: {instanceID: 14392}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -259,27 +255,27 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11404}
     - Class: 114
-      Script: {instanceID: 11602}
+      Script: {instanceID: 11604}
     - Class: 114
-      Script: {instanceID: 11766}
+      Script: {instanceID: 11768}
     - Class: 114
-      Script: {instanceID: 12056}
+      Script: {instanceID: 12058}
     - Class: 114
-      Script: {instanceID: 13416}
+      Script: {instanceID: 13420}
     - Class: 114
-      Script: {instanceID: 13584}
+      Script: {instanceID: 13588}
     - Class: 114
-      Script: {instanceID: 13680}
+      Script: {instanceID: 13684}
     - Class: 114
-      Script: {instanceID: 13770}
+      Script: {instanceID: 13774}
     - Class: 114
-      Script: {instanceID: 13820}
+      Script: {instanceID: 13824}
     - Class: 114
-      Script: {instanceID: 14290}
+      Script: {instanceID: 14294}
     - Class: 114
-      Script: {instanceID: 14330}
+      Script: {instanceID: 14334}
     - Class: 114
-      Script: {instanceID: 14388}
+      Script: {instanceID: 14392}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -326,86 +322,23 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11406}
     - Class: 114
-      Script: {instanceID: 11766}
+      Script: {instanceID: 11768}
     - Class: 114
-      Script: {instanceID: 12056}
+      Script: {instanceID: 12058}
     - Class: 114
-      Script: {instanceID: 13584}
+      Script: {instanceID: 13588}
     - Class: 114
-      Script: {instanceID: 13770}
+      Script: {instanceID: 13774}
     - Class: 114
-      Script: {instanceID: 13820}
+      Script: {instanceID: 13824}
     - Class: 114
-      Script: {instanceID: 14290}
+      Script: {instanceID: 14294}
     - Class: 114
-      Script: {instanceID: 14330}
+      Script: {instanceID: 14334}
     - Class: 114
-      Script: {instanceID: 14388}
+      Script: {instanceID: 14392}
     - Class: 114
-      Script: {instanceID: 14444}
-    - Class: 115
-      Script: {instanceID: 0}
-    - Class: 128
-      Script: {instanceID: 0}
-    - Class: 157
-      Script: {instanceID: 0}
-    - Class: 196
-      Script: {instanceID: 0}
-    - Class: 213
-      Script: {instanceID: 0}
-    - Class: 222
-      Script: {instanceID: 0}
-    - Class: 223
-      Script: {instanceID: 0}
-    - Class: 224
-      Script: {instanceID: 0}
-    Assets/_Scenes/Win.unity:
-    - Class: 1
-      Script: {instanceID: 0}
-    - Class: 4
-      Script: {instanceID: 0}
-    - Class: 20
-      Script: {instanceID: 0}
-    - Class: 21
-      Script: {instanceID: 0}
-    - Class: 23
-      Script: {instanceID: 0}
-    - Class: 28
-      Script: {instanceID: 0}
-    - Class: 48
-      Script: {instanceID: 0}
-    - Class: 81
-      Script: {instanceID: 0}
-    - Class: 104
-      Script: {instanceID: 0}
-    - Class: 108
-      Script: {instanceID: 0}
-    - Class: 114
-      Script: {instanceID: 11398}
-    - Class: 114
-      Script: {instanceID: 11400}
-    - Class: 114
-      Script: {instanceID: 11402}
-    - Class: 114
-      Script: {instanceID: 11404}
-    - Class: 114
-      Script: {instanceID: 11766}
-    - Class: 114
-      Script: {instanceID: 12056}
-    - Class: 114
-      Script: {instanceID: 13152}
-    - Class: 114
-      Script: {instanceID: 13584}
-    - Class: 114
-      Script: {instanceID: 13770}
-    - Class: 114
-      Script: {instanceID: 13820}
-    - Class: 114
-      Script: {instanceID: 14290}
-    - Class: 114
-      Script: {instanceID: 14330}
-    - Class: 114
-      Script: {instanceID: 14388}
+      Script: {instanceID: 14448}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1265,7 +1198,7 @@ ScriptsOnlyBuild:
     className: SimpleInteractionGlow
   - hash:
       serializedVersion: 2
-      Hash: 71138da69e5b95c3ef6cc2d50b7bcf06
+      Hash: 61988ce93ee124f32967be03e85afbc1
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Win
@@ -1281,6 +1214,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: Leap.Unity.Examples
     className: AutopilotSystem
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MyHand
   - hash:
       serializedVersion: 2
       Hash: 5ad4aa237d47ac2bab17bacb672edf7a
@@ -1607,7 +1546,7 @@ ScriptsOnlyBuild:
     className: ScrubberEvents
   - hash:
       serializedVersion: 2
-      Hash: 71138da69e5b95c3ef6cc2d50b7bcf06
+      Hash: 00cf76ad6cd973ac3cb45f7361f08bd7
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Lose
@@ -1892,6 +1831,5 @@ ScriptsOnlyBuild:
   - Assets/_Scenes/Menu.unity
   - Assets/_Scenes/Setting.unity
   - Assets/_Scenes/Level 1.unity
-  - Assets/_Scenes/Win.unity
   - Assets/_Scenes/Lose.unity
-  playerPath: C:/Users/E/Google Drive/fyp.apk
+  playerPath: C:/Users/E/Google Drive/MMU/Degree/Year 3/FYP/fyp.apk

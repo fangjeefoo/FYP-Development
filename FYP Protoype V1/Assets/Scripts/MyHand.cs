@@ -13,7 +13,6 @@ public class MyHand : MonoBehaviour
     void Start()
     {
         _controller = new Controller();
-        Debug.Log("Is connected: " + _controller.IsConnected);
     }
 
     // Update is called once per frame

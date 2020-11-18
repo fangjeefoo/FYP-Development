@@ -9,8 +9,9 @@ public class FirebaseInit : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        FirebaseApp.CheckAndFixDependenciesAsync().ContinueWithOnMainThread(task =>
+        FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task =>
         {
+            FirebaseAnalytics.SetAnalyticsCollectionEnabled(true);
             if (task.Exception != null)
             {
                 Debug.LogError("Failed to initialize fire base with" + task.Exception);

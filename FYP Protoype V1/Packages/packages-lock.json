@@ -25,6 +25,24 @@
       },
       "url": "https://unityregistry-pa.googleapis.com"
     },
+    "com.google.firebase.auth": {
+      "version": "6.16.1",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.google.firebase.app": "6.16.1"
+      },
+      "url": "https://unityregistry-pa.googleapis.com"
+    },
+    "com.google.firebase.database": {
+      "version": "6.16.1",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.google.firebase.auth": "6.16.1"
+      },
+      "url": "https://unityregistry-pa.googleapis.com"
+    },
     "com.unity.collab-proxy": {
       "version": "1.2.16",
       "depth": 0,
