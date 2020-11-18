@@ -29,7 +29,11 @@ public class MyHand : MonoBehaviour
 
                 //ForearmExercise();
 
-
+                Debug.Log(_leftHand.Arm.Direction);
+                if (_leftHand.Arm.Direction.x < 0)
+                    Debug.Log("Move towards body");
+                else
+                    Debug.Log("Move towards ground");
             }
                 
         }
@@ -46,7 +50,7 @@ public class MyHand : MonoBehaviour
 
     public void ElbowAExercise()
     {
-
+        
     }
 
     public void WristExercise()
