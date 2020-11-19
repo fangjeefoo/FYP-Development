@@ -29,10 +29,7 @@ public class MyHand : MonoBehaviour
 
                 //ForearmExercise();
 
-                if (_leftHand.PalmNormal.z < 0)
-                    Debug.Log("Palm facing out");
-                else
-                    Debug.Log("Palm facing body");
+
             }
                 
         }
@@ -49,8 +46,7 @@ public class MyHand : MonoBehaviour
 
     public void ElbowAExercise()
     {
-        Debug.Log(_leftHand.Arm.Direction);
-        if (_leftHand.Arm.Direction.x < 0)
+        if (_leftHand.PalmNormal.y < 0)
             Debug.Log("Move towards body");
         else
             Debug.Log("Move towards ground");
@@ -58,7 +54,9 @@ public class MyHand : MonoBehaviour
 
     public void WristExercise()
     {
-        //not the rotation
-
+        if (_leftHand.PalmNormal.z < 0)
+            Debug.Log("Palm facing out");
+        else
+            Debug.Log("Palm facing body");
     }
 }
