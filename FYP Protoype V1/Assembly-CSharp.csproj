@@ -469,6 +469,7 @@
     <Compile Include="Assets\Other People Asset\Food\CoffeeShopStarterPack\Scripts\Utilities\SliceHelper.cs" />
     <Compile Include="Assets\Scripts\Chair.cs" />
     <Compile Include="Assets\Scripts\Customer.cs" />
+    <Compile Include="Assets\Scripts\Food.cs" />
     <Compile Include="Assets\Scripts\Manager\FirebaseInit.cs" />
     <Compile Include="Assets\Scripts\Manager\GameManager.cs" />
     <Compile Include="Assets\Scripts\Manager\Lose.cs" />

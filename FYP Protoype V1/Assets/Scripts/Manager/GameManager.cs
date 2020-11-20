@@ -163,4 +163,12 @@ public class GameManager : MonoBehaviour
             _currentScore -= score;
         goalText.text = _goalText + _currentScore + "/" + goalScore;
     }
+
+    public void UpdatePerformedTimes(int exercise)
+    {
+        if(exercise < _performedTimes.Length)
+        {
+            _performedTimes[exercise]++;
+        }
+    }
 }

@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Chair
   - SoundManager
+  - Plate
+  - Hand
   layers:
   - Default
   - TransparentFX
