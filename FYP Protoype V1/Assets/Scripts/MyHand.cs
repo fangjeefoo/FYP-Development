@@ -27,6 +27,7 @@ public class MyHand : MonoBehaviour
             {
                 _leftHand = frame.Hands[0];
 
+                //condition to trigger exercise
                 //ForearmExercise();
 
 
@@ -38,6 +39,7 @@ public class MyHand : MonoBehaviour
     public void ForearmExercise()
     {
         //https://stackoverflow.com/questions/42051951/how-to-detect-if-hand-in-leap-motion-is-facing-up-c-unity
+        //adding one more condition, maybe check x or z, because got 2 y (in elbow exercise)
         if (_leftHand.PalmNormal.y < 0)
             Debug.Log("Palm facing down");
         else
