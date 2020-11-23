@@ -6,11 +6,11 @@ public class Pan : MonoBehaviour
 {
     public void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Collision enter");
+        MyHand.handManager.UpdatePanObject(true);
     }
 
     public void OnCollisionExit(Collision collision)
     {
-        Debug.Log("Collision exit");
+        MyHand.handManager.UpdatePanObject(false);
     }
 }

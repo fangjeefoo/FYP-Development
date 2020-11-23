@@ -293,8 +293,8 @@ GameObject:
   - component: {fileID: 4417835110624140}
   - component: {fileID: -3612085059880821039}
   m_Layer: 0
-  m_Name: stool prefab
-  m_TagString: Untagged
+  m_Name: Ori stool
+  m_TagString: Chair
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -308,7 +308,7 @@ Transform:
   m_GameObject: {fileID: 1505049217529668}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.4, z: 0.3}
   m_Children:
   - {fileID: 4651387009595854}
   - {fileID: 4984817650036020}
@@ -332,6 +332,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   occupied: 0
+  platePrefab: {fileID: 1996825806202182485, guid: 3ecfd181b1ddc9447a1438124756cf03,
+    type: 3}
+  currentCustomer: {fileID: 0}
 --- !u!1 &1589977295160578
 GameObject:
   m_ObjectHideFlags: 0
