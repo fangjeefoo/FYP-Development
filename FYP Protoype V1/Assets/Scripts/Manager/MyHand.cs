@@ -14,6 +14,8 @@ public class MyHand : MonoBehaviour
     private bool _elbowExercise;
     private bool _wristExercise;
     private bool _holdingKnife;
+    private bool[] _selectedExercise;
+    private bool _called;
 
     // Start is called before the first frame update
     void Start()
@@ -24,24 +26,32 @@ public class MyHand : MonoBehaviour
         _elbowExercise = false;
         _wristExercise = false;
         _holdingKnife = false;
+        _called = false;
+        _selectedExercise = new bool[4] { true, false, false, false };
     }
 
     // Update is called once per frame
     void Update()
     {
-        Frame frame = _controller.Frame(0);
+        Frame frame = _controller.Frame(0);        
 
+        if(GameManager.gm.SelectedExercise != null && !_called)
+        {
+            _selectedExercise = GameManager.gm.SelectedExercise;
+            _called = true;
+        }          
+           
         if(frame.Hands.Count > 0)
         {
             _hand = frame.Hands[0];
 
-            if (_forearmExercise)
+            if (_forearmExercise && _selectedExercise[1])
                 ForearmExercise();
 
-            if (_elbowExercise && _holdingKnife)
+            if (_elbowExercise && _holdingKnife && _selectedExercise[2])
                 ElbowAExercise();
 
-            if (_wristExercise)
+            if (_wristExercise && _selectedExercise[3])
                 WristExercise();
         }
     }
@@ -52,11 +62,12 @@ public class MyHand : MonoBehaviour
     public void ForearmExercise()
     {
         //https://stackoverflow.com/questions/42051951/how-to-detect-if-hand-in-leap-motion-is-facing-up-c-unity
-        //adding one more condition, maybe check x or z, because got 2 y (in elbow exercise)
         if (_hand.PalmNormal.y < 0)
             Debug.Log("Palm facing down");
         else
             Debug.Log("Palm facing up");
+
+        GameManager.gm.UpdatePerformedTimes(1);
     }
 
     public void ElbowAExercise()
@@ -65,6 +76,8 @@ public class MyHand : MonoBehaviour
             Debug.Log("Move towards body");
         else
             Debug.Log("Move towards ground");
+
+        GameManager.gm.UpdatePerformedTimes(2);
     }
 
     /// <summary>
@@ -76,6 +89,8 @@ public class MyHand : MonoBehaviour
             Debug.Log("Palm facing out");
         else
             Debug.Log("Palm facing body");
+
+        GameManager.gm.UpdatePerformedTimes(3);
     }
 
     public bool UpdateWristExercise

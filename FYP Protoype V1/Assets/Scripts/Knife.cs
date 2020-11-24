@@ -5,15 +5,30 @@ using UnityEngine;
 public class Knife : MonoBehaviour
 {
     private Vector3 _oriPos;
+    private bool _called;
 
     public void Start()
     {
         _oriPos = transform.position;
+        _called = false;
     }
 
+    public void Update()
+    {        
+        if(GameManager.gm.SelectedExercise != null && !_called)
+        {
+            _called = true;
+            if (!GameManager.gm.SelectedExercise[2])
+                Destroy(this.gameObject.GetComponent<MeshCollider>());                
+        }
+    }
     public void OnCollisionEnter(Collision collision)
     {
-        MyHand.handManager.HoldingKnife = true;
+        if (collision.gameObject.tag == "Hand" && this.gameObject.layer == 9)
+        {
+            GameManager.gm.UpdatePerformedTimes(0);
+            MyHand.handManager.HoldingKnife = true;
+        }        
     }
 
     public void OnCollisionEnter2D(Collision2D collision)

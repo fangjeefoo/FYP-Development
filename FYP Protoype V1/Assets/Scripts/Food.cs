@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class Food : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private bool _isCooked;
+
+    public void Start()
     {
-        
+        _isCooked = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    public bool Cook
     {
-        
+        set { _isCooked = value; }
+        get { return _isCooked; }
     }
 
     public void OnCollisionEnter(Collision collision)
@@ -21,7 +22,6 @@ public class Food : MonoBehaviour
         if(collision.gameObject.tag == "Hand" && this.gameObject.layer == 9)
         {
             Debug.Log("grab and release");
-            //0 = fist exercise
             GameManager.gm.UpdatePerformedTimes(0);
         }            
     }

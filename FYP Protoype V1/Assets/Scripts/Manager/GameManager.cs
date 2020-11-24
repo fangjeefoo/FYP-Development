@@ -163,12 +163,18 @@ public class GameManager : MonoBehaviour
             _currentScore -= score;
         goalText.text = _goalText + _currentScore + "/" + goalScore;
     }
-
+    
+    //0 = fist exercise, 1 = forearm exercise, 2 = elbow exercise, 3 = wrist exercise
     public void UpdatePerformedTimes(int exercise)
     {
         if(exercise < _performedTimes.Length)
         {
             _performedTimes[exercise]++;
         }
+    }
+
+    public bool[] SelectedExercise
+    {
+        get { return _selectedExercise; }
     }
 }

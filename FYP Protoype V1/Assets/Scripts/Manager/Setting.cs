@@ -20,7 +20,7 @@ public class Setting : MonoBehaviour
 
     //private variable
     private FirebaseDatabase _database;
-    private enum Choice { exercise1, exercise2, exercise3, exercise4, back, save, exerciseDuration, performedTimes, volume, none}
+    private enum Choice { exercise2, exercise3, exercise4, back, save, exerciseDuration, performedTimes, volume, none}
     private bool _click;
     private float _counter;
     private Choice _choice;
@@ -55,13 +55,6 @@ public class Setting : MonoBehaviour
         {           
             switch (_choice)
             {
-                case Choice.exercise1:
-                    if (exercise[0].GetComponent<Image>().color == Color.green)
-                        exercise[0].GetComponent<Image>().color = Color.white;
-                    else
-                        exercise[0].GetComponent<Image>().color = Color.green;                      
-                    OnExit();
-                    break;
                 case Choice.exercise2:
                     if (exercise[1].GetComponent<Image>().color == Color.green)
                         exercise[1].GetComponent<Image>().color = Color.white;
@@ -166,12 +159,6 @@ public class Setting : MonoBehaviour
                 volumeText.text = _volumeText + volumeSlider.GetComponent<Slider>().value;
                 break;
         }
-    }
-
-    public void Exercise1OnEnter()
-    {
-        _click = true;
-        _choice = Choice.exercise1;
     }
 
     public void Exercise2OnEnter()
