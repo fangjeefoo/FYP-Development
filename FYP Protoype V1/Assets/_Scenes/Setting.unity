@@ -190,7 +190,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Exercise 4
+  m_Text: Wrist Exercise
 --- !u!222 &209627394
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1616,7 +1616,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Exercise 2
+  m_Text: Forearm Exercise
 --- !u!222 &1201129980
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2101,7 +2101,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Exercise 1
+  m_Text: Fist Exercise
 --- !u!222 &1603245808
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2257,7 +2257,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Exercise 3
+  m_Text: Elbow Exercise
 --- !u!222 &1606819305
 CanvasRenderer:
   m_ObjectHideFlags: 0
