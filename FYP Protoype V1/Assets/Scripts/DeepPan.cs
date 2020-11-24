@@ -6,11 +6,17 @@ public class DeepPan : MonoBehaviour
 {
     public void OnCollisionEnter(Collision collision)
     {
-        MyHand.handManager.UpdateDeepPanObject(true);
+        if (MyHand.handManager.UpdateWristExercise)
+        {
+            Destroy(collision.gameObject);
+            return;
+        }
+
+        MyHand.handManager.UpdateWristExercise = true;
     }
 
     public void OnCollisionExit(Collision collision)
     {
-        MyHand.handManager.UpdateDeepPanObject(false);
+        MyHand.handManager.UpdateWristExercise = false;
     }
 }

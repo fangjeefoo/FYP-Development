@@ -6,11 +6,17 @@ public class Pan : MonoBehaviour
 {
     public void OnCollisionEnter(Collision collision)
     {
-        MyHand.handManager.UpdatePanObject(true);
+        if (MyHand.handManager.UpdateForearmExercise)
+        {
+            Destroy(collision.gameObject);
+            return;
+        }
+
+        MyHand.handManager.UpdateForearmExercise = true;
     }
 
     public void OnCollisionExit(Collision collision)
     {
-        MyHand.handManager.UpdatePanObject(false);
+        MyHand.handManager.UpdateForearmExercise = false;
     }
 }

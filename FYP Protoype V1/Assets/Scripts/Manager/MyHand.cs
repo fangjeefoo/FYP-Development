@@ -10,9 +10,6 @@ public class MyHand : MonoBehaviour
     //private variable
     private Hand _hand;
     private Controller _controller;
-    private int _panObject;
-    private int _deepPanObject;
-    private int _cuttingBoardObject;
     private bool _forearmExercise;    
     private bool _elbowExercise;
     private bool _wristExercise;
@@ -23,9 +20,6 @@ public class MyHand : MonoBehaviour
     {
         handManager = this;
         _controller = new Controller();
-        _panObject = 0;
-        _deepPanObject = 0;
-        _cuttingBoardObject = 0;
         _forearmExercise = false;
         _elbowExercise = false;
         _wristExercise = false;
@@ -84,43 +78,22 @@ public class MyHand : MonoBehaviour
             Debug.Log("Palm facing body");
     }
 
-    public void UpdatePanObject(bool increase)
+    public bool UpdateWristExercise
     {
-        if (increase)
-            _panObject++;
-        else
-            _panObject--;
-
-        if(_panObject > 0)
-            _forearmExercise = true;
-        else
-            _forearmExercise = false;
+        get { return _wristExercise; }
+        set { _wristExercise = value; }
     }
 
-    public void UpdateDeepPanObject(bool increase)
+    public bool UpdateElbowExercise
     {
-        if (increase)
-            _deepPanObject++;
-        else
-            _deepPanObject--;
-
-        if (_deepPanObject > 0)
-            _wristExercise = true;
-        else
-            _wristExercise = false;
+        get { return _elbowExercise; }
+        set { _elbowExercise = value; }
     }
 
-    public void UpdateCuttingBoardObject(bool increase)
+    public bool UpdateForearmExercise
     {
-        if (increase)
-            _cuttingBoardObject++;
-        else
-            _cuttingBoardObject--;
-
-        if (_cuttingBoardObject > 0)
-            _elbowExercise = true;
-        else
-            _elbowExercise = false;
+        get { return _forearmExercise; }
+        set { _forearmExercise = value; }
     }
 
     public bool HoldingKnife
