@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using UnityEngine;
+using FoodType;
+using System;
 
 public class Customer : MonoBehaviour
 {
@@ -29,6 +31,7 @@ public class Customer : MonoBehaviour
     private bool _isLeaving;
     private GameObject[] _chair;
     private Animator animator;
+    private MyFoodType _foodOrder;
 
     /// <summary>
     /// Initialize all private variable
@@ -46,11 +49,16 @@ public class Customer : MonoBehaviour
         _speed = 1f;
         _chair = GameObject.FindGameObjectsWithTag("Chair");
         animator = transform.GetChild(0).GetComponent<Animator>();
-        if(animator != null)
+        int length = Enum.GetNames(typeof(MyFoodType)).Length;
+        _foodOrder = (MyFoodType)UnityEngine.Random.Range(1, length);        
+
+        if (animator != null)
         {
             animator.SetBool("Grounded", true);
             animator.SetFloat("MoveSpeed", _speed);
         }
+
+        
     }
 
     void Update()
@@ -160,9 +168,16 @@ public class Customer : MonoBehaviour
         }
     }
 
-    public void SetServing(bool set)
+    public bool Serving
     {
-        _isServing = set;
+        get { return _isServing; }
+        set { _isServing = value; }
+    }
+
+    public MyFoodType Order
+    {
+        get { return _foodOrder; }
+        set { _foodOrder = value; }
     }
     /// <summary>
     /// activate this function when player place the food in front of player

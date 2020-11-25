@@ -12,8 +12,11 @@ public class Plate : MonoBehaviour
     }
 
     private void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("Start eating");
-        _currentCustomer.GetComponent<Customer>().SetServing(true);
+    {       
+        if(_currentCustomer.GetComponent<Customer>().Order == collision.gameObject.GetComponent<Food>().FoodType && collision.gameObject.GetComponent<Food>().Cook)
+        {
+            Debug.Log("Start eating");
+            _currentCustomer.GetComponent<Customer>().Serving = true;
+        }        
     }
 }
