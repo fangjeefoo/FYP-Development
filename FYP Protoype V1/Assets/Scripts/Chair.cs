@@ -26,7 +26,7 @@ public class Chair : MonoBehaviour
 
     public void GeneratePlate()
     {
-        _currentPlate = Instantiate(platePrefab, new Vector3(transform.position.x, transform.position.y + 1.2f, transform.position.z - 1), Quaternion.Euler(0f, 0f, 0f));
+        _currentPlate = Instantiate(platePrefab, new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z - 1), Quaternion.Euler(0f, 0f, 0f));
         _currentPlate.GetComponent<Plate>().SetCustomer(currentCustomer);
     }
 
