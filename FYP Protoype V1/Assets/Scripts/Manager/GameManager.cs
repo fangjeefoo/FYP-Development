@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        gm = this.GetComponent<GameManager>();
+        gm = this;
     }
 
     /// <summary>

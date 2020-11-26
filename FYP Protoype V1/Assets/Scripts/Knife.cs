@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Leap.Unity.Interaction;
 
 public class Knife : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class Knife : MonoBehaviour
         {
             _called = true;
             if (!GameManager.gm.SelectedExercise[2])
-                Destroy(this.gameObject.GetComponent<MeshCollider>());                
+                Destroy(this.gameObject.GetComponent<InteractionBehaviour>());                
         }
     }
     public void OnCollisionEnter(Collision collision)

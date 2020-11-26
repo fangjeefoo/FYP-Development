@@ -469,9 +469,11 @@
     <Compile Include="Assets\Other People Asset\Food\CoffeeShopStarterPack\Scripts\Utilities\SliceHelper.cs" />
     <Compile Include="Assets\Scripts\Chair.cs" />
     <Compile Include="Assets\Scripts\Customer.cs" />
+    <Compile Include="Assets\Scripts\CustomerPlate.cs" />
     <Compile Include="Assets\Scripts\CuttingBoard.cs" />
     <Compile Include="Assets\Scripts\DeepPan.cs" />
     <Compile Include="Assets\Scripts\Food.cs" />
+    <Compile Include="Assets\Scripts\FoodPlate.cs" />
     <Compile Include="Assets\Scripts\Knife.cs" />
     <Compile Include="Assets\Scripts\Manager\FirebaseInit.cs" />
     <Compile Include="Assets\Scripts\Manager\GameManager.cs" />
@@ -485,7 +487,6 @@
     <Compile Include="Assets\Scripts\Normal Class\LevelData.cs" />
     <Compile Include="Assets\Scripts\Normal Class\PerformanceData.cs" />
     <Compile Include="Assets\Scripts\Pan.cs" />
-    <Compile Include="Assets\Scripts\Plate.cs" />
     <None Include="Assets\LMC\LeapMotion\Core\Version.txt" />
     <None Include="Assets\LMC\LeapMotion\Core\Shaders\RuntimeGizmos.shader" />
     <None Include="Assets\GoogleVR\Shaders\GvrUIOverlayFont.shader" />
