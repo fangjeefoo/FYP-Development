@@ -11,25 +11,33 @@ public class FoodPlate : MonoBehaviour
     private int _maxFood;
     private int _currentFood;
 
-
     void Start()
     {
-        _maxFood = 3;
+        _maxFood = 1;
         _currentFood = 0;
-
-        for(int i = _currentFood; i < _maxFood; i++)
-            Instantiate(food, foodParent);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(_currentFood < _maxFood)
+            Instantiate(food, foodParent);
+
+    }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        _currentFood++;
+
+        if (_currentFood > _maxFood)
+        {
+            _currentFood--;
+            Destroy(collision.gameObject);
+        }            
     }
 
     public void OnCollisionExit(Collision collision)
     {
-        for (int i = _currentFood; i < _maxFood; i++)
-            Instantiate(food, foodParent);
+        _currentFood--;
     }
 }
