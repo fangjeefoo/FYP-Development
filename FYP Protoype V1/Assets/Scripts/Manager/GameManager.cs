@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     private string _retrieveDbName;
     private int _levelDuration;
     private bool[] _selectedExercise;
+    private bool[] _currentSelectedExercise;
     private int[] _performedTimes;
     private LevelData _currentLevelData;
     private PerformanceData _performanceData;
@@ -144,9 +145,16 @@ public class GameManager : MonoBehaviour
                 customize = JsonUtility.FromJson<Customization>(dataSnapshot.GetRawJsonValue());
 
                 _selectedExercise = new bool[4];
+                _currentSelectedExercise = new bool[4];
                 _selectedExercise = customize.exercise;
+                _currentSelectedExercise = customize.exercise;
                 _levelDuration = customize.exerciseDurationPerLevel;
                 _currentTimer = _levelDuration * 60f;
+
+                for(int i = currentLevel; i < _currentSelectedExercise.Length; i++)
+                {
+                    _currentSelectedExercise[i] = false;
+                }
             }
         });
     }
@@ -178,6 +186,6 @@ public class GameManager : MonoBehaviour
 
     public bool[] SelectedExercise
     {
-        get { return _selectedExercise; }
+        get { return _currentSelectedExercise; }
     }
 }

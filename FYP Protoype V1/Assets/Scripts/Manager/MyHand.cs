@@ -34,7 +34,7 @@ public class MyHand : MonoBehaviour
         _forearmCounter = 0;
         _elbowCounter = 0;
         _wristCounter = 0;
-    _selectedExercise = new bool[4] { true, false, false, false };
+        _selectedExercise = new bool[4] { true, false, false, false };
     }
 
     // Update is called once per frame
