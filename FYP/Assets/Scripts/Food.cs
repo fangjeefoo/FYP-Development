@@ -5,12 +5,12 @@ using FoodType;
 
 namespace FoodType
 {
-    public enum MyFoodType { none, steak};
+    public enum MyFoodType { none, steak, mushroom, sausage, shrimp};
 }
 
 public class Food : MonoBehaviour
 {
-    private MyFoodType _foodType;
+    public MyFoodType _foodType;
     private bool _isCooked;
 
     public void Start()
@@ -23,6 +23,7 @@ public class Food : MonoBehaviour
         get { return _foodType; }
         set { _foodType = value; }
     }
+
     public bool Cook
     {
         set { _isCooked = value; }
