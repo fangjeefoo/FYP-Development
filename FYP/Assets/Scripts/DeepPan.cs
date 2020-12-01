@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FoodType;
 
 public class DeepPan : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class DeepPan : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        if (MyHand.handManager.UpdateWristExercise)
+        if (MyHand.handManager.UpdateWristExercise || collision.gameObject.GetComponent<Food>().cookType != CookType.soup)
         {
             Destroy(collision.gameObject);
             return;

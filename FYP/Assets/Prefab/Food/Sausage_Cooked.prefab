@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7295610655730879156}
   - component: {fileID: 6066632064090431470}
   m_Layer: 0
-  m_Name: Sausage_ Cooked
+  m_Name: Sausage_Cooked
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,9 +29,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3659858501444835398}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -5.41, y: 1.575, z: -6.44}
+  m_LocalPosition: {x: -2.66, y: 1.58, z: -5.44}
   m_LocalScale: {x: 5, y: 5, z: 5}
-  m_Children: []
+  m_Children:
+  - {fileID: 2291111709554728996}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -124,5 +125,81 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a845cc1a75c3ac34aace82294cc5e446, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _foodType: 3
-  _isCooked: 0
+  food: {fileID: 0}
+  foodType: 3
+  cookType: 0
+--- !u!1001 &4401203520185762526
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 3659858501445321830}
+    m_Modifications:
+    - target: {fileID: 2512901657862365946, guid: 4b77af640a555ac4f8ceb747bad0d262,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2512901657862365946, guid: 4b77af640a555ac4f8ceb747bad0d262,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2512901657862365946, guid: 4b77af640a555ac4f8ceb747bad0d262,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.0148
+      objectReference: {fileID: 0}
+    - target: {fileID: 2512901657862365946, guid: 4b77af640a555ac4f8ceb747bad0d262,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2512901657862365946, guid: 4b77af640a555ac4f8ceb747bad0d262,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2512901657862365946, guid: 4b77af640a555ac4f8ceb747bad0d262,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2512901657862365946, guid: 4b77af640a555ac4f8ceb747bad0d262,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2512901657862365946, guid: 4b77af640a555ac4f8ceb747bad0d262,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2512901657862365946, guid: 4b77af640a555ac4f8ceb747bad0d262,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -270
+      objectReference: {fileID: 0}
+    - target: {fileID: 2512901657862365946, guid: 4b77af640a555ac4f8ceb747bad0d262,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2512901657862365946, guid: 4b77af640a555ac4f8ceb747bad0d262,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2512901657862864602, guid: 4b77af640a555ac4f8ceb747bad0d262,
+        type: 3}
+      propertyPath: m_Name
+      value: serving plate
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4b77af640a555ac4f8ceb747bad0d262, type: 3}
+--- !u!4 &2291111709554728996 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2512901657862365946, guid: 4b77af640a555ac4f8ceb747bad0d262,
+    type: 3}
+  m_PrefabInstance: {fileID: 4401203520185762526}
+  m_PrefabAsset: {fileID: 0}

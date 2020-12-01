@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FoodType;
 
 public class CuttingBoard : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class CuttingBoard : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        if (MyHand.handManager.UpdateElbowExercise)
+        if (MyHand.handManager.UpdateElbowExercise || collision.gameObject.GetComponent<Food>().cookType != CookType.shredding)
         {
             Destroy(collision.gameObject);
             return;

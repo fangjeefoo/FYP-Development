@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Leap;
+using FoodType;
 
 public class MyHand : MonoBehaviour
 {
@@ -82,7 +83,7 @@ public class MyHand : MonoBehaviour
         if(_forearmCounter >= 3)
         {
             _forearmCounter = 0;
-            Pan.pan.food.GetComponent<Food>().Cook = true;
+            Pan.pan.food.GetComponent<Food>().GenerateFood();
         }
         //if (_hand.PalmNormal.y < 0)
         //    Debug.Log("Palm facing down");
@@ -104,7 +105,7 @@ public class MyHand : MonoBehaviour
         if(_elbowCounter >= 3)
         {
             _elbowCounter = 0;
-            CuttingBoard.cuttingBoard.food.GetComponent<Food>().Cook = true;            
+            CuttingBoard.cuttingBoard.food.GetComponent<Food>().GenerateFood();            
         }
         //if (_hand.PalmNormal.y < 0)
         //    Debug.Log("Move towards body");
@@ -131,7 +132,7 @@ public class MyHand : MonoBehaviour
         if(_wristCounter >= 3)
         {
             _wristCounter = 0;
-            DeepPan.deepPan.food.GetComponent<Food>().Cook = true;
+            DeepPan.deepPan.food.GetComponent<Food>().GenerateFood();
         }
         //if (_hand.PalmNormal.z < 0)
         //    Debug.Log("Palm facing out");

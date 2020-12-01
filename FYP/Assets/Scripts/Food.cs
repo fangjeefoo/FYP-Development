@@ -6,28 +6,27 @@ using FoodType;
 namespace FoodType
 {
     public enum MyFoodType { none, steak, mushroom, sausage, shrimp};
+    public enum CookType { cooked, shredding, frying, soup}
 }
 
 public class Food : MonoBehaviour
 {
-    public MyFoodType _foodType;
-    public bool _isCooked;
+    public GameObject food;
+    public MyFoodType foodType;
+    public CookType cookType;
+
+    private GameObject _foodParent;
+
 
     public void Start()
     {
-        _isCooked = false;
+        _foodParent = GameObject.FindGameObjectWithTag("FoodManager");
     }
 
-    public MyFoodType FoodType
+    public void GenerateFood()
     {
-        get { return _foodType; }
-        set { _foodType = value; }
-    }
-
-    public bool Cook
-    {
-        set { _isCooked = value; }
-        get { return _isCooked; }
+        GameObject temp = Instantiate(food, _foodParent.transform);
+        Destroy(this.gameObject);
     }
 
     public void OnCollisionEnter(Collision collision)

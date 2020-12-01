@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FoodType;
 
 public class Pan : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class Pan : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        if (MyHand.handManager.UpdateForearmExercise)
+        if (MyHand.handManager.UpdateForearmExercise || collision.gameObject.GetComponent<Food>().cookType != CookType.frying)
         {
             Destroy(collision.gameObject);
             return;

@@ -124,4 +124,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a845cc1a75c3ac34aace82294cc5e446, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _foodType: 1
+  food: {fileID: 4078848723570838378, guid: f6c37544000a4324bb4d514614d42f79, type: 3}
+  foodType: 1
+  cookType: 2

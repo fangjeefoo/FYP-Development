@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7295610655730879156}
   - component: {fileID: 6066632064090431470}
   m_Layer: 0
-  m_Name: Sausage_ Uncooked
+  m_Name: Sausage_Uncooked
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -124,5 +124,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a845cc1a75c3ac34aace82294cc5e446, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _foodType: 3
-  _isCooked: 0
+  food: {fileID: 3659858501444835398, guid: 4bd16fc6acd06544f97b4e8daa1f3d72, type: 3}
+  foodType: 3
+  cookType: 2
