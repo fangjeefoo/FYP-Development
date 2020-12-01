@@ -3,12 +3,18 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - Chair
     - Customer
+    - CustomerPlate
+    - CuttingBoard
+    - DeepPan
     - FirebaseInit
+    - Food
+    - FoodPlate
     - GameManager
     - GvrEditorEmulator
     - GvrPointerInputModule
     - GvrPointerPhysicsRaycaster
     - GvrReticlePointer
+    - Knife
     - Leap.Unity.CapsuleHand
     - Leap.Unity.Comment
     - Leap.Unity.HandEnableDisable
@@ -22,7 +28,9 @@ ScriptsOnlyBuild:
     - Lose
     - MainMenu
     - MyHand
-    - Plate
+    - PW.ProgressHelper
+    - PW.StoveGameObject
+    - Pan
     - Setting
     - SoundManager
     - Win
@@ -41,6 +49,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.GridLayoutGroup
     - UnityEngine.UI.Image
+    - UnityEngine.UI.Mask
     - UnityEngine.UI.Slider
     - UnityEngine.UI.Text
   sceneClasses:
@@ -73,8 +82,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
-    - Class: 89
-      Script: {instanceID: 0}
     - Class: 90
       Script: {instanceID: 0}
     - Class: 91
@@ -94,52 +101,60 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11512}
     - Class: 114
-      Script: {instanceID: 11566}
+      Script: {instanceID: 11522}
     - Class: 114
-      Script: {instanceID: 11688}
+      Script: {instanceID: 11568}
     - Class: 114
-      Script: {instanceID: 11888}
+      Script: {instanceID: 11690}
     - Class: 114
-      Script: {instanceID: 12142}
+      Script: {instanceID: 11890}
     - Class: 114
-      Script: {instanceID: 12182}
+      Script: {instanceID: 12144}
     - Class: 114
-      Script: {instanceID: 12452}
+      Script: {instanceID: 12184}
     - Class: 114
-      Script: {instanceID: 12924}
+      Script: {instanceID: 12398}
     - Class: 114
-      Script: {instanceID: 13082}
+      Script: {instanceID: 12440}
     - Class: 114
-      Script: {instanceID: 13154}
+      Script: {instanceID: 12458}
     - Class: 114
-      Script: {instanceID: 13268}
+      Script: {instanceID: 12930}
     - Class: 114
-      Script: {instanceID: 13358}
+      Script: {instanceID: 13088}
     - Class: 114
-      Script: {instanceID: 13378}
+      Script: {instanceID: 13160}
     - Class: 114
-      Script: {instanceID: 13492}
+      Script: {instanceID: 13274}
     - Class: 114
-      Script: {instanceID: 13714}
+      Script: {instanceID: 13364}
     - Class: 114
-      Script: {instanceID: 13764}
+      Script: {instanceID: 13384}
     - Class: 114
-      Script: {instanceID: 13892}
+      Script: {instanceID: 13498}
     - Class: 114
-      Script: {instanceID: 13962}
+      Script: {instanceID: 13538}
     - Class: 114
-      Script: {instanceID: 14012}
+      Script: {instanceID: 13722}
     - Class: 114
-      Script: {instanceID: 14166}
+      Script: {instanceID: 13772}
     - Class: 114
-      Script: {instanceID: 14494}
+      Script: {instanceID: 13900}
     - Class: 114
-      Script: {instanceID: 14544}
+      Script: {instanceID: 13970}
     - Class: 114
-      Script: {instanceID: 14596}
+      Script: {instanceID: 14020}
+    - Class: 114
+      Script: {instanceID: 14100}
+    - Class: 114
+      Script: {instanceID: 14156}
+    - Class: 114
+      Script: {instanceID: 14178}
+    - Class: 114
+      Script: {instanceID: 14506}
+    - Class: 114
+      Script: {instanceID: 14556}
     - Class: 115
-      Script: {instanceID: 0}
-    - Class: 124
       Script: {instanceID: 0}
     - Class: 128
       Script: {instanceID: 0}
@@ -158,8 +173,6 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
-      Script: {instanceID: 0}
-    - Class: 258
       Script: {instanceID: 0}
     Assets/_Scenes/Lose.unity:
     - Class: 1
@@ -191,23 +204,23 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11508}
     - Class: 114
-      Script: {instanceID: 11888}
+      Script: {instanceID: 11890}
     - Class: 114
-      Script: {instanceID: 12182}
+      Script: {instanceID: 12184}
     - Class: 114
-      Script: {instanceID: 13764}
+      Script: {instanceID: 13772}
     - Class: 114
-      Script: {instanceID: 13962}
+      Script: {instanceID: 13970}
     - Class: 114
-      Script: {instanceID: 14012}
+      Script: {instanceID: 14020}
     - Class: 114
-      Script: {instanceID: 14154}
+      Script: {instanceID: 14166}
     - Class: 114
-      Script: {instanceID: 14494}
+      Script: {instanceID: 14506}
     - Class: 114
-      Script: {instanceID: 14536}
+      Script: {instanceID: 14548}
     - Class: 114
-      Script: {instanceID: 14596}
+      Script: {instanceID: 14608}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -256,27 +269,27 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11508}
     - Class: 114
-      Script: {instanceID: 11714}
+      Script: {instanceID: 11716}
     - Class: 114
-      Script: {instanceID: 11888}
+      Script: {instanceID: 11890}
     - Class: 114
-      Script: {instanceID: 12182}
+      Script: {instanceID: 12184}
     - Class: 114
-      Script: {instanceID: 13592}
+      Script: {instanceID: 13600}
     - Class: 114
-      Script: {instanceID: 13764}
+      Script: {instanceID: 13772}
     - Class: 114
-      Script: {instanceID: 13868}
+      Script: {instanceID: 13876}
     - Class: 114
-      Script: {instanceID: 13962}
+      Script: {instanceID: 13970}
     - Class: 114
-      Script: {instanceID: 14012}
+      Script: {instanceID: 14020}
     - Class: 114
-      Script: {instanceID: 14494}
+      Script: {instanceID: 14506}
     - Class: 114
-      Script: {instanceID: 14536}
+      Script: {instanceID: 14548}
     - Class: 114
-      Script: {instanceID: 14596}
+      Script: {instanceID: 14608}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -323,23 +336,23 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11510}
     - Class: 114
-      Script: {instanceID: 11888}
+      Script: {instanceID: 11890}
     - Class: 114
-      Script: {instanceID: 12182}
+      Script: {instanceID: 12184}
     - Class: 114
-      Script: {instanceID: 13764}
+      Script: {instanceID: 13772}
     - Class: 114
-      Script: {instanceID: 13962}
+      Script: {instanceID: 13970}
     - Class: 114
-      Script: {instanceID: 14012}
+      Script: {instanceID: 14020}
     - Class: 114
-      Script: {instanceID: 14494}
+      Script: {instanceID: 14506}
     - Class: 114
-      Script: {instanceID: 14536}
+      Script: {instanceID: 14548}
     - Class: 114
-      Script: {instanceID: 14596}
+      Script: {instanceID: 14608}
     - Class: 114
-      Script: {instanceID: 14654}
+      Script: {instanceID: 14666}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -386,23 +399,23 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11508}
     - Class: 114
-      Script: {instanceID: 11888}
+      Script: {instanceID: 11890}
     - Class: 114
-      Script: {instanceID: 12182}
+      Script: {instanceID: 12184}
     - Class: 114
-      Script: {instanceID: 13320}
+      Script: {instanceID: 13326}
     - Class: 114
-      Script: {instanceID: 13764}
+      Script: {instanceID: 13772}
     - Class: 114
-      Script: {instanceID: 13962}
+      Script: {instanceID: 13970}
     - Class: 114
-      Script: {instanceID: 14012}
+      Script: {instanceID: 14020}
     - Class: 114
-      Script: {instanceID: 14494}
+      Script: {instanceID: 14506}
     - Class: 114
-      Script: {instanceID: 14536}
+      Script: {instanceID: 14548}
     - Class: 114
-      Script: {instanceID: 14596}
+      Script: {instanceID: 14608}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -456,6 +469,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: GridLayoutGroup
+  - hash:
+      serializedVersion: 2
+      Hash: b14d7c492ac09728203f31763e7b1bb9
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Pan
   - hash:
       serializedVersion: 2
       Hash: c42672c997f8be6b1aa86a927ebea785
@@ -920,6 +939,12 @@ ScriptsOnlyBuild:
     className: Mask
   - hash:
       serializedVersion: 2
+      Hash: 832ec897c7b6824dcf2792b9ada2c3ae
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FoodPlate
+  - hash:
+      serializedVersion: 2
       Hash: 62596a2a2a9cdf0f3d9e0b8fa3b109cc
     assemblyName: Assembly-CSharp.dll
     namespaceName: PW
@@ -942,6 +967,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: Leap.Unity
     className: FrameRateControls
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Knife
   - hash:
       serializedVersion: 2
       Hash: ef2d258b91b4858380885df844ee6bb6
@@ -1253,7 +1284,7 @@ ScriptsOnlyBuild:
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: Plate
+    className: CustomerPlate
   - hash:
       serializedVersion: 2
       Hash: 44ddd6fbe4ff89af43a988be92dd5456
@@ -1350,6 +1381,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: SignalReceiver
+  - hash:
+      serializedVersion: 2
+      Hash: e4e29198818a8d5cf0fe3f3023814183
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Food
   - hash:
       serializedVersion: 2
       Hash: bf3913f0d6c694bf20e1d681c79a4993
@@ -1598,6 +1635,12 @@ ScriptsOnlyBuild:
     className: GvrControllerVisual
   - hash:
       serializedVersion: 2
+      Hash: b14d7c492ac09728203f31763e7b1bb9
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CuttingBoard
+  - hash:
+      serializedVersion: 2
       Hash: 6c081c46e59d89aa6e2b50b5caaf7b93
     assemblyName: Assembly-CSharp.dll
     namespaceName: Leap.Unity
@@ -1608,6 +1651,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: GoogleVR.VideoDemo
     className: ScrubberEvents
+  - hash:
+      serializedVersion: 2
+      Hash: b14d7c492ac09728203f31763e7b1bb9
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DeepPan
   - hash:
       serializedVersion: 2
       Hash: 00cf76ad6cd973ac3cb45f7361f08bd7
@@ -1894,7 +1943,7 @@ ScriptsOnlyBuild:
   scenePathNames:
   - Assets/_Scenes/Menu.unity
   - Assets/_Scenes/Setting.unity
-  - Assets/_Scenes/Level 1.unity
   - Assets/_Scenes/Lose.unity
   - Assets/_Scenes/Win.unity
-  playerPath: C:/Users/E/Google Drive/MMU/Degree/Year 3/FYP/fyp.apk
+  - Assets/_Scenes/Level 1.unity
+  playerPath: C:/Users/E/Google Drive/fyp.apk

@@ -29,7 +29,7 @@ public class MyHand : MonoBehaviour
         _forearmExercise = false;
         _elbowExercise = false;
         _wristExercise = false;
-        _holdingKnife = false;
+        _holdingKnife = true;
         _called = false;
         _forearmCounter = 0;
         _elbowCounter = 0;
@@ -73,9 +73,8 @@ public class MyHand : MonoBehaviour
     public void ForearmExercise()
     {
         //https://stackoverflow.com/questions/42051951/how-to-detect-if-hand-in-leap-motion-is-facing-up-c-unity
-
-        if(_lastHand.PalmNormal.y > 0 && _hand.PalmNormal.y < 0)
-        {
+        if (_lastHand.PalmNormal.y > 0 && _hand.PalmNormal.y < 0 )
+        {           
             GameManager.gm.UpdatePerformedTimes(1);
             _forearmCounter++;
         }
@@ -96,8 +95,8 @@ public class MyHand : MonoBehaviour
     /// </summary>
     public void ElbowAExercise()
     {
-        if (_lastHand.PalmNormal.y > 0 && _hand.PalmNormal.y < 0)
-        {
+        if (_lastHand.PalmNormal.y > 0 && _hand.PalmNormal.y < 0 && _lastHand.PalmNormal.z > 0 && _hand.PalmNormal.z > 0)
+        {            
             GameManager.gm.UpdatePerformedTimes(2);
             _elbowCounter++;
         }
@@ -120,8 +119,11 @@ public class MyHand : MonoBehaviour
     /// </summary>
     public void WristExercise()
     {
-        if (_lastHand.PalmNormal.z < 0 && _hand.PalmNormal.z > 0)
+        if (_lastHand.PalmNormal.z < 0 && _hand.PalmNormal.z > 0 && _lastHand.PalmNormal.y < 0 && _hand.PalmNormal.y < 0)
         {
+            //Debug.Log("cook");
+            //Debug.Log("last hand: " + _lastHand.PalmNormal);
+            //Debug.Log("hand: " + _hand.PalmNormal);
             GameManager.gm.UpdatePerformedTimes(3);
             _wristCounter++;
         }

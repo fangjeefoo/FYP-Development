@@ -11,7 +11,7 @@ namespace FoodType
 public class Food : MonoBehaviour
 {
     public MyFoodType _foodType;
-    private bool _isCooked;
+    public bool _isCooked;
 
     public void Start()
     {
