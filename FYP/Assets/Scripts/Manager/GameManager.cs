@@ -160,7 +160,10 @@ public class GameManager : MonoBehaviour
                 }
             }
         });
+
+        GenerateFood();
     }
+
     public void OnDestroy()
     {
         _database = null;
@@ -195,9 +198,9 @@ public class GameManager : MonoBehaviour
     public void GenerateFood()
     {
         List<GameObject> possibleFoodList = new List<GameObject>();
-        IEnumerable<GameObject> temp;
+        IEnumerable<GameObject> temp = null;
 
-        for(int i = 0; i < _currentSelectedExercise.Length; i++)
+        for (int i = 0; i < _currentSelectedExercise.Length; i++)
         {
             if (!_currentSelectedExercise[i])
                 continue;
@@ -207,29 +210,98 @@ public class GameManager : MonoBehaviour
                 switch (i)
                 {
                     case 0:
-                        //temp = foodList.Select
-                        possibleFoodList.AddRange(temp);
+                        temp = foodList.Where(x => x.GetComponent<Food>().cookType == FoodType.CookType.cooked);
+                        possibleFoodList.AddRange(temp);                        
                         break;
                     case 1:
+                        temp = foodList.Where(x => x.GetComponent<Food>().cookType == FoodType.CookType.frying);
                         possibleFoodList.AddRange(temp);
                         break;
                     case 2:
+                        temp = foodList.Where(x => x.GetComponent<Food>().cookType == FoodType.CookType.shredding);
                         possibleFoodList.AddRange(temp);
                         break;
                     case 3:
+                        temp = foodList.Where(x => x.GetComponent<Food>().cookType == FoodType.CookType.soup);
                         possibleFoodList.AddRange(temp);
                         break;
                 }
             }
         }
 
-        if(possibleFoodList.Count > 4)
+        if (possibleFoodList.Count > 4)
         {
+            for(int i = 0; i < foodPlate.Length; i++)
+            {
+                if (_currentSelectedExercise[i])
+                {
+                    switch (i)
+                    {
+                        case 0:
+                            temp = possibleFoodList.Where(x => x.GetComponent<Food>().cookType == FoodType.CookType.cooked);                                              
+                            break;
+                        case 1:
+                            temp = possibleFoodList.Where(x => x.GetComponent<Food>().cookType == FoodType.CookType.frying);
+                            break;
+                        case 2:
+                            temp = possibleFoodList.Where(x => x.GetComponent<Food>().cookType == FoodType.CookType.shredding);
+                            break;
+                        case 3:
+                            temp = possibleFoodList.Where(x => x.GetComponent<Food>().cookType == FoodType.CookType.soup);
+                            break;
+                    }
 
+                    if (temp.Count() > 0)
+                    {
+                        foodPlate[i].GetComponent<FoodPlate>().food = temp.ElementAt(0);
+                        possibleFoodList.Remove(temp.ElementAt(0));
+                    }
+                    else
+                    {
+                        foodPlate[i].GetComponent<FoodPlate>().food = possibleFoodList[0];
+                        possibleFoodList.Remove(possibleFoodList[0]);
+                    }
+                }
+                else
+                {
+                    foodPlate[i].GetComponent<FoodPlate>().food = possibleFoodList[0];
+                    possibleFoodList.Remove(possibleFoodList[0]);
+                }
+            }
+            //temp2 = _currentSelectedExercise.Where(x => x == true);
+            //if(temp2.Count() == 4)
+            //{
+            //    for (int i = 0; i < foodPlate.Length; i++)
+            //    {
+            //        switch (i)
+            //        {
+            //            case 0:
+            //                temp = possibleFoodList.Where(x => x.GetComponent<Food>().cookType == FoodType.CookType.cooked);
+            //                foodPlate[i].GetComponent<FoodPlate>().food = temp.ElementAt(0);
+            //                break;
+            //            case 1:
+            //                temp = possibleFoodList.Where(x => x.GetComponent<Food>().cookType == FoodType.CookType.frying);
+            //                foodPlate[i].GetComponent<FoodPlate>().food = temp.ElementAt(0);
+            //                break;
+            //            case 2:
+            //                temp = possibleFoodList.Where(x => x.GetComponent<Food>().cookType == FoodType.CookType.shredding);
+            //                foodPlate[i].GetComponent<FoodPlate>().food = temp.ElementAt(0);
+            //                break;
+            //            case 3:
+            //                temp = possibleFoodList.Where(x => x.GetComponent<Food>().cookType == FoodType.CookType.soup);
+            //                foodPlate[i].GetComponent<FoodPlate>().food = temp.ElementAt(0);
+            //                break;
+            //        }
+            //    }                    
+            //}
+            //else
+            //{
+
+            //}
         }
         else
         {
-            for(int i = 0; i < possibleFoodList.Count; i++)
+            for (int i = 0; i < possibleFoodList.Count; i++)
                 foodPlate[i].GetComponent<FoodPlate>().food = possibleFoodList[i];
         }
     }

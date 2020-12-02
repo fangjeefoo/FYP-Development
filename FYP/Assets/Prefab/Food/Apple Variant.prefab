@@ -16,6 +16,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &6901175730052250987
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8465852440035473959}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.077428415, y: 0.06262727, z: 0.07979393}
+  m_Center: {x: 0.0012075782, y: 0.04203823, z: 0.004350424}
 --- !u!114 &1843197209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46,19 +59,21 @@ MonoBehaviour:
     layerIndex: 0
   _eventTable:
     _entries: []
---- !u!65 &8160079721331057638
-BoxCollider:
+--- !u!114 &9170174272324601137
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8465852440035473959}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.08885532, y: 0.058224965, z: 0.07459475}
-  m_Center: {x: -0.0064403745, y: 0.037178185, z: -0.003180045}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a845cc1a75c3ac34aace82294cc5e446, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  food: {fileID: 0}
+  foodType: 1
+  cookType: 3
 --- !u!1001 &8465852440035572871
 PrefabInstance:
   m_ObjectHideFlags: 0

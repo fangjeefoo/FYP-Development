@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 4101736483181792228}
   - component: {fileID: 4091732122483675278}
   - component: {fileID: 2749113959525541072}
-  - component: {fileID: -521165487560593908}
   - component: {fileID: -879642232184267309}
+  - component: {fileID: 740433599518704471}
   m_Layer: 0
   m_Name: Steak_Cooked
   m_TagString: Untagged
@@ -99,20 +99,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!64 &-521165487560593908
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4078848723570838378}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 8cd4586ebadd1934b84fdbadcc9a8072, type: 3}
 --- !u!114 &-879642232184267309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,8 +113,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   food: {fileID: 0}
   foodType: 1
-  isCooked: 1
-  isCutted: 1
+  cookType: 0
+--- !u!65 &740433599518704471
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4078848723570838378}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.2116714, y: 0.02848127, z: 0.2150755}
+  m_Center: {x: 0.0043376447, y: -0.0029464127, z: 0.0047352794}
 --- !u!1001 &8451299498299918798
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -211,7 +209,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: serving plate
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2512901657497627678, guid: 4b77af640a555ac4f8ceb747bad0d262, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4b77af640a555ac4f8ceb747bad0d262, type: 3}
 --- !u!4 &6311393159116679988 stripped
 Transform:

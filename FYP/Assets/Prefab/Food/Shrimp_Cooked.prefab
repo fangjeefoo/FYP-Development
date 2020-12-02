@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 2857756065037438084}
   - component: {fileID: 2849724363818344932}
   - component: {fileID: 3568918708917357784}
-  - component: {fileID: 11077856768576850}
   - component: {fileID: 8822311189424620506}
+  - component: {fileID: 7910876015717382811}
   m_Layer: 0
   m_Name: Shrimp_Cooked
   m_TagString: Untagged
@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2872868680321219072}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.16, y: 1.58, z: -5.44}
+  m_LocalPosition: {x: -0.16, y: 1.572, z: -5.44}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 7008606146642341570}
@@ -99,20 +99,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!64 &11077856768576850
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2872868680321219072}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 30b91b8141924d544a4cc52310773348, type: 3}
 --- !u!114 &8822311189424620506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,8 +113,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   food: {fileID: 0}
   foodType: 4
-  isCooked: 1
-  isCutted: 1
+  cookType: 0
+--- !u!65 &7910876015717382811
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2872868680321219072}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.22096944, y: 0.20160237, z: 0.04549012}
+  m_Center: {x: -0.0115964655, y: 0.0002978921, z: -2.5948739e-19}
 --- !u!1001 &4871782736590539832
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -136,6 +134,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2869851427672895928}
     m_Modifications:
+    - target: {fileID: 2512901657497627678, guid: 4b77af640a555ac4f8ceb747bad0d262,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2512901657862365946, guid: 4b77af640a555ac4f8ceb747bad0d262,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -211,7 +214,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: serving plate
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2512901657497627678, guid: 4b77af640a555ac4f8ceb747bad0d262, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4b77af640a555ac4f8ceb747bad0d262, type: 3}
 --- !u!4 &7008606146642341570 stripped
 Transform:

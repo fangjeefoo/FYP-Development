@@ -4,40 +4,37 @@ using UnityEngine;
 
 public class FoodPlate : MonoBehaviour
 {
-    [Tooltip("Food to generate")]
     public GameObject food;
     public Transform foodParent;
 
-    private int _maxFood;
-    private int _currentFood;
+    private GameObject _holdingFood;
 
     void Start()
     {
-        _maxFood = 1;
-        _currentFood = 0;
+        _holdingFood = null;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(_currentFood < _maxFood)
-            Instantiate(food, foodParent);
-
+        if(_holdingFood == null && food != null)
+        {
+            var temp = this.transform.position;
+            temp.y += 0.1f;
+            _holdingFood = Instantiate(food, temp, food.transform.rotation, foodParent);
+        }          
     }
 
     public void OnCollisionEnter(Collision collision)
     {
-        _currentFood++;
-
-        if (_currentFood > _maxFood)
+        if (_holdingFood != collision.gameObject)
         {
-            _currentFood--;
             Destroy(collision.gameObject);
-        }            
+        }
     }
 
     public void OnCollisionExit(Collision collision)
     {
-        _currentFood--;
+        _holdingFood = null;
     }
 }

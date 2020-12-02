@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 3659858501446124614}
   - component: {fileID: 3659858501447091846}
   - component: {fileID: -1217057018810118077}
-  - component: {fileID: 7295610655730879156}
   - component: {fileID: 6066632064090431470}
+  - component: {fileID: 2721980081962289701}
   m_Layer: 0
   m_Name: Sausage_Cooked
   m_TagString: Untagged
@@ -99,20 +99,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!64 &7295610655730879156
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3659858501444835398}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: d769a7102b90c5645a6dfa3efaeafcbb, type: 3}
 --- !u!114 &6066632064090431470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,6 +114,19 @@ MonoBehaviour:
   food: {fileID: 0}
   foodType: 3
   cookType: 0
+--- !u!65 &2721980081962289701
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3659858501444835398}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.21728335, y: 0.2076683, z: 0.03443411}
+  m_Center: {x: 0.008146095, y: -0.0019945505, z: -0.003835782}
 --- !u!1001 &4401203520185762526
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -195,7 +194,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: serving plate
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2512901657497627678, guid: 4b77af640a555ac4f8ceb747bad0d262, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4b77af640a555ac4f8ceb747bad0d262, type: 3}
 --- !u!4 &2291111709554728996 stripped
 Transform:
