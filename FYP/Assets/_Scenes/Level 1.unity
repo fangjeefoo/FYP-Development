@@ -2129,8 +2129,11 @@ MonoBehaviour:
   - {fileID: 902446854}
   - {fileID: 1382419208}
   - {fileID: 1884606485}
-  customer: {fileID: 5406188428552185062, guid: 3e0821510a0fc474fa8f4d82e38f5afd,
-    type: 3}
+  customerList:
+  - {fileID: 5406188428552185062, guid: 3e0821510a0fc474fa8f4d82e38f5afd, type: 3}
+  - {fileID: 5406188428552185062, guid: 3e0821510a0fc474fa8f4d82e38f5afd, type: 3}
+  - {fileID: 5406188428552185062, guid: 3e0821510a0fc474fa8f4d82e38f5afd, type: 3}
+  - {fileID: 5406188428552185062, guid: 3e0821510a0fc474fa8f4d82e38f5afd, type: 3}
   maxCustomer: 5
   spawnCustomer: 10
   goalText: {fileID: 1201668999}

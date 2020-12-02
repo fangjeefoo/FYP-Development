@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     //public variable
     public GameObject[] foodList;
     public GameObject[] foodPlate;
-    public GameObject customer;
+    public GameObject[] customerList;
     [Tooltip("Max customers in restaurant")]
     public int maxCustomer;
     [Tooltip("time to spawn customer")]
@@ -93,7 +93,8 @@ public class GameManager : MonoBehaviour
         {
             if(_currentCustomer <= maxCustomer)
             {
-                Instantiate(customer);
+                int num = Random.Range(0, currentLevel);
+                Instantiate(customerList[num]);
                 _currentCustomer++;
             }            
             _counter = 0f;
