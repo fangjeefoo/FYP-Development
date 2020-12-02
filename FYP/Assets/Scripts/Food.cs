@@ -23,9 +23,9 @@ public class Food : MonoBehaviour
         _foodParent = GameObject.FindGameObjectWithTag("FoodManager");
     }
 
-    public void GenerateFood()
+    public void GenerateCookedFood()
     {
-        GameObject temp = Instantiate(food, _foodParent.transform);
+        Instantiate(food, _foodParent.transform);
         Destroy(this.gameObject);
     }
 

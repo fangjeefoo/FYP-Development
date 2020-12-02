@@ -4,12 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 using Firebase.Database;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager gm;
 
     //public variable
+    public GameObject[] foodList;
+    public GameObject[] foodPlate;
     public GameObject customer;
     [Tooltip("Max customers in restaurant")]
     public int maxCustomer;
@@ -187,5 +190,47 @@ public class GameManager : MonoBehaviour
     public bool[] SelectedExercise
     {
         get { return _currentSelectedExercise; }
+    }
+
+    public void GenerateFood()
+    {
+        List<GameObject> possibleFoodList = new List<GameObject>();
+        IEnumerable<GameObject> temp;
+
+        for(int i = 0; i < _currentSelectedExercise.Length; i++)
+        {
+            if (!_currentSelectedExercise[i])
+                continue;
+            else
+            {
+                //0 = fist exercise, 1 = forearm exercise (frying), 2 = elbow exercise (shredding), 3 = wrist exercise (soup)
+                switch (i)
+                {
+                    case 0:
+                        //temp = foodList.Select
+                        possibleFoodList.AddRange(temp);
+                        break;
+                    case 1:
+                        possibleFoodList.AddRange(temp);
+                        break;
+                    case 2:
+                        possibleFoodList.AddRange(temp);
+                        break;
+                    case 3:
+                        possibleFoodList.AddRange(temp);
+                        break;
+                }
+            }
+        }
+
+        if(possibleFoodList.Count > 4)
+        {
+
+        }
+        else
+        {
+            for(int i = 0; i < possibleFoodList.Count; i++)
+                foodPlate[i].GetComponent<FoodPlate>().food = possibleFoodList[i];
+        }
     }
 }
