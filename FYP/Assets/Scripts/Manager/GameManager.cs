@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         //Initialize private variables
-        _counter = spawnCustomer;
+        _counter = spawnCustomer/2;
         _currentCustomer = 1;
         _currentScore = 0;
         _goalText = "Goal: ";
@@ -199,6 +199,7 @@ public class GameManager : MonoBehaviour
     {
         List<GameObject> possibleFoodList = new List<GameObject>();
         IEnumerable<GameObject> temp = null;
+        IEnumerable<GameObject> temp2 = null;
 
         for (int i = 0; i < _currentSelectedExercise.Length; i++)
         {
@@ -254,18 +255,21 @@ public class GameManager : MonoBehaviour
                     if (temp.Count() > 0)
                     {
                         foodPlate[i].GetComponent<FoodPlate>().food = temp.ElementAt(0);
-                        possibleFoodList.Remove(temp.ElementAt(0));
+                        temp2 = possibleFoodList.Where(x => x.GetComponent<Food>().foodType == temp.ElementAt(0).GetComponent<Food>().foodType);
+                        possibleFoodList = possibleFoodList.Except(temp2).ToList();
                     }
                     else
                     {
                         foodPlate[i].GetComponent<FoodPlate>().food = possibleFoodList[0];
-                        possibleFoodList.Remove(possibleFoodList[0]);
+                        temp2 = possibleFoodList.Where(x => x.GetComponent<Food>().foodType == possibleFoodList[0].GetComponent<Food>().foodType);
+                        possibleFoodList = possibleFoodList.Except(temp2).ToList();
                     }
                 }
                 else
                 {
                     foodPlate[i].GetComponent<FoodPlate>().food = possibleFoodList[0];
-                    possibleFoodList.Remove(possibleFoodList[0]);
+                    temp2 = possibleFoodList.Where(x => x.GetComponent<Food>().foodType == possibleFoodList[0].GetComponent<Food>().foodType);
+                    possibleFoodList = possibleFoodList.Except(temp2).ToList();
                 }
             }
             //temp2 = _currentSelectedExercise.Where(x => x == true);

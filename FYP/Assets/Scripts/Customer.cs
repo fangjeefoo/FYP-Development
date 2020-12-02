@@ -48,9 +48,7 @@ public class Customer : MonoBehaviour
         _mood = 5;
         _speed = 1f;
         _chair = GameObject.FindGameObjectsWithTag("Chair");
-        animator = transform.GetChild(0).GetComponent<Animator>();
-        int length = Enum.GetNames(typeof(MyFoodType)).Length;
-        _foodOrder = (MyFoodType)UnityEngine.Random.Range(1, length);        
+        animator = transform.GetChild(0).GetComponent<Animator>();     
 
         if (animator != null)
         {
@@ -58,7 +56,8 @@ public class Customer : MonoBehaviour
             animator.SetFloat("MoveSpeed", _speed);
         }
 
-        
+        int num = UnityEngine.Random.Range(0, 4);
+        _foodOrder = GameManager.gm.foodPlate[num].GetComponent<FoodPlate>().food.GetComponent<Food>().foodType;
     }
 
     void Update()
