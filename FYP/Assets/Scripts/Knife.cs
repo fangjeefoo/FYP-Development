@@ -28,13 +28,13 @@ public class Knife : MonoBehaviour
         if (collision.gameObject.tag == "Hand" && this.gameObject.layer == 9)
         {
             GameManager.gm.UpdatePerformedTimes(0);
-            MyHand.handManager.HoldingKnife = true;
+            //MyHand.handManager.HoldingKnife = true;
         }        
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        MyHand.handManager.HoldingKnife = false;
+        //MyHand.handManager.HoldingKnife = false;
         transform.position = _oriPos;
     }
 }

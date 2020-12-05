@@ -15,7 +15,7 @@ public class MyHand : MonoBehaviour
     private bool _forearmExercise;    
     private bool _elbowExercise;
     private bool _wristExercise;
-    private bool _holdingKnife;
+    //private bool _holdingKnife;
     private bool[] _selectedExercise;
     private bool _called;
     private int _forearmCounter;
@@ -30,7 +30,7 @@ public class MyHand : MonoBehaviour
         _forearmExercise = false;
         _elbowExercise = false;
         _wristExercise = false;
-        _holdingKnife = true;
+        //_holdingKnife = true;
         _called = false;
         _forearmCounter = 0;
         _elbowCounter = 0;
@@ -60,7 +60,7 @@ public class MyHand : MonoBehaviour
             if (_forearmExercise && _selectedExercise[1])
                 ForearmExercise();
 
-            if (_elbowExercise && _holdingKnife && _selectedExercise[2])
+            if (_elbowExercise && _selectedExercise[2]) //if (_elbowExercise && _holdingKnife && _selectedExercise[2])
                 ElbowAExercise();
 
             if (_wristExercise && _selectedExercise[3])
@@ -180,9 +180,9 @@ public class MyHand : MonoBehaviour
         set { _forearmExercise = value; }
     }
 
-    public bool HoldingKnife
-    {
-        get { return _holdingKnife; }
-        set { _holdingKnife = value; }
-    }
+    //public bool HoldingKnife
+    //{
+    //    get { return _holdingKnife; }
+    //    set { _holdingKnife = value; }
+    //}
 }
