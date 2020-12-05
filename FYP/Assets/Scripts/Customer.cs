@@ -30,7 +30,7 @@ public class Customer : MonoBehaviour
     private bool _chairFound;
     private bool _isLeaving;
     private GameObject[] _chair;
-    //private Animator animator;
+    private Animator animator;
     private MyFoodType _foodOrder;
 
     /// <summary>
@@ -48,13 +48,9 @@ public class Customer : MonoBehaviour
         _mood = 5;
         _speed = 1f;
         _chair = GameObject.FindGameObjectsWithTag("Chair");
-        //animator = transform.GetChild(0).GetComponent<Animator>();     
+        animator = gameObject.GetComponent<Animator>();
 
-        //if (animator != null)
-        //{
-        //    animator.SetBool("Grounded", true);
-        //    animator.SetFloat("MoveSpeed", _speed);
-        //}
+        animator.SetBool("Walk", true);
 
         int num = UnityEngine.Random.Range(0, 4);
         _foodOrder = GameManager.gm.foodPlate[num].GetComponent<FoodPlate>().food.GetComponent<Food>().foodType;
@@ -89,10 +85,10 @@ public class Customer : MonoBehaviour
                 }
                 else
                 {
-                    transform.GetChild(0).rotation = Quaternion.Euler(0f, 180f, 0f);
+                    transform.GetChild(0).rotation = Quaternion.Euler(0f, 90f, -90f);
                     _isSitting = true;
                     orderCanvas.SetActive(true);
-                    //animator.SetFloat("MoveSpeed", 0f);
+                    animator.SetBool("Walk", false);
                     _chair[_chairCounter].GetComponent<Chair>().GeneratePlate();
                 }                
             }
@@ -145,7 +141,7 @@ public class Customer : MonoBehaviour
     public void LeaveShop()
     {
         orderCanvas.SetActive(false);
-        //animator.SetFloat("MoveSpeed", _speed);
+        animator.SetBool("Walk", true);
         Vector3 direction = door.transform.position - transform.position;
 
         if (!_reset)
@@ -158,7 +154,7 @@ public class Customer : MonoBehaviour
         if (direction.normalized.x > 0.2f)
         {
             if (transform.GetChild(0).rotation.y != 90f)
-                transform.GetChild(0).rotation = Quaternion.Euler(0f, 90f, 0f);
+                transform.GetChild(0).rotation = Quaternion.Euler(0f, 0f, -90f);
             transform.position = new Vector3(transform.position.x + _speed * direction.normalized.x * Time.deltaTime, transform.position.y, transform.position.z);
         }
         else
