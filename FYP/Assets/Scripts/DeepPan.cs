@@ -32,4 +32,14 @@ public class DeepPan : MonoBehaviour
         MyHand.handManager.UpdateWristExercise = false;
         MyHand.handManager.ResetCounter(3);
     }
+
+    public void PointerEnter()
+    {
+        GameManager.gm.SelectedKitchenware(this.gameObject);
+    }
+
+    public void PointerExit()
+    {
+        GameManager.gm.DeselectedKitchenware();
+    }
 }

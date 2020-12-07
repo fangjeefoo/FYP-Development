@@ -32,4 +32,14 @@ public class CuttingBoard : MonoBehaviour
         MyHand.handManager.UpdateElbowExercise = false;
         MyHand.handManager.ResetCounter(2);
     }
+
+    public void PointerEnter()
+    {
+        GameManager.gm.SelectedKitchenware(this.gameObject);
+    }
+
+    public void PointerExit()
+    {
+        GameManager.gm.DeselectedKitchenware();
+    }
 }

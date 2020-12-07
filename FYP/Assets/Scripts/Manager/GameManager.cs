@@ -21,9 +21,12 @@ public class GameManager : MonoBehaviour
     public Text goalText;
     public Text timerText;
     public int currentLevel;
-    public int goalScore; 
+    public int goalScore;
 
     //private variable
+    private GameObject _selectedObject;
+    private GameObject _selectedKitchenware;
+    private GameObject _grabObject;
     private float _counter;
     private int _currentCustomer;
     private int _currentScore;
@@ -309,5 +312,40 @@ public class GameManager : MonoBehaviour
             for (int i = 0; i < possibleFoodList.Count; i++)
                 foodPlate[i].GetComponent<FoodPlate>().food = possibleFoodList[i];
         }
+    }
+
+    public void SelectedObject(GameObject obj)
+    {
+        _selectedObject = obj;
+    }
+
+    public void DeselectedObject()
+    {
+        _selectedObject = null;
+    }
+
+    public void SelectedKitchenware(GameObject obj)
+    {
+        _selectedKitchenware = obj;
+    }
+
+    public void DeselectedKitchenware()
+    {
+        _selectedKitchenware = null;
+    }
+
+    public void GrabObject()
+    {
+        _grabObject = _selectedObject;
+        _selectedObject = null;
+    }
+
+    public void ReleaseObject()
+    {
+        if(_selectedKitchenware != null)
+        {
+            _grabObject.transform.position = _selectedKitchenware.transform.position;
+        }
+        _grabObject = null;
     }
 }

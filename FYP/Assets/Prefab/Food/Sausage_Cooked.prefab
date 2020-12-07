@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -1217057018810118077}
   - component: {fileID: 6066632064090431470}
   - component: {fileID: 2721980081962289701}
+  - component: {fileID: 1497878245649187825}
   m_Layer: 0
   m_Name: Sausage_Cooked
   m_TagString: Untagged
@@ -127,6 +128,49 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.21728335, y: 0.2076683, z: 0.03443411}
   m_Center: {x: 0.008146095, y: -0.0019945505, z: -0.003835782}
+--- !u!114 &1497878245649187825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3659858501444835398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6066632064090431470}
+          m_MethodName: PointerEnter
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6066632064090431470}
+          m_MethodName: PointerExit
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1001 &4401203520185762526
 PrefabInstance:
   m_ObjectHideFlags: 0

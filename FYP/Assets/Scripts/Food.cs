@@ -37,4 +37,14 @@ public class Food : MonoBehaviour
             GameManager.gm.UpdatePerformedTimes(0);
         }
     }
+
+    public void PointerEnter()
+    {
+        GameManager.gm.SelectedObject(this.gameObject);
+    }
+
+    public void PointerExit()
+    {
+        GameManager.gm.DeselectedObject();
+    }
 }

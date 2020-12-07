@@ -32,4 +32,14 @@ public class Pan : MonoBehaviour
         MyHand.handManager.UpdateForearmExercise = false;
         MyHand.handManager.ResetCounter(1);
     }
+
+    public void PointerEnter()
+    {
+        GameManager.gm.SelectedKitchenware(this.gameObject);
+    }
+
+    public void PointerExit()
+    {
+        GameManager.gm.DeselectedKitchenware();
+    }
 }

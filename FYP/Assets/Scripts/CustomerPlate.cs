@@ -18,4 +18,14 @@ public class CustomerPlate : MonoBehaviour
             _currentCustomer.GetComponent<Customer>().Serving = true;
         }        
     }
+
+    public void PointerEnter()
+    {
+        GameManager.gm.SelectedKitchenware(this.gameObject);
+    }
+
+    public void PointerExit()
+    {
+        GameManager.gm.DeselectedKitchenware();
+    }
 }
