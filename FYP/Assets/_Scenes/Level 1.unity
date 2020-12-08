@@ -2207,6 +2207,7 @@ MonoBehaviour:
   - {fileID: 9171323626885058105, guid: e7b6c357f3e05e84e849c1f6b92f6800, type: 3}
   - {fileID: 4078848723570838378, guid: f6c37544000a4324bb4d514614d42f79, type: 3}
   - {fileID: 7276163032991441981, guid: 35fb287edcc7c2141b473ffe06bb1309, type: 3}
+  - {fileID: 68168219388870705, guid: f468b76dd1611c94a8d739f0ce8227a0, type: 3}
   foodPlate:
   - {fileID: 1958675481}
   - {fileID: 902446854}
