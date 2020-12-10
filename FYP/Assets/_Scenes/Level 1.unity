@@ -2208,6 +2208,7 @@ MonoBehaviour:
   - {fileID: 4078848723570838378, guid: f6c37544000a4324bb4d514614d42f79, type: 3}
   - {fileID: 7276163032991441981, guid: 35fb287edcc7c2141b473ffe06bb1309, type: 3}
   - {fileID: 68168219388870705, guid: f468b76dd1611c94a8d739f0ce8227a0, type: 3}
+  - {fileID: 1206519948989165508, guid: 6d77843d881906d4c99e9b5bedd3356d, type: 3}
   foodPlate:
   - {fileID: 1958675481}
   - {fileID: 902446854}
@@ -2222,7 +2223,7 @@ MonoBehaviour:
   spawnCustomer: 10
   goalText: {fileID: 1201668999}
   timerText: {fileID: 1593656700}
-  currentLevel: 4
+  currentLevel: 1
   goalScore: 500
 --- !u!4 &1695581919
 Transform:

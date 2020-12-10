@@ -154,7 +154,6 @@ public class GameManager : MonoBehaviour
                 //_selectedExercise = new bool[4];
                 //_currentSelectedExercise = new bool[4];
                 _selectedExercise = customize.exercise;
-                Debug.Log(_selectedExercise.Length);
                 _currentSelectedExercise = customize.exercise;
                 _levelDuration = customize.exerciseDurationPerLevel;
                 _currentTimer = _levelDuration * 60f;
