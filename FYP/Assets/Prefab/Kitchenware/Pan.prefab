@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 556398375089457965}
   - component: {fileID: 559336347099200619}
   - component: {fileID: 568140278289770513}
-  - component: {fileID: 555706531524624754}
   - component: {fileID: 555706531524624755}
   - component: {fileID: -6591026377381254633}
+  - component: {fileID: 1538482027185862568}
   m_Layer: 0
   m_Name: Pan
   m_TagString: Untagged
@@ -82,20 +82,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &555706531524624754
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 554666797582270343}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: -1
-  m_Mesh: {fileID: 4300000, guid: 039a45ab4232bb940b0a7f49c6ac30f0, type: 3}
 --- !u!114 &555706531524624755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,3 +138,16 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!65 &1538482027185862568
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 554666797582270343}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.1501706, y: 0.19943191, z: 2.0136344}
+  m_Center: {x: 0, y: -0.046363138, z: 0.23593605}
