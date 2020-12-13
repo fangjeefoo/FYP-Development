@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2181715276960964408}
   - component: {fileID: 2181715276960964409}
   m_Layer: 0
-  m_Name: Plate2 (5)
+  m_Name: food plate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -107,5 +107,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aee58224da759a74ca041ad5446554f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  food: {fileID: 3659858501444835398, guid: 74b9996b4812e4a45a28ec89071a8d6d, type: 3}
+  food: {fileID: 0}
   foodParent: {fileID: 0}
