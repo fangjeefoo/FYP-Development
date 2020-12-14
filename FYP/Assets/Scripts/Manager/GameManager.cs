@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
 
     //public variable
     public GameObject[] foodList;
+    public GameObject[] cookedFoodPlate;
     public GameObject[] foodPlate;
     public GameObject[] customerList;
     [Tooltip("Max customers in restaurant")]
@@ -314,22 +315,22 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void SelectedObject(GameObject obj)
+    public void SelectObject(GameObject obj)
     {
         _selectedObject = obj;
     }
 
-    public void DeselectedObject()
+    public void DeselectObject()
     {
         _selectedObject = null;
     }
 
-    public void SelectedKitchenware(GameObject obj)
+    public void SelectKitchenware(GameObject obj)
     {
         _selectedKitchenware = obj;
     }
 
-    public void DeselectedKitchenware()
+    public void DeselectKitchenware()
     {
         _selectedKitchenware = null;
     }
@@ -338,6 +339,7 @@ public class GameManager : MonoBehaviour
     {
         _grabObject = _selectedObject;
         _selectedObject = null;
+        UpdatePerformedTimes(0);
     }
 
     public void ReleaseObject()

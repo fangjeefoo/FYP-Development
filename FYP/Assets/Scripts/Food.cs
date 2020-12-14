@@ -25,26 +25,27 @@ public class Food : MonoBehaviour
 
     public void GenerateCookedFood()
     {
-        Instantiate(food, _foodParent.transform);
-        Destroy(this.gameObject);
-    }
-
-    public void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "Hand" && this.gameObject.layer == 9)
+        for(int i = 0; i < GameManager.gm.cookedFoodPlate.Length; i++)
         {
-            Debug.Log("grab and release");
-            GameManager.gm.UpdatePerformedTimes(0);
+            if(GameManager.gm.cookedFoodPlate[i].GetComponent<FoodPlate>().holdingFood == null)
+            {
+                var pos = GameManager.gm.cookedFoodPlate[i].transform.position;
+                pos.y += 0.1f;
+
+                GameManager.gm.cookedFoodPlate[i].GetComponent<FoodPlate>().holdingFood = Instantiate(food, pos, food.transform.rotation, _foodParent.transform);
+                Destroy(this.gameObject);
+                break;
+            }
         }
     }
 
     public void PointerEnter()
     {
-        GameManager.gm.SelectedObject(this.gameObject);
+        GameManager.gm.SelectObject(this.gameObject);
     }
 
     public void PointerExit()
     {
-        GameManager.gm.DeselectedObject();
+        GameManager.gm.DeselectObject();
     }
 }

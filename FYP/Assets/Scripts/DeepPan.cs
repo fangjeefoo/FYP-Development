@@ -35,11 +35,11 @@ public class DeepPan : MonoBehaviour
 
     public void PointerEnter()
     {
-        GameManager.gm.SelectedKitchenware(this.gameObject);
+        GameManager.gm.SelectKitchenware(this.gameObject);
     }
 
     public void PointerExit()
     {
-        GameManager.gm.DeselectedKitchenware();
+        GameManager.gm.DeselectKitchenware();
     }
 }
