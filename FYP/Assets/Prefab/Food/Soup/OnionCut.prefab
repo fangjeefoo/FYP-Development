@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 1792646678588409443}
   m_LocalRotation: {x: 0.00027272681, y: 0.017218169, z: 0.99972636, w: 0.015834974}
   m_LocalPosition: {x: 0.049108543, y: -0.0014198518, z: -0.0035982586}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 1495465123535232651}
   m_RootOrder: 0
@@ -89,7 +89,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1495465123535232651}
   m_Layer: 0
-  m_Name: OnionCut2
+  m_Name: OnionCut
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -137,8 +137,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7551566304889444660}
   m_LocalRotation: {x: 0.017220326, y: 0, z: -0, w: 0.99985176}
-  m_LocalPosition: {x: -0.047800414, y: 0.001419971, z: -0.0035982584}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.491, y: 0.001419971, z: -0.0035982584}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 1495465123535232651}
   m_RootOrder: 1
