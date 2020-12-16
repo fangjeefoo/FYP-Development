@@ -97,7 +97,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!64 &759024722215363791
 MeshCollider:
@@ -125,9 +125,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a845cc1a75c3ac34aace82294cc5e446, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  food: {fileID: 0}
-  foodType: 0
-  cookType: 0
+  food: {fileID: 5653676715478365925, guid: 20a383b5477b79f4d8df8ec6d410501d, type: 3}
+  foodType: 6
+  cookType: 1
 --- !u!114 &6613578827862859419
 MonoBehaviour:
   m_ObjectHideFlags: 0
