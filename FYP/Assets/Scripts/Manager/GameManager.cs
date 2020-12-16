@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     private float _counter;
     private int _currentCustomer;
     private int _currentScore;
+    private int _maxLevel;
     private float _currentTimer;
     private string _goalText;
     private string _timerText;
@@ -81,6 +82,23 @@ public class GameManager : MonoBehaviour
 
         //if(_currentTimer <= 0)
         //{
+        //if(currentLevel == 1)
+        //{
+        //    bool maxLevel = true; 
+
+        //    for(int i = 0; i < _selectedExercise.Length; i++)
+        //    {
+        //        if (!_selectedExercise[i])
+        //        {
+        //            PlayerPrefs.SetInt("maxLevel", 3);
+        //            maxLevel = false;
+        //            break;
+        //        }
+        //    }
+
+        //    if(maxLevel)
+        //        PlayerPrefs.SetInt("maxLevel", 4);
+        //}
         //    PostData();
         //    PlayerPrefs.SetInt("level", currentLevel);
         //    PlayerPrefs.SetInt("duration", _levelDuration);
