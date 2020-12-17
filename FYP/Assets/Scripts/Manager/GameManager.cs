@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public GameObject[] cookedFoodPlate;
     public GameObject[] foodPlate;
     public GameObject[] customerList;
+    public Sprite[] orderImage;
     [Tooltip("Max customers in restaurant")]
     public int maxCustomer;
     [Tooltip("time to spawn customer")]
