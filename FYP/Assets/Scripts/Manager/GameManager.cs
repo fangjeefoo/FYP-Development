@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         //Initialize private variables
-        _counter = spawnCustomer/2;
+        _counter = spawnCustomer / 2;
         _currentCustomer = 1;
         _currentScore = 0;
         _goalText = "Goal: ";
@@ -73,6 +73,7 @@ public class GameManager : MonoBehaviour
         timerText.text = _timerText + _currentTimer;
 
         RetrieveData();
+        Shuffle();
     }
 
     void Update()
@@ -112,14 +113,14 @@ public class GameManager : MonoBehaviour
         //        SceneManager.LoadScene("Lose");
         //}
 
-        if (_counter > spawnCustomer) 
+        if (_counter > spawnCustomer)
         {
-            if(_currentCustomer <= maxCustomer)
+            if (_currentCustomer <= maxCustomer)
             {
                 int num = Random.Range(0, currentLevel);
                 Instantiate(customerList[num]);
                 _currentCustomer++;
-            }            
+            }
             _counter = 0f;
         }
     }
@@ -136,16 +137,16 @@ public class GameManager : MonoBehaviour
     {
         string key = null;
 
-        if(currentLevel == 1)
+        if (currentLevel == 1)
         {
             key = _database.GetReference(_dbName).Push().Key;
             PlayerPrefs.SetString("Database Key", key);
-            _performanceData = new PerformanceData(_levelDuration,_selectedExercise);
+            _performanceData = new PerformanceData(_levelDuration, _selectedExercise);
             _database.GetReference(_dbName).Child(key).Push().SetRawJsonValueAsync(JsonUtility.ToJson(_performanceData));
         }
         else
         {
-            key = PlayerPrefs.GetString("Database Key");           
+            key = PlayerPrefs.GetString("Database Key");
         }
 
         _currentLevelData = new LevelData(currentLevel, _performedTimes, _currentScore);
@@ -178,7 +179,7 @@ public class GameManager : MonoBehaviour
                 _levelDuration = customize.exerciseDurationPerLevel;
                 _currentTimer = _levelDuration * 60f;
 
-                for(int i = currentLevel; i < _currentSelectedExercise.Length; i++)
+                for (int i = currentLevel; i < _currentSelectedExercise.Length; i++)
                 {
                     _currentSelectedExercise[i] = false;
                 }
@@ -195,7 +196,7 @@ public class GameManager : MonoBehaviour
 
     public void UpdateScore(int score, bool increase)
     {
-        if(increase)
+        if (increase)
             _currentScore += score;
         else
             _currentScore -= score;
@@ -208,7 +209,7 @@ public class GameManager : MonoBehaviour
     /// <param name="exercise"></param>
     public void UpdatePerformedTimes(int exercise)
     {
-        if(exercise < _performedTimes.Length)
+        if (exercise < _performedTimes.Length)
         {
             _performedTimes[exercise]++;
         }
@@ -236,7 +237,7 @@ public class GameManager : MonoBehaviour
                 {
                     case 0:
                         temp = foodList.Where(x => x.GetComponent<Food>().cookType == FoodType.CookType.cooked);
-                        possibleFoodList.AddRange(temp);                        
+                        possibleFoodList.AddRange(temp);
                         break;
                     case 1:
                         temp = foodList.Where(x => x.GetComponent<Food>().cookType == FoodType.CookType.frying);
@@ -256,14 +257,14 @@ public class GameManager : MonoBehaviour
 
         if (possibleFoodList.Count > 4)
         {
-            for(int i = 0; i < foodPlate.Length; i++)
+            for (int i = 0; i < foodPlate.Length; i++)
             {
                 if (_currentSelectedExercise[i])
                 {
                     switch (i)
                     {
                         case 0:
-                            temp = possibleFoodList.Where(x => x.GetComponent<Food>().cookType == FoodType.CookType.cooked);                                              
+                            temp = possibleFoodList.Where(x => x.GetComponent<Food>().cookType == FoodType.CookType.cooked);
                             break;
                         case 1:
                             temp = possibleFoodList.Where(x => x.GetComponent<Food>().cookType == FoodType.CookType.frying);
@@ -363,10 +364,24 @@ public class GameManager : MonoBehaviour
 
     public void ReleaseObject()
     {
-        if(_selectedKitchenware != null)
+        if (_selectedKitchenware != null)
         {
             _grabObject.transform.position = _selectedKitchenware.transform.position;
         }
         _grabObject = null;
+    }
+
+    /// <summary>
+    /// Reference from: https://answers.unity.com/questions/1189736/im-trying-to-shuffle-an-arrays-order.html
+    /// </summary>
+    public void Shuffle()
+    {
+        for (int i = 0; i < foodList.Length - 1; i++)
+        {
+            int rnd = Random.Range(i, foodList.Length);
+            var temp = foodList[rnd];
+            foodList[rnd] = foodList[i];
+            foodList[i] = temp;
+        }
     }
 }

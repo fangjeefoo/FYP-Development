@@ -55,7 +55,6 @@ public class Customer : MonoBehaviour
 
         int num = UnityEngine.Random.Range(0, 4);
         _foodOrder = GameManager.gm.foodPlate[num].GetComponent<FoodPlate>().food.GetComponent<Food>().foodType;
-
         for(int i = 0; i < GameManager.gm.orderImage.Length; i++)
         {
             if (GameManager.gm.orderImage[i].name == _foodOrder.ToString())
