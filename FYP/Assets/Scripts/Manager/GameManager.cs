@@ -357,18 +357,25 @@ public class GameManager : MonoBehaviour
 
     public void GrabObject()
     {
-        _grabObject = _selectedObject;
-        _selectedObject = null;
-        UpdatePerformedTimes(0);
+        if(_selectedObject != null)
+        {           
+            _grabObject = _selectedObject;
+            _selectedObject = null;
+            UpdatePerformedTimes(0);
+            Debug.Log("Grab here: " + _grabObject);
+        }
     }
 
     public void ReleaseObject()
     {
-        if (_selectedKitchenware != null)
+        if (_selectedKitchenware != null && _grabObject != null)
         {
-            _grabObject.transform.position = _selectedKitchenware.transform.position;
-        }
-        _grabObject = null;
+            Debug.Log("Release here: " + _grabObject);
+            var pos = _selectedKitchenware.transform.position;
+            pos.y += 0.1f;
+            _grabObject.transform.position = pos;
+            _grabObject = null;
+        }        
     }
 
     /// <summary>
