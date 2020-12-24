@@ -84,6 +84,7 @@ public class GameManager : MonoBehaviour
 
         //if(_currentTimer <= 0)
         //{
+        //SoundManager.soundManager.MyPlay(6);
         //if(currentLevel == 1)
         //{
         //    bool maxLevel = true; 
@@ -363,6 +364,7 @@ public class GameManager : MonoBehaviour
             _selectedObject = null;
             UpdatePerformedTimes(0);
             Debug.Log("Grab here: " + _grabObject);
+            SoundManager.soundManager.MyPlay(5);
         }
     }
 

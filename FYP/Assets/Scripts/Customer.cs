@@ -123,6 +123,7 @@ public class Customer : MonoBehaviour
                 
                 if(_mood <= 0)
                 {
+                    SoundManager.soundManager.MyPlay(4);
                     GameManager.gm.UpdateScore(score * moodIndicator.Length / 2, false);
                     _isLeaving = true;
                 }
@@ -196,5 +197,6 @@ public class Customer : MonoBehaviour
         GameManager.gm.UpdateScore(_mood * score, true);
         _mood = 0;
         _isLeaving = true;
+        SoundManager.soundManager.MyPlay(3);
     }
 }
