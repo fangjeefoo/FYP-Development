@@ -514,6 +514,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53b65801f30586549a042af60ee710a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  win: {fileID: 8300000, guid: d36ce51ca9f53eb4aaf8366ea7fde1ce, type: 3}
+  lose: {fileID: 8300000, guid: 49ed8dcdcefc187408e150270f537cdc, type: 3}
+  foodDone: {fileID: 8300000, guid: 307c76ee87b98a34d9e9abf912cdd77c, type: 3}
+  orderSucessful: {fileID: 8300000, guid: d47df7f6a0134ee4fad0cf0d53ee52c0, type: 3}
+  orderFailed: {fileID: 8300000, guid: 3201d894bc1eb87418634a753a5424d5, type: 3}
+  pickUp: {fileID: 8300000, guid: 2de7a6f8d17ec1c4792b63f0949ec75f, type: 3}
+  timeEnd: {fileID: 8300000, guid: 57c2edf909282e846bbc5c36e1d207eb, type: 3}
 --- !u!4 &328640882
 Transform:
   m_ObjectHideFlags: 0
@@ -538,7 +545,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: aab0bf508a7bab94bacf74e620d65763, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 0c5c702216ade674c8efa687f1d6a0af, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

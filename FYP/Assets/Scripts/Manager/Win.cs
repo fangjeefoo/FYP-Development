@@ -33,6 +33,8 @@ public class Win : MonoBehaviour
 
         durationText.text = _durationText + PlayerPrefs.GetInt("duration");
         scoreText.text = _scoreText + PlayerPrefs.GetInt("score") + "/" + PlayerPrefs.GetInt("goal");
+
+        SoundManager.soundManager.MyPlay(0);
     }
 
     public void Update()
