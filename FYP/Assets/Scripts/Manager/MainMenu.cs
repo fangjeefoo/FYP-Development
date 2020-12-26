@@ -3,12 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
-    //public variable
-    [HideInInspector]
-    public GameObject soundManager;
+    public Image reticleFilled;
 
     //private variable
     private enum Choice { start, setting, quit };
@@ -24,7 +23,6 @@ public class MainMenu : MonoBehaviour
         _click = false;
         _database = FirebaseDatabase.DefaultInstance;
         _dbName = "Customization";
-        soundManager = GameObject.FindGameObjectWithTag("SoundManager");
 
         RetrieveData();
     }
@@ -33,7 +31,8 @@ public class MainMenu : MonoBehaviour
     {
         if (_click)
         {
-            _counter += Time.deltaTime;                
+            _counter += Time.deltaTime;
+            reticleFilled.fillAmount += 0.005f;
         }
 
         if(_counter >= 1.5f)
@@ -70,26 +69,37 @@ public class MainMenu : MonoBehaviour
 
     public void StartGameOnEnter()
     {
-        _click = true;
+        OnEnter();
         _choice = Choice.start;
     }
 
     public void SettingOnEnter()
     {
-        _click = true;
+        OnEnter();
         _choice = Choice.setting;
     }
 
     public void QuitGameOnEnter()
     {
-        _click = true;
+        OnEnter();
         _choice = Choice.quit;
+    }
+
+    public void OnEnter()
+    {
+        _click = true;
+        reticleFilled.enabled = true;
     }
 
     public void OnExit()
     {
         _click = false;
         _counter = 0f;
+        if(reticleFilled != null)
+        {
+            reticleFilled.enabled = false;
+            reticleFilled.fillAmount = 0;
+        }
     }
 
     /// <summary>
@@ -115,8 +125,8 @@ public class MainMenu : MonoBehaviour
             }
         });
 
-        if (soundManager != null)
-            soundManager.GetComponent<AudioSource>().volume = vol;           
+        if (SoundManager.soundManager != null)
+            SoundManager.soundManager.GetComponent<AudioSource>().volume = vol;           
         else
             Debug.Log("Sound Manager not found");
     }
