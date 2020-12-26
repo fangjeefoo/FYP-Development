@@ -15,8 +15,7 @@ public class Setting : MonoBehaviour
     public Text performedTimesText;
     public Text volumeText;
     public Camera cam;
-    [HideInInspector]
-    public GameObject soundManager;
+    public Image reticleFilled;
 
     //private variable
     private FirebaseDatabase _database;
@@ -39,7 +38,6 @@ public class Setting : MonoBehaviour
         _performedTimesText = "Exercise Performed Times: ";
         _exerciseDurationText = "Exercise Duration Per Level: ";
         _volumeText = "Volume: ";
-        soundManager = GameObject.FindGameObjectWithTag("SoundManager");
         
         RetrieveData();        
     }
@@ -49,6 +47,7 @@ public class Setting : MonoBehaviour
         if (_click)
         {
             _counter += Time.deltaTime;
+            reticleFilled.fillAmount += 0.005f;
         }
 
         if(_counter >= 1.5f)
@@ -163,31 +162,31 @@ public class Setting : MonoBehaviour
 
     public void Exercise2OnEnter()
     {
-        _click = true;
+        OnEnter();
         _choice = Choice.exercise2;
     }
 
     public void Exercise3OnEnter()
     {
-        _click = true;
+        OnEnter();
         _choice = Choice.exercise3;
     }
 
     public void Exercise4OnEnter()
     {
-        _click = true;
+        OnEnter();
         _choice = Choice.exercise4;
     }
 
     public void BackOnEnter()
     {
-        _click = true;
+        OnEnter();
         _choice = Choice.back;
     }
 
     public void SaveOnEnter()
     {
-        _click = true;
+        OnEnter();
         _choice = Choice.save;
     }
 
@@ -205,14 +204,27 @@ public class Setting : MonoBehaviour
     {
         _choice = Choice.volume;
     }
+
+    public void OnEnter()
+    {
+        _click = true;
+        reticleFilled.enabled = true;
+    }
+
     public void OnExit()
     {
-        if (_choice == Choice.volume && soundManager != null)
-            soundManager.GetComponent<AudioSource>().volume = volumeSlider.GetComponent<Slider>().value;
+        if (_choice == Choice.volume && SoundManager.soundManager != null)
+            SoundManager.soundManager.GetComponent<AudioSource>().volume = volumeSlider.GetComponent<Slider>().value;
            
         _click = false;
         _counter = 0;
         _choice = Choice.none;
+
+        if(reticleFilled != null)
+        {
+            reticleFilled.enabled = false;
+            reticleFilled.fillAmount = 0;
+        }
     }
 
     /// <summary>
