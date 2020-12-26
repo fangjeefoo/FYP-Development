@@ -10,6 +10,7 @@ public class Lose : MonoBehaviour
     public GameObject restartButton;
     public Text scoreText;
     public Text durationText;
+    public Image reticleFilled;
 
     //private variable
     private string _scoreText;
@@ -37,8 +38,11 @@ public class Lose : MonoBehaviour
 
     public void Update()
     {
-        if(_click)
+        if (_click)
+        {
             _counter += Time.deltaTime;
+            reticleFilled.fillAmount += 0.005f;
+        }            
 
         if(_counter >= 1.5f)
         {
@@ -59,19 +63,32 @@ public class Lose : MonoBehaviour
     public void MainMenuOnEnter()
     {
         _choice = Choice.menu;
-        _click = true;
+        OnEnter();
     }
 
     public void RestartOnEnter()
     {
         _choice = Choice.restart;
+        OnEnter();
+    }
+
+    public void OnEnter()
+    {
         _click = true;
+        reticleFilled.enabled = true;
     }
 
     public void OnExit()
     {
         _choice = Choice.none;
         _click = false;
+        _counter = 0;
+
+        if(reticleFilled != null)
+        {
+            reticleFilled.enabled = false;
+            reticleFilled.fillAmount = 0;
+        }
     }
 
     public void MainMenu()

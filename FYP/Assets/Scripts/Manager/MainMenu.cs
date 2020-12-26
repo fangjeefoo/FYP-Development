@@ -10,7 +10,7 @@ public class MainMenu : MonoBehaviour
     public Image reticleFilled;
 
     //private variable
-    private enum Choice { start, setting, quit };
+    private enum Choice { none, start, setting, quit };
     private float _counter;
     private bool _click;
     private Choice _choice;
@@ -93,6 +93,7 @@ public class MainMenu : MonoBehaviour
 
     public void OnExit()
     {
+        _choice = Choice.none;
         _click = false;
         _counter = 0f;
         if(reticleFilled != null)

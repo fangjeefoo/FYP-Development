@@ -85,6 +85,7 @@ public class Win : MonoBehaviour
     {
         _choice = Choice.none;
         _click = false;
+        _counter = 0;
 
         if(reticleFilled != null)
         {
