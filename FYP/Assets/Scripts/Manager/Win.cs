@@ -10,6 +10,7 @@ public class Win : MonoBehaviour
     public GameObject nextLevelButton;
     public Text scoreText;
     public Text durationText;
+    public Image reticleFilled;
 
     //private variable
     private int _maxLevel;
@@ -39,8 +40,12 @@ public class Win : MonoBehaviour
 
     public void Update()
     {
-        if(_click)
+        if (_click)
+        {
             _counter += Time.deltaTime;
+            reticleFilled.fillAmount += 0.005f;
+        }
+            
 
         if (_counter >= 1.5f)
         {
@@ -61,19 +66,31 @@ public class Win : MonoBehaviour
     public void NextLevelOnEnter()
     {
         _choice = Choice.nextLevel;
-        _click = true;
+        OnEnter();
     }
 
     public void MainMenuOnEnter()
     {
         _choice = Choice.menu;
+        OnEnter();
+    }
+
+    public void OnEnter()
+    {
         _click = true;
+        reticleFilled.enabled = true;
     }
 
     public void OnExit()
     {
         _choice = Choice.none;
         _click = false;
+
+        if(reticleFilled != null)
+        {
+            reticleFilled.enabled = false;
+            reticleFilled.fillAmount = 0;
+        }
     }
 
     public void NextLevel()
