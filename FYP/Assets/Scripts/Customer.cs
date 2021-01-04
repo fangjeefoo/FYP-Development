@@ -12,6 +12,7 @@ public class Customer : MonoBehaviour
     public GameObject door;
     public GameObject[] moodIndicator;
     public GameObject orderCanvas;
+    public GameObject moodCanvas;
     [Tooltip("time to decrease one star (Mood)")]
     public float moodCounter; 
     public float finishMealCounter;
@@ -33,12 +34,17 @@ public class Customer : MonoBehaviour
     private GameObject[] _chair;
     private Animator animator;
     private MyFoodType _foodOrder;
+    private GameObject UICamera;
 
     /// <summary>
     /// Initialize all private variable
     /// </summary>
     void Start()
     {
+        //UICamera = GameObject.FindGameObjectWithTag("UICamera");
+        //orderCanvas.GetComponent<Canvas>().worldCamera = UICamera.GetComponent<Camera>();
+        //moodCanvas.GetComponent<Canvas>().worldCamera = UICamera.GetComponent<Camera>();
+
         _isSitting = false;
         _isServing = false;
         _coroutineRunning = false;

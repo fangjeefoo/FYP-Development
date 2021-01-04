@@ -9,6 +9,7 @@ TagManager:
   - Plate
   - Hand
   - FoodManager
+  - UICamera
   layers:
   - Default
   - TransparentFX
@@ -22,7 +23,7 @@ TagManager:
   - InteractionNoClip
   - BrushHands
   - Chair
-  - 
+  - Conversation
   - 
   - 
   - 

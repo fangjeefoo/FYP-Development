@@ -649,6 +649,7 @@ MonoBehaviour:
   - {fileID: 4977324879362015771}
   - {fileID: 5528760271935560354}
   orderCanvas: {fileID: 3436988182720036916}
+  moodCanvas: {fileID: 8998511844872714662}
   moodCounter: 5
   finishMealCounter: 10
   score: 100
