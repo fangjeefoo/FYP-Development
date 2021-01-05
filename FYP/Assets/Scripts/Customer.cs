@@ -13,6 +13,7 @@ public class Customer : MonoBehaviour
     public GameObject[] moodIndicator;
     public GameObject orderCanvas;
     public GameObject moodCanvas;
+    public GameObject order;
     [Tooltip("time to decrease one star (Mood)")]
     public float moodCounter; 
     public float finishMealCounter;
@@ -65,7 +66,7 @@ public class Customer : MonoBehaviour
         {
             if (GameManager.gm.orderImage[i].name == _foodOrder.ToString())
             {
-                orderCanvas.transform.GetChild(0).GetComponent<Image>().sprite = GameManager.gm.orderImage[i];
+                order.GetComponent<Image>().sprite = GameManager.gm.orderImage[i];
                 break;
             }                
         }

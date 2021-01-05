@@ -284,6 +284,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 723926960, guid: 60270cf52a5e94998a5a335989159738, type: 3}
+      propertyPath: overridePointerCamera
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60270cf52a5e94998a5a335989159738, type: 3}
 --- !u!4 &30617496 stripped
@@ -3290,9 +3294,6 @@ MonoBehaviour:
   - {fileID: 1884606485}
   customerList:
   - {fileID: 6236353837110549800, guid: f172818d67ce04a49b5b2a5af0237b65, type: 3}
-  - {fileID: 7838156404934235618, guid: 765f56a3c20d7a24d978c00902cdbcae, type: 3}
-  - {fileID: 7328958323289156984, guid: bed681b83361d8941ab88604c1c344c9, type: 3}
-  - {fileID: 5884702549266431180, guid: d3f299073ce48004c8729d9c6f5605c7, type: 3}
   orderImage:
   - {fileID: 21300000, guid: 1b4e7637bd140ed42aef1a379f00451a, type: 3}
   - {fileID: 21300000, guid: 6448562f32befeb48b353b51a7acb6bc, type: 3}
