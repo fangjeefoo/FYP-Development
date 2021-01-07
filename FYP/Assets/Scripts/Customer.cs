@@ -35,41 +35,22 @@ public class Customer : MonoBehaviour
     private GameObject[] _chair;
     private Animator animator;
     private MyFoodType _foodOrder;
-    private GameObject UICamera;
 
     /// <summary>
     /// Initialize all private variable
     /// </summary>
     void Start()
     {
-        //UICamera = GameObject.FindGameObjectWithTag("UICamera");
-        //orderCanvas.GetComponent<Canvas>().worldCamera = UICamera.GetComponent<Camera>();
-        //moodCanvas.GetComponent<Canvas>().worldCamera = UICamera.GetComponent<Camera>();
-
         _isSitting = false;
-        _isServing = false;
-        _coroutineRunning = false;
         _chairFound = false;
         _reset = false;
-        _isLeaving = false;
-        _moodCounter = 0f;
-        _mood = 5;
         _speed = 1f;
         _chair = GameObject.FindGameObjectsWithTag("Chair");
         animator = gameObject.GetComponent<Animator>();
 
         animator.SetBool("Walk", true);
 
-        int num = UnityEngine.Random.Range(0, 4);
-        _foodOrder = GameManager.gm.foodPlate[num].GetComponent<FoodPlate>().food.GetComponent<Food>().foodType;
-        for(int i = 0; i < GameManager.gm.orderImage.Length; i++)
-        {
-            if (GameManager.gm.orderImage[i].name == _foodOrder.ToString())
-            {
-                order.GetComponent<Image>().sprite = GameManager.gm.orderImage[i];
-                break;
-            }                
-        }
+        MyReset();
     }
 
     void Update()
@@ -150,7 +131,8 @@ public class Customer : MonoBehaviour
 
             if (_isLeaving)
             {
-                LeaveShop();
+                MyReset();
+                //LeaveShop();
             }
         }
     }
@@ -205,5 +187,25 @@ public class Customer : MonoBehaviour
         _mood = 0;
         _isLeaving = true;
         SoundManager.soundManager.MyPlay(3);
+    }
+
+    public void MyReset()
+    {
+        _isServing = false;
+        _coroutineRunning = false;
+        _isLeaving = false;
+        _moodCounter = 0f;
+        _mood = 5;
+
+        int num = UnityEngine.Random.Range(0, 4);
+        _foodOrder = GameManager.gm.foodPlate[num].GetComponent<FoodPlate>().food.GetComponent<Food>().foodType;
+        for (int i = 0; i < GameManager.gm.orderImage.Length; i++)
+        {
+            if (GameManager.gm.orderImage[i].name == _foodOrder.ToString())
+            {
+                order.GetComponent<Image>().sprite = GameManager.gm.orderImage[i];
+                break;
+            }
+        }
     }
 }
