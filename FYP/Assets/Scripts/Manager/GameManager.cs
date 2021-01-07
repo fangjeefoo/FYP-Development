@@ -17,17 +17,21 @@ public class GameManager : MonoBehaviour
     public GameObject[] customerList;
     public GameObject conversation1;
     public GameObject conversation2;
+
+    public Image reticleFilled;
+
     public Sprite[] orderImage;
-    [Tooltip("Max customers in restaurant")]
-    public int maxCustomer;
-    [Tooltip("time to spawn customer")]
-    public float spawnCustomer;
-    public Text goalText;
-    public Text timerText;
+
+    [Tooltip("Max customers in restaurant")]  public int maxCustomer;
     public int currentLevel;
     public int goalScore;
-    [HideInInspector]
-    public bool pauseCounter;
+
+    [Tooltip("time to spawn customer")] public float spawnCustomer;
+
+    public Text goalText;
+    public Text timerText;
+
+    [HideInInspector] public bool pauseCounter;
 
     //private variable
     private GameObject _selectedObject;
@@ -42,6 +46,7 @@ public class GameManager : MonoBehaviour
 
     private float _counter;
     private float _currentTimer;
+    private float _buttonCounter;
 
     private string _goalText;
     private string _timerText;
@@ -50,6 +55,7 @@ public class GameManager : MonoBehaviour
 
     private bool[] _selectedExercise;
     private bool[] _currentSelectedExercise;
+    private bool _buttonEntered;
 
     private LevelData _currentLevelData;
     private PerformanceData _performanceData;
@@ -68,9 +74,11 @@ public class GameManager : MonoBehaviour
     {
         //Initialize private variables
         pauseCounter = false;
+        _buttonEntered = false;
         _counter = spawnCustomer / 2;
         _currentCustomer = 1;
         _currentScore = 0;
+        _buttonCounter = 0;
         _goalText = "Goal: ";
         _timerText = "Timer: ";
         _dbName = "Performance Data";
@@ -88,6 +96,15 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        if (_buttonEntered)
+        {
+            _buttonCounter += Time.deltaTime;
+            reticleFilled.fillAmount += 0.005f;
+        }
+
+        if(_buttonCounter >= 1.5f)
+            ConversationOnClick();
+
         if(!pauseCounter && _currentTimer > 0)
             _currentTimer -= Time.deltaTime;
 
@@ -395,20 +412,31 @@ public class GameManager : MonoBehaviour
 
     IEnumerator ShowConversation()
     {
-        //disable all the objects so that player will not interact
         pauseCounter = true;
         conversation1.SetActive(true);
         yield return new WaitForSeconds(1.0f);
-        _customer.GetComponent<Customer>().MyReset();
-        yield return new WaitForSeconds(1.0f);
         conversation1.SetActive(false);
+        _customer.GetComponent<Customer>().MyReset();
+        yield return new WaitForSeconds(1.0f);        
         conversation2.SetActive(true);
     }
 
     public void ConversationOnClick()
     {
         pauseCounter = false;
-        //enable all the objects so that player can interact
         conversation2.SetActive(false);
+        PointerExit();
+    }
+
+    public void PointerEnter()
+    {
+        _buttonEntered = true;
+    }
+
+    public void PointerExit()
+    {
+        _buttonEntered = false;
+        reticleFilled.fillAmount = 0;
+        _buttonCounter = 0;
     }
 }

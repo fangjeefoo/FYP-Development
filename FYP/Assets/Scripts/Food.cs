@@ -42,6 +42,9 @@ public class Food : MonoBehaviour
 
     public void PointerEnter()
     {
+        if (GameManager.gm.pauseCounter)
+            return;
+            
         GameManager.gm.SelectObject(this.gameObject);
     }
 
