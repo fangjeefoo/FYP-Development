@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     public GameObject[] cookedFoodPlate;
     public GameObject[] foodPlate;
     public GameObject[] customerList;
+    public GameObject conversation1;
+    public GameObject conversation2;
     public Sprite[] orderImage;
     [Tooltip("Max customers in restaurant")]
     public int maxCustomer;
@@ -24,15 +26,17 @@ public class GameManager : MonoBehaviour
     public Text timerText;
     public int currentLevel;
     public int goalScore;
+    [HideInInspector]
+    public bool pauseCounter;
 
     //private variable
     private GameObject _selectedObject;
     private GameObject _selectedKitchenware;
     private GameObject _grabObject;
+    private GameObject _customer;
 
     private int _currentCustomer;
     private int _currentScore;
-    private int _maxLevel;
     private int _levelDuration;
     private int[] _performedTimes;
 
@@ -46,7 +50,6 @@ public class GameManager : MonoBehaviour
 
     private bool[] _selectedExercise;
     private bool[] _currentSelectedExercise;
-    private bool _pauseCounter;
 
     private LevelData _currentLevelData;
     private PerformanceData _performanceData;
@@ -64,7 +67,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         //Initialize private variables
-        _pauseCounter = false;
+        pauseCounter = false;
         _counter = spawnCustomer / 2;
         _currentCustomer = 1;
         _currentScore = 0;
@@ -85,7 +88,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if(!_pauseCounter && _currentTimer > 0)
+        if(!pauseCounter && _currentTimer > 0)
             _currentTimer -= Time.deltaTime;
 
         _counter += Time.deltaTime;
@@ -93,24 +96,7 @@ public class GameManager : MonoBehaviour
 
         //if(_currentTimer <= 0)
         //{
-        //SoundManager.soundManager.MyPlay(6);
-        //if(currentLevel == 1)
-        //{
-        //    bool maxLevel = true; 
-
-        //    for(int i = 0; i < _selectedExercise.Length; i++)
-        //    {
-        //        if (!_selectedExercise[i])
-        //        {
-        //            PlayerPrefs.SetInt("maxLevel", 3);
-        //            maxLevel = false;
-        //            break;
-        //        }
-        //    }
-
-        //    if(maxLevel)
-        //        PlayerPrefs.SetInt("maxLevel", 4);
-        //}
+        //    SoundManager.soundManager.MyPlay(6);
         //    PostData();
         //    PlayerPrefs.SetInt("level", currentLevel);
         //    PlayerPrefs.SetInt("duration", _levelDuration);
@@ -127,8 +113,7 @@ public class GameManager : MonoBehaviour
         {
             if (_currentCustomer <= maxCustomer)
             {
-                int num = Random.Range(0, currentLevel);
-                Instantiate(customerList[num]);
+                _customer = Instantiate(customerList[0]);
                 _currentCustomer++;
             }
             _counter = 0f;
@@ -403,8 +388,27 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void CallConversationCoroutine()
+    {
+        StartCoroutine(ShowConversation());
+    }
+
+    IEnumerator ShowConversation()
+    {
+        //disable all the objects so that player will not interact
+        pauseCounter = true;
+        conversation1.SetActive(true);
+        yield return new WaitForSeconds(1.0f);
+        _customer.GetComponent<Customer>().MyReset();
+        yield return new WaitForSeconds(1.0f);
+        conversation1.SetActive(false);
+        conversation2.SetActive(true);
+    }
+
     public void ConversationOnClick()
     {
-
+        pauseCounter = false;
+        //enable all the objects so that player can interact
+        conversation2.SetActive(false);
     }
 }

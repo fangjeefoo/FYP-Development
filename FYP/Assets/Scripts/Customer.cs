@@ -50,7 +50,7 @@ public class Customer : MonoBehaviour
 
         animator.SetBool("Walk", true);
 
-        MyReset();
+        MyReset2();
     }
 
     void Update()
@@ -84,13 +84,13 @@ public class Customer : MonoBehaviour
                 {
                     transform.GetChild(0).rotation = Quaternion.Euler(0f, 90f, -90f);
                     _isSitting = true;
-                    orderCanvas.SetActive(true);
+                    GameManager.gm.CallConversationCoroutine();
                     animator.SetBool("Walk", false);
-                    _chair[_chairCounter].GetComponent<Chair>().GeneratePlate();
+                    _chair[_chairCounter].GetComponent<Chair>().GeneratePlate();                    
                 }                
             }
         }
-        else //customer waiting to be served
+        else if(!GameManager.gm.pauseCounter)//customer waiting to be served
         {           
             if (_isServing) //if serve by player, starts coroutine
             {
@@ -131,7 +131,8 @@ public class Customer : MonoBehaviour
 
             if (_isLeaving)
             {
-                MyReset();
+                GameManager.gm.CallConversationCoroutine();
+                //MyReset();
                 //LeaveShop();
             }
         }
@@ -191,11 +192,7 @@ public class Customer : MonoBehaviour
 
     public void MyReset()
     {
-        _isServing = false;
-        _coroutineRunning = false;
-        _isLeaving = false;
-        _moodCounter = 0f;
-        _mood = 5;
+        MyReset2();
 
         int num = UnityEngine.Random.Range(0, 4);
         _foodOrder = GameManager.gm.foodPlate[num].GetComponent<FoodPlate>().food.GetComponent<Food>().foodType;
@@ -207,5 +204,16 @@ public class Customer : MonoBehaviour
                 break;
             }
         }
+
+        orderCanvas.SetActive(true);
+    }
+
+    public void MyReset2()
+    {
+        _isServing = false;
+        _coroutineRunning = false;
+        _isLeaving = false;
+        _moodCounter = 0f;
+        _mood = 5;
     }
 }
