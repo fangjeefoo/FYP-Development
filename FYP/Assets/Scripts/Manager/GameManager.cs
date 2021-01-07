@@ -29,19 +29,25 @@ public class GameManager : MonoBehaviour
     private GameObject _selectedObject;
     private GameObject _selectedKitchenware;
     private GameObject _grabObject;
-    private float _counter;
+
     private int _currentCustomer;
     private int _currentScore;
     private int _maxLevel;
+    private int _levelDuration;
+    private int[] _performedTimes;
+
+    private float _counter;
     private float _currentTimer;
+
     private string _goalText;
     private string _timerText;
     private string _dbName;
     private string _retrieveDbName;
-    private int _levelDuration;
+
     private bool[] _selectedExercise;
     private bool[] _currentSelectedExercise;
-    private int[] _performedTimes;
+    private bool _pauseCounter;
+
     private LevelData _currentLevelData;
     private PerformanceData _performanceData;
     private FirebaseDatabase _database;
@@ -58,6 +64,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         //Initialize private variables
+        _pauseCounter = false;
         _counter = spawnCustomer / 2;
         _currentCustomer = 1;
         _currentScore = 0;
@@ -78,7 +85,9 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        _currentTimer -= Time.deltaTime;
+        if(!_pauseCounter && _currentTimer > 0)
+            _currentTimer -= Time.deltaTime;
+
         _counter += Time.deltaTime;
         timerText.text = _timerText + Mathf.Round(_currentTimer);
 
@@ -392,5 +401,10 @@ public class GameManager : MonoBehaviour
             foodList[rnd] = foodList[i];
             foodList[i] = temp;
         }
+    }
+
+    public void ConversationOnClick()
+    {
+
     }
 }
