@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SoundManager : MonoBehaviour
 {
     //public variable
     public static SoundManager soundManager;
+
+    public AudioSource bgm;
+    public AudioSource seaWaves;
     public AudioClip win;
     public AudioClip lose;
     public AudioClip foodDone;
@@ -16,10 +20,8 @@ public class SoundManager : MonoBehaviour
 
     //private variable
     private float _volume;
-    private AudioSource _audio;
+    private string _activeScene;
     
-
-
     public void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
@@ -30,20 +32,43 @@ public class SoundManager : MonoBehaviour
             Destroy(this.gameObject);
 
         _volume = 1.0f;     
-        _audio = gameObject.GetComponent<AudioSource>();
-        _audio.loop = true;
-        _volume = _audio.volume;
     }
 
     public void Start()
     {
-        _audio.Play();
+        _activeScene = SceneManager.GetActiveScene().name;
+        PlaySound();
+        
+    }
+
+    public void Update()
+    {
+        if(_activeScene != SceneManager.GetActiveScene().name)
+        {
+            PlaySound();
+            _activeScene = SceneManager.GetActiveScene().name;
+        }
+    }
+
+    public void PlaySound()
+    {
+        if(SceneManager.GetActiveScene().name == "Testing 1" || SceneManager.GetActiveScene().name == "Win" || SceneManager.GetActiveScene().name == "Lose")
+        {
+            bgm.Play();
+            seaWaves.Stop();
+        }
+        else
+        {
+            bgm.Play();
+            seaWaves.Play();
+        }
     }
 
     public void SetVolume(float vol)
     {
         _volume = vol;
-        _audio.volume = _volume;
+        bgm.volume = _volume;
+        seaWaves.volume = _volume;
     }
 
     public float GetVolume()
@@ -60,25 +85,25 @@ public class SoundManager : MonoBehaviour
         switch (choice)
         {
             case 0:
-                _audio.PlayOneShot(win, _volume);
+                bgm.PlayOneShot(win, _volume);
                 break;
             case 1:
-                _audio.PlayOneShot(lose, _volume);
+                bgm.PlayOneShot(lose, _volume);
                 break;
             case 2:
-                _audio.PlayOneShot(foodDone, _volume);
+                bgm.PlayOneShot(foodDone, _volume);
                 break;
             case 3:
-                _audio.PlayOneShot(orderSucessful, _volume);
+                bgm.PlayOneShot(orderSucessful, _volume);
                 break;
             case 4:
-                _audio.PlayOneShot(orderFailed, _volume);
+                bgm.PlayOneShot(orderFailed, _volume);
                 break;
             case 5:
-                _audio.PlayOneShot(pickUp, _volume);
+                bgm.PlayOneShot(pickUp, _volume);
                 break;
             case 6:
-                _audio.PlayOneShot(timeEnd, _volume);
+                bgm.PlayOneShot(timeEnd, _volume);
                 break;
         }
     }
