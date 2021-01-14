@@ -111,21 +111,6 @@ public class GameManager : MonoBehaviour
         _counter += Time.deltaTime;
         timerText.text = _timerText + Mathf.Round(_currentTimer);
 
-        //if(_currentTimer <= 0)
-        //{
-        //    SoundManager.soundManager.MyPlay(6);
-        //    PostData();
-        //    PlayerPrefs.SetInt("level", currentLevel);
-        //    PlayerPrefs.SetInt("duration", _levelDuration);
-        //    PlayerPrefs.SetInt("score", _currentScore);
-        //    PlayerPrefs.SetInt("goal", goalScore);
-
-        //    if (_currentScore >= goalScore)
-        //        SceneManager.LoadScene("Win");             
-        //    else
-        //        SceneManager.LoadScene("Lose");
-        //}
-
         if (_counter > spawnCustomer)
         {
             if (_currentCustomer <= maxCustomer)
@@ -407,7 +392,10 @@ public class GameManager : MonoBehaviour
 
     public void CallConversationCoroutine()
     {
-        StartCoroutine(ShowConversation());
+        if (_currentTimer > 0)
+            StartCoroutine(ShowConversation());
+        else
+            SaveGame();
     }
 
     IEnumerator ShowConversation()
@@ -438,5 +426,20 @@ public class GameManager : MonoBehaviour
         _buttonEntered = false;
         reticleFilled.fillAmount = 0;
         _buttonCounter = 0;
+    }
+
+    public void SaveGame()
+    {
+        SoundManager.soundManager.MyPlay(6);
+        PostData();
+        PlayerPrefs.SetInt("level", currentLevel);
+        PlayerPrefs.SetInt("duration", _levelDuration);
+        PlayerPrefs.SetInt("score", _currentScore);
+        PlayerPrefs.SetInt("goal", goalScore);
+
+        if (_currentScore >= goalScore)
+            SceneManager.LoadScene("Win");
+        else
+            SceneManager.LoadScene("Lose");
     }
 }
