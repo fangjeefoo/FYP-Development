@@ -131,9 +131,11 @@ public class Customer : MonoBehaviour
 
             if (_isLeaving)
             {
-                GameManager.gm.CallConversationCoroutine();
+                if(GameManager.gm.GetTimer() > 0)
+                    GameManager.gm.CallConversationCoroutine();
+                else
+                    LeaveShop();
                 //MyReset();
-                //LeaveShop();
             }
         }
     }
@@ -160,6 +162,7 @@ public class Customer : MonoBehaviour
         else
         {           
             Destroy(this.gameObject);
+            GameManager.gm.SaveGame();
         }
     }
 

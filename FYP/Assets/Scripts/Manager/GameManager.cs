@@ -392,10 +392,7 @@ public class GameManager : MonoBehaviour
 
     public void CallConversationCoroutine()
     {
-        if (_currentTimer > 0)
-            StartCoroutine(ShowConversation());
-        else
-            SaveGame();
+        StartCoroutine(ShowConversation());
     }
 
     IEnumerator ShowConversation()
@@ -441,5 +438,10 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene("Win");
         else
             SceneManager.LoadScene("Lose");
+    }
+
+    public float GetTimer()
+    {
+        return _currentTimer;
     }
 }
