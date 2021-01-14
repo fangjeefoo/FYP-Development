@@ -438,6 +438,7 @@
     <Compile Include="Assets\LMC\LeapMotion\Core\Scripts\Utils\XRSupportUtil.cs" />
     <Compile Include="Assets\LMC\LeapMotion\Core\Scripts\XR\LeapEyeDislocator.cs" />
     <Compile Include="Assets\LMC\LeapMotion\Core\Scripts\XR\XRHeightOffset.cs" />
+    <Compile Include="Assets\Other People Asset\CartoonSummerBeach\DemoScene\Standard Assets\Character Controllers\Sources\Scripts\MouseLook.cs" />
     <Compile Include="Assets\Other People Asset\Customer\Scripts\DemoFree.cs" />
     <Compile Include="Assets\Other People Asset\Customer\Scripts\FreeCameraLogic.cs" />
     <Compile Include="Assets\Other People Asset\Customer\Scripts\SimpleSampleCharacterControl.cs" />
@@ -511,6 +512,7 @@
     <None Include="Assets\LMC\LeapMotion\Core\Shaders\PassthroughForeground.shader" />
     <None Include="Assets\LMC\LeapMotion\Core\Shaders\AlphaToWhite.shader" />
     <None Include="Assets\GoogleVR\Shaders\Video\VideoUnlitShader.shader" />
+    <None Include="Assets\Other People Asset\CartoonSummerBeach\__ReadMe.txt" />
     <None Include="Assets\LMC\LeapMotion\Core\Dependencies.txt" />
     <None Include="Assets\GoogleVR\Demos\Shaders\HelloVR\HelloVRUnlitGrayscaleToColor.shader" />
     <None Include="Assets\Other People Asset\Food\FoodAndGrocery\Info.txt" />
