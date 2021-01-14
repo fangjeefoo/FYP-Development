@@ -52,7 +52,7 @@ public class SoundManager : MonoBehaviour
 
     public void PlaySound()
     {
-        if(SceneManager.GetActiveScene().name == "Testing 1" || SceneManager.GetActiveScene().name == "Win" || SceneManager.GetActiveScene().name == "Lose")
+        if(SceneManager.GetActiveScene().name == "Testing 1" || SceneManager.GetActiveScene().name == "Win" || SceneManager.GetActiveScene().name == "Lose" || SceneManager.GetActiveScene().name == "Setting")
         {
             bgm.Play();
             seaWaves.Stop();
