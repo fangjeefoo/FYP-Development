@@ -439,6 +439,10 @@
     <Compile Include="Assets\LMC\LeapMotion\Core\Scripts\XR\LeapEyeDislocator.cs" />
     <Compile Include="Assets\LMC\LeapMotion\Core\Scripts\XR\XRHeightOffset.cs" />
     <Compile Include="Assets\Other People Asset\CartoonSummerBeach\DemoScene\Standard Assets\Character Controllers\Sources\Scripts\MouseLook.cs" />
+    <Compile Include="Assets\Other People Asset\Crafting Mecanim Animation Pack\Code\CrafterController.cs" />
+    <Compile Include="Assets\Other People Asset\Crafting Mecanim Animation Pack\Code\GUIControls.cs" />
+    <Compile Include="Assets\Other People Asset\Crafting Mecanim Animation Pack\Code\IKHands.cs" />
+    <Compile Include="Assets\Other People Asset\Crafting Mecanim Animation Pack\Code\SmoothFollow.cs" />
     <Compile Include="Assets\Other People Asset\Customer\Scripts\DemoFree.cs" />
     <Compile Include="Assets\Other People Asset\Customer\Scripts\FreeCameraLogic.cs" />
     <Compile Include="Assets\Other People Asset\Customer\Scripts\SimpleSampleCharacterControl.cs" />
