@@ -246,7 +246,6 @@ GameObject:
   - component: {fileID: 4732479653694494}
   - component: {fileID: 33846998196459546}
   - component: {fileID: 23862228482909938}
-  - component: {fileID: 64752373678406200}
   m_Layer: 0
   m_Name: cupboard
   m_TagString: Untagged
@@ -315,17 +314,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &64752373678406200
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1932152967129928}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300004, guid: 1b072438ce5b846ef8d514b9a45369f8, type: 3}

@@ -1,9 +1,6 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
-using System.Collections.Specialized;
 using UnityEngine;
 using FoodType;
-using System;
 using UnityEngine.UI;
 
 public class Customer : MonoBehaviour
@@ -22,17 +19,15 @@ public class Customer : MonoBehaviour
 
 
     //private variable
-    private int _chairCounter; //current available chair
     private bool _isSitting; //check if customer is sitting
     private float _moodCounter; //time to decrease one star (mood)
     private int _mood; //current star of the customer (max = 5)
     private bool _isServing; //check customer is serving by player
     private bool _coroutineRunning; //check coroutine "FinishMeal" is running
-    private float _speed;
     private bool _reset;
-    private bool _chairFound;
     private bool _isLeaving;
-    private GameObject[] _chair;
+    private float _speed;
+    private GameObject _chair;
     private Animator animator;
     private MyFoodType _foodOrder;
 
@@ -42,17 +37,106 @@ public class Customer : MonoBehaviour
     void Start()
     {
         _isSitting = false;
-        _chairFound = false;
         _reset = false;
-        _speed = 1f;
-        _chair = GameObject.FindGameObjectsWithTag("Chair");
+        _speed = 0.05f;
+        _chair = GameObject.FindGameObjectWithTag("Chair");
         animator = gameObject.GetComponent<Animator>();
 
-        animator.SetBool("Walk", true);
-
         MyReset2();
+        transform.rotation = Quaternion.Euler(0f, 180f, 0f);
     }
 
+    void Update()
+    {
+        //if is sitting false, means the customer just reach the restaurant
+        if (!_isSitting)
+        {
+            if (Vector3.Distance(_chair.transform.position, transform.position) > 1.0f)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, new Vector3(_chair.transform.position.x, transform.position.y, _chair.transform.position.z), _speed);
+            }
+            else
+            {
+                animator.SetTrigger("ChairSitTrigger");
+                _isSitting = true;               
+                GameManager.gm.CallConversationCoroutine();                
+                transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+                _chair.GetComponent<Chair>().GeneratePlate();
+            }
+        }
+        else if (!GameManager.gm.pauseCounter)//customer waiting to be served
+        {
+            if (_isServing) //if serve by player, starts coroutine
+            {
+                if (!_coroutineRunning) //if coroutine not run, run it
+                {
+                    StartCoroutine(FinishMeal());
+                }
+            }
+            else //if not serve by player, add time on mood counter
+            {
+                _moodCounter += Time.deltaTime;
+            }
+
+            if (_moodCounter > moodCounter && !_isLeaving) //customer wait for too long, decrease one mood indicator
+            {
+                _moodCounter = 0;
+                _mood--;
+
+                if (_mood <= 0)
+                {
+                    SoundManager.soundManager.MyPlay(4);
+                    GameManager.gm.UpdateScore(score * moodIndicator.Length / 2, false);
+                    _isLeaving = true;
+                }
+            }
+
+            for (int i = 0; i < moodIndicator.Length; i++) //display mood indicator
+            {
+                if (i < _mood)
+                {
+                    moodIndicator[i].SetActive(true);
+                }
+                else
+                {
+                    moodIndicator[i].SetActive(false);
+                }
+            }
+
+            if (_isLeaving)
+            {
+                if (GameManager.gm.GetTimer() > 0)
+                    GameManager.gm.CallConversationCoroutine();
+                else
+                    LeaveShop();
+            }
+        }
+    }
+
+    public void LeaveShop()
+    {
+        orderCanvas.SetActive(false);
+        //animator.SetBool("Walk", true);
+
+        if (!_reset)
+        {
+            _reset = true;
+            _chair.GetComponent<Chair>().MyReset();
+            GameManager.gm.UpdateCustomer();
+        }
+
+        if (Vector3.Distance(door.transform.position, transform.position) > 1.0f)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3(door.transform.position.x, transform.position.y,door.transform.position.z), _speed);
+        }
+        else
+        {
+            Destroy(gameObject);
+            GameManager.gm.SaveGame();
+        }
+    }
+
+    /*
     void Update()
     {
         //if is sitting false, means the customer just reach the restaurant
@@ -164,7 +248,7 @@ public class Customer : MonoBehaviour
             Destroy(this.gameObject);
             GameManager.gm.SaveGame();
         }
-    }
+    }*/
 
     public bool Serving
     {
@@ -183,10 +267,11 @@ public class Customer : MonoBehaviour
     /// </summary>
     IEnumerator FinishMeal()
     {
-        Debug.Log("Eating");
+        animator.SetTrigger("ChairEatTrigger");
         _coroutineRunning = true;
         orderCanvas.SetActive(false);
         yield return new WaitForSeconds(finishMealCounter);
+        animator.SetTrigger("ChairSitTrigger");
         GameManager.gm.UpdateScore(_mood * score, true);
         _mood = 0;
         _isLeaving = true;
@@ -197,7 +282,7 @@ public class Customer : MonoBehaviour
     {
         MyReset2();
 
-        int num = UnityEngine.Random.Range(0, 4);
+        int num = Random.Range(0, 4);
         _foodOrder = GameManager.gm.foodPlate[num].GetComponent<FoodPlate>().food.GetComponent<Food>().foodType;
         for (int i = 0; i < GameManager.gm.orderImage.Length; i++)
         {

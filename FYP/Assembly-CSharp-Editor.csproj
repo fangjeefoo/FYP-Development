@@ -146,6 +146,11 @@
     <Compile Include="Assets\Other People Asset\Food\CoffeeShopStarterPack\Scripts\Editor\ScreenShotHelperEditor.cs" />
     <Compile Include="Assets\Other People Asset\Food\CoffeeShopStarterPack\Scripts\Editor\ScreenShotImportSettings.cs" />
     <Compile Include="Assets\Other People Asset\Food\CoffeeShopStarterPack\Scripts\Editor\SliceHelperEditor.cs" />
+    <Compile Include="Assets\Other People Asset\NavMeshComponents\Editor\NavMeshComponentsGUIUtility.cs" />
+    <Compile Include="Assets\Other People Asset\NavMeshComponents\Editor\NavMeshLinkEditor.cs" />
+    <Compile Include="Assets\Other People Asset\NavMeshComponents\Editor\NavMeshModifierEditor.cs" />
+    <Compile Include="Assets\Other People Asset\NavMeshComponents\Editor\NavMeshModifierVolumeEditor.cs" />
+    <Compile Include="Assets\Other People Asset\NavMeshComponents\Editor\NavMeshSurfaceEditor.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.11f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

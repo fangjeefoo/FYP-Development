@@ -9,6 +9,8 @@ public class FoodPlate : MonoBehaviour
     [HideInInspector]
     public GameObject holdingFood;
 
+    private bool called = false;
+
     void Start()
     {
         holdingFood = null;
@@ -16,13 +18,16 @@ public class FoodPlate : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {        
         if(holdingFood == null && food != null)
-        {
-            var temp = this.transform.position;
+        {           
+            var temp = transform.position;
             temp.y += 0.1f;
+            Debug.Log(temp);
             holdingFood = Instantiate(food, temp, food.transform.rotation, foodParent);
-        }          
+            Debug.Log(holdingFood.transform.position);
+        }   
+        
     }
 
     public void OnCollisionEnter(Collision collision)

@@ -472,6 +472,10 @@
     <Compile Include="Assets\Other People Asset\Food\CoffeeShopStarterPack\Scripts\Utilities\BasicGameEvents.cs" />
     <Compile Include="Assets\Other People Asset\Food\CoffeeShopStarterPack\Scripts\Utilities\ScreenShotHelper.cs" />
     <Compile Include="Assets\Other People Asset\Food\CoffeeShopStarterPack\Scripts\Utilities\SliceHelper.cs" />
+    <Compile Include="Assets\Other People Asset\NavMeshComponents\Scripts\NavMeshLink.cs" />
+    <Compile Include="Assets\Other People Asset\NavMeshComponents\Scripts\NavMeshModifier.cs" />
+    <Compile Include="Assets\Other People Asset\NavMeshComponents\Scripts\NavMeshModifierVolume.cs" />
+    <Compile Include="Assets\Other People Asset\NavMeshComponents\Scripts\NavMeshSurface.cs" />
     <Compile Include="Assets\Scripts\Chair.cs" />
     <Compile Include="Assets\Scripts\Customer.cs" />
     <Compile Include="Assets\Scripts\CustomerPlate.cs" />
