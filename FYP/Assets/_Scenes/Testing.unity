@@ -272,7 +272,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 14244236}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
   m_Name: 
@@ -537,7 +537,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 108695090}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 9fe762971d8d7bb49aa665bfb8f2d655, type: 3}
+  m_VideoClip: {fileID: 0}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -2546,7 +2546,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 2
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 12559685}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -4500,6 +4500,12 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 355c4b5ddf04b3a42bd365338d21e04f, type: 3}
   - {fileID: 21300000, guid: 1310e66248a113447a4eb8ae685e083c, type: 3}
   - {fileID: 21300000, guid: ee47de0aa9f06004e8c616b71134d48d, type: 3}
+  elbowVideo: {fileID: 32900000, guid: a44094387bb96094785dc895e49d1737, type: 3}
+  wristVideo: {fileID: 32900000, guid: e8c88856b831cad4fa8eda10ed30c082, type: 3}
+  forearmVideo: {fileID: 32900000, guid: 7aa61c5670660da428f6efff8212d233, type: 3}
+  fistVideo: {fileID: 32900000, guid: 9fe762971d8d7bb49aa665bfb8f2d655, type: 3}
+  leftVideoPlayer: {fileID: 108695092}
+  rightVideoPlayer: {fileID: 1607609021}
   maxCustomer: 1
   currentLevel: 1
   goalScore: 500
@@ -5350,7 +5356,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1278585243}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
   m_Name: 
@@ -6588,7 +6594,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1607609016}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 7aa61c5670660da428f6efff8212d233, type: 3}
+  m_VideoClip: {fileID: 0}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -7710,6 +7716,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Board
+      objectReference: {fileID: 0}
+    - target: {fileID: 1531119797175603880, guid: 41992cfa03cc6bc4f8e89fc63dd834a0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41992cfa03cc6bc4f8e89fc63dd834a0, type: 3}

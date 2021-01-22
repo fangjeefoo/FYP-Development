@@ -23,9 +23,7 @@ public class FoodPlate : MonoBehaviour
         {           
             var temp = transform.position;
             temp.y += 0.1f;
-            Debug.Log(temp);
             holdingFood = Instantiate(food, temp, food.transform.rotation, foodParent);
-            Debug.Log(holdingFood.transform.position);
         }   
         
     }

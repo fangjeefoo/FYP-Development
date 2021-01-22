@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using Firebase.Database;
 using UnityEngine.SceneManagement;
 using System.Linq;
+using UnityEngine.Video;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,6 +22,14 @@ public class GameManager : MonoBehaviour
     public Image reticleFilled;
 
     public Sprite[] orderImage;
+
+    public VideoClip elbowVideo;
+    public VideoClip wristVideo;
+    public VideoClip forearmVideo;
+    public VideoClip fistVideo;
+
+    public VideoPlayer leftVideoPlayer;
+    public VideoPlayer rightVideoPlayer;
 
     [Tooltip("Max customers in restaurant")]  public int maxCustomer;
     public int currentLevel;
@@ -343,7 +352,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void SelectKitchenware(GameObject obj)
-    {
+    {        
         _selectedKitchenware = obj;
     }
 
@@ -408,6 +417,7 @@ public class GameManager : MonoBehaviour
 
     public void ConversationOnClick()
     {
+        PlayVideo(true);
         pauseCounter = false;
         conversation2.SetActive(false);
         PointerExit();
@@ -415,6 +425,7 @@ public class GameManager : MonoBehaviour
 
     public void PointerEnter()
     {
+        Debug.Log("Pointer enter");
         _buttonEntered = true;
     }
 
@@ -443,5 +454,34 @@ public class GameManager : MonoBehaviour
     public float GetTimer()
     {
         return _currentTimer;
+    }
+
+    public void PlayVideo(bool playFistVideo = false)
+    {
+        if(MyHand.handManager.UpdateWristExercise && leftVideoPlayer.clip != wristVideo)
+        {
+            leftVideoPlayer.clip = wristVideo;
+            rightVideoPlayer.clip = wristVideo;
+        }
+        else if (MyHand.handManager.UpdateElbowExercise && leftVideoPlayer.clip != elbowVideo)
+        {
+            leftVideoPlayer.clip = elbowVideo;
+            rightVideoPlayer.clip = elbowVideo;
+        }
+        else if (MyHand.handManager.UpdateForearmExercise && leftVideoPlayer.clip != forearmVideo)
+        {
+            leftVideoPlayer.clip = forearmVideo;
+            rightVideoPlayer.clip = forearmVideo;
+        }
+        else if(playFistVideo)
+        {
+            leftVideoPlayer.clip = fistVideo;
+            rightVideoPlayer.clip = fistVideo;
+        }
+        else
+        {
+            leftVideoPlayer.clip = null;
+            rightVideoPlayer.clip = null;
+        }
     }
 }

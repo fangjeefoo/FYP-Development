@@ -16,6 +16,7 @@ public class Pan : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
+        //check whether player putting wrong food type or the pan is already start cooking
         if (MyHand.handManager.UpdateForearmExercise || collision.gameObject.GetComponent<Food>().cookType != CookType.frying)
         {
             Destroy(collision.gameObject);
