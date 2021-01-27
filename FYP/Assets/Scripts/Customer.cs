@@ -85,7 +85,8 @@ public class Customer : MonoBehaviour
 
                 if (_mood <= 0)
                 {
-                    SoundManager.soundManager.MyPlay(4);
+                    if(SoundManager.soundManager)
+                        SoundManager.soundManager.MyPlay(4);
                     GameManager.gm.UpdateScore(score * moodIndicator.Length / 2, false);
                     _isLeaving = true;
                 }

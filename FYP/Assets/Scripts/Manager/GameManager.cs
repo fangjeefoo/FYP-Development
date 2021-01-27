@@ -120,7 +120,7 @@ public class GameManager : MonoBehaviour
         _counter += Time.deltaTime;
         timerText.text = _timerText + Mathf.Round(_currentTimer);
 
-        if (_counter > spawnCustomer)
+        if (_counter > spawnCustomer && _counter > 0)
         {
             if (_currentCustomer <= maxCustomer)
             {
@@ -401,6 +401,8 @@ public class GameManager : MonoBehaviour
 
     public void CallConversationCoroutine()
     {
+        leftVideoPlayer.clip = null;
+        rightVideoPlayer.clip = null;
         StartCoroutine(ShowConversation());
     }
 
@@ -477,11 +479,6 @@ public class GameManager : MonoBehaviour
         {
             leftVideoPlayer.clip = fistVideo;
             rightVideoPlayer.clip = fistVideo;
-        }
-        else
-        {
-            leftVideoPlayer.clip = null;
-            rightVideoPlayer.clip = null;
         }
     }
 }
