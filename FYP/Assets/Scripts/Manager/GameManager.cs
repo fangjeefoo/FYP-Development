@@ -178,17 +178,22 @@ public class GameManager : MonoBehaviour
                 var dataSnapshot = task.Result;
                 customize = JsonUtility.FromJson<Customization>(dataSnapshot.GetRawJsonValue());
 
-                //_selectedExercise = new bool[4];
-                //_currentSelectedExercise = new bool[4];
+                _selectedExercise = new bool[4];
+                _currentSelectedExercise = new bool[4];
                 _selectedExercise = customize.exercise;
-                _currentSelectedExercise = customize.exercise;
                 _levelDuration = customize.exerciseDurationPerLevel;
                 _currentTimer = _levelDuration * 60f;
 
-                for (int i = currentLevel; i < _currentSelectedExercise.Length; i++)
+                for (int i = 0; i < 4; i++)
                 {
-                    _currentSelectedExercise[i] = false;
+                    if (_selectedExercise[i])
+                        _currentSelectedExercise[i] = true;
+                    else
+                        _currentSelectedExercise[i] = false;
                 }
+
+                for (int i = currentLevel; i < _currentSelectedExercise.Length; i++)
+                    _currentSelectedExercise[i] = false;
             }
         });
 
