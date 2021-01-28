@@ -25,6 +25,7 @@ using UnityEngine;
 [HelpURL("https://developers.google.com/vr/unity/reference/class/GvrEditorEmulator")]
 public class GvrEditorEmulator : MonoBehaviour
 {
+    public GameObject test;
     // GvrEditorEmulator should only be compiled in the Editor.
     //
     // Otherwise, it will override the camera pose every frame on device which causes the
@@ -232,7 +233,8 @@ public class GvrEditorEmulator : MonoBehaviour
             if (cam && cam.enabled && cam.stereoTargetEye != StereoTargetEyeMask.None)
             {
                 cam.transform.localPosition = HeadPosition * cam.transform.lossyScale.y;
-                cam.transform.localRotation = HeadRotation;
+                //cam.transform.localRotation = HeadRotation;
+                test.transform.localRotation = HeadRotation;
             }
         }
     }

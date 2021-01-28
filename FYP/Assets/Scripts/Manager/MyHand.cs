@@ -73,6 +73,7 @@ public class MyHand : MonoBehaviour
     /// </summary>
     public void ForearmExercise()
     {
+        GameManager.gm.PlayVideo(false);
         //https://stackoverflow.com/questions/42051951/how-to-detect-if-hand-in-leap-motion-is-facing-up-c-unity
         if (_lastHand.PalmNormal.y > 0 && _hand.PalmNormal.y < 0 )
         {           
@@ -84,7 +85,7 @@ public class MyHand : MonoBehaviour
         {
             _forearmCounter = 0;
             Pan.pan.food.GetComponent<Food>().GenerateCookedFood();
-            GameManager.gm.PlayVideo(true);
+            
         }
         //if (_hand.PalmNormal.y < 0)
         //    Debug.Log("Palm facing down");
@@ -97,6 +98,7 @@ public class MyHand : MonoBehaviour
     /// </summary>
     public void ElbowAExercise()
     {
+        GameManager.gm.PlayVideo(false);
         if (_lastHand.PalmNormal.y > 0 && _hand.PalmNormal.y < 0 && _lastHand.PalmNormal.z > 0 && _hand.PalmNormal.z > 0)
         {            
             GameManager.gm.UpdatePerformedTimes(2);
@@ -106,8 +108,7 @@ public class MyHand : MonoBehaviour
         if(_elbowCounter >= 3)
         {
             _elbowCounter = 0;
-            CuttingBoard.cuttingBoard.food.GetComponent<Food>().GenerateCookedFood();
-            GameManager.gm.PlayVideo(true);
+            CuttingBoard.cuttingBoard.food.GetComponent<Food>().GenerateCookedFood();           
         }
         //if (_hand.PalmNormal.y < 0)
         //    Debug.Log("Move towards body");
@@ -122,6 +123,7 @@ public class MyHand : MonoBehaviour
     /// </summary>
     public void WristExercise()
     {
+        GameManager.gm.PlayVideo(false);
         if (_lastHand.PalmNormal.z < 0 && _hand.PalmNormal.z > 0 && _lastHand.PalmNormal.y < 0 && _hand.PalmNormal.y < 0)
         {
             //Debug.Log("cook");
@@ -135,7 +137,6 @@ public class MyHand : MonoBehaviour
         {
             _wristCounter = 0;
             DeepPan.deepPan.food.GetComponent<Food>().GenerateCookedFood();
-            GameManager.gm.PlayVideo(true);
         }
         //if (_hand.PalmNormal.z < 0)
         //    Debug.Log("Palm facing out");
