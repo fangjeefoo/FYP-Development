@@ -107,7 +107,10 @@ public class Customer : MonoBehaviour
             if (_isLeaving)
             {
                 if (GameManager.gm.GetTimer() > 0)
+                {
+                    orderCanvas.SetActive(false);
                     GameManager.gm.CallConversationCoroutine();
+                }                   
                 else
                     LeaveShop();
             }

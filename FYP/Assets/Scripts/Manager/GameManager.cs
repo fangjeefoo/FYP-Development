@@ -120,13 +120,13 @@ public class GameManager : MonoBehaviour
         _counter += Time.deltaTime;
         timerText.text = _timerText + Mathf.Round(_currentTimer);
 
-        if (_counter > spawnCustomer && _counter > 0)
+        if (_counter > spawnCustomer && _currentTimer > 0 && _currentCustomer <= maxCustomer)
         {
-            if (_currentCustomer <= maxCustomer)
-            {
+            //if (_currentCustomer <= maxCustomer)
+            //{
                 _customer = Instantiate(customerList[0]);
                 _currentCustomer++;
-            }
+            //}
             _counter = 0f;
         }
     }
@@ -427,7 +427,6 @@ public class GameManager : MonoBehaviour
 
     public void PointerEnter()
     {
-        Debug.Log("Pointer enter");
         _buttonEntered = true;
     }
 
@@ -440,7 +439,8 @@ public class GameManager : MonoBehaviour
 
     public void SaveGame()
     {
-        SoundManager.soundManager.MyPlay(6);
+        if(SoundManager.soundManager)
+            SoundManager.soundManager.MyPlay(6);
         PostData();
         PlayerPrefs.SetInt("level", currentLevel);
         PlayerPrefs.SetInt("duration", _levelDuration);
