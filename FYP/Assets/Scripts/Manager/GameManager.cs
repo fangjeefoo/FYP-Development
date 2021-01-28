@@ -374,7 +374,8 @@ public class GameManager : MonoBehaviour
             _selectedObject = null;
             UpdatePerformedTimes(0);
             Debug.Log("Grab here: " + _grabObject);
-            SoundManager.soundManager.MyPlay(5);
+            if (SoundManager.soundManager)
+                SoundManager.soundManager.MyPlay(5);
         }
     }
 

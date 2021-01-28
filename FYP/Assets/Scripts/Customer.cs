@@ -61,7 +61,6 @@ public class Customer : MonoBehaviour
                 _isSitting = true;               
                 GameManager.gm.CallConversationCoroutine();                
                 transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-                _chair.GetComponent<Chair>().GeneratePlate();
             }
         }
         else if (!GameManager.gm.pauseCounter)//customer waiting to be served
@@ -109,6 +108,7 @@ public class Customer : MonoBehaviour
                 if (GameManager.gm.GetTimer() > 0)
                 {
                     orderCanvas.SetActive(false);
+                    _chair.GetComponent<Chair>().MyReset();
                     GameManager.gm.CallConversationCoroutine();
                 }                   
                 else
@@ -279,7 +279,8 @@ public class Customer : MonoBehaviour
         GameManager.gm.UpdateScore(_mood * score, true);
         _mood = 0;
         _isLeaving = true;
-        SoundManager.soundManager.MyPlay(3);
+        if(SoundManager.soundManager)
+            SoundManager.soundManager.MyPlay(3);
     }
 
     public void MyReset()
@@ -287,6 +288,9 @@ public class Customer : MonoBehaviour
         MyReset2();
 
         int num = Random.Range(0, 4);
+
+        _chair.GetComponent<Chair>().currentCustomer = gameObject;
+        _chair.GetComponent<Chair>().GeneratePlate();
         _foodOrder = GameManager.gm.foodPlate[num].GetComponent<FoodPlate>().food.GetComponent<Food>().foodType;
         for (int i = 0; i < GameManager.gm.orderImage.Length; i++)
         {

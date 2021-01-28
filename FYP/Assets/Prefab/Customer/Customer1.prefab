@@ -1678,7 +1678,7 @@ MonoBehaviour:
   orderCanvas: {fileID: 4168035360592528206}
   moodCanvas: {fileID: 2340278864023690232}
   order: {fileID: 5017694970767190049}
-  moodCounter: 5
+  moodCounter: 10
   finishMealCounter: 10
   score: 100
 --- !u!95 &7149531760624367085
