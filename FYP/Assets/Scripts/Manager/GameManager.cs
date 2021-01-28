@@ -108,7 +108,7 @@ public class GameManager : MonoBehaviour
         if (_buttonEntered)
         {
             _buttonCounter += Time.deltaTime;
-            reticleFilled.fillAmount += 0.005f;
+            reticleFilled.fillAmount += 0.007f;
         }
 
         if(_buttonCounter >= 1.5f)

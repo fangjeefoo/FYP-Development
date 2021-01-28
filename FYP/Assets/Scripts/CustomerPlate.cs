@@ -10,10 +10,7 @@ public class CustomerPlate : MonoBehaviour
 
     public void SetCustomer(GameObject customer)
     {
-        Debug.Log("Setting up the customer");
         _currentCustomer = customer;
-        if(_currentCustomer)
-            Debug.Log("not null");
     }
 
     private void OnCollisionEnter(Collision collision)
