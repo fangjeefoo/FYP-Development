@@ -407,9 +407,20 @@ public class GameManager : MonoBehaviour
 
     public void CallConversationCoroutine()
     {
+        ResetKitchenware();
+        StartCoroutine(ShowConversation());
+    }
+
+    private void ResetKitchenware()
+    {
         if (cookedFoodPlate[0].GetComponent<FoodPlate>().holdingFood)
             Destroy(cookedFoodPlate[0].GetComponent<FoodPlate>().holdingFood.gameObject);
-        StartCoroutine(ShowConversation());
+        if (Pan.pan.GetComponent<Pan>().food)
+            Destroy(Pan.pan.GetComponent<Pan>().food.gameObject);
+        if (DeepPan.deepPan.GetComponent<DeepPan>().food)
+            Destroy(DeepPan.deepPan.GetComponent<DeepPan>().food.gameObject);
+        if (CuttingBoard.cuttingBoard.GetComponent<CuttingBoard>().food)
+            Destroy(CuttingBoard.cuttingBoard.GetComponent<CuttingBoard>().food.gameObject);
     }
 
     IEnumerator ShowConversation()
