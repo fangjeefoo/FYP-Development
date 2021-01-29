@@ -4506,7 +4506,7 @@ MonoBehaviour:
   leftVideoPlayer: {fileID: 108695092}
   rightVideoPlayer: {fileID: 1607609021}
   maxCustomer: 1
-  currentLevel: 2
+  currentLevel: 3
   goalScore: 500
   spawnCustomer: 10
   goalText: {fileID: 740336028}

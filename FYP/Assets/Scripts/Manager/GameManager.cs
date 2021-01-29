@@ -215,7 +215,7 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// 0 = fist exercise, 1 = forearm exercise, 2 = elbow exercise, 3 = wrist exercise
+    /// 0 = fist exercise, 1 = forearm exercise, 2 = wrist exercise, 3 = elbow exercise
     /// </summary>
     /// <param name="exercise"></param>
     public void UpdatePerformedTimes(int exercise)
@@ -243,7 +243,7 @@ public class GameManager : MonoBehaviour
                 continue;
             else
             {
-                //0 = fist exercise, 1 = forearm exercise (frying), 2 = elbow exercise (shredding), 3 = wrist exercise (soup)
+                //0 = fist exercise, 1 = forearm exercise (frying), , 2 = wrist exercise (soup), 3 = elbow exercise (shredding)
                 switch (i)
                 {
                     case 0:
@@ -255,11 +255,11 @@ public class GameManager : MonoBehaviour
                         possibleFoodList.AddRange(temp);
                         break;
                     case 2:
-                        temp = foodList.Where(x => x.GetComponent<Food>().cookType == FoodType.CookType.shredding);
+                        temp = foodList.Where(x => x.GetComponent<Food>().cookType == FoodType.CookType.soup);
                         possibleFoodList.AddRange(temp);
                         break;
                     case 3:
-                        temp = foodList.Where(x => x.GetComponent<Food>().cookType == FoodType.CookType.soup);
+                        temp = foodList.Where(x => x.GetComponent<Food>().cookType == FoodType.CookType.shredding);
                         possibleFoodList.AddRange(temp);
                         break;
                 }
@@ -281,10 +281,10 @@ public class GameManager : MonoBehaviour
                             temp = possibleFoodList.Where(x => x.GetComponent<Food>().cookType == FoodType.CookType.frying);
                             break;
                         case 2:
-                            temp = possibleFoodList.Where(x => x.GetComponent<Food>().cookType == FoodType.CookType.shredding);
+                            temp = possibleFoodList.Where(x => x.GetComponent<Food>().cookType == FoodType.CookType.soup);
                             break;
                         case 3:
-                            temp = possibleFoodList.Where(x => x.GetComponent<Food>().cookType == FoodType.CookType.soup);
+                            temp = possibleFoodList.Where(x => x.GetComponent<Food>().cookType == FoodType.CookType.shredding);
                             break;
                     }
 

@@ -46,7 +46,7 @@ public class MyHand : MonoBehaviour
         //get previous frame
         Frame lastFrame = _controller.Frame(1);
 
-        if(GameManager.gm.SelectedExercise != null && !_called)
+        if (GameManager.gm.SelectedExercise != null && !_called)
         {
             _selectedExercise = GameManager.gm.SelectedExercise;
             _called = true;
@@ -66,6 +66,12 @@ public class MyHand : MonoBehaviour
             if (_wristExercise && _selectedExercise[3])
                 WristExercise();
         }
+
+       // Debug.Log(_hand.PalmNormal);
+/*        if (_hand.PalmNormal.y < 0)
+            Debug.Log("Move towards body");
+        else
+            Debug.Log("Move towards ground");*/
     }
 
     /// <summary>
@@ -103,9 +109,9 @@ public class MyHand : MonoBehaviour
     public void ElbowAExercise()
     {
         GameManager.gm.PlayVideo(false);
-        if (_lastHand.PalmNormal.y > 0 && _hand.PalmNormal.y < 0 && _lastHand.PalmNormal.z > 0 && _hand.PalmNormal.z > 0)
+        if (_lastHand.PalmNormal.x > 0 && _hand.PalmNormal.x < 0)
         {            
-            GameManager.gm.UpdatePerformedTimes(2);
+            GameManager.gm.UpdatePerformedTimes(3);
             _elbowCounter++;
         }
 
@@ -137,7 +143,7 @@ public class MyHand : MonoBehaviour
             //Debug.Log("cook");
             //Debug.Log("last hand: " + _lastHand.PalmNormal);
             //Debug.Log("hand: " + _hand.PalmNormal);
-            GameManager.gm.UpdatePerformedTimes(3);
+            GameManager.gm.UpdatePerformedTimes(2);
             _wristCounter++;
         }
 
