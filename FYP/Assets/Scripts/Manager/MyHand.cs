@@ -67,7 +67,7 @@ public class MyHand : MonoBehaviour
                 WristExercise();
         }
 
-       Debug.Log(_hand.PalmNormal);
+       //Debug.Log(_hand.PalmNormal);
 /*        if (_hand.PalmNormal.y < 0)
             Debug.Log("Move towards body");
         else
@@ -81,7 +81,7 @@ public class MyHand : MonoBehaviour
     {
         GameManager.gm.PlayVideo(false);
         //https://stackoverflow.com/questions/42051951/how-to-detect-if-hand-in-leap-motion-is-facing-up-c-unity
-        if (_lastHand.PalmNormal.y > 0 && _hand.PalmNormal.y < 0 )
+        if (_lastHand.PalmNormal.z > 0 && _hand.PalmNormal.z < 0 && _lastHand.PalmNormal.y < 0 && _hand.PalmNormal.y < 0)
         {           
             GameManager.gm.UpdatePerformedTimes(1);
             _forearmCounter++;
@@ -140,7 +140,8 @@ public class MyHand : MonoBehaviour
     public void WristExercise()
     {
         GameManager.gm.PlayVideo(false);
-        if (_lastHand.PalmNormal.z < 0 && _hand.PalmNormal.z > 0 && _lastHand.PalmNormal.y < 0 && _hand.PalmNormal.y < 0)
+        //if (_lastHand.PalmNormal.z < 0 && _hand.PalmNormal.z > 0 && _lastHand.PalmNormal.y < 0 && _hand.PalmNormal.y < 0)
+        if (_lastHand.PalmNormal.z < 0 && _hand.PalmNormal.z > 0 && _lastHand.PalmNormal.y < 0 && _hand.PalmNormal.y > 0)
         {
             //Debug.Log("cook");
             //Debug.Log("last hand: " + _lastHand.PalmNormal);
