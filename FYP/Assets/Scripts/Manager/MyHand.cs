@@ -67,7 +67,7 @@ public class MyHand : MonoBehaviour
                 WristExercise();
         }
 
-       // Debug.Log(_hand.PalmNormal);
+       Debug.Log(_hand.PalmNormal);
 /*        if (_hand.PalmNormal.y < 0)
             Debug.Log("Move towards body");
         else
@@ -85,6 +85,7 @@ public class MyHand : MonoBehaviour
         {           
             GameManager.gm.UpdatePerformedTimes(1);
             _forearmCounter++;
+            Debug.Log("forearm times");
         }
 
         if(_forearmCounter >= 3)
@@ -113,6 +114,7 @@ public class MyHand : MonoBehaviour
         {            
             GameManager.gm.UpdatePerformedTimes(3);
             _elbowCounter++;
+            Debug.Log("elbow times");
         }
 
         if(_elbowCounter >= 3)
@@ -143,12 +145,14 @@ public class MyHand : MonoBehaviour
             //Debug.Log("cook");
             //Debug.Log("last hand: " + _lastHand.PalmNormal);
             //Debug.Log("hand: " + _hand.PalmNormal);
+            Debug.Log("wrist times");
             GameManager.gm.UpdatePerformedTimes(2);
             _wristCounter++;
         }
 
         if(_wristCounter >= 3)
         {
+            Debug.Log("Clear");
             _wristCounter = 0;
             DeepPan.deepPan.food.GetComponent<Food>().GenerateCookedFood();
             DeepPan.deepPan.food.GetComponent<Food>().food = null;

@@ -407,6 +407,8 @@ public class GameManager : MonoBehaviour
 
     public void CallConversationCoroutine()
     {
+        if (cookedFoodPlate[0].GetComponent<FoodPlate>().holdingFood)
+            Destroy(cookedFoodPlate[0].GetComponent<FoodPlate>().holdingFood.gameObject);
         StartCoroutine(ShowConversation());
     }
 
