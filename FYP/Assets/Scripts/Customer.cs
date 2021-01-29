@@ -274,6 +274,8 @@ public class Customer : MonoBehaviour
         animator.SetTrigger("ChairEatTrigger");
         _coroutineRunning = true;
         orderCanvas.SetActive(false);
+        GameManager.gm.leftVideoPlayer.clip = null;
+        GameManager.gm.rightVideoPlayer.clip = null;
         yield return new WaitForSeconds(finishMealCounter);
         animator.SetTrigger("ChairSitTrigger");
         GameManager.gm.UpdateScore(_mood * score, true);

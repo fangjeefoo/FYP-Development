@@ -26,13 +26,6 @@ public class DeepPan : MonoBehaviour
         food = collision.gameObject;
     }
 
-    public void OnCollisionExit(Collision collision)
-    {
-        food = null;
-        MyHand.handManager.UpdateWristExercise = false;
-        MyHand.handManager.ResetCounter(3);
-    }
-
     public void PointerEnter()
     {
         GameManager.gm.SelectKitchenware(this.gameObject);

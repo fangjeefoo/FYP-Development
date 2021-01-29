@@ -27,13 +27,6 @@ public class Pan : MonoBehaviour
         food = collision.gameObject;
     }
 
-    public void OnCollisionExit(Collision collision)
-    {
-        food = null;
-        MyHand.handManager.UpdateForearmExercise = false;
-        MyHand.handManager.ResetCounter(1);
-    }
-
     public void PointerEnter()
     {
         GameManager.gm.SelectKitchenware(this.gameObject);

@@ -234,7 +234,10 @@ public class GvrEditorEmulator : MonoBehaviour
             {
                 cam.transform.localPosition = HeadPosition * cam.transform.lossyScale.y;
                 //cam.transform.localRotation = HeadRotation;
-                test.transform.localRotation = HeadRotation;
+                if(test != null)
+                    test.transform.localRotation = HeadRotation;
+                else
+                    cam.transform.localRotation = HeadRotation;
             }
         }
     }

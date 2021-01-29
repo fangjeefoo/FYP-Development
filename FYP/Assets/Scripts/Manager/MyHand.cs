@@ -85,7 +85,11 @@ public class MyHand : MonoBehaviour
         {
             _forearmCounter = 0;
             Pan.pan.food.GetComponent<Food>().GenerateCookedFood();
-            
+            Debug.Log("clear");
+            GameManager.gm.PlayVideo(true);
+            Pan.pan.food.GetComponent<Food>().food = null;
+            _forearmExercise = false;
+           ResetCounter(1);
         }
         //if (_hand.PalmNormal.y < 0)
         //    Debug.Log("Palm facing down");
@@ -108,7 +112,11 @@ public class MyHand : MonoBehaviour
         if(_elbowCounter >= 3)
         {
             _elbowCounter = 0;
-            CuttingBoard.cuttingBoard.food.GetComponent<Food>().GenerateCookedFood();           
+            CuttingBoard.cuttingBoard.food.GetComponent<Food>().GenerateCookedFood();
+            CuttingBoard.cuttingBoard.food.GetComponent<Food>().food = null;
+            GameManager.gm.PlayVideo(true);
+            _elbowExercise = false;
+            ResetCounter(2);
         }
         //if (_hand.PalmNormal.y < 0)
         //    Debug.Log("Move towards body");
@@ -137,6 +145,10 @@ public class MyHand : MonoBehaviour
         {
             _wristCounter = 0;
             DeepPan.deepPan.food.GetComponent<Food>().GenerateCookedFood();
+            DeepPan.deepPan.food.GetComponent<Food>().food = null;
+            GameManager.gm.PlayVideo(true);
+            _wristExercise = false;
+            ResetCounter(3);
         }
         //if (_hand.PalmNormal.z < 0)
         //    Debug.Log("Palm facing out");

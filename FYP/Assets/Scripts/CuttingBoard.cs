@@ -26,13 +26,6 @@ public class CuttingBoard : MonoBehaviour
         food = collision.gameObject;
     }
 
-    public void OnCollisionExit(Collision collision)
-    {
-        food = null;
-        MyHand.handManager.UpdateElbowExercise = false;
-        MyHand.handManager.ResetCounter(2);
-    }
-
     public void PointerEnter()
     {
         GameManager.gm.SelectKitchenware(this.gameObject);

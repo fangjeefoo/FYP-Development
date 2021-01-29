@@ -407,8 +407,6 @@ public class GameManager : MonoBehaviour
 
     public void CallConversationCoroutine()
     {
-        leftVideoPlayer.clip = null;
-        rightVideoPlayer.clip = null;
         StartCoroutine(ShowConversation());
     }
 
