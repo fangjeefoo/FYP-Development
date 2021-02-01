@@ -19,6 +19,8 @@ public class CuttingBoard : MonoBehaviour
         if (MyHand.handManager.UpdateElbowExercise || collision.gameObject.GetComponent<Food>().cookType != CookType.shredding)
         {
             Destroy(collision.gameObject);
+            if (SoundManager.soundManager)
+                SoundManager.soundManager.MyPlay(7);
             return;
         }
 

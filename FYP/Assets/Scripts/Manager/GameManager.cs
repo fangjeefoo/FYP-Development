@@ -369,13 +369,21 @@ public class GameManager : MonoBehaviour
     public void GrabObject()
     {
         if(_selectedObject != null)
-        {           
-            _grabObject = _selectedObject;
-            _selectedObject = null;
-            UpdatePerformedTimes(0);
-            Debug.Log("Grab here: " + _grabObject);
-            if (SoundManager.soundManager)
-                SoundManager.soundManager.MyPlay(5);
+        {    
+            if(_customer.GetComponent<Customer>().Order == _selectedObject.gameObject.GetComponent<Food>().foodType)
+            {
+                _grabObject = _selectedObject;
+                _selectedObject = null;
+                UpdatePerformedTimes(0);
+                Debug.Log("Grab here: " + _grabObject);
+                if (SoundManager.soundManager)
+                    SoundManager.soundManager.MyPlay(5);
+            }
+            else
+            {
+                if (SoundManager.soundManager)
+                    SoundManager.soundManager.MyPlay(7);
+            }
         }
     }
 

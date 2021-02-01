@@ -19,6 +19,8 @@ public class DeepPan : MonoBehaviour
         if (MyHand.handManager.UpdateWristExercise || collision.gameObject.GetComponent<Food>().cookType != CookType.soup)
         {
             Destroy(collision.gameObject);
+            if (SoundManager.soundManager)
+                SoundManager.soundManager.MyPlay(7);
             return;
         }
 

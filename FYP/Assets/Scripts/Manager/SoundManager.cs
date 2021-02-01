@@ -16,6 +16,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip orderSucessful;
     public AudioClip orderFailed;
     public AudioClip pickUp;
+    public AudioClip pickUpWrong;
     public AudioClip timeEnd;
 
     //private variable
@@ -77,7 +78,7 @@ public class SoundManager : MonoBehaviour
     }
 
     /// <summary>
-    /// win = 0, lose = 1, foodDone = 2, orderSucessful = 3, orderFailed = 4, pickUp = 5, timeEnd = 6
+    /// win = 0, lose = 1, foodDone = 2, orderSucessful = 3, orderFailed = 4, pickUp = 5, timeEnd = 6, pickuUpWrong = 7
     /// </summary>
     /// <param name="choice"></param>
     public void MyPlay(int choice)
@@ -104,6 +105,9 @@ public class SoundManager : MonoBehaviour
                 break;
             case 6:
                 bgm.PlayOneShot(timeEnd, _volume);
+                break;
+            case 7:
+                bgm.PlayOneShot(pickUpWrong, _volume);
                 break;
         }
     }

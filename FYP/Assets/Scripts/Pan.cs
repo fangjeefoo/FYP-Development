@@ -20,6 +20,8 @@ public class Pan : MonoBehaviour
         if (MyHand.handManager.UpdateForearmExercise || collision.gameObject.GetComponent<Food>().cookType != CookType.frying)
         {
             Destroy(collision.gameObject);
+            if (SoundManager.soundManager)
+                SoundManager.soundManager.MyPlay(7);
             return;
         }
 

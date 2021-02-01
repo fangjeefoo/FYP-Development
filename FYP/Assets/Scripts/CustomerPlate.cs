@@ -23,6 +23,8 @@ public class CustomerPlate : MonoBehaviour
         }        
         else
         {
+            if (SoundManager.soundManager)
+                SoundManager.soundManager.MyPlay(7);
             Destroy(collision.gameObject);
         }
     }
