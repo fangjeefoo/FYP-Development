@@ -53,11 +53,15 @@ public class Customer : MonoBehaviour
         {
             if (Vector3.Distance(_chair.transform.position, transform.position) > 1.0f)
             {
+                animator.SetBool("Moving", true);
+                animator.SetFloat("VelocityX", 20f);
+                animator.SetFloat("VelocityY", 150f);
                 transform.position = Vector3.MoveTowards(transform.position, new Vector3(_chair.transform.position.x, transform.position.y, _chair.transform.position.z), _speed);
             }
             else
             {
-                animator.SetTrigger("ChairSitTrigger");
+                animator.SetBool("Moving", false);
+                animator.SetBool("ChairSit", true);
                 _isSitting = true;               
                 GameManager.gm.CallConversationCoroutine();                
                 transform.rotation = Quaternion.Euler(0f, 0f, 0f);
@@ -120,7 +124,10 @@ public class Customer : MonoBehaviour
     public void LeaveShop()
     {
         orderCanvas.SetActive(false);
-        //animator.SetBool("Walk", true);
+        animator.SetBool("ChairSit", false);
+        animator.SetBool("Moving", true);
+        animator.SetFloat("VelocityX", 20f);
+        animator.SetFloat("VelocityY", 150f);
 
         if (!_reset)
         {
@@ -271,13 +278,13 @@ public class Customer : MonoBehaviour
     /// </summary>
     IEnumerator FinishMeal()
     {
-        animator.SetTrigger("ChairEatTrigger");
+        animator.SetBool("ChairEat", true);
         _coroutineRunning = true;
         orderCanvas.SetActive(false);
         GameManager.gm.leftVideoPlayer.clip = null;
         GameManager.gm.rightVideoPlayer.clip = null;
         yield return new WaitForSeconds(finishMealCounter);
-        animator.SetTrigger("ChairSitTrigger");
+        animator.SetBool("ChairEat", false);
         GameManager.gm.UpdateScore(_mood * score, true);
         _mood = 0;
         _isLeaving = true;
