@@ -397,14 +397,14 @@ MonoBehaviour:
   eating: {fileID: 213941341}
   frying: {fileID: 213941343}
   boiling: {fileID: 213941342}
-  cutting: {fileID: 0}
+  cutting: {fileID: 8300000, guid: bb854a12901a9d94abdacd962dc1edb7, type: 3}
   win: {fileID: 8300000, guid: d36ce51ca9f53eb4aaf8366ea7fde1ce, type: 3}
   lose: {fileID: 8300000, guid: 49ed8dcdcefc187408e150270f537cdc, type: 3}
   foodDone: {fileID: 8300000, guid: 307c76ee87b98a34d9e9abf912cdd77c, type: 3}
   orderSucessful: {fileID: 8300000, guid: d47df7f6a0134ee4fad0cf0d53ee52c0, type: 3}
   orderFailed: {fileID: 8300000, guid: 3201d894bc1eb87418634a753a5424d5, type: 3}
   pickUp: {fileID: 8300000, guid: 2de7a6f8d17ec1c4792b63f0949ec75f, type: 3}
-  pickUpWrong: {fileID: 0}
+  pickUpWrong: {fileID: 8300000, guid: 1d98b016c10eae74eb01f72a884292e8, type: 3}
   timeEnd: {fileID: 8300000, guid: 57c2edf909282e846bbc5c36e1d207eb, type: 3}
 --- !u!4 &213941339
 Transform:

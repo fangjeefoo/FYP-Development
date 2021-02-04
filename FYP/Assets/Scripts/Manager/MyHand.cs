@@ -21,6 +21,7 @@ public class MyHand : MonoBehaviour
     private int _forearmCounter;
     private int _elbowCounter;
     private int _wristCounter;
+    private bool _sfxPlaying;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +31,7 @@ public class MyHand : MonoBehaviour
         _forearmExercise = false;
         _elbowExercise = false;
         _wristExercise = false;
+        _sfxPlaying = false;
         //_holdingKnife = true;
         _called = false;
         _forearmCounter = 0;
@@ -82,7 +84,11 @@ public class MyHand : MonoBehaviour
         GameManager.gm.PlayVideo(false);
         //https://stackoverflow.com/questions/42051951/how-to-detect-if-hand-in-leap-motion-is-facing-up-c-unity
         if (_lastHand.PalmNormal.z > 0 && _hand.PalmNormal.z < 0 && _lastHand.PalmNormal.y < 0 && _hand.PalmNormal.y < 0)
-        {           
+        {
+            if (!_sfxPlaying && SoundManager.soundManager)
+                SoundManager.soundManager.frying.Play();
+
+            _sfxPlaying = true;
             GameManager.gm.UpdatePerformedTimes(1);
             _forearmCounter++;
             Debug.Log("forearm times");
@@ -90,6 +96,7 @@ public class MyHand : MonoBehaviour
 
         if(_forearmCounter >= 3)
         {
+            _sfxPlaying = false;
             _forearmCounter = 0;
             Pan.pan.food.GetComponent<Food>().GenerateCookedFood();
             Debug.Log("clear");
@@ -111,7 +118,10 @@ public class MyHand : MonoBehaviour
     {
         GameManager.gm.PlayVideo(false);
         if (_lastHand.PalmNormal.x > 0 && _hand.PalmNormal.x < 0)
-        {            
+        {
+            if (SoundManager.soundManager)
+                SoundManager.soundManager.MyPlay(8);
+
             GameManager.gm.UpdatePerformedTimes(3);
             _elbowCounter++;
             Debug.Log("elbow times");
@@ -143,6 +153,8 @@ public class MyHand : MonoBehaviour
         //if (_lastHand.PalmNormal.z < 0 && _hand.PalmNormal.z > 0 && _lastHand.PalmNormal.y < 0 && _hand.PalmNormal.y < 0)
         if (_lastHand.PalmNormal.z < 0 && _hand.PalmNormal.z > 0 && _lastHand.PalmNormal.y < 0 && _hand.PalmNormal.y > 0)
         {
+            if (!_sfxPlaying && SoundManager.soundManager)
+                SoundManager.soundManager.boiling.Play();
             //Debug.Log("cook");
             //Debug.Log("last hand: " + _lastHand.PalmNormal);
             //Debug.Log("hand: " + _hand.PalmNormal);
@@ -153,6 +165,7 @@ public class MyHand : MonoBehaviour
 
         if(_wristCounter >= 3)
         {
+            _sfxPlaying = false;
             Debug.Log("Clear");
             _wristCounter = 0;
             DeepPan.deepPan.food.GetComponent<Food>().GenerateCookedFood();
