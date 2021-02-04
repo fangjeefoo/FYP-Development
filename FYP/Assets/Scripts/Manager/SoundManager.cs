@@ -10,6 +10,10 @@ public class SoundManager : MonoBehaviour
 
     public AudioSource bgm;
     public AudioSource seaWaves;
+    public AudioSource eating;
+    public AudioSource frying;
+    public AudioSource boiling;
+    public AudioClip cutting;
     public AudioClip win;
     public AudioClip lose;
     public AudioClip foodDone;
@@ -70,6 +74,9 @@ public class SoundManager : MonoBehaviour
         _volume = vol;
         bgm.volume = _volume;
         seaWaves.volume = _volume;
+        frying.volume = _volume;
+        boiling.volume = _volume;
+        eating.volume = _volume;
     }
 
     public float GetVolume()
@@ -78,7 +85,7 @@ public class SoundManager : MonoBehaviour
     }
 
     /// <summary>
-    /// win = 0, lose = 1, foodDone = 2, orderSucessful = 3, orderFailed = 4, pickUp = 5, timeEnd = 6, pickuUpWrong = 7
+    /// win = 0, lose = 1, foodDone = 2, orderSucessful = 3, orderFailed = 4, pickUp = 5, timeEnd = 6, pickuUpWrong = 7, cutting = 8
     /// </summary>
     /// <param name="choice"></param>
     public void MyPlay(int choice)
@@ -108,6 +115,9 @@ public class SoundManager : MonoBehaviour
                 break;
             case 7:
                 bgm.PlayOneShot(pickUpWrong, _volume);
+                break;
+            case 8:
+                bgm.PlayOneShot(cutting, _volume);
                 break;
         }
     }

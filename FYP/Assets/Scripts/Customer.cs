@@ -278,6 +278,8 @@ public class Customer : MonoBehaviour
     /// </summary>
     IEnumerator FinishMeal()
     {
+        if (SoundManager.soundManager)
+            SoundManager.soundManager.eating.Play();
         animator.SetBool("ChairEat", true);
         _coroutineRunning = true;
         orderCanvas.SetActive(false);
@@ -288,8 +290,11 @@ public class Customer : MonoBehaviour
         GameManager.gm.UpdateScore(_mood * score, true);
         _mood = 0;
         _isLeaving = true;
-        if(SoundManager.soundManager)
+        if (SoundManager.soundManager)
+        {
+            SoundManager.soundManager.eating.Stop();
             SoundManager.soundManager.MyPlay(3);
+        }            
     }
 
     public void MyReset()
