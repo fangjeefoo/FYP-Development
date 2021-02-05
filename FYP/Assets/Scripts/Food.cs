@@ -33,6 +33,7 @@ public class Food : MonoBehaviour
                 pos.y += 0.1f;
 
                 GameManager.gm.cookedFoodPlate[i].GetComponent<FoodPlate>().holdingFood = Instantiate(food, pos, food.transform.rotation, _foodParent.transform);
+                GameManager.gm.DisplayHint(null, true);
                 if(SoundManager.soundManager)
                     SoundManager.soundManager.MyPlay(2);
                 Destroy(this.gameObject);

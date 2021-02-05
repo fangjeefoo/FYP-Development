@@ -326,4 +326,9 @@ public class Customer : MonoBehaviour
         _moodCounter = 0f;
         _mood = 5;
     }
+
+    public MyFoodType GetFoodType()
+    {
+        return _foodOrder;
+    }
 }

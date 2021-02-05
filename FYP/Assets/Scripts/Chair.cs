@@ -10,6 +10,12 @@ public class Chair : MonoBehaviour
 
     //private variable
     private GameObject _currentPlate;
+    private Color color;
+
+    private void Start()
+    {
+        color = platePrefab.GetComponent<Renderer>().sharedMaterial.color;
+    }
 
     public void GeneratePlate()
     {
@@ -22,5 +28,15 @@ public class Chair : MonoBehaviour
         currentCustomer = null;
         Destroy(_currentPlate.gameObject);
         _currentPlate = null;
+    }
+
+    public void ChangeColor()
+    {
+        _currentPlate.GetComponent<Renderer>().material.color = new Color(23f / 255, 109f / 255, 23f / 255);
+    }
+
+    public void ResetColor()
+    {
+        _currentPlate.GetComponent<Renderer>().material.color = color;
     }
 }

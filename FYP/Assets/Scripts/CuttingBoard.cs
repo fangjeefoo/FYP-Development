@@ -37,4 +37,13 @@ public class CuttingBoard : MonoBehaviour
     {
         GameManager.gm.DeselectKitchenware();
     }
+    public void ChangeColor()
+    {
+        gameObject.GetComponent<Renderer>().material.color = new Color(23f / 255, 200f / 255, 23f / 255);
+    }
+
+    public void ResetColor()
+    {
+        gameObject.GetComponent<Renderer>().material.color = new Color(0, 0, 0);
+    }
 }

@@ -70,6 +70,7 @@ public class GameManager : MonoBehaviour
     private PerformanceData _performanceData;
     private FirebaseDatabase _database;
 
+    private GameObject _chair;
     void Awake()
     {
         gm = this;
@@ -94,6 +95,7 @@ public class GameManager : MonoBehaviour
         _retrieveDbName = "Customization";
         _database = FirebaseDatabase.DefaultInstance;
         _performedTimes = new int[4] { 0, 0, 0, 0 };
+        _chair = GameObject.FindGameObjectWithTag("Chair");
 
         //Initialize the HUD        
         goalText.text = _goalText + _currentScore + "/" + goalScore;
@@ -372,6 +374,7 @@ public class GameManager : MonoBehaviour
         {    
             if(_customer.GetComponent<Customer>().Order == _selectedObject.gameObject.GetComponent<Food>().foodType)
             {
+                DisplayHint(_selectedObject);
                 _grabObject = _selectedObject;
                 _selectedObject = null;
                 UpdatePerformedTimes(0);
@@ -444,6 +447,15 @@ public class GameManager : MonoBehaviour
 
     public void ConversationOnClick()
     {
+        for(int i = 0; i < foodPlate.Length; i++)
+        {
+            if(foodPlate[i].GetComponent<FoodPlate>().holdingFood.GetComponent<Food>().foodType == _customer.GetComponent<Customer>().GetFoodType())
+            {
+                foodPlate[i].GetComponent<FoodPlate>().ChangeColor();
+                break;
+            }
+        }
+
         PlayVideo(true);
         pauseCounter = false;
         conversation2.SetActive(false);
@@ -505,5 +517,44 @@ public class GameManager : MonoBehaviour
             leftVideoPlayer.clip = fistVideo;
             rightVideoPlayer.clip = fistVideo;
         }
+    }
+
+    public void DisplayHint(GameObject obj, bool generateFood = false)
+    {
+        CancelHint();
+
+        if (generateFood)
+        {
+            cookedFoodPlate[0].GetComponent<FoodPlate>().ChangeColor();
+            return;
+        }
+
+        if (obj)
+        {
+            switch (obj.GetComponent<Food>().cookType)
+            {
+                case FoodType.CookType.cooked:
+                    _chair.GetComponent<Chair>().ChangeColor();
+                    break;
+                case FoodType.CookType.frying:
+                    Pan.pan.ChangeColor();
+                    break;
+                case FoodType.CookType.shredding:
+                    CuttingBoard.cuttingBoard.ChangeColor();
+                    break;
+                case FoodType.CookType.soup:
+                    DeepPan.deepPan.ChangeColor();
+                    break;
+            }
+        }
+    }
+
+    public void CancelHint()
+    {
+        _chair.GetComponent<Chair>().ChangeColor();
+        cookedFoodPlate[0].GetComponent<FoodPlate>().ResetColor();
+        DeepPan.deepPan.ResetColor();
+        Pan.pan.ResetColor();
+        CuttingBoard.cuttingBoard.ResetColor();
     }
 }
