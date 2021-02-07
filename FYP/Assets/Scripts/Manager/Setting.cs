@@ -294,7 +294,7 @@ public class Setting : MonoBehaviour
             else if (task.IsCompleted)
             {
                 dataSnapshot = task.Result;
-                _customize = JsonUtility.FromJson<Customization>(dataSnapshot.GetRawJsonValue());
+                _customize = JsonUtility.FromJson<Customization>(dataSnapshot.GetRawJsonValue());        
             }
         });
 

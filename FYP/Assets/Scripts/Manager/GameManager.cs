@@ -6,6 +6,7 @@ using Firebase.Database;
 using UnityEngine.SceneManagement;
 using System.Linq;
 using UnityEngine.Video;
+using Firebase.Extensions;
 
 public class GameManager : MonoBehaviour
 {
@@ -172,8 +173,9 @@ public class GameManager : MonoBehaviour
     public async void RetrieveData()
     {
         Customization customize;
+        DataSnapshot dataSnapshot;
 
-        await _database.GetReference(_retrieveDbName).GetValueAsync().ContinueWith(task =>
+        await _database.GetReference(_retrieveDbName).GetValueAsync().ContinueWithOnMainThread(task =>
         {
             if (task.IsFaulted)
             {
@@ -181,7 +183,7 @@ public class GameManager : MonoBehaviour
             }
             else if (task.IsCompleted)
             {
-                var dataSnapshot = task.Result;
+                dataSnapshot = task.Result;
                 customize = JsonUtility.FromJson<Customization>(dataSnapshot.GetRawJsonValue());
 
                 Debug.Log("all: ");
@@ -253,7 +255,6 @@ public class GameManager : MonoBehaviour
         GenerateFood();
     }
     */
-
 
     public void OnDestroy()
     {

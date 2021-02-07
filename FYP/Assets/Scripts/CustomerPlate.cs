@@ -41,8 +41,6 @@ public class CustomerPlate : MonoBehaviour
 
     public void OnDestroy()
     {
-        Debug.Log("Destroy: " + _food);
         Destroy(_food);
-        Debug.Log("Finish Destroy: " + _food);
     }
 }

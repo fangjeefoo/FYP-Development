@@ -54,7 +54,7 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("Level 1");
+        SceneManager.LoadScene("Testing (VR Mode)");
     }
 
     public void Setting()
