@@ -51,6 +51,7 @@ public class GameManager : MonoBehaviour
     private int _currentCustomer;
     private int _currentScore;
     private int _levelDuration;
+    private int _numberPlateReset;
     private int[] _performedTimes;
 
     private float _counter;
@@ -452,6 +453,7 @@ public class GameManager : MonoBehaviour
             if(foodPlate[i].GetComponent<FoodPlate>().holdingFood.GetComponent<Food>().foodType == _customer.GetComponent<Customer>().GetFoodType())
             {
                 foodPlate[i].GetComponent<FoodPlate>().ChangeColor();
+                _numberPlateReset = i;
                 break;
             }
         }
@@ -523,11 +525,13 @@ public class GameManager : MonoBehaviour
     {
         CancelHint();
 
+
         if (generateFood)
         {
             cookedFoodPlate[0].GetComponent<FoodPlate>().ChangeColor();
             return;
         }
+        
 
         if (obj)
         {
@@ -551,7 +555,8 @@ public class GameManager : MonoBehaviour
 
     public void CancelHint()
     {
-        _chair.GetComponent<Chair>().ChangeColor();
+        foodPlate[_numberPlateReset].GetComponent<FoodPlate>().ResetColor();
+        _chair.GetComponent<Chair>().ResetColor();
         cookedFoodPlate[0].GetComponent<FoodPlate>().ResetColor();
         DeepPan.deepPan.ResetColor();
         Pan.pan.ResetColor();
