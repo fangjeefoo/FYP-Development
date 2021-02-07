@@ -14,7 +14,7 @@ public class FirebaseInit : MonoBehaviour
             FirebaseAnalytics.SetAnalyticsCollectionEnabled(true);
             if (task.Exception != null)
             {
-                Debug.LogError("Failed to initialize fire base with" + task.Exception);
+                Debug.LogError("Failed to initialize firebase with" + task.Exception);
                 return;
             }
         });
