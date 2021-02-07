@@ -67,6 +67,7 @@ public class GameManager : MonoBehaviour
     private bool[] _currentSelectedExercise;
     private bool _buttonEntered;
 
+    private Customization _customize;
     private LevelData _currentLevelData;
     private PerformanceData _performanceData;
     private FirebaseDatabase _database;
@@ -166,6 +167,8 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// Retrieve data from firebase
     /// </summary>
+    /// 
+    
     public async void RetrieveData()
     {
         Customization customize;
@@ -180,6 +183,10 @@ public class GameManager : MonoBehaviour
             {
                 var dataSnapshot = task.Result;
                 customize = JsonUtility.FromJson<Customization>(dataSnapshot.GetRawJsonValue());
+
+                Debug.Log("all: ");
+                foreach (var mybool in customize.exercise)
+                    Debug.Log(mybool);
 
                 _selectedExercise = new bool[4];
                 _currentSelectedExercise = new bool[4];
@@ -202,6 +209,51 @@ public class GameManager : MonoBehaviour
 
         GenerateFood();
     }
+    
+
+    /*
+    public async void RetrieveData()
+    {
+        DataSnapshot dataSnapshot = null;
+
+        await _database.GetReference(_retrieveDbName).GetValueAsync().ContinueWith(task =>
+        {
+            if (task.IsFaulted)
+            {
+                Debug.Log("Failed to retrieve data");
+            }
+            else if (task.IsCompleted)
+            {
+                dataSnapshot = task.Result;
+                _customize = JsonUtility.FromJson<Customization>(dataSnapshot.GetRawJsonValue());
+            }
+        });
+
+        Debug.Log("all: ");
+        foreach (var mybool in _customize.exercise)
+            Debug.Log(mybool);
+
+        _selectedExercise = new bool[4];
+        _currentSelectedExercise = new bool[4];
+        _selectedExercise = _customize.exercise;
+        _levelDuration = _customize.exerciseDurationPerLevel;
+        _currentTimer = _levelDuration * 60f;
+
+        for (int i = 0; i < 4; i++)
+        {
+            if (_selectedExercise[i])
+                _currentSelectedExercise[i] = true;
+            else
+                _currentSelectedExercise[i] = false;
+        }
+
+        for (int i = currentLevel; i < _currentSelectedExercise.Length; i++)
+            _currentSelectedExercise[i] = false;
+
+        GenerateFood();
+    }
+    */
+
 
     public void OnDestroy()
     {

@@ -5,7 +5,7 @@ using FoodType;
 
 namespace FoodType
 {
-    public enum MyFoodType { none, steak, mushroom, sausage, shrimp, sandwich, tomato, onion};
+    public enum MyFoodType { none, steak, mushroom, sausage, shrimp, sandwich, tomato, onion, apple, pear, avocado};
     public enum CookType { cooked, shredding, frying, soup}
 }
 
