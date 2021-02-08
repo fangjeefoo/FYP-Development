@@ -63,7 +63,7 @@ public class MyHand : MonoBehaviour
                 ForearmExercise();
 
             if (_elbowExercise && _selectedExercise[2]) //if (_elbowExercise && _holdingKnife && _selectedExercise[2])
-                ElbowAExercise();
+                ElbowExercise();
 
             if (_wristExercise && _selectedExercise[3])
                 WristExercise();
@@ -97,6 +97,8 @@ public class MyHand : MonoBehaviour
 
         if(_forearmCounter >= 3)
         {
+            if (SoundManager.soundManager)
+                SoundManager.soundManager.frying.Stop();
             _sfxPlaying = false;
             _forearmCounter = 0;
             Pan.pan.food.GetComponent<Food>().GenerateCookedFood();
@@ -114,7 +116,7 @@ public class MyHand : MonoBehaviour
     /// <summary>
     /// for cutting board
     /// </summary>
-    public void ElbowAExercise()
+    public void ElbowExercise()
     {
         GameManager.gm.PlayVideo(false);
 
@@ -156,6 +158,8 @@ public class MyHand : MonoBehaviour
         {
             if (!_sfxPlaying && SoundManager.soundManager)
                 SoundManager.soundManager.boiling.Play();
+
+            _sfxPlaying = true;
             //Debug.Log("cook");
             //Debug.Log("last hand: " + _lastHand.PalmNormal);
             //Debug.Log("hand: " + _hand.PalmNormal);
@@ -166,6 +170,8 @@ public class MyHand : MonoBehaviour
 
         if(_wristCounter >= 3)
         {
+            if (SoundManager.soundManager)
+                SoundManager.soundManager.boiling.Stop();
             _sfxPlaying = false;
             Debug.Log("Clear");
             _wristCounter = 0;

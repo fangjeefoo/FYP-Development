@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
     private GameObject _selectedKitchenware;
     private GameObject _grabObject;
     private GameObject _customer;
+    private GameObject _chair;
 
     private int _currentCustomer;
     private int _currentScore;
@@ -67,13 +68,13 @@ public class GameManager : MonoBehaviour
     private bool[] _selectedExercise;
     private bool[] _currentSelectedExercise;
     private bool _buttonEntered;
+    private bool _timeEndSFX;
 
-    private Customization _customize;
     private LevelData _currentLevelData;
     private PerformanceData _performanceData;
     private FirebaseDatabase _database;
 
-    private GameObject _chair;
+
     void Awake()
     {
         gm = this;
@@ -88,6 +89,8 @@ public class GameManager : MonoBehaviour
         //Initialize private variables
         pauseCounter = false;
         _buttonEntered = false;
+        _timeEndSFX = false;
+        _currentTimer = 60f;
         _counter = spawnCustomer / 2;
         _currentCustomer = 1;
         _currentScore = 0;
@@ -120,10 +123,19 @@ public class GameManager : MonoBehaviour
             ConversationOnClick();
 
         if(!pauseCounter && _currentTimer > 0)
+        {
+            _counter += Time.deltaTime;
             _currentTimer -= Time.deltaTime;
+            timerText.text = _timerText + Mathf.Round(_currentTimer);
+        }           
 
-        _counter += Time.deltaTime;
-        timerText.text = _timerText + Mathf.Round(_currentTimer);
+        if (_currentTimer <= 0 && SoundManager.soundManager && !_timeEndSFX)
+        {
+            Debug.Log("Play here");
+
+            SoundManager.soundManager.MyPlay(6);
+            _timeEndSFX = true;
+        }          
 
         if (_counter > spawnCustomer && _currentTimer > 0 && _currentCustomer <= maxCustomer)
         {
@@ -531,8 +543,6 @@ public class GameManager : MonoBehaviour
 
     public void SaveGame()
     {
-        if(SoundManager.soundManager)
-            SoundManager.soundManager.MyPlay(6);
         PostData();
         PlayerPrefs.SetInt("level", currentLevel);
         PlayerPrefs.SetInt("duration", _levelDuration);

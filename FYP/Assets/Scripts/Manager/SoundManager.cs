@@ -74,9 +74,9 @@ public class SoundManager : MonoBehaviour
         _volume = vol;
         bgm.volume = vol;
         seaWaves.volume = vol;
-        frying.volume = vol;
-        boiling.volume = vol;
-        eating.volume = vol;
+        frying.volume = 1.0f;
+        boiling.volume = 1.0f;
+        eating.volume = 1.0f;
     }
 
     public float GetVolume()
@@ -93,31 +93,40 @@ public class SoundManager : MonoBehaviour
         switch (choice)
         {
             case 0:
-                bgm.PlayOneShot(win, _volume);
+                //bgm.PlayOneShot(win, _volume);
+                bgm.PlayOneShot(win, 1.0f);
                 break;
             case 1:
-                bgm.PlayOneShot(lose, _volume);
+                //bgm.PlayOneShot(lose, _volume);
+                bgm.PlayOneShot(lose, 1.0f);
                 break;
             case 2:
-                bgm.PlayOneShot(foodDone, _volume);
+                //bgm.PlayOneShot(foodDone, _volume);
+                bgm.PlayOneShot(foodDone, 1.0f);
                 break;
             case 3:
-                bgm.PlayOneShot(orderSucessful, _volume);
+                //bgm.PlayOneShot(orderSucessful, _volume);
+                bgm.PlayOneShot(orderSucessful, 1.0f);
                 break;
             case 4:
-                bgm.PlayOneShot(orderFailed, _volume);
+                //bgm.PlayOneShot(orderFailed, _volume);
+                bgm.PlayOneShot(orderFailed, 1.0f);
                 break;
             case 5:
-                bgm.PlayOneShot(pickUp, _volume);
+                //bgm.PlayOneShot(pickUp, _volume);
+                bgm.PlayOneShot(pickUp, 1.0f);
                 break;
             case 6:
-                bgm.PlayOneShot(timeEnd, _volume);
+                //bgm.PlayOneShot(timeEnd, _volume);
+                bgm.PlayOneShot(timeEnd, 1.0f);
                 break;
             case 7:
-                bgm.PlayOneShot(pickUpWrong, _volume);
+                //bgm.PlayOneShot(pickUpWrong, _volume);
+                bgm.PlayOneShot(pickUpWrong, 1.0f);
                 break;
             case 8:
-                bgm.PlayOneShot(cutting, _volume);
+                //bgm.PlayOneShot(cutting, _volume);
+                bgm.PlayOneShot(cutting, 1.0f);
                 break;
         }
     }
