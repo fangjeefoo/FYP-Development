@@ -126,10 +126,8 @@ public class MainMenu : MonoBehaviour
             }
         });
 
-        if (SoundManager.soundManager != null)
-            SoundManager.soundManager.GetComponent<AudioSource>().volume = vol;           
-        else
-            Debug.Log("Sound Manager not found");
+        if (SoundManager.soundManager)
+            SoundManager.soundManager.SetVolume(vol);
     }
 
     public void OnDestroy()

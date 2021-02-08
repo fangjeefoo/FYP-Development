@@ -72,11 +72,11 @@ public class SoundManager : MonoBehaviour
     public void SetVolume(float vol)
     {
         _volume = vol;
-        bgm.volume = _volume;
-        seaWaves.volume = _volume;
-        frying.volume = _volume;
-        boiling.volume = _volume;
-        eating.volume = _volume;
+        bgm.volume = vol;
+        seaWaves.volume = vol;
+        frying.volume = vol;
+        boiling.volume = vol;
+        eating.volume = vol;
     }
 
     public float GetVolume()
