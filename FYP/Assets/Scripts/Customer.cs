@@ -283,8 +283,8 @@ public class Customer : MonoBehaviour
         animator.SetBool("ChairEat", true);
         _coroutineRunning = true;
         orderCanvas.SetActive(false);
-        GameManager.gm.leftVideoPlayer.clip = null;
-        GameManager.gm.rightVideoPlayer.clip = null;
+        GameManager.gm.StopVideo();
+        GameManager.gm.CancelHint();
         yield return new WaitForSeconds(finishMealCounter);
         animator.SetBool("ChairEat", false);
         GameManager.gm.UpdateScore(_mood * score, true);

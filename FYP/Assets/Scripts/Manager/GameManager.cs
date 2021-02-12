@@ -584,6 +584,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void StopVideo()
+    {
+        leftVideoPlayer.clip = null;
+        rightVideoPlayer.clip = null;
+    }
+
     public void DisplayHint(GameObject obj, bool generateFood = false)
     {
         CancelHint();
