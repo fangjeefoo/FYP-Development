@@ -3303,6 +3303,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1685909260}
     m_Modifications:
+    - target: {fileID: 4314279827326901432, guid: e577890ae34f4ae40811b3cae53c5a70,
+        type: 3}
+      propertyPath: OnActivate.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1870540974}
+    - target: {fileID: 4314279827326901433, guid: e577890ae34f4ae40811b3cae53c5a70,
+        type: 3}
+      propertyPath: OnActivate.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1870540974}
+    - target: {fileID: 4314279827326901434, guid: e577890ae34f4ae40811b3cae53c5a70,
+        type: 3}
+      propertyPath: OnActivate.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1096355312}
+    - target: {fileID: 4314279827326901434, guid: e577890ae34f4ae40811b3cae53c5a70,
+        type: 3}
+      propertyPath: OnDeactivate.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1096355312}
+    - target: {fileID: 4314279827326901574, guid: e577890ae34f4ae40811b3cae53c5a70,
+        type: 3}
+      propertyPath: OnActivate.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1870540974}
     - target: {fileID: 4314279827518333640, guid: e577890ae34f4ae40811b3cae53c5a70,
         type: 3}
       propertyPath: ModelPool.Array.data[0].IsLeftToBeSpawned
@@ -3373,6 +3398,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4314279828439225250, guid: e577890ae34f4ae40811b3cae53c5a70,
+        type: 3}
+      propertyPath: OnActivate.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1870540974}
+    - target: {fileID: 4314279828439225252, guid: e577890ae34f4ae40811b3cae53c5a70,
+        type: 3}
+      propertyPath: OnActivate.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1870540974}
+    - target: {fileID: 4314279828439225253, guid: e577890ae34f4ae40811b3cae53c5a70,
+        type: 3}
+      propertyPath: OnActivate.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1870540974}
+    - target: {fileID: 4314279828439225255, guid: e577890ae34f4ae40811b3cae53c5a70,
+        type: 3}
+      propertyPath: OnActivate.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1096355312}
+    - target: {fileID: 4314279828439225255, guid: e577890ae34f4ae40811b3cae53c5a70,
+        type: 3}
+      propertyPath: OnDeactivate.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1096355312}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e577890ae34f4ae40811b3cae53c5a70, type: 3}
 --- !u!4 &964035970 stripped
@@ -3539,7 +3589,6 @@ GameObject:
   m_Component:
   - component: {fileID: 992270922}
   - component: {fileID: 992270924}
-  - component: {fileID: 992270923}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -3561,14 +3610,6 @@ Transform:
   m_Father: {fileID: 1685909260}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!81 &992270923
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 992270921}
-  m_Enabled: 1
 --- !u!20 &992270924
 Camera:
   m_ObjectHideFlags: 0
@@ -7390,6 +7431,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114000013210091632, guid: 970dd4b9371394fb4890965f608d46fd,
+        type: 3}
+      propertyPath: test
+      value: 
+      objectReference: {fileID: 1685909259}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 970dd4b9371394fb4890965f608d46fd, type: 3}
 --- !u!1001 &1927328143
