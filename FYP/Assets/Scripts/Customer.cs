@@ -38,7 +38,7 @@ public class Customer : MonoBehaviour
     {
         _isSitting = false;
         _reset = false;
-        _speed = 0.05f;
+        _speed = 5f;
         _chair = GameObject.FindGameObjectWithTag("Chair");
         animator = gameObject.GetComponent<Animator>();
 
@@ -56,7 +56,7 @@ public class Customer : MonoBehaviour
                 animator.SetBool("Moving", true);
                 animator.SetFloat("VelocityX", 20f);
                 animator.SetFloat("VelocityY", 150f);
-                transform.position = Vector3.MoveTowards(transform.position, new Vector3(_chair.transform.position.x, transform.position.y, _chair.transform.position.z), _speed);
+                transform.position = Vector3.MoveTowards(transform.position, new Vector3(_chair.transform.position.x, transform.position.y, _chair.transform.position.z), _speed * Time.deltaTime);
             }
             else
             {
@@ -138,7 +138,7 @@ public class Customer : MonoBehaviour
 
         if (Vector3.Distance(door.transform.position, transform.position) > 1.0f)
         {
-            transform.position = Vector3.MoveTowards(transform.position, new Vector3(door.transform.position.x, transform.position.y,door.transform.position.z), _speed);
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3(door.transform.position.x, transform.position.y,door.transform.position.z), _speed * Time.deltaTime);
         }
         else
         {

@@ -32,7 +32,7 @@ public class MainMenu : MonoBehaviour
         if (_click)
         {
             _counter += Time.deltaTime;
-            reticleFilled.fillAmount += 0.005f;
+            reticleFilled.fillAmount += 1f/1.5f * Time.deltaTime;
         }
 
         if(_counter >= 1.5f)
@@ -88,7 +88,6 @@ public class MainMenu : MonoBehaviour
     public void OnEnter()
     {
         _click = true;
-        reticleFilled.enabled = true;
     }
 
     public void OnExit()
@@ -98,7 +97,6 @@ public class MainMenu : MonoBehaviour
         _counter = 0f;
         if(reticleFilled != null)
         {
-            reticleFilled.enabled = false;
             reticleFilled.fillAmount = 0;
         }
     }

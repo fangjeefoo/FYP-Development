@@ -46,7 +46,7 @@ public class Setting : MonoBehaviour
         if (_click)
         {
             _counter += Time.deltaTime;
-            reticleFilled.fillAmount += 0.005f;
+            reticleFilled.fillAmount += 1 / 1.5f * Time.deltaTime;
         }
 
         if(_counter >= 1.5f)
@@ -207,7 +207,6 @@ public class Setting : MonoBehaviour
     public void OnEnter()
     {
         _click = true;
-        reticleFilled.enabled = true;
     }
 
     public void OnExit()
@@ -221,7 +220,6 @@ public class Setting : MonoBehaviour
 
         if(reticleFilled != null)
         {
-            reticleFilled.enabled = false;
             reticleFilled.fillAmount = 0;
         }
     }

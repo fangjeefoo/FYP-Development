@@ -1,43 +1,14 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
-    - Chair
-    - Customer
-    - CustomerPlate
-    - CuttingBoard
-    - DeepPan
-    - Food
-    - FoodPlate
-    - GameManager
+    - CameraRigMovement
     - GvrEditorEmulator
     - GvrPointerInputModule
     - GvrPointerPhysicsRaycaster
     - GvrReticlePointer
-    - Leap.Unity.CapsuleHand
-    - Leap.Unity.ExtendedFingerDetector
-    - Leap.Unity.HandEnableDisable
-    - Leap.Unity.HandModelManager
-    - Leap.Unity.Interaction.InteractionHand
-    - Leap.Unity.LeapXRServiceProvider
-    - Leap.Unity.XRHeightOffset
-    - MyHand
-    - Pan
+    - Setting
     Unity.Postprocessing.Runtime.dll:
-    - UnityEngine.Rendering.PostProcessing.AmbientOcclusion
-    - UnityEngine.Rendering.PostProcessing.AutoExposure
-    - UnityEngine.Rendering.PostProcessing.Bloom
-    - UnityEngine.Rendering.PostProcessing.ChromaticAberration
-    - UnityEngine.Rendering.PostProcessing.ColorGrading
-    - UnityEngine.Rendering.PostProcessing.DepthOfField
-    - UnityEngine.Rendering.PostProcessing.Grain
-    - UnityEngine.Rendering.PostProcessing.LensDistortion
-    - UnityEngine.Rendering.PostProcessing.MotionBlur
-    - UnityEngine.Rendering.PostProcessing.PostProcessLayer
-    - UnityEngine.Rendering.PostProcessing.PostProcessProfile
     - UnityEngine.Rendering.PostProcessing.PostProcessResources
-    - UnityEngine.Rendering.PostProcessing.PostProcessVolume
-    - UnityEngine.Rendering.PostProcessing.ScreenSpaceReflections
-    - UnityEngine.Rendering.PostProcessing.Vignette
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     UnityEditor.Graphs.dll:
@@ -53,13 +24,14 @@ ScriptsOnlyBuild:
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.EventTrigger
+    - UnityEngine.EventSystems.StandaloneInputModule
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
-    - UnityEngine.UI.GridLayoutGroup
     - UnityEngine.UI.Image
+    - UnityEngine.UI.Slider
     - UnityEngine.UI.Text
   sceneClasses:
-    Assets/_Scenes/Testing (VR mode).unity:
+    Assets/_Scenes/Setting.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -72,29 +44,9 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 28
       Script: {instanceID: 0}
-    - Class: 33
-      Script: {instanceID: 0}
-    - Class: 43
-      Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
-    - Class: 54
-      Script: {instanceID: 0}
-    - Class: 64
-      Script: {instanceID: 0}
-    - Class: 65
-      Script: {instanceID: 0}
-    - Class: 72
-      Script: {instanceID: 0}
-    - Class: 74
-      Script: {instanceID: 0}
     - Class: 81
-      Script: {instanceID: 0}
-    - Class: 90
-      Script: {instanceID: 0}
-    - Class: 91
-      Script: {instanceID: 0}
-    - Class: 95
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
@@ -103,84 +55,34 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11556}
     - Class: 114
-      Script: {instanceID: 11560}
-    - Class: 114
       Script: {instanceID: 11562}
     - Class: 114
       Script: {instanceID: 11564}
     - Class: 114
       Script: {instanceID: 11566}
     - Class: 114
-      Script: {instanceID: 11572}
+      Script: {instanceID: 11568}
     - Class: 114
-      Script: {instanceID: 11584}
+      Script: {instanceID: 11578}
     - Class: 114
-      Script: {instanceID: 11620}
+      Script: {instanceID: 11978}
     - Class: 114
-      Script: {instanceID: 11760}
+      Script: {instanceID: 12304}
     - Class: 114
-      Script: {instanceID: 11790}
+      Script: {instanceID: 13982}
     - Class: 114
-      Script: {instanceID: 11976}
+      Script: {instanceID: 14190}
     - Class: 114
-      Script: {instanceID: 12182}
+      Script: {instanceID: 14244}
     - Class: 114
-      Script: {instanceID: 12228}
+      Script: {instanceID: 14766}
     - Class: 114
-      Script: {instanceID: 12302}
+      Script: {instanceID: 14870}
     - Class: 114
-      Script: {instanceID: 12524}
-    - Class: 114
-      Script: {instanceID: 12854}
-    - Class: 114
-      Script: {instanceID: 13090}
-    - Class: 114
-      Script: {instanceID: 13196}
-    - Class: 114
-      Script: {instanceID: 13266}
-    - Class: 114
-      Script: {instanceID: 13268}
-    - Class: 114
-      Script: {instanceID: 13340}
-    - Class: 114
-      Script: {instanceID: 13458}
-    - Class: 114
-      Script: {instanceID: 13530}
-    - Class: 114
-      Script: {instanceID: 13550}
-    - Class: 114
-      Script: {instanceID: 13578}
-    - Class: 114
-      Script: {instanceID: 13736}
-    - Class: 114
-      Script: {instanceID: 13980}
-    - Class: 114
-      Script: {instanceID: 14112}
-    - Class: 114
-      Script: {instanceID: 14188}
-    - Class: 114
-      Script: {instanceID: 14242}
-    - Class: 114
-      Script: {instanceID: 14328}
-    - Class: 114
-      Script: {instanceID: 14380}
-    - Class: 114
-      Script: {instanceID: 14384}
-    - Class: 114
-      Script: {instanceID: 14562}
-    - Class: 114
-      Script: {instanceID: 14670}
-    - Class: 114
-      Script: {instanceID: 14738}
-    - Class: 114
-      Script: {instanceID: 14764}
-    - Class: 114
-      Script: {instanceID: 14814}
+      Script: {instanceID: 14934}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
-      Script: {instanceID: 0}
-    - Class: 137
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
@@ -193,10 +95,6 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
-      Script: {instanceID: 0}
-    - Class: 328
-      Script: {instanceID: 0}
-    - Class: 329
       Script: {instanceID: 0}
   scriptHashData:
   - hash:
@@ -247,6 +145,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Postprocessing.Runtime.dll
     namespaceName: UnityEngine.Rendering.PostProcessing
     className: PostProcessLayer
+  - hash:
+      serializedVersion: 2
+      Hash: dfdf071491894e9584ebf921ad04a7ab
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CameraRigMovement
   - hash:
       serializedVersion: 2
       Hash: b14d7c492ac09728203f31763e7b1bb9
@@ -1863,5 +1767,5 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   platform: 19
   scenePathNames:
-  - Assets/_Scenes/Testing (VR mode).unity
-  playerPath: C:/Users/E/Desktop/BBUbild/FYP Protoype V1.exe
+  - Assets/_Scenes/Setting.unity
+  playerPath: C:/Users/E/Desktop/Build/FYP Protoype V1.exe
