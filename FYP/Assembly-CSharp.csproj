@@ -476,6 +476,7 @@
     <Compile Include="Assets\Other People Asset\NavMeshComponents\Scripts\NavMeshModifier.cs" />
     <Compile Include="Assets\Other People Asset\NavMeshComponents\Scripts\NavMeshModifierVolume.cs" />
     <Compile Include="Assets\Other People Asset\NavMeshComponents\Scripts\NavMeshSurface.cs" />
+    <Compile Include="Assets\Scripts\CameraRigMovement.cs" />
     <Compile Include="Assets\Scripts\Chair.cs" />
     <Compile Include="Assets\Scripts\Customer.cs" />
     <Compile Include="Assets\Scripts\CustomerPlate.cs" />
