@@ -285,6 +285,8 @@ public class Customer : MonoBehaviour
         orderCanvas.SetActive(false);
         GameManager.gm.StopVideo();
         GameManager.gm.CancelHint();
+        yield return new WaitForSeconds(finishMealCounter / 2);
+        _chair.GetComponent<Chair>().GetCurrentPlate().GetComponent<CustomerPlate>().GetCurrentFood().transform.GetChild(0).localScale /= 2; 
         yield return new WaitForSeconds(finishMealCounter);
         animator.SetBool("ChairEat", false);
         GameManager.gm.UpdateScore(_mood * score, true);

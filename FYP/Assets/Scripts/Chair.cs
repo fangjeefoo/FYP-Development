@@ -39,4 +39,9 @@ public class Chair : MonoBehaviour
     {
         _currentPlate.GetComponent<Renderer>().material.color = color;
     }
+
+    public GameObject GetCurrentPlate()
+    {
+        return _currentPlate;
+    }
 }

@@ -13,6 +13,11 @@ public class CustomerPlate : MonoBehaviour
         _currentCustomer = customer;
     }
 
+    public GameObject GetCurrentFood()
+    {
+        return _food;
+    }
+
     private void OnCollisionEnter(Collision collision)
     {       
         if(_currentCustomer.GetComponent<Customer>().Order == collision.gameObject.GetComponent<Food>().foodType && collision.gameObject.GetComponent<Food>().cookType == FoodType.CookType.cooked)
