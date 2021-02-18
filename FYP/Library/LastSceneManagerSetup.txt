@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/_Scenes/Setting.unity
+- path: Assets/_Scenes/Testing (VR mode).unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
