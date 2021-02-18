@@ -9,9 +9,9 @@ public class Setting : MonoBehaviour
     public GameObject[] exercise;
     public GameObject volumeSlider;
     public GameObject exerciseDurationSlider;
-    public GameObject performedTimesSlider;
+    //public GameObject performedTimesSlider;
     public Text exerciseDurationText;
-    public Text performedTimesText;
+    //public Text performedTimesText;
     public Text volumeText;
     public Camera cam;
     public Image reticleFilled;
@@ -23,7 +23,7 @@ public class Setting : MonoBehaviour
     private float _counter;
     private Choice _choice;
     private string _dbName;
-    private string _performedTimesText;
+    //private string _performedTimesText;
     private string _exerciseDurationText;
     private string _volumeText;
     private Customization _customize;
@@ -37,7 +37,7 @@ public class Setting : MonoBehaviour
         _counter = 0f;
         _database = FirebaseDatabase.DefaultInstance;
         _dbName = "Customization";        
-        _performedTimesText = "Exercise Performed Times: ";
+       // _performedTimesText = "Exercise Performed Times: ";
         _exerciseDurationText = "Exercise Duration Per Level: ";
         _volumeText = "Volume: ";
         
@@ -117,7 +117,7 @@ public class Setting : MonoBehaviour
 
                 exerciseDurationText.text = _exerciseDurationText + exerciseDurationSlider.GetComponent<Slider>().value;
                 break;
-            case Choice.performedTimes:
+/*            case Choice.performedTimes:
                 child = performedTimesSlider.transform.GetChild(2).transform.GetChild(0);
                 knobPosition = child.position.x / 1.4f;
 
@@ -137,7 +137,7 @@ public class Setting : MonoBehaviour
                     performedTimesSlider.GetComponent<Slider>().value -= 1f;
 
                 performedTimesText.text = _performedTimesText + performedTimesSlider.GetComponent<Slider>().value;
-                break;
+                break;*/
             case Choice.volume:
                 child = volumeSlider.transform.GetChild(2).transform.GetChild(0);
                 knobPosition = child.position.x / 1.4f;
@@ -197,10 +197,10 @@ public class Setting : MonoBehaviour
         _choice = Choice.exerciseDuration;
     }
 
-    public void PerformedTimesSliderOnEnter()
+/*    public void PerformedTimesSliderOnEnter()
     {
         _choice = Choice.performedTimes;
-    }
+    }*/
 
     public void VolumeSliderOnEnter()
     {
@@ -234,7 +234,7 @@ public class Setting : MonoBehaviour
     public Customization PackData()
     {
         int exerciseDuration = (int)exerciseDurationSlider.GetComponent<Slider>().value;
-        int performedTimes = (int)performedTimesSlider.GetComponent<Slider>().value;
+        //int performedTimes = (int)performedTimesSlider.GetComponent<Slider>().value;
         float vol = volumeSlider.GetComponent<Slider>().value;
         bool[] exerciseArray = new bool[4];
         
@@ -246,8 +246,8 @@ public class Setting : MonoBehaviour
                 exerciseArray[i] = false;
         }
 
-        Customization customize = new Customization(exerciseDuration, exerciseArray, performedTimes, vol);
-
+        //Customization customize = new Customization(exerciseDuration, exerciseArray, performedTimes, vol);
+        Customization customize = new Customization(exerciseDuration, exerciseArray, vol);
         return customize;
     }
 
@@ -262,11 +262,11 @@ public class Setting : MonoBehaviour
                 exercise[i].GetComponent<Image>().color = _color;
         }
         exerciseDurationSlider.GetComponent<Slider>().value = _customize.exerciseDurationPerLevel;
-        performedTimesSlider.GetComponent<Slider>().value = _customize.exerciseTime;
+        //performedTimesSlider.GetComponent<Slider>().value = _customize.exerciseTime;
         volumeSlider.GetComponent<Slider>().value = _customize.volume;
 
         exerciseDurationText.text = _exerciseDurationText + exerciseDurationSlider.GetComponent<Slider>().value;
-        performedTimesText.text = _performedTimesText + performedTimesSlider.GetComponent<Slider>().value;
+        //performedTimesText.text = _performedTimesText + performedTimesSlider.GetComponent<Slider>().value;
         volumeText.text = _volumeText + volumeSlider.GetComponent<Slider>().value;
     }
 

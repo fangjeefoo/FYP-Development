@@ -5,7 +5,7 @@ using UnityEngine;
 public class Customization
 {
     public int exerciseDurationPerLevel; //in minutes
-    public int exerciseTime; //need to perform how many times
+    //public int exerciseTime; //need to perform how many times
     public float volume;
     public bool[] exercise;
 
@@ -14,12 +14,13 @@ public class Customization
 
     }
 
-    public Customization(int ed, bool[] exercise, int et, float vol)
+    //int ed, bool[] exercise, int et, float vol
+    public Customization(int ed, bool[] exercise, float vol)
     {
         this.exercise = new bool[4];
         this.exercise = exercise;
         exerciseDurationPerLevel = ed;
-        exerciseTime = et;
+        //exerciseTime = et;
         volume = vol;
     }
 }
