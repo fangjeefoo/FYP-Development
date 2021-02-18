@@ -105,7 +105,6 @@ public class GameManager : MonoBehaviour
         //Initialize the HUD        
         goalText.text = _scoreText + goalScore;
         scoreText.text = _scoreText + _currentScore;
-        timerText.text = _currentTimer.ToString();
        
         RetrieveData();
         Shuffle();
@@ -207,6 +206,8 @@ public class GameManager : MonoBehaviour
                 _selectedExercise = customize.exercise;
                 _levelDuration = customize.exerciseDurationPerLevel;
                 _currentTimer = _levelDuration * 60f;
+
+                timerText.text = _currentTimer.ToString();
 
                 for (int i = 0; i < 4; i++)
                 {
