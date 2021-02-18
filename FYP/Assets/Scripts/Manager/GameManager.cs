@@ -38,8 +38,9 @@ public class GameManager : MonoBehaviour
 
     [Tooltip("time to spawn customer")] public float spawnCustomer;
 
-    public Text goalText;
-    public Text timerText;
+    public TextMesh goalText;
+    public TextMesh timerText;
+    public TextMesh scoreText;
 
     [HideInInspector] public bool pauseCounter;
 
@@ -60,8 +61,7 @@ public class GameManager : MonoBehaviour
     private float _currentTimer;
     private float _buttonCounter;
 
-    private string _goalText;
-    private string _timerText;
+    private string _scoreText;
     private string _dbName;
     private string _retrieveDbName;
 
@@ -95,8 +95,7 @@ public class GameManager : MonoBehaviour
         _currentCustomer = 1;
         _currentScore = 0;
         _buttonCounter = 0;
-        _goalText = "Goal: ";
-        _timerText = "Timer: ";
+        _scoreText = "$";
         _dbName = "Performance Data";
         _retrieveDbName = "Customization";
         _database = FirebaseDatabase.DefaultInstance;
@@ -104,9 +103,10 @@ public class GameManager : MonoBehaviour
         _chair = GameObject.FindGameObjectWithTag("Chair");
 
         //Initialize the HUD        
-        goalText.text = _goalText + _currentScore + "/" + goalScore;
-        timerText.text = _timerText + _currentTimer;
-
+        goalText.text = _scoreText + goalScore;
+        scoreText.text = _scoreText + _currentScore;
+        timerText.text = _currentTimer.ToString();
+       
         RetrieveData();
         Shuffle();
     }
@@ -126,7 +126,7 @@ public class GameManager : MonoBehaviour
         {
             _counter += Time.deltaTime;
             _currentTimer -= Time.deltaTime;
-            timerText.text = _timerText + Mathf.Round(_currentTimer);
+            timerText.text = Mathf.Round(_currentTimer).ToString();
         }           
 
         if (_currentTimer <= 0 && SoundManager.soundManager && !_timeEndSFX)
@@ -279,7 +279,7 @@ public class GameManager : MonoBehaviour
             _currentScore += score;
         else
             _currentScore -= score;
-        goalText.text = _goalText + _currentScore + "/" + goalScore;
+        scoreText.text = _scoreText + _currentScore;
     }
 
     /// <summary>
