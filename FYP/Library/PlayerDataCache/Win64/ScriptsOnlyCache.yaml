@@ -2,44 +2,11 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - CameraRigMovement
-    - Chair
-    - Customer
-    - CustomerPlate
-    - CuttingBoard
-    - DeepPan
-    - Food
-    - FoodPlate
-    - GameManager
     - GvrEditorEmulator
     - GvrPointerInputModule
     - GvrPointerPhysicsRaycaster
     - GvrReticlePointer
-    - Leap.Unity.CapsuleHand
-    - Leap.Unity.ExtendedFingerDetector
-    - Leap.Unity.HandEnableDisable
-    - Leap.Unity.HandModelManager
-    - Leap.Unity.Interaction.InteractionHand
-    - Leap.Unity.LeapServiceProvider
-    - Leap.Unity.LeapXRServiceProvider
-    - Leap.Unity.PalmDirectionDetector
-    - MyHand
-    - Pan
-    Unity.Postprocessing.Runtime.dll:
-    - UnityEngine.Rendering.PostProcessing.AmbientOcclusion
-    - UnityEngine.Rendering.PostProcessing.AutoExposure
-    - UnityEngine.Rendering.PostProcessing.Bloom
-    - UnityEngine.Rendering.PostProcessing.ChromaticAberration
-    - UnityEngine.Rendering.PostProcessing.ColorGrading
-    - UnityEngine.Rendering.PostProcessing.DepthOfField
-    - UnityEngine.Rendering.PostProcessing.Grain
-    - UnityEngine.Rendering.PostProcessing.LensDistortion
-    - UnityEngine.Rendering.PostProcessing.MotionBlur
-    - UnityEngine.Rendering.PostProcessing.PostProcessLayer
-    - UnityEngine.Rendering.PostProcessing.PostProcessProfile
-    - UnityEngine.Rendering.PostProcessing.PostProcessResources
-    - UnityEngine.Rendering.PostProcessing.PostProcessVolume
-    - UnityEngine.Rendering.PostProcessing.ScreenSpaceReflections
-    - UnityEngine.Rendering.PostProcessing.Vignette
+    - Setting
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     UnityEditor.Graphs.dll:
@@ -55,13 +22,14 @@ ScriptsOnlyBuild:
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.EventTrigger
+    - UnityEngine.EventSystems.StandaloneInputModule
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
-    - UnityEngine.UI.GridLayoutGroup
     - UnityEngine.UI.Image
+    - UnityEngine.UI.Slider
     - UnityEngine.UI.Text
   sceneClasses:
-    Assets/_Scenes/Testing (VR mode).unity:
+    Assets/_Scenes/Setting.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -74,29 +42,9 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 28
       Script: {instanceID: 0}
-    - Class: 33
-      Script: {instanceID: 0}
-    - Class: 43
-      Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
-    - Class: 54
-      Script: {instanceID: 0}
-    - Class: 64
-      Script: {instanceID: 0}
-    - Class: 65
-      Script: {instanceID: 0}
-    - Class: 72
-      Script: {instanceID: 0}
-    - Class: 74
-      Script: {instanceID: 0}
     - Class: 81
-      Script: {instanceID: 0}
-    - Class: 90
-      Script: {instanceID: 0}
-    - Class: 91
-      Script: {instanceID: 0}
-    - Class: 95
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
@@ -105,88 +53,34 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11556}
     - Class: 114
-      Script: {instanceID: 11560}
-    - Class: 114
       Script: {instanceID: 11562}
     - Class: 114
       Script: {instanceID: 11564}
     - Class: 114
       Script: {instanceID: 11566}
     - Class: 114
-      Script: {instanceID: 11572}
+      Script: {instanceID: 11568}
     - Class: 114
       Script: {instanceID: 11578}
     - Class: 114
-      Script: {instanceID: 11586}
+      Script: {instanceID: 11980}
     - Class: 114
-      Script: {instanceID: 11622}
+      Script: {instanceID: 12306}
     - Class: 114
-      Script: {instanceID: 11762}
+      Script: {instanceID: 13984}
     - Class: 114
-      Script: {instanceID: 11792}
+      Script: {instanceID: 14192}
     - Class: 114
-      Script: {instanceID: 11978}
+      Script: {instanceID: 14246}
     - Class: 114
-      Script: {instanceID: 12184}
+      Script: {instanceID: 14770}
     - Class: 114
-      Script: {instanceID: 12230}
+      Script: {instanceID: 14874}
     - Class: 114
-      Script: {instanceID: 12304}
-    - Class: 114
-      Script: {instanceID: 12380}
-    - Class: 114
-      Script: {instanceID: 12526}
-    - Class: 114
-      Script: {instanceID: 12856}
-    - Class: 114
-      Script: {instanceID: 13092}
-    - Class: 114
-      Script: {instanceID: 13198}
-    - Class: 114
-      Script: {instanceID: 13268}
-    - Class: 114
-      Script: {instanceID: 13270}
-    - Class: 114
-      Script: {instanceID: 13342}
-    - Class: 114
-      Script: {instanceID: 13460}
-    - Class: 114
-      Script: {instanceID: 13552}
-    - Class: 114
-      Script: {instanceID: 13580}
-    - Class: 114
-      Script: {instanceID: 13738}
-    - Class: 114
-      Script: {instanceID: 13932}
-    - Class: 114
-      Script: {instanceID: 13982}
-    - Class: 114
-      Script: {instanceID: 14114}
-    - Class: 114
-      Script: {instanceID: 14190}
-    - Class: 114
-      Script: {instanceID: 14244}
-    - Class: 114
-      Script: {instanceID: 14330}
-    - Class: 114
-      Script: {instanceID: 14382}
-    - Class: 114
-      Script: {instanceID: 14386}
-    - Class: 114
-      Script: {instanceID: 14564}
-    - Class: 114
-      Script: {instanceID: 14672}
-    - Class: 114
-      Script: {instanceID: 14740}
-    - Class: 114
-      Script: {instanceID: 14766}
-    - Class: 114
-      Script: {instanceID: 14816}
+      Script: {instanceID: 14938}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
-      Script: {instanceID: 0}
-    - Class: 137
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
@@ -199,10 +93,6 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
-      Script: {instanceID: 0}
-    - Class: 328
-      Script: {instanceID: 0}
-    - Class: 329
       Script: {instanceID: 0}
   scriptHashData:
   - hash:
@@ -469,6 +359,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: TouchInputModule
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Testing
   - hash:
       serializedVersion: 2
       Hash: 89f9a1b4c64db9559e39f4a2e3bfaadd
@@ -1873,7 +1769,163 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 44c53b19babf750b9229ab72b6392f2c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: IngredientsController
+  - hash:
+      serializedVersion: 2
+      Hash: 23caa1115a3254717d7bd1edc794397d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MoneyController
+  - hash:
+      serializedVersion: 2
+      Hash: 1381e69174946c074c96b14ba0d16614
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SideRequestsController
+  - hash:
+      serializedVersion: 2
+      Hash: 2ad607e0f113e151e97faff4cb569904
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PauseManager
+  - hash:
+      serializedVersion: 2
+      Hash: 02d452fa60d1fc30465fa305eddca626
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MenuController
+  - hash:
+      serializedVersion: 2
+      Hash: a3f1116c0ebd8d36e032ebf2cb1db7af
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ProductMover
+  - hash:
+      serializedVersion: 2
+      Hash: 19cb0fd4a25e7f052a4aad94a9a78242
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlateController
+  - hash:
+      serializedVersion: 2
+      Hash: 627ca02bcfc80ae03c3f63fedc980be8
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: BackButton
+  - hash:
+      serializedVersion: 2
+      Hash: 369c871ed79c1cbc30e49a4857b57582
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ShopItemProperties
+  - hash:
+      serializedVersion: 2
+      Hash: 8e0d5a98ca4d4a97c2d6d33d619f07b3
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TextMeshController
+  - hash:
+      serializedVersion: 2
+      Hash: 859f1f3d8eed21374cea205621371f6d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CoffeeMakerController
+  - hash:
+      serializedVersion: 2
+      Hash: 5f34d5a284c3b7169c68475e2b55051b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SideRequestMover
+  - hash:
+      serializedVersion: 2
+      Hash: 8d52e6b93f820e5df8f96b8b9d7afbce
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ShopController
+  - hash:
+      serializedVersion: 2
+      Hash: c6e4980efffd46bac73492606fd17e68
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CandyController
+  - hash:
+      serializedVersion: 2
+      Hash: 51e179b9bc7a0997af0a761ac7219a85
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CoinpackProperties
+  - hash:
+      serializedVersion: 2
+      Hash: e29f5163bcb444e56d1d2175eecaa713
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CareerLevelSetup
+  - hash:
+      serializedVersion: 2
+      Hash: 97f6a4d815e95183de69a5b6e9dca429
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SfxPlayer
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TextureScroller
+  - hash:
+      serializedVersion: 2
+      Hash: c1ef6829c6f529e5224612eab95d4450
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ProductManager
+  - hash:
+      serializedVersion: 2
+      Hash: 8b9dae009fe8e7050b82f24ab0ec6be7
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TrashBinController
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CandyMover
+  - hash:
+      serializedVersion: 2
+      Hash: 81ec87bd603c0a967cbdfeedf482c21e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CareerMapManager
+  - hash:
+      serializedVersion: 2
+      Hash: f232429dc4b45f56b8969cd1d19c7ea2
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MainGameController
+  - hash:
+      serializedVersion: 2
+      Hash: c844465993847dab99b20b4eac4b6a87
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CustomerController
+  - hash:
+      serializedVersion: 2
+      Hash: d2d06b2ce57b38c44b38acb1e3fa3fc8
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: HeartBeatAnimationEffect
+  - hash:
+      serializedVersion: 2
+      Hash: 92dbfbf992e9bd124f6e979e53716c06
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GrillController
   platform: 19
   scenePathNames:
-  - Assets/_Scenes/Testing (VR mode).unity
+  - Assets/_Scenes/Setting.unity
   playerPath: C:/Users/E/Desktop/Build/FYP Protoype V1.exe

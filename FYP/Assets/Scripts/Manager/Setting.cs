@@ -28,8 +28,11 @@ public class Setting : MonoBehaviour
     private string _volumeText;
     private Customization _customize;
 
+    private Color _color;
+
     void Start()
     {
+        _color = new Color(241f, 255f, 0f);
         _click = false;
         _counter = 0f;
         _database = FirebaseDatabase.DefaultInstance;
@@ -54,24 +57,24 @@ public class Setting : MonoBehaviour
             switch (_choice)
             {
                 case Choice.exercise2:
-                    if (exercise[1].GetComponent<Image>().color == Color.green)
+                    if (exercise[1].GetComponent<Image>().color == _color)
                         exercise[1].GetComponent<Image>().color = Color.white;
                     else
-                        exercise[1].GetComponent<Image>().color = Color.green;
+                        exercise[1].GetComponent<Image>().color = _color;
                     OnExit();
                     break;
                 case Choice.exercise3:
-                    if (exercise[2].GetComponent<Image>().color == Color.green)
+                    if (exercise[2].GetComponent<Image>().color == _color)
                         exercise[2].GetComponent<Image>().color = Color.white;
                     else
-                        exercise[2].GetComponent<Image>().color = Color.green;
+                        exercise[2].GetComponent<Image>().color = _color;
                     OnExit();
                     break;
                 case Choice.exercise4:
-                    if (exercise[3].GetComponent<Image>().color == Color.green)
+                    if (exercise[3].GetComponent<Image>().color == _color)
                         exercise[3].GetComponent<Image>().color = Color.white;
                     else
-                        exercise[3].GetComponent<Image>().color = Color.green;
+                        exercise[3].GetComponent<Image>().color = _color;
                     OnExit();
                     break;
                 case Choice.back:
@@ -237,7 +240,7 @@ public class Setting : MonoBehaviour
         
         for(int i = 0; i < exercise.Length; i++)
         {
-            if (exercise[i].GetComponent<Image>().color == Color.green)
+            if (exercise[i].GetComponent<Image>().color == _color)
                 exerciseArray[i] = true;
             else
                 exerciseArray[i] = false;
@@ -256,7 +259,7 @@ public class Setting : MonoBehaviour
         for (int i = 0; i < _customize.exercise.Length; i++)
         {
             if (_customize.exercise[i])
-                exercise[i].GetComponent<Image>().color = Color.green;
+                exercise[i].GetComponent<Image>().color = _color;
         }
         exerciseDurationSlider.GetComponent<Slider>().value = _customize.exerciseDurationPerLevel;
         performedTimesSlider.GetComponent<Slider>().value = _customize.exerciseTime;

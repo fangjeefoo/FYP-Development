@@ -64,7 +64,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\AllSkyFree\AllSkyFree_Menu.cs" />
     <Compile Include="Assets\GoogleVR\Beta\Demos\Scripts\DemoObjectController6DoF.cs" />
     <Compile Include="Assets\GoogleVR\Beta\Demos\Scripts\DemoSeeThroughController.cs" />
     <Compile Include="Assets\GoogleVR\Beta\Scripts\GvrBetaControllerInput.cs" />
@@ -439,6 +438,7 @@
     <Compile Include="Assets\LMC\LeapMotion\Core\Scripts\Utils\XRSupportUtil.cs" />
     <Compile Include="Assets\LMC\LeapMotion\Core\Scripts\XR\LeapEyeDislocator.cs" />
     <Compile Include="Assets\LMC\LeapMotion\Core\Scripts\XR\XRHeightOffset.cs" />
+    <Compile Include="Assets\Other People Asset\AllSkyFree\AllSkyFree_Menu.cs" />
     <Compile Include="Assets\Other People Asset\CartoonSummerBeach\DemoScene\Standard Assets\Character Controllers\Sources\Scripts\MouseLook.cs" />
     <Compile Include="Assets\Other People Asset\Crafting Mecanim Animation Pack\Code\CrafterController.cs" />
     <Compile Include="Assets\Other People Asset\Crafting Mecanim Animation Pack\Code\GUIControls.cs" />
@@ -477,6 +477,32 @@
     <Compile Include="Assets\Other People Asset\NavMeshComponents\Scripts\NavMeshModifier.cs" />
     <Compile Include="Assets\Other People Asset\NavMeshComponents\Scripts\NavMeshModifierVolume.cs" />
     <Compile Include="Assets\Other People Asset\NavMeshComponents\Scripts\NavMeshSurface.cs" />
+    <Compile Include="Assets\RestaurantKit\Scripts\Career\CareerLevelSetup.cs" />
+    <Compile Include="Assets\RestaurantKit\Scripts\Career\CareerMapManager.cs" />
+    <Compile Include="Assets\RestaurantKit\Scripts\Customers\CustomerController.cs" />
+    <Compile Include="Assets\RestaurantKit\Scripts\Generic\CandyController.cs" />
+    <Compile Include="Assets\RestaurantKit\Scripts\Generic\CandyMover.cs" />
+    <Compile Include="Assets\RestaurantKit\Scripts\Generic\CoffeeMakerController.cs" />
+    <Compile Include="Assets\RestaurantKit\Scripts\Generic\GrillController.cs" />
+    <Compile Include="Assets\RestaurantKit\Scripts\Generic\HeartBeatAnimationEffect.cs" />
+    <Compile Include="Assets\RestaurantKit\Scripts\Generic\IngredientsController.cs" />
+    <Compile Include="Assets\RestaurantKit\Scripts\Generic\PauseManager.cs" />
+    <Compile Include="Assets\RestaurantKit\Scripts\Generic\PlateController.cs" />
+    <Compile Include="Assets\RestaurantKit\Scripts\Generic\ProductMover.cs" />
+    <Compile Include="Assets\RestaurantKit\Scripts\Generic\SfxPlayer.cs" />
+    <Compile Include="Assets\RestaurantKit\Scripts\Generic\SideRequestMover.cs" />
+    <Compile Include="Assets\RestaurantKit\Scripts\Generic\SideRequestsController.cs" />
+    <Compile Include="Assets\RestaurantKit\Scripts\Generic\TextMeshController.cs" />
+    <Compile Include="Assets\RestaurantKit\Scripts\Generic\TextureScroller.cs" />
+    <Compile Include="Assets\RestaurantKit\Scripts\Generic\TrashBinController.cs" />
+    <Compile Include="Assets\RestaurantKit\Scripts\MainControllerExamples\MainGameController.cs" />
+    <Compile Include="Assets\RestaurantKit\Scripts\ProductManager\ProductManager.cs" />
+    <Compile Include="Assets\RestaurantKit\Scripts\Shop\CoinpackProperties.cs" />
+    <Compile Include="Assets\RestaurantKit\Scripts\Shop\MoneyController.cs" />
+    <Compile Include="Assets\RestaurantKit\Scripts\Shop\ShopController.cs" />
+    <Compile Include="Assets\RestaurantKit\Scripts\Shop\ShopItemProperties.cs" />
+    <Compile Include="Assets\RestaurantKit\Scripts\UI\BackButton.cs" />
+    <Compile Include="Assets\RestaurantKit\Scripts\UI\MenuController.cs" />
     <Compile Include="Assets\Scripts\CameraRigMovement.cs" />
     <Compile Include="Assets\Scripts\Chair.cs" />
     <Compile Include="Assets\Scripts\Customer.cs" />
@@ -493,6 +519,7 @@
     <Compile Include="Assets\Scripts\Manager\MyHand.cs" />
     <Compile Include="Assets\Scripts\Manager\Setting.cs" />
     <Compile Include="Assets\Scripts\Manager\SoundManager.cs" />
+    <Compile Include="Assets\Scripts\Manager\Testing.cs" />
     <Compile Include="Assets\Scripts\Manager\Win.cs" />
     <Compile Include="Assets\Scripts\Normal Class\Customization.cs" />
     <Compile Include="Assets\Scripts\Normal Class\LevelData.cs" />
@@ -508,7 +535,7 @@
     <None Include="Assets\LMC\LeapMotion\Core\readme.txt" />
     <None Include="Assets\LMC\LeapMotion\Core\README_BEFORE_UPDATING.txt" />
     <None Include="Assets\Other People Asset\Food\FREE Food Pack\Shaders\Food.shader" />
-    <None Include="Assets\AllSkyFree\AllSkyFree_Readme.txt" />
+    <None Include="Assets\Other People Asset\AllSkyFree\AllSkyFree_Readme.txt" />
     <None Include="Assets\GoogleVR\Plugins\Android\AndroidManifest-Cardboard.xml" />
     <None Include="Assets\GoogleVR\Shaders\GvrUnlitTransparentOverlayColor.shader" />
     <None Include="Assets\GoogleVR\Shaders\GvrUIOverlay.shader" />
