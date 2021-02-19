@@ -188,6 +188,7 @@
     <Compile Include="Assets\GoogleVR\Scripts\Utilities\Internal\GvrCursorHelper.cs" />
     <Compile Include="Assets\GoogleVR\Scripts\Utilities\Internal\SuppressMemoryAllocationErrorAttribute.cs" />
     <Compile Include="Assets\GoogleVR\Scripts\Video\GvrVideoPlayerTexture.cs" />
+    <Compile Include="Assets\Kitchen Collection 2\Scripts\RotateMoveCamera.cs" />
     <Compile Include="Assets\LMC\InteractionEngine\Modules\InteractionEngine\Examples\2. Basic UI\MovePoseExample.cs" />
     <Compile Include="Assets\LMC\InteractionEngine\Modules\InteractionEngine\Examples\3. Interaction Callbacks\Scripts\TransformHandle.cs" />
     <Compile Include="Assets\LMC\InteractionEngine\Modules\InteractionEngine\Examples\3. Interaction Callbacks\Scripts\TransformRotationHandle.cs" />
@@ -527,6 +528,7 @@
     <Compile Include="Assets\Scripts\Pan.cs" />
     <None Include="Assets\LMC\LeapMotion\Core\Version.txt" />
     <None Include="Assets\LMC\LeapMotion\Core\Shaders\RuntimeGizmos.shader" />
+    <None Include="Assets\Kitchen Collection 2\Readme.txt" />
     <None Include="Assets\GoogleVR\Shaders\GvrUIOverlayFont.shader" />
     <None Include="Assets\Other People Asset\Kitchen Asset\README.txt" />
     <None Include="Assets\Other People Asset\Customer\Shaders\Legacy\CelShader.shader" />
