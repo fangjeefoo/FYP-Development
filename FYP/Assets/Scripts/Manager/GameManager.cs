@@ -11,6 +11,7 @@ using Firebase.Extensions;
 public class GameManager : MonoBehaviour
 {
     public static GameManager gm;
+    public enum ButtonChoice { none, returnGame, mainMenu, conversationOK};
 
     //public variable
     public GameObject[] foodList;
@@ -19,6 +20,8 @@ public class GameManager : MonoBehaviour
     public GameObject[] customerList;
     public GameObject conversation1;
     public GameObject conversation2;
+    public GameObject pauseCanvas;
+    public GameObject HUDCanvas;
 
     public Image reticleFilled;
 
@@ -63,7 +66,7 @@ public class GameManager : MonoBehaviour
 
     private string _scoreText;
     private string _dbName;
-    private string _retrieveDbName;
+    private string _retrieveDbName;    
 
     private bool[] _selectedExercise;
     private bool[] _currentSelectedExercise;
@@ -74,6 +77,7 @@ public class GameManager : MonoBehaviour
     private PerformanceData _performanceData;
     private FirebaseDatabase _database;
 
+    private ButtonChoice _selectedButton;
 
     void Awake()
     {
@@ -119,8 +123,22 @@ public class GameManager : MonoBehaviour
         }
 
         if(_buttonCounter >= 1.5f)
-            ConversationOnClick();
-
+        {
+            switch (_selectedButton)
+            {
+                case ButtonChoice.returnGame:
+                    Debug.Log("Select correct choice2");
+                    UnpauseGame();
+                    break;
+                case ButtonChoice.mainMenu:
+                    LoadMainMenu();
+                    break;
+                case ButtonChoice.conversationOK:
+                    ConversationOnClick();
+                    break;
+            }
+        }
+            
         if(!pauseCounter && _currentTimer > 0)
         {
             _counter += Time.deltaTime;
@@ -437,7 +455,7 @@ public class GameManager : MonoBehaviour
 
     public void GrabObject()
     {
-        if(_selectedObject != null)
+        if(_selectedObject != null && !pauseCounter)
         {    
             if(_customer.GetComponent<Customer>().Order == _selectedObject.gameObject.GetComponent<Food>().foodType)
             {
@@ -459,7 +477,7 @@ public class GameManager : MonoBehaviour
 
     public void ReleaseObject()
     {
-        if (_selectedKitchenware != null && _grabObject != null)
+        if (_selectedKitchenware != null && _grabObject != null && !pauseCounter)
         {
             Debug.Log("Release here: " + _grabObject);
             var pos = _selectedKitchenware.transform.position;
@@ -530,9 +548,22 @@ public class GameManager : MonoBehaviour
         PointerExit();
     }
 
-    public void PointerEnter()
+    public void PointerEnter(string choice)
     {
         _buttonEntered = true;
+        switch (choice)
+        {
+            case "menu":
+                _selectedButton = ButtonChoice.mainMenu;
+                break;
+            case "return":
+                Debug.Log("Select correct choice");
+                _selectedButton = ButtonChoice.returnGame;
+                break;
+            case "conversation":
+                _selectedButton = ButtonChoice.conversationOK;
+                break;
+        }
     }
 
     public void PointerExit()
@@ -540,6 +571,7 @@ public class GameManager : MonoBehaviour
         _buttonEntered = false;
         reticleFilled.fillAmount = 0;
         _buttonCounter = 0;
+        _selectedButton = ButtonChoice.none;
     }
 
     public void SaveGame()
@@ -631,5 +663,73 @@ public class GameManager : MonoBehaviour
         DeepPan.deepPan.ResetColor();
         Pan.pan.ResetColor();
         CuttingBoard.cuttingBoard.ResetColor();
+    }
+
+    public void PauseGame()
+    {
+        pauseCounter = true;
+        pauseCanvas.SetActive(true);
+        HUDCanvas.SetActive(false);
+
+        if (_customer)
+        {
+            _customer.GetComponent<Animator>().enabled = false;
+            _customer.transform.GetChild(2).gameObject.SetActive(false);
+            _customer.transform.GetChild(3).gameObject.SetActive(false);
+        }
+            
+
+        if (leftVideoPlayer && rightVideoPlayer)
+        {
+            leftVideoPlayer.Pause();
+            rightVideoPlayer.Pause();
+        }
+
+        if (SoundManager.soundManager)
+        {
+            SoundManager.soundManager.eating.Stop();
+            SoundManager.soundManager.frying.Stop();
+            SoundManager.soundManager.boiling.Stop();
+        }
+    }
+
+    public void UnpauseGame()
+    {
+        Debug.Log("Unpause game");
+        PointerExit();
+        pauseCounter = false;
+        pauseCanvas.SetActive(false);
+        HUDCanvas.SetActive(true);
+        Debug.Log("Unpause game pause canvas: " + pauseCanvas.activeSelf);
+        if (_customer)
+        {
+            _customer.GetComponent<Animator>().enabled = true;
+            _customer.transform.GetChild(2).gameObject.SetActive(true);
+            if (_customer.GetComponent<Customer>().Sitting && !_customer.GetComponent<Customer>().Serving)
+                _customer.transform.GetChild(3).gameObject.SetActive(true);
+        }
+
+
+        if (leftVideoPlayer && rightVideoPlayer)
+        {
+            leftVideoPlayer.Play();
+            rightVideoPlayer.Play();
+        }
+
+        if(SoundManager.soundManager)
+        {
+            if(_customer.GetComponent<Customer>().Serving)
+                SoundManager.soundManager.eating.Play();
+            if(Pan.pan.food)
+                SoundManager.soundManager.frying.Play();
+            if(DeepPan.deepPan.food)
+                SoundManager.soundManager.boiling.Play();
+        }
+    }
+
+    public void LoadMainMenu()
+    {
+        PointerExit();
+        SceneManager.LoadScene("Menu");
     }
 }

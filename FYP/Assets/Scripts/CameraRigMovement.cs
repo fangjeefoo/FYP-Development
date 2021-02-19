@@ -5,6 +5,7 @@ using UnityEngine;
 //reference from: https://www.youtube.com/watch?v=lYIRm4QEqro
 public class CameraRigMovement : MonoBehaviour
 {
+    public bool called = false;
     public float speedH = 2.0f;
     public float speedV = 2.0f;
 
@@ -17,5 +18,13 @@ public class CameraRigMovement : MonoBehaviour
         pitch -= speedV * Input.GetAxis("Mouse Y");
 
         transform.eulerAngles = new Vector3(pitch, yaw, 0f);
+
+        Debug.Log("Camera Rig: " + transform.rotation);
+        if(transform.rotation.x >= 0.5 && !GameManager.gm.pauseCounter)
+        {
+            called = true;
+            Debug.Log("Pause the game");
+            GameManager.gm.PauseGame();
+        }
     }
 }

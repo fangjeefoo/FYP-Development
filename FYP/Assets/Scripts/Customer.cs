@@ -26,7 +26,10 @@ public class Customer : MonoBehaviour
     private bool _coroutineRunning; //check coroutine "FinishMeal" is running
     private bool _reset;
     private bool _isLeaving;
+    private bool _startEating;
+    private bool _halfEaten;
     private float _speed;
+    private float _eatingCounter;
     private GameObject _chair;
     private Animator animator;
     private MyFoodType _foodOrder;
@@ -49,7 +52,7 @@ public class Customer : MonoBehaviour
     void Update()
     {
         //if is sitting false, means the customer just reach the restaurant
-        if (!_isSitting)
+        if (!_isSitting && !GameManager.gm.pauseCounter)
         {
             if (Vector3.Distance(_chair.transform.position, transform.position) > 1.0f)
             {
@@ -69,11 +72,45 @@ public class Customer : MonoBehaviour
         }
         else if (!GameManager.gm.pauseCounter)//customer waiting to be served
         {
-            if (_isServing) //if serve by player, starts coroutine
+            if (_isServing) //if serve by player //starts coroutine
             {
-                if (!_coroutineRunning) //if coroutine not run, run it
+                /* if (!_coroutineRunning) //if coroutine not run, run it
                 {
                     StartCoroutine(FinishMeal());
+                }*/
+
+                if (!_startEating)
+                {
+                    if (SoundManager.soundManager)
+                        SoundManager.soundManager.eating.Play();
+                    animator.SetBool("ChairEat", true);
+                    _coroutineRunning = true;
+                    orderCanvas.SetActive(false);
+                    GameManager.gm.StopVideo();
+                    GameManager.gm.CancelHint();
+
+                    _startEating = true;
+                }
+
+                _eatingCounter += Time.deltaTime;
+
+                if(_eatingCounter >= finishMealCounter/2 && !_halfEaten)
+                {
+                    _halfEaten = true;
+                    _chair.GetComponent<Chair>().GetCurrentPlate().GetComponent<CustomerPlate>().GetCurrentFood().transform.GetChild(0).localScale /= 2;
+                }
+                   
+                if(_eatingCounter >= finishMealCounter)
+                {
+                    animator.SetBool("ChairEat", false);
+                    GameManager.gm.UpdateScore(_mood * score, true);
+                    _mood = 0;
+                    _isLeaving = true;
+                    if (SoundManager.soundManager)
+                    {
+                        SoundManager.soundManager.eating.Stop();
+                        SoundManager.soundManager.MyPlay(3);
+                    }
                 }
             }
             else //if not serve by player, add time on mood counter
@@ -267,6 +304,11 @@ public class Customer : MonoBehaviour
         set { _isServing = value; }
     }
 
+    public bool Sitting
+    {
+        get { return _isSitting; }
+    }
+
     public MyFoodType Order
     {
         get { return _foodOrder; }
@@ -285,8 +327,11 @@ public class Customer : MonoBehaviour
         orderCanvas.SetActive(false);
         GameManager.gm.StopVideo();
         GameManager.gm.CancelHint();
+
         yield return new WaitForSeconds(finishMealCounter / 2);
         _chair.GetComponent<Chair>().GetCurrentPlate().GetComponent<CustomerPlate>().GetCurrentFood().transform.GetChild(0).localScale /= 2; 
+
+        
         yield return new WaitForSeconds(finishMealCounter);
         animator.SetBool("ChairEat", false);
         GameManager.gm.UpdateScore(_mood * score, true);
@@ -325,7 +370,10 @@ public class Customer : MonoBehaviour
         _isServing = false;
         _coroutineRunning = false;
         _isLeaving = false;
+        _startEating = false;
+        _halfEaten = false;
         _moodCounter = 0f;
+        _eatingCounter = 0;
         _mood = 5;
     }
 

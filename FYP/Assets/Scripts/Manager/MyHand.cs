@@ -221,79 +221,88 @@ public class MyHand : MonoBehaviour
 
     public void Testing()
     {
-        if (_forearmExercise && _selectedExercise[1])
+        if (!GameManager.gm.pauseCounter)
         {
-            if (!_sfxPlaying && SoundManager.soundManager)
-                SoundManager.soundManager.frying.Play();
+            if (_forearmExercise && _selectedExercise[1])
+            {
+                if (!_sfxPlaying && SoundManager.soundManager)
+                    SoundManager.soundManager.frying.Play();
 
-            _sfxPlaying = true;
-            GameManager.gm.UpdatePerformedTimes(1);
-            _forearmCounter++;
-            Debug.Log("forearm times");
-        }
+                _sfxPlaying = true;
+                GameManager.gm.UpdatePerformedTimes(1);
+                _forearmCounter++;
+                Debug.Log("forearm times");
+            }
 
-        if (_forearmCounter >= 3)
-        {
-            if (SoundManager.soundManager)
-                SoundManager.soundManager.frying.Stop();
-            _sfxPlaying = false;
-            _forearmCounter = 0;
-            Pan.pan.food.GetComponent<Food>().GenerateCookedFood();
-            Debug.Log("clear");
-            GameManager.gm.PlayVideo(true);
-            Pan.pan.food.GetComponent<Food>().food = null;
-            _forearmExercise = false;
+            if (_forearmCounter >= 3)
+            {
+                if (SoundManager.soundManager)
+                    SoundManager.soundManager.frying.Stop();
+                _sfxPlaying = false;
+                _forearmCounter = 0;
+                Pan.pan.food.GetComponent<Food>().GenerateCookedFood();
+                Debug.Log("clear");
+                GameManager.gm.PlayVideo(true);
+                Pan.pan.food.GetComponent<Food>().food = null;
+                _forearmExercise = false;
+            }
         }
     }
 
      public void Testing2()
      {
-        if (_wristExercise && _selectedExercise[3])
+        if(!GameManager.gm.pauseCounter)
         {
-            if (!_sfxPlaying && SoundManager.soundManager)
-                SoundManager.soundManager.boiling.Play();
+            if (_wristExercise && _selectedExercise[3])
+            {
+                if (!_sfxPlaying && SoundManager.soundManager)
+                    SoundManager.soundManager.boiling.Play();
 
-            _sfxPlaying = true;
-            //Debug.Log("cook");
-            //Debug.Log("last hand: " + _lastHand.PalmNormal);
-            //Debug.Log("hand: " + _hand.PalmNormal);
-            Debug.Log("wrist times");
-            GameManager.gm.UpdatePerformedTimes(2);
-            _wristCounter++;
-        }
+                _sfxPlaying = true;
+                //Debug.Log("cook");
+                //Debug.Log("last hand: " + _lastHand.PalmNormal);
+                //Debug.Log("hand: " + _hand.PalmNormal);
+                Debug.Log("wrist times");
+                GameManager.gm.UpdatePerformedTimes(2);
+                _wristCounter++;
+            }
 
-        if (_wristCounter >= 3)
-        {
-            if (SoundManager.soundManager)
-                SoundManager.soundManager.boiling.Stop();
-            _sfxPlaying = false;
-            Debug.Log("Clear");
-            _wristCounter = 0;
-            DeepPan.deepPan.food.GetComponent<Food>().GenerateCookedFood();
-            DeepPan.deepPan.food.GetComponent<Food>().food = null;
-            GameManager.gm.PlayVideo(true);
-            _wristExercise = false;
+            if (_wristCounter >= 3)
+            {
+                if (SoundManager.soundManager)
+                    SoundManager.soundManager.boiling.Stop();
+                _sfxPlaying = false;
+                Debug.Log("Clear");
+                _wristCounter = 0;
+                DeepPan.deepPan.food.GetComponent<Food>().GenerateCookedFood();
+                DeepPan.deepPan.food.GetComponent<Food>().food = null;
+                GameManager.gm.PlayVideo(true);
+                _wristExercise = false;
+            }
         }
-    }
+     }
     public void Testing3()
     {
-        if (_elbowExercise && _selectedExercise[2]) //if (_elbowExercise && _holdingKnife && _selectedExercise[2])
+        if (!GameManager.gm.pauseCounter)
         {
-            if (SoundManager.soundManager)
-                SoundManager.soundManager.MyPlay(8);
+            if (_elbowExercise && _selectedExercise[2]) //if (_elbowExercise && _holdingKnife && _selectedExercise[2])
+            {
+                if (SoundManager.soundManager)
+                    SoundManager.soundManager.MyPlay(8);
 
-            GameManager.gm.UpdatePerformedTimes(3);
-            _elbowCounter++;
-            Debug.Log("elbow times");
-        }
+                GameManager.gm.UpdatePerformedTimes(3);
+                _elbowCounter++;
+                Debug.Log("elbow times");
+            }
 
-        if (_elbowCounter >= 3)
-        {
-            _elbowCounter = 0;
-            CuttingBoard.cuttingBoard.food.GetComponent<Food>().GenerateCookedFood();
-            CuttingBoard.cuttingBoard.food.GetComponent<Food>().food = null;
-            GameManager.gm.PlayVideo(true);
-            _elbowExercise = false;
+            if (_elbowCounter >= 3)
+            {
+                _elbowCounter = 0;
+                CuttingBoard.cuttingBoard.food.GetComponent<Food>().GenerateCookedFood();
+                CuttingBoard.cuttingBoard.food.GetComponent<Food>().food = null;
+                GameManager.gm.PlayVideo(true);
+                _elbowExercise = false;
+            }
         }
     }
 
