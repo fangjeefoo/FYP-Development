@@ -16,13 +16,13 @@ public class CuttingBoard : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        if (MyHand.handManager.UpdateElbowExercise || collision.gameObject.GetComponent<Food>().cookType != CookType.shredding)
+/*        if (MyHand.handManager.UpdateElbowExercise || collision.gameObject.GetComponent<Food>().cookType != CookType.shredding)
         {
             Destroy(collision.gameObject);
             if (SoundManager.soundManager)
                 SoundManager.soundManager.MyPlay(7);
             return;
-        }
+        }*/
 
         MyHand.handManager.UpdateElbowExercise = true;
         food = collision.gameObject;

@@ -26,12 +26,12 @@ public class CustomerPlate : MonoBehaviour
             _food = collision.gameObject;
             //Destroy(collision.gameObject.GetComponent<EventTrigger>());
         }        
-        else
+/*        else
         {
             if (SoundManager.soundManager)
                 SoundManager.soundManager.MyPlay(7);
             Destroy(collision.gameObject);
-        }
+        }*/
     }
 
     public void PointerEnter()

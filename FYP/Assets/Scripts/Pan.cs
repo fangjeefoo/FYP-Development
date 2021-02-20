@@ -9,8 +9,6 @@ public class Pan : MonoBehaviour
 
     public GameObject food;
 
-    private bool called = false;
-
     public void Start()
     {
         pan = this;
@@ -20,13 +18,13 @@ public class Pan : MonoBehaviour
     public void OnCollisionEnter(Collision collision)
     {
         //check whether player putting wrong food type or the pan is already start cooking
-        if (MyHand.handManager.UpdateForearmExercise || collision.gameObject.GetComponent<Food>().cookType != CookType.frying)
+/*        if (MyHand.handManager.UpdateForearmExercise || collision.gameObject.GetComponent<Food>().cookType != CookType.frying)
         {
             Destroy(collision.gameObject);
             if (SoundManager.soundManager)
                 SoundManager.soundManager.MyPlay(7);
             return;
-        }
+        }*/
 
         MyHand.handManager.UpdateForearmExercise = true;
         food = collision.gameObject;

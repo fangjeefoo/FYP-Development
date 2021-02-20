@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 using System.Linq;
 using UnityEngine.Video;
 using Firebase.Extensions;
+using FoodType;
 
 public class GameManager : MonoBehaviour
 {
@@ -127,7 +128,6 @@ public class GameManager : MonoBehaviour
             switch (_selectedButton)
             {
                 case ButtonChoice.returnGame:
-                    Debug.Log("Select correct choice2");
                     UnpauseGame();
                     break;
                 case ButtonChoice.mainMenu:
@@ -148,8 +148,6 @@ public class GameManager : MonoBehaviour
 
         if (_currentTimer <= 0 && SoundManager.soundManager && !_timeEndSFX)
         {
-            Debug.Log("Play here");
-
             SoundManager.soundManager.MyPlay(6);
             _timeEndSFX = true;
         }          
@@ -214,10 +212,6 @@ public class GameManager : MonoBehaviour
             {
                 dataSnapshot = task.Result;
                 customize = JsonUtility.FromJson<Customization>(dataSnapshot.GetRawJsonValue());
-
-                Debug.Log("all: ");
-                foreach (var mybool in customize.exercise)
-                    Debug.Log(mybool);
 
                 _selectedExercise = new bool[4];
                 _currentSelectedExercise = new bool[4];
@@ -479,6 +473,43 @@ public class GameManager : MonoBehaviour
     {
         if (_selectedKitchenware != null && _grabObject != null && !pauseCounter)
         {
+            if(_selectedKitchenware == Pan.pan.gameObject)
+            {
+                if (MyHand.handManager.UpdateForearmExercise || _grabObject.GetComponent<Food>().cookType != CookType.frying)
+                {
+                    if (SoundManager.soundManager)
+                        SoundManager.soundManager.MyPlay(7);
+                    return;
+                }
+            }
+            else if(_selectedKitchenware == DeepPan.deepPan.gameObject)
+            {
+                if (MyHand.handManager.UpdateWristExercise || _grabObject.GetComponent<Food>().cookType != CookType.soup)
+                {
+                    if (SoundManager.soundManager)
+                        SoundManager.soundManager.MyPlay(7);
+                    return;
+                }
+            }
+            else if(_selectedKitchenware == CuttingBoard.cuttingBoard.gameObject)
+            {
+                if (MyHand.handManager.UpdateElbowExercise ||_grabObject.GetComponent<Food>().cookType != CookType.shredding)
+                {
+                    if (SoundManager.soundManager)
+                        SoundManager.soundManager.MyPlay(7);
+                    return;
+                }
+            }
+            else if(_selectedKitchenware == _customer.GetComponent<Customer>().GetChair().GetComponent<Chair>().GetCurrentPlate())
+            {
+                if(!(_customer.GetComponent<Customer>().Order == _grabObject.GetComponent<Food>().foodType) && !(_grabObject.GetComponent<Food>().cookType == CookType.cooked))
+                {
+                    if (SoundManager.soundManager)
+                        SoundManager.soundManager.MyPlay(7);
+                    return;
+                }
+            }
+
             Debug.Log("Release here: " + _grabObject);
             var pos = _selectedKitchenware.transform.position;
             pos.y += 0.1f;
@@ -557,7 +588,6 @@ public class GameManager : MonoBehaviour
                 _selectedButton = ButtonChoice.mainMenu;
                 break;
             case "return":
-                Debug.Log("Select correct choice");
                 _selectedButton = ButtonChoice.returnGame;
                 break;
             case "conversation":
@@ -695,12 +725,10 @@ public class GameManager : MonoBehaviour
 
     public void UnpauseGame()
     {
-        Debug.Log("Unpause game");
         PointerExit();
         pauseCounter = false;
         pauseCanvas.SetActive(false);
         HUDCanvas.SetActive(true);
-        Debug.Log("Unpause game pause canvas: " + pauseCanvas.activeSelf);
         if (_customer)
         {
             _customer.GetComponent<Animator>().enabled = true;

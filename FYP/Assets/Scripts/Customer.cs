@@ -380,6 +380,11 @@ public class Customer : MonoBehaviour
         _mood = 5;
     }
 
+    public GameObject GetChair()
+    {
+        return _chair;
+    }
+
     public MyFoodType GetFoodType()
     {
         return _foodOrder;
