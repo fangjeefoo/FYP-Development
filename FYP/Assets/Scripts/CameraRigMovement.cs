@@ -19,11 +19,9 @@ public class CameraRigMovement : MonoBehaviour
 
         transform.eulerAngles = new Vector3(pitch, yaw, 0f);
 
-        Debug.Log("Camera Rig: " + transform.rotation);
         if(transform.rotation.x >= 0.5 && !GameManager.gm.pauseCounter)
         {
             called = true;
-            Debug.Log("Pause the game");
             GameManager.gm.PauseGame();
         }
     }

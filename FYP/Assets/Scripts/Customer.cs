@@ -28,6 +28,7 @@ public class Customer : MonoBehaviour
     private bool _isLeaving;
     private bool _startEating;
     private bool _halfEaten;
+    private bool _finishMealSFX;
     private float _speed;
     private float _eatingCounter;
     private GameObject _chair;
@@ -106,8 +107,9 @@ public class Customer : MonoBehaviour
                     GameManager.gm.UpdateScore(_mood * score, true);
                     _mood = 0;
                     _isLeaving = true;
-                    if (SoundManager.soundManager)
+                    if (SoundManager.soundManager && !_finishMealSFX)
                     {
+                        _finishMealSFX = true;
                         SoundManager.soundManager.eating.Stop();
                         SoundManager.soundManager.MyPlay(3);
                     }
@@ -372,6 +374,7 @@ public class Customer : MonoBehaviour
         _isLeaving = false;
         _startEating = false;
         _halfEaten = false;
+        _finishMealSFX = false;
         _moodCounter = 0f;
         _eatingCounter = 0;
         _mood = 5;

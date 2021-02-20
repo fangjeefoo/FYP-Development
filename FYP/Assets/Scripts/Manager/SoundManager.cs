@@ -93,38 +93,47 @@ public class SoundManager : MonoBehaviour
         switch (choice)
         {
             case 0:
+                Debug.Log("Play wrongly 0");
                 //bgm.PlayOneShot(win, _volume);
                 bgm.PlayOneShot(win, 1.0f);
                 break;
             case 1:
+                Debug.Log("Play wrongly 1");
                 //bgm.PlayOneShot(lose, _volume);
                 bgm.PlayOneShot(lose, 1.0f);
                 break;
             case 2:
+                Debug.Log("Play wrongly 2");
                 //bgm.PlayOneShot(foodDone, _volume);
                 bgm.PlayOneShot(foodDone, 1.0f);
                 break;
             case 3:
+                Debug.Log("Play wrongly 3");
                 //bgm.PlayOneShot(orderSucessful, _volume);
                 bgm.PlayOneShot(orderSucessful, 1.0f);
                 break;
             case 4:
+                Debug.Log("Play wrongly 4");
                 //bgm.PlayOneShot(orderFailed, _volume);
                 bgm.PlayOneShot(orderFailed, 1.0f);
                 break;
             case 5:
+                Debug.Log("Play wrongly 5");
                 //bgm.PlayOneShot(pickUp, _volume);
                 bgm.PlayOneShot(pickUp, 1.0f);
                 break;
             case 6:
+                Debug.Log("Play wrongly 6");
                 //bgm.PlayOneShot(timeEnd, _volume);
                 bgm.PlayOneShot(timeEnd, 1.0f);
                 break;
             case 7:
                 //bgm.PlayOneShot(pickUpWrong, _volume);
+                Debug.Log("Play wrongly 7");
                 bgm.PlayOneShot(pickUpWrong, 1.0f);
                 break;
             case 8:
+                Debug.Log("Play wrongly 8");
                 //bgm.PlayOneShot(cutting, _volume);
                 bgm.PlayOneShot(cutting, 1.0f);
                 break;
