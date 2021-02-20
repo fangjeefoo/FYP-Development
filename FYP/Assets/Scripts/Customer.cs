@@ -73,7 +73,6 @@ public class Customer : MonoBehaviour
         }
         else if (!GameManager.gm.pauseCounter)//customer waiting to be served
         {
-            Debug.Log("wait to be served");
             if (_isServing) //if serve by player //starts coroutine
             {
                 /* if (!_coroutineRunning) //if coroutine not run, run it

@@ -47,6 +47,6 @@ public class Pan : MonoBehaviour
 
     public void ResetColor()
     {
-        gameObject.GetComponent<Renderer>().material.color = new Color(255, 255, 255);
+        gameObject.GetComponent<Renderer>().material.color = new Color(0f, 0f, 0f);
     }
 }

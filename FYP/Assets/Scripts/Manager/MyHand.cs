@@ -223,8 +223,10 @@ public class MyHand : MonoBehaviour
     {
         if (!GameManager.gm.pauseCounter)
         {
+            Debug.Log("Forearm getting input");
             if (_forearmExercise && _selectedExercise[1])
             {
+                Debug.Log("Forearm increase");
                 if (!_sfxPlaying && SoundManager.soundManager)
                     SoundManager.soundManager.frying.Play();
 
@@ -253,8 +255,10 @@ public class MyHand : MonoBehaviour
      {
         if(!GameManager.gm.pauseCounter)
         {
+            Debug.Log("Wrist getting input");
             if (_wristExercise && _selectedExercise[3])
             {
+                Debug.Log("Forearm increase");
                 if (!_sfxPlaying && SoundManager.soundManager)
                     SoundManager.soundManager.boiling.Play();
 
@@ -285,8 +289,10 @@ public class MyHand : MonoBehaviour
     {
         if (!GameManager.gm.pauseCounter)
         {
+            Debug.Log("Elbow getting input");
             if (_elbowExercise && _selectedExercise[2]) //if (_elbowExercise && _holdingKnife && _selectedExercise[2])
             {
+                Debug.Log("Forearm increase");
                 if (SoundManager.soundManager)
                     SoundManager.soundManager.MyPlay(8);
 
