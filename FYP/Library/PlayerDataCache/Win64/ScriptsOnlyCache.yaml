@@ -117,7 +117,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11556}
     - Class: 114
-      Script: {instanceID: 11560}
+      Script: {instanceID: 11558}
     - Class: 114
       Script: {instanceID: 11562}
     - Class: 114
@@ -260,7 +260,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11558}
     - Class: 114
-      Script: {instanceID: 11562}
+      Script: {instanceID: 11560}
     - Class: 114
       Script: {instanceID: 11564}
     - Class: 114
@@ -367,7 +367,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11556}
     - Class: 114
-      Script: {instanceID: 11562}
+      Script: {instanceID: 11558}
     - Class: 114
       Script: {instanceID: 11564}
     - Class: 114
@@ -472,7 +472,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11556}
     - Class: 114
-      Script: {instanceID: 11562}
+      Script: {instanceID: 11558}
     - Class: 114
       Script: {instanceID: 11564}
     - Class: 114
@@ -579,7 +579,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11558}
     - Class: 114
-      Script: {instanceID: 11562}
+      Script: {instanceID: 11560}
     - Class: 114
       Script: {instanceID: 11564}
     - Class: 114
@@ -647,6 +647,12 @@ ScriptsOnlyBuild:
     className: EventTrigger
   - hash:
       serializedVersion: 2
+      Hash: aeb62f729c52c814dec86c47dcac1471
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: Text
+  - hash:
+      serializedVersion: 2
       Hash: 5f1752ed2092162f016c19510c28a8b9
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -657,12 +663,6 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: GridLayoutGroup
-  - hash:
-      serializedVersion: 2
-      Hash: aeb62f729c52c814dec86c47dcac1471
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: Text
   - hash:
       serializedVersion: 2
       Hash: cc4274b586df3c02688bac01b88bd16c
