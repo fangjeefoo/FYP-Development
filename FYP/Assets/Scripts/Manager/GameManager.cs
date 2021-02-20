@@ -500,7 +500,7 @@ public class GameManager : MonoBehaviour
                     return;
                 }
             }
-            else if(_selectedKitchenware == _customer.GetComponent<Customer>().GetChair().GetComponent<Chair>().GetCurrentPlate())
+            else if(_selectedKitchenware == _chair.GetComponent<Chair>().GetCurrentPlate())
             {
                 if(!(_customer.GetComponent<Customer>().Order == _grabObject.GetComponent<Food>().foodType) && !(_grabObject.GetComponent<Food>().cookType == CookType.cooked))
                 {

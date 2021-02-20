@@ -55,7 +55,7 @@ public class Customer : MonoBehaviour
         //if is sitting false, means the customer just reach the restaurant
         if (!_isSitting && !GameManager.gm.pauseCounter)
         {
-            if (Vector3.Distance(_chair.transform.position, transform.position) > 1.0f)
+            if (Vector3.Distance(_chair.transform.position, transform.position) > 1f)
             {
                 animator.SetBool("Moving", true);
                 animator.SetFloat("VelocityX", 20f);
@@ -73,6 +73,7 @@ public class Customer : MonoBehaviour
         }
         else if (!GameManager.gm.pauseCounter)//customer waiting to be served
         {
+            Debug.Log("wait to be served");
             if (_isServing) //if serve by player //starts coroutine
             {
                 /* if (!_coroutineRunning) //if coroutine not run, run it

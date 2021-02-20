@@ -2,11 +2,49 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - CameraRigMovement
+    - Chair
+    - Customer
+    - CustomerPlate
+    - CuttingBoard
+    - DeepPan
+    - FirebaseInit
+    - Food
+    - FoodPlate
+    - GameManager
     - GvrEditorEmulator
     - GvrPointerInputModule
     - GvrPointerPhysicsRaycaster
     - GvrReticlePointer
+    - Leap.Unity.CapsuleHand
+    - Leap.Unity.ExtendedFingerDetector
+    - Leap.Unity.HandEnableDisable
+    - Leap.Unity.HandModelManager
+    - Leap.Unity.Interaction.InteractionHand
+    - Leap.Unity.LeapXRServiceProvider
+    - Leap.Unity.PalmDirectionDetector
+    - Lose
+    - MainMenu
+    - MyHand
+    - Pan
     - Setting
+    - SoundManager
+    - Win
+    Unity.Postprocessing.Runtime.dll:
+    - UnityEngine.Rendering.PostProcessing.AmbientOcclusion
+    - UnityEngine.Rendering.PostProcessing.AutoExposure
+    - UnityEngine.Rendering.PostProcessing.Bloom
+    - UnityEngine.Rendering.PostProcessing.ChromaticAberration
+    - UnityEngine.Rendering.PostProcessing.ColorGrading
+    - UnityEngine.Rendering.PostProcessing.DepthOfField
+    - UnityEngine.Rendering.PostProcessing.Grain
+    - UnityEngine.Rendering.PostProcessing.LensDistortion
+    - UnityEngine.Rendering.PostProcessing.MotionBlur
+    - UnityEngine.Rendering.PostProcessing.PostProcessLayer
+    - UnityEngine.Rendering.PostProcessing.PostProcessProfile
+    - UnityEngine.Rendering.PostProcessing.PostProcessResources
+    - UnityEngine.Rendering.PostProcessing.PostProcessVolume
+    - UnityEngine.Rendering.PostProcessing.ScreenSpaceReflections
+    - UnityEngine.Rendering.PostProcessing.Vignette
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     UnityEditor.Graphs.dll:
@@ -23,12 +61,373 @@ ScriptsOnlyBuild:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.EventTrigger
     - UnityEngine.EventSystems.StandaloneInputModule
+    - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
+    - UnityEngine.UI.GridLayoutGroup
     - UnityEngine.UI.Image
     - UnityEngine.UI.Slider
     - UnityEngine.UI.Text
   sceneClasses:
+    Assets/_Scenes/Level1.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 23
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 33
+      Script: {instanceID: 0}
+    - Class: 43
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 54
+      Script: {instanceID: 0}
+    - Class: 64
+      Script: {instanceID: 0}
+    - Class: 65
+      Script: {instanceID: 0}
+    - Class: 72
+      Script: {instanceID: 0}
+    - Class: 74
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 89
+      Script: {instanceID: 0}
+    - Class: 90
+      Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 95
+      Script: {instanceID: 0}
+    - Class: 102
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 11556}
+    - Class: 114
+      Script: {instanceID: 11560}
+    - Class: 114
+      Script: {instanceID: 11562}
+    - Class: 114
+      Script: {instanceID: 11564}
+    - Class: 114
+      Script: {instanceID: 11566}
+    - Class: 114
+      Script: {instanceID: 11572}
+    - Class: 114
+      Script: {instanceID: 11578}
+    - Class: 114
+      Script: {instanceID: 11586}
+    - Class: 114
+      Script: {instanceID: 11622}
+    - Class: 114
+      Script: {instanceID: 11762}
+    - Class: 114
+      Script: {instanceID: 11794}
+    - Class: 114
+      Script: {instanceID: 11984}
+    - Class: 114
+      Script: {instanceID: 12194}
+    - Class: 114
+      Script: {instanceID: 12242}
+    - Class: 114
+      Script: {instanceID: 12322}
+    - Class: 114
+      Script: {instanceID: 12404}
+    - Class: 114
+      Script: {instanceID: 12552}
+    - Class: 114
+      Script: {instanceID: 12884}
+    - Class: 114
+      Script: {instanceID: 13122}
+    - Class: 114
+      Script: {instanceID: 13230}
+    - Class: 114
+      Script: {instanceID: 13304}
+    - Class: 114
+      Script: {instanceID: 13306}
+    - Class: 114
+      Script: {instanceID: 13378}
+    - Class: 114
+      Script: {instanceID: 13496}
+    - Class: 114
+      Script: {instanceID: 13592}
+    - Class: 114
+      Script: {instanceID: 13620}
+    - Class: 114
+      Script: {instanceID: 13778}
+    - Class: 114
+      Script: {instanceID: 14026}
+    - Class: 114
+      Script: {instanceID: 14158}
+    - Class: 114
+      Script: {instanceID: 14234}
+    - Class: 114
+      Script: {instanceID: 14288}
+    - Class: 114
+      Script: {instanceID: 14374}
+    - Class: 114
+      Script: {instanceID: 14426}
+    - Class: 114
+      Script: {instanceID: 14430}
+    - Class: 114
+      Script: {instanceID: 14612}
+    - Class: 114
+      Script: {instanceID: 14722}
+    - Class: 114
+      Script: {instanceID: 14792}
+    - Class: 114
+      Script: {instanceID: 14820}
+    - Class: 114
+      Script: {instanceID: 14870}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 137
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    - Class: 258
+      Script: {instanceID: 0}
+    - Class: 328
+      Script: {instanceID: 0}
+    - Class: 329
+      Script: {instanceID: 0}
+    Assets/_Scenes/Lose.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 23
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 33
+      Script: {instanceID: 0}
+    - Class: 43
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 64
+      Script: {instanceID: 0}
+    - Class: 65
+      Script: {instanceID: 0}
+    - Class: 72
+      Script: {instanceID: 0}
+    - Class: 74
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 90
+      Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 95
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 11556}
+    - Class: 114
+      Script: {instanceID: 11558}
+    - Class: 114
+      Script: {instanceID: 11562}
+    - Class: 114
+      Script: {instanceID: 11564}
+    - Class: 114
+      Script: {instanceID: 11566}
+    - Class: 114
+      Script: {instanceID: 11572}
+    - Class: 114
+      Script: {instanceID: 11578}
+    - Class: 114
+      Script: {instanceID: 11622}
+    - Class: 114
+      Script: {instanceID: 11794}
+    - Class: 114
+      Script: {instanceID: 11984}
+    - Class: 114
+      Script: {instanceID: 12194}
+    - Class: 114
+      Script: {instanceID: 12242}
+    - Class: 114
+      Script: {instanceID: 12322}
+    - Class: 114
+      Script: {instanceID: 12884}
+    - Class: 114
+      Script: {instanceID: 13230}
+    - Class: 114
+      Script: {instanceID: 13306}
+    - Class: 114
+      Script: {instanceID: 14026}
+    - Class: 114
+      Script: {instanceID: 14234}
+    - Class: 114
+      Script: {instanceID: 14288}
+    - Class: 114
+      Script: {instanceID: 14442}
+    - Class: 114
+      Script: {instanceID: 14722}
+    - Class: 114
+      Script: {instanceID: 14792}
+    - Class: 114
+      Script: {instanceID: 14820}
+    - Class: 114
+      Script: {instanceID: 14924}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    Assets/_Scenes/Menu.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 23
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 33
+      Script: {instanceID: 0}
+    - Class: 43
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 64
+      Script: {instanceID: 0}
+    - Class: 65
+      Script: {instanceID: 0}
+    - Class: 72
+      Script: {instanceID: 0}
+    - Class: 74
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
+    - Class: 89
+      Script: {instanceID: 0}
+    - Class: 90
+      Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 95
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 11556}
+    - Class: 114
+      Script: {instanceID: 11562}
+    - Class: 114
+      Script: {instanceID: 11564}
+    - Class: 114
+      Script: {instanceID: 11566}
+    - Class: 114
+      Script: {instanceID: 11572}
+    - Class: 114
+      Script: {instanceID: 11578}
+    - Class: 114
+      Script: {instanceID: 11622}
+    - Class: 114
+      Script: {instanceID: 11790}
+    - Class: 114
+      Script: {instanceID: 11794}
+    - Class: 114
+      Script: {instanceID: 11984}
+    - Class: 114
+      Script: {instanceID: 12194}
+    - Class: 114
+      Script: {instanceID: 12242}
+    - Class: 114
+      Script: {instanceID: 12322}
+    - Class: 114
+      Script: {instanceID: 12884}
+    - Class: 114
+      Script: {instanceID: 13230}
+    - Class: 114
+      Script: {instanceID: 13306}
+    - Class: 114
+      Script: {instanceID: 13842}
+    - Class: 114
+      Script: {instanceID: 14026}
+    - Class: 114
+      Script: {instanceID: 14134}
+    - Class: 114
+      Script: {instanceID: 14234}
+    - Class: 114
+      Script: {instanceID: 14288}
+    - Class: 114
+      Script: {instanceID: 14722}
+    - Class: 114
+      Script: {instanceID: 14792}
+    - Class: 114
+      Script: {instanceID: 14820}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
     Assets/_Scenes/Setting.unity:
     - Class: 1
       Script: {instanceID: 0}
@@ -42,9 +441,29 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 28
       Script: {instanceID: 0}
+    - Class: 33
+      Script: {instanceID: 0}
+    - Class: 43
+      Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
+    - Class: 64
+      Script: {instanceID: 0}
+    - Class: 65
+      Script: {instanceID: 0}
+    - Class: 72
+      Script: {instanceID: 0}
+    - Class: 74
+      Script: {instanceID: 0}
     - Class: 81
+      Script: {instanceID: 0}
+    - Class: 89
+      Script: {instanceID: 0}
+    - Class: 90
+      Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 95
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
@@ -61,23 +480,148 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11568}
     - Class: 114
+      Script: {instanceID: 11572}
+    - Class: 114
       Script: {instanceID: 11578}
     - Class: 114
-      Script: {instanceID: 11980}
+      Script: {instanceID: 11622}
     - Class: 114
-      Script: {instanceID: 12306}
+      Script: {instanceID: 11794}
     - Class: 114
-      Script: {instanceID: 13984}
+      Script: {instanceID: 11984}
     - Class: 114
-      Script: {instanceID: 14192}
+      Script: {instanceID: 12194}
     - Class: 114
-      Script: {instanceID: 14246}
+      Script: {instanceID: 12242}
     - Class: 114
-      Script: {instanceID: 14770}
+      Script: {instanceID: 12322}
     - Class: 114
-      Script: {instanceID: 14874}
+      Script: {instanceID: 12884}
     - Class: 114
-      Script: {instanceID: 14938}
+      Script: {instanceID: 13230}
+    - Class: 114
+      Script: {instanceID: 13306}
+    - Class: 114
+      Script: {instanceID: 14026}
+    - Class: 114
+      Script: {instanceID: 14234}
+    - Class: 114
+      Script: {instanceID: 14288}
+    - Class: 114
+      Script: {instanceID: 14722}
+    - Class: 114
+      Script: {instanceID: 14792}
+    - Class: 114
+      Script: {instanceID: 14820}
+    - Class: 114
+      Script: {instanceID: 14924}
+    - Class: 114
+      Script: {instanceID: 14988}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    Assets/_Scenes/Win.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 23
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 33
+      Script: {instanceID: 0}
+    - Class: 43
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 64
+      Script: {instanceID: 0}
+    - Class: 65
+      Script: {instanceID: 0}
+    - Class: 72
+      Script: {instanceID: 0}
+    - Class: 74
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 89
+      Script: {instanceID: 0}
+    - Class: 90
+      Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 95
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 11556}
+    - Class: 114
+      Script: {instanceID: 11558}
+    - Class: 114
+      Script: {instanceID: 11562}
+    - Class: 114
+      Script: {instanceID: 11564}
+    - Class: 114
+      Script: {instanceID: 11566}
+    - Class: 114
+      Script: {instanceID: 11572}
+    - Class: 114
+      Script: {instanceID: 11578}
+    - Class: 114
+      Script: {instanceID: 11622}
+    - Class: 114
+      Script: {instanceID: 11794}
+    - Class: 114
+      Script: {instanceID: 11984}
+    - Class: 114
+      Script: {instanceID: 12194}
+    - Class: 114
+      Script: {instanceID: 12242}
+    - Class: 114
+      Script: {instanceID: 12322}
+    - Class: 114
+      Script: {instanceID: 12884}
+    - Class: 114
+      Script: {instanceID: 13230}
+    - Class: 114
+      Script: {instanceID: 13306}
+    - Class: 114
+      Script: {instanceID: 13550}
+    - Class: 114
+      Script: {instanceID: 14026}
+    - Class: 114
+      Script: {instanceID: 14234}
+    - Class: 114
+      Script: {instanceID: 14288}
+    - Class: 114
+      Script: {instanceID: 14722}
+    - Class: 114
+      Script: {instanceID: 14792}
+    - Class: 114
+      Script: {instanceID: 14820}
+    - Class: 114
+      Script: {instanceID: 14924}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -241,6 +785,12 @@ ScriptsOnlyBuild:
     className: HandEnableDisable
   - hash:
       serializedVersion: 2
+      Hash: 44c53b19babf750b9229ab72b6392f2c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: IngredientsController
+  - hash:
+      serializedVersion: 2
       Hash: 60ccc40e497f1e4098bcfe124066e0f8
     assemblyName: Assembly-CSharp.dll
     namespaceName: Leap.Unity.Animation
@@ -325,6 +875,12 @@ ScriptsOnlyBuild:
     className: ActivationTrack
   - hash:
       serializedVersion: 2
+      Hash: 23caa1115a3254717d7bd1edc794397d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MoneyController
+  - hash:
+      serializedVersion: 2
       Hash: 9349a293523d2b487173387fc1d5dcb8
     assemblyName: Assembly-CSharp.dll
     namespaceName: PW
@@ -377,6 +933,18 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ScreenShotHelper
+  - hash:
+      serializedVersion: 2
+      Hash: 1381e69174946c074c96b14ba0d16614
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SideRequestsController
+  - hash:
+      serializedVersion: 2
+      Hash: 2ad607e0f113e151e97faff4cb569904
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PauseManager
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -505,6 +1073,12 @@ ScriptsOnlyBuild:
     className: SwapGraspExample
   - hash:
       serializedVersion: 2
+      Hash: 02d452fa60d1fc30465fa305eddca626
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MenuController
+  - hash:
+      serializedVersion: 2
       Hash: 60e889dc340c429817741e2e41dd5d06
     assemblyName: Assembly-CSharp.dll
     namespaceName: Leap.Unity.Interaction.Examples
@@ -553,6 +1127,18 @@ ScriptsOnlyBuild:
     className: OnClickCoverHelper
   - hash:
       serializedVersion: 2
+      Hash: a3f1116c0ebd8d36e032ebf2cb1db7af
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ProductMover
+  - hash:
+      serializedVersion: 2
+      Hash: 19cb0fd4a25e7f052a4aad94a9a78242
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlateController
+  - hash:
+      serializedVersion: 2
       Hash: af674031a8db313b88d59a4998db6370
     assemblyName: Assembly-CSharp.dll
     namespaceName: Leap.Unity.Space
@@ -589,6 +1175,12 @@ ScriptsOnlyBuild:
     className: AnimationTrack
   - hash:
       serializedVersion: 2
+      Hash: 627ca02bcfc80ae03c3f63fedc980be8
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: BackButton
+  - hash:
+      serializedVersion: 2
       Hash: 1f98c6cf1222a7f2394db935fd86eeb0
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -599,6 +1191,18 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: AspectRatioFitter
+  - hash:
+      serializedVersion: 2
+      Hash: 369c871ed79c1cbc30e49a4857b57582
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ShopItemProperties
+  - hash:
+      serializedVersion: 2
+      Hash: 8e0d5a98ca4d4a97c2d6d33d619f07b3
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TextMeshController
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -623,6 +1227,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GvrScrollSettings
+  - hash:
+      serializedVersion: 2
+      Hash: 859f1f3d8eed21374cea205621371f6d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CoffeeMakerController
   - hash:
       serializedVersion: 2
       Hash: 1103fb0758976355cdf9b7d5ce9cb7e0
@@ -671,6 +1281,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: Leap.Unity.Examples
     className: SimpleTransformUtil
+  - hash:
+      serializedVersion: 2
+      Hash: 5f34d5a284c3b7169c68475e2b55051b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SideRequestMover
   - hash:
       serializedVersion: 2
       Hash: ed916f285d5522ec5ceb6eccef8d0072
@@ -761,6 +1377,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Postprocessing.Runtime.dll
     namespaceName: UnityEngine.Rendering.PostProcessing
     className: PostProcessEffectSettings
+  - hash:
+      serializedVersion: 2
+      Hash: 8d52e6b93f820e5df8f96b8b9d7afbce
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ShopController
   - hash:
       serializedVersion: 2
       Hash: 0fb27be807aa299702f28ad0bcad1f46
@@ -859,6 +1481,12 @@ ScriptsOnlyBuild:
     className: EnableDepthBuffer
   - hash:
       serializedVersion: 2
+      Hash: c6e4980efffd46bac73492606fd17e68
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CandyController
+  - hash:
+      serializedVersion: 2
       Hash: b7d1817979b42aa3b599ba010575506b
     assemblyName: Assembly-CSharp.dll
     namespaceName: Leap.Unity
@@ -931,6 +1559,12 @@ ScriptsOnlyBuild:
     className: KeyEnableGameObjects
   - hash:
       serializedVersion: 2
+      Hash: 51e179b9bc7a0997af0a761ac7219a85
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CoinpackProperties
+  - hash:
+      serializedVersion: 2
       Hash: 5d04fe30d4979959b2f1410a0ae8813f
     assemblyName: Assembly-CSharp.dll
     namespaceName: Leap.Unity
@@ -973,7 +1607,19 @@ ScriptsOnlyBuild:
     className: NavMeshModifierVolume
   - hash:
       serializedVersion: 2
-      Hash: fbda1e7d97e2dea82d21f9ecba9e239f
+      Hash: e29f5163bcb444e56d1d2175eecaa713
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CareerLevelSetup
+  - hash:
+      serializedVersion: 2
+      Hash: 97f6a4d815e95183de69a5b6e9dca429
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SfxPlayer
+  - hash:
+      serializedVersion: 2
+      Hash: e1b045ca478861680c51b1d4e28da8b0
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameManager
@@ -1087,6 +1733,12 @@ ScriptsOnlyBuild:
     className: SimpleInteractionGlow
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TextureScroller
+  - hash:
+      serializedVersion: 2
       Hash: c1f3706afc5d4f400214ee1616b0f593
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -1103,6 +1755,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: Leap.Unity.Examples
     className: AutopilotSystem
+  - hash:
+      serializedVersion: 2
+      Hash: c1ef6829c6f529e5224612eab95d4450
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ProductManager
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -1241,6 +1899,18 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GvrControllerTooltipsSimple
+  - hash:
+      serializedVersion: 2
+      Hash: 8b9dae009fe8e7050b82f24ab0ec6be7
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TrashBinController
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CandyMover
   - hash:
       serializedVersion: 2
       Hash: a95799c9bcbf0c960856f20f0139fda4
@@ -1501,6 +2171,12 @@ ScriptsOnlyBuild:
     className: RigidFinger
   - hash:
       serializedVersion: 2
+      Hash: 81ec87bd603c0a967cbdfeedf482c21e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CareerMapManager
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: GoogleVR.VideoDemo
@@ -1519,6 +2195,12 @@ ScriptsOnlyBuild:
     className: GvrPointerGraphicRaycaster
   - hash:
       serializedVersion: 2
+      Hash: f232429dc4b45f56b8969cd1d19c7ea2
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MainGameController
+  - hash:
+      serializedVersion: 2
       Hash: 9aaf3b74885f48f2e0acb6f867858dad
     assemblyName: Assembly-CSharp.dll
     namespaceName: Leap.Unity.Attachments
@@ -1529,6 +2211,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: Leap.Unity
     className: LeapXRServiceProvider
+  - hash:
+      serializedVersion: 2
+      Hash: c844465993847dab99b20b4eac4b6a87
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CustomerController
   - hash:
       serializedVersion: 2
       Hash: df64ad7cdad89053ed97218d03e92c1f
@@ -1595,6 +2283,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Postprocessing.Runtime.dll
     namespaceName: UnityEngine.Rendering.PostProcessing
     className: AmbientOcclusion
+  - hash:
+      serializedVersion: 2
+      Hash: d2d06b2ce57b38c44b38acb1e3fa3fc8
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: HeartBeatAnimationEffect
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -1741,7 +2435,7 @@ ScriptsOnlyBuild:
     className: GvrXREventsSubscriber
   - hash:
       serializedVersion: 2
-      Hash: 65bc9059b550981c2fb3ecd1733f046c
+      Hash: d10677c01c3bf82026cc9640b695c77e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Setting
@@ -1751,6 +2445,18 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: GoogleVR.VideoDemo
     className: AutoPlayVideo
+  - hash:
+      serializedVersion: 2
+      Hash: 92dbfbf992e9bd124f6e979e53716c06
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GrillController
+  - hash:
+      serializedVersion: 2
+      Hash: d2b4e7a32aa2e04f10990a6c00e6334e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: RotateMoveCamera
   - hash:
       serializedVersion: 2
       Hash: 0fd6822f6177297bd0eb4d83cc7a9030
@@ -1769,163 +2475,11 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 44c53b19babf750b9229ab72b6392f2c
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: IngredientsController
-  - hash:
-      serializedVersion: 2
-      Hash: 23caa1115a3254717d7bd1edc794397d
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: MoneyController
-  - hash:
-      serializedVersion: 2
-      Hash: 1381e69174946c074c96b14ba0d16614
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: SideRequestsController
-  - hash:
-      serializedVersion: 2
-      Hash: 2ad607e0f113e151e97faff4cb569904
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: PauseManager
-  - hash:
-      serializedVersion: 2
-      Hash: 02d452fa60d1fc30465fa305eddca626
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: MenuController
-  - hash:
-      serializedVersion: 2
-      Hash: a3f1116c0ebd8d36e032ebf2cb1db7af
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: ProductMover
-  - hash:
-      serializedVersion: 2
-      Hash: 19cb0fd4a25e7f052a4aad94a9a78242
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: PlateController
-  - hash:
-      serializedVersion: 2
-      Hash: 627ca02bcfc80ae03c3f63fedc980be8
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: BackButton
-  - hash:
-      serializedVersion: 2
-      Hash: 369c871ed79c1cbc30e49a4857b57582
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: ShopItemProperties
-  - hash:
-      serializedVersion: 2
-      Hash: 8e0d5a98ca4d4a97c2d6d33d619f07b3
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: TextMeshController
-  - hash:
-      serializedVersion: 2
-      Hash: 859f1f3d8eed21374cea205621371f6d
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: CoffeeMakerController
-  - hash:
-      serializedVersion: 2
-      Hash: 5f34d5a284c3b7169c68475e2b55051b
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: SideRequestMover
-  - hash:
-      serializedVersion: 2
-      Hash: 8d52e6b93f820e5df8f96b8b9d7afbce
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: ShopController
-  - hash:
-      serializedVersion: 2
-      Hash: c6e4980efffd46bac73492606fd17e68
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: CandyController
-  - hash:
-      serializedVersion: 2
-      Hash: 51e179b9bc7a0997af0a761ac7219a85
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: CoinpackProperties
-  - hash:
-      serializedVersion: 2
-      Hash: e29f5163bcb444e56d1d2175eecaa713
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: CareerLevelSetup
-  - hash:
-      serializedVersion: 2
-      Hash: 97f6a4d815e95183de69a5b6e9dca429
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: SfxPlayer
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: TextureScroller
-  - hash:
-      serializedVersion: 2
-      Hash: c1ef6829c6f529e5224612eab95d4450
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: ProductManager
-  - hash:
-      serializedVersion: 2
-      Hash: 8b9dae009fe8e7050b82f24ab0ec6be7
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: TrashBinController
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: CandyMover
-  - hash:
-      serializedVersion: 2
-      Hash: 81ec87bd603c0a967cbdfeedf482c21e
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: CareerMapManager
-  - hash:
-      serializedVersion: 2
-      Hash: f232429dc4b45f56b8969cd1d19c7ea2
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: MainGameController
-  - hash:
-      serializedVersion: 2
-      Hash: c844465993847dab99b20b4eac4b6a87
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: CustomerController
-  - hash:
-      serializedVersion: 2
-      Hash: d2d06b2ce57b38c44b38acb1e3fa3fc8
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: HeartBeatAnimationEffect
-  - hash:
-      serializedVersion: 2
-      Hash: 92dbfbf992e9bd124f6e979e53716c06
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: GrillController
   platform: 19
   scenePathNames:
+  - Assets/_Scenes/Menu.unity
   - Assets/_Scenes/Setting.unity
-  playerPath: C:/Users/E/Desktop/Build/FYP Protoype V1.exe
+  - Assets/_Scenes/Level1.unity
+  - Assets/_Scenes/Lose.unity
+  - Assets/_Scenes/Win.unity
+  playerPath: C:/Users/E/Desktop/Build/Cooking Simulator.exe
