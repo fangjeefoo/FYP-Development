@@ -41,7 +41,7 @@ public class Lose : MonoBehaviour
         if (_click)
         {
             _counter += Time.deltaTime;
-            reticleFilled.fillAmount += 0.005f;
+            reticleFilled.fillAmount += 1f/1.5f * Time.deltaTime;
         }            
 
         if(_counter >= 1.5f)
