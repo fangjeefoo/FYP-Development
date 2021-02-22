@@ -169,6 +169,8 @@ public class Customer : MonoBehaviour
         animator.SetFloat("VelocityX", 20f);
         animator.SetFloat("VelocityY", 150f);
 
+        var animation = animator.GetCurrentAnimatorClipInfo(0);
+
         if (!_reset)
         {
             _reset = true;
@@ -176,14 +178,17 @@ public class Customer : MonoBehaviour
             GameManager.gm.UpdateCustomer();
         }
 
-        if (Vector3.Distance(door.transform.position, transform.position) > 1.0f)
+        if(animation[0].clip.name != "Chair-Idle" && animation[0].clip.name != "Chair-Stand")
         {
-            transform.position = Vector3.MoveTowards(transform.position, new Vector3(door.transform.position.x, transform.position.y,door.transform.position.z), _speed * Time.deltaTime);
-        }
-        else
-        {
-            Destroy(gameObject);
-            GameManager.gm.SaveGame();
+            if (Vector3.Distance(door.transform.position, transform.position) > 1.0f)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, new Vector3(door.transform.position.x, transform.position.y, door.transform.position.z), _speed * Time.deltaTime);
+            }
+            else
+            {
+                Destroy(gameObject);
+                GameManager.gm.SaveGame();
+            }
         }
     }
 
