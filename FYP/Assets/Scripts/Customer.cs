@@ -151,6 +151,7 @@ public class Customer : MonoBehaviour
                 if (GameManager.gm.GetTimer() > 0)
                 {
                     orderCanvas.SetActive(false);
+                    GameManager.gm.CancelHint();
                     _chair.GetComponent<Chair>().MyReset();
                     GameManager.gm.CallConversationCoroutine();
                 }                   

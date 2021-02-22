@@ -533,7 +533,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void CallConversationCoroutine()
-    {
+    {        
         ResetKitchenware();
         StartCoroutine(ShowConversation());
     }
