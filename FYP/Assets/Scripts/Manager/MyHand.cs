@@ -21,7 +21,6 @@ public class MyHand : MonoBehaviour
     private int _forearmCounter;
     private int _elbowCounter;
     private int _wristCounter;
-    private bool _sfxPlaying;
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +30,6 @@ public class MyHand : MonoBehaviour
         _forearmExercise = false;
         _elbowExercise = false;
         _wristExercise = false;
-        _sfxPlaying = false;
         //_holdingKnife = true;
         _called = false;
         _forearmCounter = 0;
@@ -89,7 +87,7 @@ public class MyHand : MonoBehaviour
                     Debug.Log("Move towards ground");*/
     }
 
-    /// <summary>
+/*    /// <summary>
     /// for pan
     /// </summary>
     public void ForearmExercise()
@@ -199,7 +197,7 @@ public class MyHand : MonoBehaviour
         //    Debug.Log("Palm facing body");
 
         //GameManager.gm.UpdatePerformedTimes(3);
-    }
+    }*/
 
     public bool UpdateWristExercise
     {
@@ -219,7 +217,7 @@ public class MyHand : MonoBehaviour
         set { _forearmExercise = value; }
     }
 
-    public void Testing()
+    public void ForearmExercise()
     {
         if (!GameManager.gm.pauseCounter)
         {
@@ -227,10 +225,6 @@ public class MyHand : MonoBehaviour
             if (_forearmExercise && _selectedExercise[1])
             {
                 Debug.Log("Forearm increase");
-                if (!_sfxPlaying && SoundManager.soundManager)
-                    SoundManager.soundManager.frying.Play();
-
-                _sfxPlaying = true;
                 GameManager.gm.UpdatePerformedTimes(1);
                 _forearmCounter++;
                 Debug.Log("forearm times");
@@ -238,9 +232,6 @@ public class MyHand : MonoBehaviour
 
             if (_forearmCounter >= 3)
             {
-                if (SoundManager.soundManager)
-                    SoundManager.soundManager.frying.Stop();
-                _sfxPlaying = false;
                 _forearmCounter = 0;
                 Pan.pan.food.GetComponent<Food>().GenerateCookedFood();
                 Debug.Log("clear");
@@ -251,7 +242,7 @@ public class MyHand : MonoBehaviour
         }
     }
 
-     public void Testing2()
+     public void WristExercise()
      {
         if(!GameManager.gm.pauseCounter)
         {
@@ -259,10 +250,6 @@ public class MyHand : MonoBehaviour
             if (_wristExercise && _selectedExercise[3])
             {
                 Debug.Log("Forearm increase");
-                if (!_sfxPlaying && SoundManager.soundManager)
-                    SoundManager.soundManager.boiling.Play();
-
-                _sfxPlaying = true;
                 //Debug.Log("cook");
                 //Debug.Log("last hand: " + _lastHand.PalmNormal);
                 //Debug.Log("hand: " + _hand.PalmNormal);
@@ -273,9 +260,6 @@ public class MyHand : MonoBehaviour
 
             if (_wristCounter >= 3)
             {
-                if (SoundManager.soundManager)
-                    SoundManager.soundManager.boiling.Stop();
-                _sfxPlaying = false;
                 Debug.Log("Clear");
                 _wristCounter = 0;
                 DeepPan.deepPan.food.GetComponent<Food>().GenerateCookedFood();
@@ -285,7 +269,7 @@ public class MyHand : MonoBehaviour
             }
         }
      }
-    public void Testing3()
+    public void ElbowExercise()
     {
         if (!GameManager.gm.pauseCounter)
         {

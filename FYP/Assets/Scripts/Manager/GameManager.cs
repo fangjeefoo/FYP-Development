@@ -467,6 +467,7 @@ public class GameManager : MonoBehaviour
             {
                 DisplayHint(_selectedObject);
                 _grabObject = _selectedObject;
+                _grabObject.GetComponent<Renderer>().enabled = false;
                 _selectedObject = null;
                 UpdatePerformedTimes(0);
                 Debug.Log("Grab here: " + _grabObject);
@@ -523,6 +524,7 @@ public class GameManager : MonoBehaviour
             }
 
             Debug.Log("Release here: " + _grabObject);
+            _grabObject.GetComponent<Renderer>().enabled = true;
             var pos = _selectedKitchenware.transform.position;
             pos.y += 0.1f;
             _grabObject.transform.position = pos;

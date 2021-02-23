@@ -8,6 +8,7 @@ public class Pan : MonoBehaviour
     public static Pan pan;
 
     public GameObject food;
+    public ParticleSystem particleSystem;
 
     public void Start()
     {
@@ -28,6 +29,16 @@ public class Pan : MonoBehaviour
 
         MyHand.handManager.UpdateForearmExercise = true;
         food = collision.gameObject;
+        particleSystem.Play();
+        if (SoundManager.soundManager)
+            SoundManager.soundManager.frying.Play();
+    }
+
+    public void OnCollisionExit(Collision collision)
+    {
+        if (SoundManager.soundManager)
+            SoundManager.soundManager.frying.Stop();
+        particleSystem.Stop();
     }
 
     public void PointerEnter()

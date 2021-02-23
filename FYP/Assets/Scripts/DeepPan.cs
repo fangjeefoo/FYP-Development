@@ -8,6 +8,7 @@ public class DeepPan : MonoBehaviour
     public static DeepPan deepPan;
 
     public GameObject food;
+    public ParticleSystem particleSystem;
 
     public void Start()
     {
@@ -26,6 +27,16 @@ public class DeepPan : MonoBehaviour
 
         MyHand.handManager.UpdateWristExercise = true;
         food = collision.gameObject;
+        particleSystem.Play();
+        if (SoundManager.soundManager)
+            SoundManager.soundManager.boiling.Play();
+    }
+
+    public void OnCollisionExit(Collision collision)
+    {
+        particleSystem.Stop();
+        if (SoundManager.soundManager)
+            SoundManager.soundManager.boiling.Stop();
     }
 
     public void PointerEnter()
