@@ -1,4 +1,5 @@
 ﻿using Firebase.Database;
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -157,7 +158,7 @@ public class Setting : MonoBehaviour
                 else if(cameraPos.x < knobPosition)
                     volumeSlider.GetComponent<Slider>().value -= 0.01f;
 
-                volumeText.text = _volumeText + volumeSlider.GetComponent<Slider>().value;
+                volumeText.text = _volumeText + (float)Math.Round(volumeSlider.GetComponent<Slider>().value * 100f);
                 break;
         }
     }
@@ -267,7 +268,7 @@ public class Setting : MonoBehaviour
 
         exerciseDurationText.text = _exerciseDurationText + exerciseDurationSlider.GetComponent<Slider>().value;
         //performedTimesText.text = _performedTimesText + performedTimesSlider.GetComponent<Slider>().value;
-        volumeText.text = _volumeText + volumeSlider.GetComponent<Slider>().value;
+        volumeText.text = _volumeText + (float)Math.Round(volumeSlider.GetComponent<Slider>().value * 100f);
     }
 
     /// <summary>
