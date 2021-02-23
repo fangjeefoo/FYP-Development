@@ -523,6 +523,7 @@
     <Compile Include="Assets\Scripts\Manager\Setting.cs" />
     <Compile Include="Assets\Scripts\Manager\SoundManager.cs" />
     <Compile Include="Assets\Scripts\Manager\Testing.cs" />
+    <Compile Include="Assets\Scripts\Manager\Tutorial.cs" />
     <Compile Include="Assets\Scripts\Manager\Win.cs" />
     <Compile Include="Assets\Scripts\Normal Class\Customization.cs" />
     <Compile Include="Assets\Scripts\Normal Class\LevelData.cs" />

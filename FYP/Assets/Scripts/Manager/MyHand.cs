@@ -41,10 +41,15 @@ public class MyHand : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //get recent frame
+/*        //get recent frame
         Frame frame = _controller.Frame(0);
         //get previous frame
         Frame lastFrame = _controller.Frame(1);
+
+        if (frame.Hands[0] != null)
+        {
+            Debug.Log(frame.Hands[0].PalmNormal);
+        }*/
 
         if (GameManager.gm.SelectedExercise != null && !_called)
         {

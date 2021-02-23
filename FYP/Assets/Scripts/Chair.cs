@@ -32,13 +32,13 @@ public class Chair : MonoBehaviour
 
     public void ChangeColor()
     {
-        gameObject.GetComponent<QuickOutline>().enabled = true;
+        _currentPlate.GetComponent<QuickOutline>().enabled = true;
         //_currentPlate.GetComponent<Renderer>().material.color = new Color(23f / 255, 109f / 255, 23f / 255);
     }
 
     public void ResetColor()
     {
-        gameObject.GetComponent<QuickOutline>().enabled = false;
+        _currentPlate.GetComponent<QuickOutline>().enabled = false;
         //_currentPlate.GetComponent<Renderer>().material.color = color;
     }
 
