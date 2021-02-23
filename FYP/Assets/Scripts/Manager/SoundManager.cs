@@ -39,7 +39,7 @@ public class SoundManager : MonoBehaviour
         _volume = 1.0f;     
     }
 
-    public void Start()
+/*    public void Start()
     {
         _activeScene = SceneManager.GetActiveScene().name;
         PlaySound();
@@ -67,7 +67,7 @@ public class SoundManager : MonoBehaviour
             bgm.Play();
             seaWaves.Stop();
         }
-    }
+    }*/
 
     public void SetVolume(float vol)
     {
