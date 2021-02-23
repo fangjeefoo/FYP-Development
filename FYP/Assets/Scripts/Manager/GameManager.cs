@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
     public GameObject conversation1;
     public GameObject conversation2;
     public GameObject conversation3;
+    public GameObject moodFeedback;
+    public GameObject scoreFeedback;
     public GameObject pauseCanvas;
     public GameObject HUDCanvas;
 
@@ -290,10 +292,19 @@ public class GameManager : MonoBehaviour
     public void UpdateScore(int score, bool increase)
     {
         if (increase)
+        {
             _currentScore += score;
+            scoreFeedback.GetComponent<TextMesh>().text = "+$" + score;
+        }
+
         else
+        {
             _currentScore -= score;
+            scoreFeedback.GetComponent<TextMesh>().text = "-$" + score;
+        } 
+        
         scoreText.text = _scoreText + _currentScore;
+        CallFeedbackCoroutine();
     }
 
     /// <summary>
@@ -553,6 +564,23 @@ public class GameManager : MonoBehaviour
             Destroy(DeepPan.deepPan.GetComponent<DeepPan>().food.gameObject);
         if (CuttingBoard.cuttingBoard.GetComponent<CuttingBoard>().food)
             Destroy(CuttingBoard.cuttingBoard.GetComponent<CuttingBoard>().food.gameObject);
+    }
+
+    public void CallFeedbackCoroutine(bool mood = false)
+    {
+        StartCoroutine(ShowFeedback(mood));
+    }
+
+    IEnumerator ShowFeedback(bool mood = false)
+    {
+        if (mood)
+            moodFeedback.SetActive(true);
+        else
+            scoreFeedback.SetActive(true);
+            
+        yield return new WaitForSeconds(2f);
+        moodFeedback.SetActive(false);
+        scoreFeedback.SetActive(false);
     }
 
     IEnumerator ShowFoodComment(bool failedOrder)

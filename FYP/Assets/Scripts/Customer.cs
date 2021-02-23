@@ -124,6 +124,7 @@ public class Customer : MonoBehaviour
             {
                 _moodCounter = 0;
                 _mood--;
+                GameManager.gm.CallFeedbackCoroutine(true);
 
                 if (_mood <= 0)
                 {
