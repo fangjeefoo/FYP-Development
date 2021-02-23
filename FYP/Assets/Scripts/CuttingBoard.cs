@@ -39,11 +39,13 @@ public class CuttingBoard : MonoBehaviour
     }
     public void ChangeColor()
     {
-        gameObject.GetComponent<Renderer>().material.color = new Color(23f / 255, 200f / 255, 23f / 255);
+        gameObject.GetComponent<QuickOutline>().enabled = true;
+        //gameObject.GetComponent<Renderer>().material.color = new Color(23f / 255, 200f / 255, 23f / 255);
     }
 
     public void ResetColor()
     {
-        gameObject.GetComponent<Renderer>().material.color = new Color(1f, 1f, 1f);
+        gameObject.GetComponent<QuickOutline>().enabled = false;
+        //gameObject.GetComponent<Renderer>().material.color = new Color(1f, 1f, 1f);
     }
 }

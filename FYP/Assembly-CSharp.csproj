@@ -504,6 +504,7 @@
     <Compile Include="Assets\Other People Asset\RestaurantKit\Scripts\Shop\ShopItemProperties.cs" />
     <Compile Include="Assets\Other People Asset\RestaurantKit\Scripts\UI\BackButton.cs" />
     <Compile Include="Assets\Other People Asset\RestaurantKit\Scripts\UI\MenuController.cs" />
+    <Compile Include="Assets\QuickOutline\Scripts\QuickOutline.cs" />
     <Compile Include="Assets\Scripts\CameraRigMovement.cs" />
     <Compile Include="Assets\Scripts\Chair.cs" />
     <Compile Include="Assets\Scripts\Customer.cs" />
@@ -533,6 +534,7 @@
     <None Include="Assets\Other People Asset\Kitchen Asset\README.txt" />
     <None Include="Assets\Other People Asset\Customer\Shaders\Legacy\CelShader.shader" />
     <None Include="Assets\GoogleVR\Shaders\GvrReticleShader.shader" />
+    <None Include="Assets\QuickOutline\Resources\Shaders\OutlineMask.shader" />
     <None Include="Assets\GoogleVR\Beta\Shaders\GvrSeeThroughUI.shader" />
     <None Include="Assets\LMC\LeapMotion\Core\readme.txt" />
     <None Include="Assets\LMC\LeapMotion\Core\README_BEFORE_UPDATING.txt" />
@@ -548,6 +550,7 @@
     <None Include="Assets\GoogleVR\Shaders\GvrControllerReticle.shader" />
     <None Include="Assets\LMC\LeapMotion\Core\Shaders\VertexOffsetShader.shader" />
     <None Include="Assets\GoogleVR\Plugins\Android\AndroidManifest-Daydream.xml" />
+    <None Include="Assets\QuickOutline\Readme.txt" />
     <None Include="Assets\LMC\LeapMotion\Core\Shaders\PassthroughBackground.shader" />
     <None Include="Assets\LMC\LeapMotion\Core\Shaders\PassthroughForeground.shader" />
     <None Include="Assets\LMC\LeapMotion\Core\Shaders\AlphaToWhite.shader" />
@@ -560,6 +563,7 @@
     <None Include="Assets\Other People Asset\Customer\Shaders\SupercyanShaderLighting.cginc" />
     <None Include="Assets\GoogleVR\Shaders\GvrUnlitTextureOverlay.shader" />
     <None Include="Assets\GoogleVR\Shaders\GvrController.shader" />
+    <None Include="Assets\QuickOutline\Resources\Shaders\OutlineFill.shader" />
     <None Include="Assets\LMC\LeapMotion\Core\Shaders\ThresholdOverlay.shader" />
     <None Include="Assets\LMC\LeapMotion\Core\Resources\LeapCG.cginc" />
     <Reference Include="UnityEngine">

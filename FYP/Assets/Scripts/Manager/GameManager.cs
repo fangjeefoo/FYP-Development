@@ -724,16 +724,16 @@ public class GameManager : MonoBehaviour
         {
             switch (obj.GetComponent<Food>().cookType)
             {
-                case FoodType.CookType.cooked:
+                case CookType.cooked:
                     _chair.GetComponent<Chair>().ChangeColor();
                     break;
-                case FoodType.CookType.frying:
+                case CookType.frying:
                     Pan.pan.ChangeColor();
                     break;
-                case FoodType.CookType.shredding:
+                case CookType.shredding:
                     CuttingBoard.cuttingBoard.ChangeColor();
                     break;
-                case FoodType.CookType.soup:
+                case CookType.soup:
                     DeepPan.deepPan.ChangeColor();
                     break;
             }
