@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     public GameObject[] customerList;
     public GameObject conversation1;
     public GameObject conversation2;
+    public GameObject conversation3;
     public GameObject pauseCanvas;
     public GameObject HUDCanvas;
 
@@ -532,10 +533,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void CallConversationCoroutine()
-    {        
+    public void CallConversationCoroutine(bool commentFood = false, bool failedOrder = false)
+    {
+        StopVideo();
         ResetKitchenware();
-        StartCoroutine(ShowConversation());
+        if (!commentFood)
+            StartCoroutine(ShowConversation());
+        else
+            StartCoroutine(ShowFoodComment(failedOrder));
     }
 
     private void ResetKitchenware()
@@ -550,14 +555,36 @@ public class GameManager : MonoBehaviour
             Destroy(CuttingBoard.cuttingBoard.GetComponent<CuttingBoard>().food.gameObject);
     }
 
+    IEnumerator ShowFoodComment(bool failedOrder)
+    {
+        pauseCounter = true;
+        Debug.Log("Failed order: " + failedOrder);
+        Debug.Log("Condition Failed order: " + !failedOrder);
+        if (!failedOrder)
+        {
+            Debug.Log("Show comment");
+            string[] foodComment = new string[] { "Food is yummy", "Food tastes great!", "Food is really good!" };
+            int rand = Random.Range(0, foodComment.Length);
+
+
+            conversation3.SetActive(true);
+            conversation3.transform.GetChild(0).GetComponent<Text>().text = foodComment[rand];
+        }
+        else
+            Debug.Log("Correct, no show comment");
+        yield return new WaitForSeconds(2f);
+        conversation3.SetActive(false);
+        StartCoroutine(ShowConversation());
+    }
+
     IEnumerator ShowConversation()
     {
         pauseCounter = true;
         conversation1.SetActive(true);
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(1.5f);
         conversation1.SetActive(false);
         _customer.GetComponent<Customer>().MyReset();
-        yield return new WaitForSeconds(1.0f);        
+        yield return new WaitForSeconds(1.5f);        
         conversation2.SetActive(true);
     }
 

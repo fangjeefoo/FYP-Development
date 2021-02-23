@@ -85,7 +85,7 @@ public class Customer : MonoBehaviour
                     if (SoundManager.soundManager)
                         SoundManager.soundManager.eating.Play();
                     animator.SetBool("ChairEat", true);
-                    _coroutineRunning = true;
+                    //_coroutineRunning = true;
                     orderCanvas.SetActive(false);
                     GameManager.gm.StopVideo();
                     GameManager.gm.CancelHint();
@@ -153,7 +153,8 @@ public class Customer : MonoBehaviour
                     orderCanvas.SetActive(false);
                     GameManager.gm.CancelHint();
                     _chair.GetComponent<Chair>().MyReset();
-                    GameManager.gm.CallConversationCoroutine();
+                    Debug.Log("is serving: " + _isServing); 
+                    GameManager.gm.CallConversationCoroutine(true, !_isServing);
                 }                   
                 else
                     LeaveShop();
