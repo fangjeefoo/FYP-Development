@@ -19,6 +19,7 @@ public class Tutorial : MonoBehaviour
     public GameObject[] exerciseCanvas;
 
     private int _currentExercise;
+    private int _exerciseCounter;
     private bool _buttonEntered;
     private float _buttonCounter;
     private string _choice;
@@ -45,7 +46,7 @@ public class Tutorial : MonoBehaviour
         _wristTrigger = false;
         _elbowTrigger = false;
         _forearmTrigger = false;
-
+        _exerciseCounter = 0;
         controller = new Controller();
     }
 
@@ -93,19 +94,23 @@ public class Tutorial : MonoBehaviour
         Debug.Log("Pause: " + _pause);*/
         if (_currentExercise == exerciseNum && !_pause)
         {
-            MyReset();
+            _exerciseCounter++;
 
-            if (_currentExercise + 1 < exerciseCanvas.Length)
+            if(_exerciseCounter >= 2)
             {
-                _pause = true;
-                endExerciseCanvas.SetActive(true);               
+                MyReset();
+                _exerciseCounter = 0;
+                if (_currentExercise + 1 < exerciseCanvas.Length)
+                {
+                    _pause = true;
+                    endExerciseCanvas.SetActive(true);
+                }
+                else
+                {
+                    _pause = true;
+                    finalCanvas.SetActive(true);
+                }
             }                
-            else
-            {
-                _pause = true;
-                finalCanvas.SetActive(true);
-            }
-                
         }
     }
 
@@ -144,15 +149,16 @@ public class Tutorial : MonoBehaviour
 
     public void Fist()
     {
-        if (_fistTrigger && !_pause)
+/*        if (_fistTrigger && !_pause)
         {
             _fistTrigger = false;
-            EndExercise(0);
+           
             Debug.Log("Fist trigger 2");
             return;
         }
-        else if (!_pause)
+        else */if (!_pause)
         {
+            EndExercise(0);
             Debug.Log("Fist trigger 1");
             _fistTrigger = true;
         }
@@ -160,49 +166,51 @@ public class Tutorial : MonoBehaviour
 
     public void Elbow()
     {
-        if (_elbowTrigger && !_pause)
+/*        if (_elbowTrigger && !_pause)
         {
             _elbowTrigger = false;
-            EndExercise(3);
-            Debug.Log("Fist trigger 2");
+            
+            Debug.Log("elbow trigger 2");
             return;
         }
-        else if (!_pause)
+        else */if (!_pause)
         {
-            Debug.Log("Fist trigger 1");
+            Debug.Log("elbow trigger 1");
+            EndExercise(3);
             _elbowTrigger = true;
         }
     }
 
     public void Forearm()
     {
-        Debug.Log("Forearm");
-        if (_forearmTrigger) //_forearmTrigger && !_pause
+/*        Debug.Log("Forearm");
+        if (_forearmTrigger && !_pause) //_forearmTrigger && !_pause
         {
             _forearmTrigger = false;
-            EndExercise(1);
+            
             Debug.Log("forearm trigger 2");
             return;
         }
-        else
+        else */if(!_pause)
         {
             Debug.Log("forearm trigger 1");
+            EndExercise(1);
             _forearmTrigger = true;
         }
     }
 
     public void Wrist()
     {
-        if (_wristTrigger && !_pause)
+/*        if (_wristTrigger && !_pause)
         {
-            _wristTrigger = false;
-            EndExercise(2);
-            Debug.Log("Fist trigger 2");
+            _wristTrigger = false;            
+            Debug.Log("wrist trigger 2");
             return;
         }
-        else if (!_pause)
+        else */if (!_pause)
         {
-            Debug.Log("Fist trigger 1");
+            Debug.Log("wrist trigger 1");
+            EndExercise(2);
             _wristTrigger = true;
         }
     }
