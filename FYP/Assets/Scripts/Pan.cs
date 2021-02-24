@@ -34,13 +34,6 @@ public class Pan : MonoBehaviour
             SoundManager.soundManager.frying.Play();
     }
 
-    public void OnCollisionExit(Collision collision)
-    {
-        if (SoundManager.soundManager)
-            SoundManager.soundManager.frying.Stop();
-        particleSystem.Stop();
-    }
-
     public void PointerEnter()
     {
         GameManager.gm.SelectKitchenware(this.gameObject);

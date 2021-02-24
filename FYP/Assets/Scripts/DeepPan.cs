@@ -32,13 +32,6 @@ public class DeepPan : MonoBehaviour
             SoundManager.soundManager.boiling.Play();
     }
 
-    public void OnCollisionExit(Collision collision)
-    {
-        particleSystem.Stop();
-        if (SoundManager.soundManager)
-            SoundManager.soundManager.boiling.Stop();
-    }
-
     public void PointerEnter()
     {
         GameManager.gm.SelectKitchenware(this.gameObject);

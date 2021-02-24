@@ -238,6 +238,9 @@ public class MyHand : MonoBehaviour
             if (_forearmCounter >= 3)
             {
                 _forearmCounter = 0;
+                if (SoundManager.soundManager)
+                    SoundManager.soundManager.frying.Stop();
+                Pan.pan.particleSystem.Stop();
                 Pan.pan.food.GetComponent<Food>().GenerateCookedFood();
                 Debug.Log("clear");
                 GameManager.gm.PlayVideo(true);
@@ -266,6 +269,10 @@ public class MyHand : MonoBehaviour
             if (_wristCounter >= 3)
             {
                 Debug.Log("Clear");
+                DeepPan.deepPan.particleSystem.Stop();
+                if (SoundManager.soundManager)
+                    SoundManager.soundManager.boiling.Stop();
+
                 _wristCounter = 0;
                 DeepPan.deepPan.food.GetComponent<Food>().GenerateCookedFood();
                 DeepPan.deepPan.food.GetComponent<Food>().food = null;

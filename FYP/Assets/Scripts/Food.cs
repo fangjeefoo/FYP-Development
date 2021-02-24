@@ -44,7 +44,9 @@ public class Food : MonoBehaviour
 
     public void PointerEnter()
     {
-        if (GameManager.gm.pauseCounter)
+        var food = GameManager.gm.GetChair().GetComponent<Chair>().GetCurrentPlate().GetComponent<CustomerPlate>().GetCurrentFood();
+
+        if (GameManager.gm.pauseCounter || gameObject == food)
             return;
             
         GameManager.gm.SelectObject(this.gameObject);

@@ -851,4 +851,9 @@ public class GameManager : MonoBehaviour
         PointerExit();
         SceneManager.LoadScene("Menu");
     }
+
+    public GameObject GetChair()
+    {
+        return _chair;
+    }
 }
