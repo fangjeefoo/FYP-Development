@@ -10,7 +10,7 @@ public class MainMenu : MonoBehaviour
     public Image reticleFilled;
 
     //private variable
-    private enum Choice { none, start, setting, quit };
+    private enum Choice { none, start, setting, quit , tutorial};
     private float _counter;
     private bool _click;
     private Choice _choice;
@@ -48,6 +48,9 @@ public class MainMenu : MonoBehaviour
                 case Choice.quit:
                     QuitGame();
                     break;
+                case Choice.tutorial:
+                    Tutorial();
+                    break;
             }
         }
     }
@@ -60,6 +63,11 @@ public class MainMenu : MonoBehaviour
     public void Setting()
     {
         SceneManager.LoadScene("Setting");
+    }
+
+    public void Tutorial()
+    {
+        SceneManager.LoadScene("Tutorial");
     }
 
     public void QuitGame()
@@ -77,6 +85,12 @@ public class MainMenu : MonoBehaviour
     {
         OnEnter();
         _choice = Choice.setting;
+    }
+
+    public void TutorialOnEnter()
+    {
+        OnEnter();
+        _choice = Choice.tutorial;
     }
 
     public void QuitGameOnEnter()

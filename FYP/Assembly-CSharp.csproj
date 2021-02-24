@@ -188,6 +188,16 @@
     <Compile Include="Assets\GoogleVR\Scripts\Utilities\Internal\GvrCursorHelper.cs" />
     <Compile Include="Assets\GoogleVR\Scripts\Utilities\Internal\SuppressMemoryAllocationErrorAttribute.cs" />
     <Compile Include="Assets\GoogleVR\Scripts\Video\GvrVideoPlayerTexture.cs" />
+    <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX_AutoStopLoopedEffect.cs" />
+    <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX_Demo_New.cs" />
+    <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX_Demo_RandomDir.cs" />
+    <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX_Demo_RandomDirectionTranslate.cs" />
+    <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX_Demo_RotateCamera.cs" />
+    <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX_Demo_Translate.cs" />
+    <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_AutoDestructShuriken.cs" />
+    <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_AutoRotate.cs" />
+    <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_LightFlicker.cs" />
+    <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_LightIntensityFade.cs" />
     <Compile Include="Assets\Kitchen_Cooking_FX\Scripts\AnimatedTextureUVs.cs" />
     <Compile Include="Assets\LMC\InteractionEngine\Modules\InteractionEngine\Examples\2. Basic UI\MovePoseExample.cs" />
     <Compile Include="Assets\LMC\InteractionEngine\Modules\InteractionEngine\Examples\3. Interaction Callbacks\Scripts\TransformHandle.cs" />
@@ -531,7 +541,9 @@
     <Compile Include="Assets\Scripts\Pan.cs" />
     <None Include="Assets\LMC\LeapMotion\Core\Version.txt" />
     <None Include="Assets\LMC\LeapMotion\Core\Shaders\RuntimeGizmos.shader" />
+    <None Include="Assets\JMO Assets\Cartoon FX\Shaders\CFX3 Multiply Color.shader" />
     <None Include="Assets\Kitchen_Cooking_FX\Kitchen_Cooking_FX - Documentation.txt" />
+    <None Include="Assets\JMO Assets\Cartoon FX\CartoonFX Free.txt" />
     <None Include="Assets\Other People Asset\Kitchen Collection 2\Readme.txt" />
     <None Include="Assets\GoogleVR\Shaders\GvrUIOverlayFont.shader" />
     <None Include="Assets\Other People Asset\Kitchen Asset\README.txt" />
@@ -542,6 +554,7 @@
     <None Include="Assets\LMC\LeapMotion\Core\readme.txt" />
     <None Include="Assets\LMC\LeapMotion\Core\README_BEFORE_UPDATING.txt" />
     <None Include="Assets\Other People Asset\Food\FREE Food Pack\Shaders\Food.shader" />
+    <None Include="Assets\JMO Assets\Cartoon FX Easy Editor\CartoonFX Easy Editor Readme.txt" />
     <None Include="Assets\Other People Asset\AllSkyFree\AllSkyFree_Readme.txt" />
     <None Include="Assets\GoogleVR\Plugins\Android\AndroidManifest-Cardboard.xml" />
     <None Include="Assets\GoogleVR\Shaders\GvrUnlitTransparentOverlayColor.shader" />
@@ -562,6 +575,7 @@
     <None Include="Assets\LMC\LeapMotion\Core\Dependencies.txt" />
     <None Include="Assets\GoogleVR\Demos\Shaders\HelloVR\HelloVRUnlitGrayscaleToColor.shader" />
     <None Include="Assets\Other People Asset\Food\FoodAndGrocery\Info.txt" />
+    <None Include="Assets\JMO Assets\Cartoon FX\Shaders\CFXM_MobileParticleAdd_Alpha8.shader" />
     <None Include="Assets\GoogleVR\Shaders\GvrUnlitTransparentOverlay.shader" />
     <None Include="Assets\Other People Asset\Customer\Shaders\SupercyanShaderLighting.cginc" />
     <None Include="Assets\GoogleVR\Shaders\GvrUnlitTextureOverlay.shader" />

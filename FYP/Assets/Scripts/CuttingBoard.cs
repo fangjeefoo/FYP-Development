@@ -8,6 +8,7 @@ public class CuttingBoard : MonoBehaviour
     public static CuttingBoard cuttingBoard;
 
     public GameObject food;
+    public ParticleSystem particleSystem;
 
     public void Start()
     {
@@ -47,5 +48,10 @@ public class CuttingBoard : MonoBehaviour
     {
         gameObject.GetComponent<QuickOutline>().enabled = false;
         //gameObject.GetComponent<Renderer>().material.color = new Color(1f, 1f, 1f);
+    }
+
+    public void EnableParticleSystem()
+    {
+        particleSystem.Play();
     }
 }

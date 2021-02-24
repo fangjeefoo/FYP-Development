@@ -77,6 +77,7 @@
     <Compile Include="Assets\GoogleVR\Editor\GvrEditorSettings.cs" />
     <Compile Include="Assets\GoogleVR\Editor\GvrHeadsetEditor.cs" />
     <Compile Include="Assets\GoogleVR\Editor\InstantPreviewEditor.cs" />
+    <Compile Include="Assets\JMO Assets\Cartoon FX Easy Editor\Editor\CFXEasyEditor.cs" />
     <Compile Include="Assets\LMC\InteractionEngine\Modules\InteractionEngine\Examples\3. Interaction Callbacks\Scripts\Editor\TransformHandleEditor.cs" />
     <Compile Include="Assets\LMC\InteractionEngine\Modules\InteractionEngine\Examples\6. Dynamic UI\Scripts\Editor\WorkstationBehaviourEditor.cs" />
     <Compile Include="Assets\LMC\InteractionEngine\Modules\InteractionEngine\Scripts\Editor\ContactBoneParentEditor.cs" />
@@ -351,6 +352,9 @@
     </Reference>
     <Reference Include="Google.ProtocolBuffers">
       <HintPath>C:/Github/FYP-Development/FYP/Assets/GoogleVR/Plugins/Google.ProtocolBuffers.dll</HintPath>
+    </Reference>
+    <Reference Include="JMOAssets_CartoonFXFreeWelcome">
+      <HintPath>C:/Github/FYP-Development/FYP/Assets/JMO Assets/Editor/JMOAssets_CartoonFXFreeWelcome.dll</HintPath>
     </Reference>
     <Reference Include="InteractionEngineUtility">
       <HintPath>C:/Github/FYP-Development/FYP/Assets/LMC/InteractionEngine/Modules/InteractionEngine/Plugins/InteractionEngineUtility.dll</HintPath>

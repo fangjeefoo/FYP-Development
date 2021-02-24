@@ -298,6 +298,9 @@
     <Reference Include="Google.ProtocolBuffers">
       <HintPath>C:/Github/FYP-Development/FYP/Assets/GoogleVR/Plugins/Google.ProtocolBuffers.dll</HintPath>
     </Reference>
+    <Reference Include="JMOAssets_CartoonFXFreeWelcome">
+      <HintPath>C:/Github/FYP-Development/FYP/Assets/JMO Assets/Editor/JMOAssets_CartoonFXFreeWelcome.dll</HintPath>
+    </Reference>
     <Reference Include="InteractionEngineUtility">
       <HintPath>C:/Github/FYP-Development/FYP/Assets/LMC/InteractionEngine/Modules/InteractionEngine/Plugins/InteractionEngineUtility.dll</HintPath>
     </Reference>

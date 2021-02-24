@@ -284,7 +284,7 @@ public class MyHand : MonoBehaviour
                 Debug.Log("Forearm increase");
                 if (SoundManager.soundManager)
                     SoundManager.soundManager.MyPlay(8);
-
+                CuttingBoard.cuttingBoard.EnableParticleSystem();
                 GameManager.gm.UpdatePerformedTimes(3);
                 _elbowCounter++;
                 Debug.Log("elbow times");

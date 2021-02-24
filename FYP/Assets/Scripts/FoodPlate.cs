@@ -8,6 +8,7 @@ public class FoodPlate : MonoBehaviour
     public Transform foodParent;
     [HideInInspector]
     public GameObject holdingFood;
+    public ParticleSystem particleSystem;
 
     private Color color;
 
@@ -52,5 +53,10 @@ public class FoodPlate : MonoBehaviour
     {
         gameObject.GetComponent<QuickOutline>().enabled = false;
         //gameObject.GetComponent<Renderer>().material.color = color;
+    }
+
+    public void EnableParticleSystem()
+    {
+        particleSystem.Play();
     }
 }

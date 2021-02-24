@@ -461,7 +461,9 @@ public class GameManager : MonoBehaviour
 
     public void GrabObject()
     {
-        if(_selectedObject != null && !pauseCounter)
+        bool check = false;
+
+        if (_selectedObject != null && !pauseCounter)
         {    
             if(_customer.GetComponent<Customer>().Order == _selectedObject.gameObject.GetComponent<Food>().foodType)
             {
@@ -479,6 +481,22 @@ public class GameManager : MonoBehaviour
                 }
                 _selectedObject = null;
                 UpdatePerformedTimes(0);
+
+                foreach (var obj in foodPlate)
+                {
+                    if (obj.GetComponent<FoodPlate>().holdingFood == _grabObject)
+                    {
+                        obj.GetComponent<FoodPlate>().EnableParticleSystem();
+                        check = true;
+                        break;
+                    }
+                }
+
+                if (!check)
+                {
+                    cookedFoodPlate[0].GetComponent<FoodPlate>().EnableParticleSystem();
+                }
+
                 Debug.Log("Grab here: " + _grabObject);
                 if (SoundManager.soundManager)
                     SoundManager.soundManager.MyPlay(5);
@@ -533,14 +551,13 @@ public class GameManager : MonoBehaviour
             }
 
             Debug.Log("Release here: " + _grabObject);
+
             if (_grabObject.GetComponent<Renderer>())
                 _grabObject.GetComponent<Renderer>().enabled = true;
             else
             {
                 foreach (var obj in _grabObject.transform.GetComponentsInChildren<Renderer>())
-                {
                     obj.enabled = true;
-                }
             }
             var pos = _selectedKitchenware.transform.position;
             pos.y += 0.1f;
