@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     public GameObject conversation1;
     public GameObject conversation2;
     public GameObject conversation3;
-    public GameObject moodFeedback;
+    public ParticleSystem moodFeedback;
     public GameObject scoreFeedback;
     public GameObject pauseCanvas;
     public GameObject HUDCanvas;
@@ -610,12 +610,11 @@ public class GameManager : MonoBehaviour
     IEnumerator ShowFeedback(bool mood = false)
     {
         if (mood)
-            moodFeedback.SetActive(true);
+            moodFeedback.Play();
         else
             scoreFeedback.SetActive(true);
             
         yield return new WaitForSeconds(2f);
-        moodFeedback.SetActive(false);
         scoreFeedback.SetActive(false);
     }
 
@@ -645,10 +644,10 @@ public class GameManager : MonoBehaviour
     {
         pauseCounter = true;
         conversation1.SetActive(true);
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1.0f);
         conversation1.SetActive(false);
         _customer.GetComponent<Customer>().MyReset();
-        yield return new WaitForSeconds(1.5f);        
+        yield return new WaitForSeconds(1.0f);        
         conversation2.SetActive(true);
     }
 
