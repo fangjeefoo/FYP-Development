@@ -95,6 +95,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         //Initialize private variables
+        //Cursor.lockState = CursorLockMode.Locked;
+
         pauseCounter = false;
         _buttonEntered = false;
         _timeEndSFX = false;

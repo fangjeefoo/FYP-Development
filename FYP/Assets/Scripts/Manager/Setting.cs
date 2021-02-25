@@ -33,6 +33,8 @@ public class Setting : MonoBehaviour
 
     void Start()
     {
+        //Cursor.lockState = CursorLockMode.Locked;
+
         _color = new Color(241f, 255f, 0f);
         _click = false;
         _counter = 0f;

@@ -5,14 +5,35 @@ using UnityEngine;
 //reference from: https://www.youtube.com/watch?v=lYIRm4QEqro
 public class CameraRigMovement : MonoBehaviour
 {
-    public float speedH = 2.0f;
-    public float speedV = 2.0f;
+    private float speed = 8.0f;
+    private float speedH;
+    private float speedV;
 
     private float yaw = 0f;
     private float pitch = 0f;
 
+    public void Start()
+    {
+        speedH = speed;
+        speedV = speed;
+    }
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            Debug.Log("Lock my cursor");
+            Cursor.lockState = CursorLockMode.Locked;
+            //Cursor.lockState = CursorLockMode.None;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            yaw = 0f;
+            pitch = 0f;
+            transform.eulerAngles = new Vector3(pitch, yaw, 0f);
+            return;
+        }
+
         yaw += speedH * Input.GetAxis("Mouse X");
         pitch -= speedV * Input.GetAxis("Mouse Y");
 
