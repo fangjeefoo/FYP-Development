@@ -303,10 +303,10 @@ public class GameManager : MonoBehaviour
         {
             _currentScore -= score;
             scoreFeedback.GetComponent<TextMesh>().text = "-$" + score;
-        } 
-        
-        scoreText.text = _scoreText + _currentScore;
+        }
+
         CallFeedbackCoroutine();
+        scoreText.text = _scoreText + _currentScore;        
     }
 
     /// <summary>
@@ -594,6 +594,8 @@ public class GameManager : MonoBehaviour
 
     private void ResetKitchenware()
     {
+        if (_grabObject)
+            Destroy(_grabObject);
         if (cookedFoodPlate[0].GetComponent<FoodPlate>().holdingFood)
             Destroy(cookedFoodPlate[0].GetComponent<FoodPlate>().holdingFood.gameObject);
         if (Pan.pan.GetComponent<Pan>().food)
@@ -612,12 +614,19 @@ public class GameManager : MonoBehaviour
     IEnumerator ShowFeedback(bool mood = false)
     {
         if (mood)
+        {
             moodFeedback.Play();
+            Debug.Log("Show mood feedback");
+        }            
         else
+        {
+            Debug.Log("Show score feedback");
             scoreFeedback.SetActive(true);
-            
+        }
+              
         yield return new WaitForSeconds(2f);
-        scoreFeedback.SetActive(false);
+        if(!mood)
+            scoreFeedback.SetActive(false);        
     }
 
     IEnumerator ShowFoodComment(bool failedOrder)

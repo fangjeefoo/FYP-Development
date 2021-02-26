@@ -5,7 +5,7 @@ using UnityEngine;
 //reference from: https://www.youtube.com/watch?v=lYIRm4QEqro
 public class CameraRigMovement : MonoBehaviour
 {
-    private float speed = 8.0f;
+    private float speed = 2.0f;
     private float speedH;
     private float speedV;
 
