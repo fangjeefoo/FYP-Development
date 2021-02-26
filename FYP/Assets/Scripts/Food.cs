@@ -44,13 +44,15 @@ public class Food : MonoBehaviour
 
     public void PointerEnter()
     {
-        GameObject food = null;
+        GameObject customerFood = null;
+        GameObject panFood = Pan.pan.GetComponent<Pan>().food;
+        GameObject boardFood = CuttingBoard.cuttingBoard.GetComponent<CuttingBoard>().food;
+        GameObject deepPanFood = DeepPan.deepPan.GetComponent<DeepPan>().food;
 
         if (GameManager.gm.GetChair().GetComponent<Chair>().GetCurrentPlate())
-            food = GameManager.gm.GetChair().GetComponent<Chair>().GetCurrentPlate().GetComponent<CustomerPlate>().GetCurrentFood();
-            
+            customerFood = GameManager.gm.GetChair().GetComponent<Chair>().GetCurrentPlate().GetComponent<CustomerPlate>().GetCurrentFood();
 
-        if (GameManager.gm.pauseCounter || gameObject == food)
+        if (GameManager.gm.pauseCounter || gameObject == customerFood || gameObject == panFood || gameObject == boardFood || gameObject == deepPanFood)
             return;
             
         GameManager.gm.SelectObject(this.gameObject);
