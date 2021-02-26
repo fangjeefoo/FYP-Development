@@ -28,7 +28,6 @@ public class Customer : MonoBehaviour
     private bool _isLeaving;
     private bool _startEating;
     private bool _halfEaten;
-    private bool _finishMealSFX;
     private float _speed;
     private float _eatingCounter;
     private GameObject _chair;
@@ -73,7 +72,7 @@ public class Customer : MonoBehaviour
         }
         else if (!GameManager.gm.pauseCounter)//customer waiting to be served
         {
-            if (_isServing) //if serve by player //starts coroutine
+            if (_isServing && !_isLeaving) //if serve by player //starts coroutine
             {
                 /* if (!_coroutineRunning) //if coroutine not run, run it
                 {
@@ -104,12 +103,12 @@ public class Customer : MonoBehaviour
                 if(_eatingCounter >= finishMealCounter)
                 {
                     animator.SetBool("ChairEat", false);
+                    Debug.Log("Update score for how many times");
                     GameManager.gm.UpdateScore(_mood * score, true);
                     _mood = 0;
                     _isLeaving = true;
-                    if (SoundManager.soundManager && !_finishMealSFX)
+                    if (SoundManager.soundManager)
                     {
-                        _finishMealSFX = true;
                         SoundManager.soundManager.eating.Stop();
                         SoundManager.soundManager.MyPlay(3);
                     }
@@ -382,7 +381,6 @@ public class Customer : MonoBehaviour
         _isLeaving = false;
         _startEating = false;
         _halfEaten = false;
-        _finishMealSFX = false;
         _moodCounter = 0f;
         _eatingCounter = 0;
         _mood = 5;

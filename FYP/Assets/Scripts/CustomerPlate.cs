@@ -20,7 +20,6 @@ public class CustomerPlate : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Before Collision");
         if(_currentCustomer.GetComponent<Customer>().Order == collision.gameObject.GetComponent<Food>().foodType && collision.gameObject.GetComponent<Food>().cookType == FoodType.CookType.cooked)
         {
             _currentCustomer.GetComponent<Customer>().Serving = true;

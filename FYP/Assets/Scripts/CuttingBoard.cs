@@ -17,7 +17,6 @@ public class CuttingBoard : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("board Before Collision");
         /*        if (MyHand.handManager.UpdateElbowExercise || collision.gameObject.GetComponent<Food>().cookType != CookType.shredding)
                 {
                     Destroy(collision.gameObject);

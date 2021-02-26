@@ -17,7 +17,6 @@ public class DeepPan : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("deep pan Before Collision");
         /*        if (MyHand.handManager.UpdateWristExercise || collision.gameObject.GetComponent<Food>().cookType != CookType.soup)
                 {
                     Destroy(collision.gameObject);

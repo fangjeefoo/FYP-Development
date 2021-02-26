@@ -297,14 +297,16 @@ public class GameManager : MonoBehaviour
     {
         if (increase)
         {
-            _currentScore += score;
             scoreFeedback.GetComponent<TextMesh>().text = "+$" + score;
+            Debug.Log("+ score: " + score);
+            Debug.Log("Text: " + scoreFeedback.GetComponent<TextMesh>().text);
+            _currentScore += score;            
         }
 
         else
         {
-            _currentScore -= score;
             scoreFeedback.GetComponent<TextMesh>().text = "-$" + score;
+            _currentScore -= score;            
         }
 
         CallFeedbackCoroutine();
@@ -636,7 +638,7 @@ public class GameManager : MonoBehaviour
         pauseCounter = true;
         if (!failedOrder)
         {
-            string[] foodComment = new string[] { "Food is yummy", "Food tastes great!", "Food is really good!" };
+            string[] foodComment = new string[] { "Food is yummy!", "Food tastes great!", "Food is really good!" };
             int rand = Random.Range(0, foodComment.Length);
 
 

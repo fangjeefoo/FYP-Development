@@ -257,7 +257,7 @@ public class MyHand : MonoBehaviour
             Debug.Log("Wrist getting input");
             if (_wristExercise && _selectedExercise[3])
             {
-                Debug.Log("Forearm increase");
+                Debug.Log("wrist increase");
                 //Debug.Log("cook");
                 //Debug.Log("last hand: " + _lastHand.PalmNormal);
                 //Debug.Log("hand: " + _hand.PalmNormal);
@@ -288,7 +288,7 @@ public class MyHand : MonoBehaviour
             Debug.Log("Elbow getting input");
             if (_elbowExercise && _selectedExercise[2]) //if (_elbowExercise && _holdingKnife && _selectedExercise[2])
             {
-                Debug.Log("Forearm increase");
+                Debug.Log("elbow increase");
                 if (SoundManager.soundManager)
                     SoundManager.soundManager.MyPlay(8);
                 CuttingBoard.cuttingBoard.EnableParticleSystem();

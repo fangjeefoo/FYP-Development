@@ -36,7 +36,7 @@ public class Food : MonoBehaviour
                 GameManager.gm.DisplayHint(null, true);
                 if(SoundManager.soundManager)
                     SoundManager.soundManager.MyPlay(2);
-                Destroy(this.gameObject);
+                Destroy(gameObject);
                 break;
             }
         }
@@ -46,7 +46,6 @@ public class Food : MonoBehaviour
     {
         if (!GameManager.gm.delayFoodPointerEnter)
         {
-            Debug.Log("food pointer enter");
             GameObject customerFood = null;
             GameObject panFood = Pan.pan.GetComponent<Pan>().food;
             GameObject boardFood = CuttingBoard.cuttingBoard.GetComponent<CuttingBoard>().food;
@@ -55,19 +54,13 @@ public class Food : MonoBehaviour
             if (GameManager.gm.GetChair().GetComponent<Chair>().GetCurrentPlate())
                 customerFood = GameManager.gm.GetChair().GetComponent<Chair>().GetCurrentPlate().GetComponent<CustomerPlate>().GetCurrentFood();
 
-            Debug.Log("Current Food: " + gameObject);
-            Debug.Log("Customer food: " + customerFood);
-            Debug.Log("Pan food: " + panFood);
-            Debug.Log("Deep pan food: " + deepPanFood);
-            Debug.Log("cutting Board food: " + boardFood);
             if (GameManager.gm.pauseCounter || gameObject == customerFood || gameObject == panFood || gameObject == boardFood || gameObject == deepPanFood)
             {
-                Debug.Log("Correct, cannot grab customer food");
                 return;
             }
 
 
-            GameManager.gm.SelectObject(this.gameObject);
+            GameManager.gm.SelectObject(gameObject);
         }
     }
 
