@@ -5,6 +5,8 @@ using UnityEngine;
 //reference from: https://www.youtube.com/watch?v=lYIRm4QEqro
 public class CameraRigMovement : MonoBehaviour
 {
+    public static CameraRigMovement cameraRig;
+
     private float speed = 2.0f;
     private float speedH;
     private float speedV;
@@ -16,21 +18,14 @@ public class CameraRigMovement : MonoBehaviour
     {
         speedH = speed;
         speedV = speed;
+        cameraRig = this;
     }
+
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            Debug.Log("Lock my cursor");
-            Cursor.lockState = CursorLockMode.Locked;
-            //Cursor.lockState = CursorLockMode.None;
-        }
-
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            yaw = 0f;
-            pitch = 0f;
-            transform.eulerAngles = new Vector3(pitch, yaw, 0f);
+            ResetCamera();
             return;
         }
 
@@ -44,5 +39,12 @@ public class CameraRigMovement : MonoBehaviour
             if(!GameManager.gm.pauseCounter)
                 GameManager.gm.PauseGame();
         }
+    }
+
+    public void ResetCamera()
+    {
+        yaw = 0f;
+        pitch = 0f;
+        transform.eulerAngles = new Vector3(pitch, yaw, 0f);
     }
 }
