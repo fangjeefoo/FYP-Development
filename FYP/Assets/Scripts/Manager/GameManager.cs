@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour
     public TextMesh scoreText;
 
     [HideInInspector] public bool pauseCounter;
+    [HideInInspector] public bool delayFoodPointerEnter;
 
     //private variable
     private GameObject _selectedObject;
@@ -98,6 +99,7 @@ public class GameManager : MonoBehaviour
         //Cursor.lockState = CursorLockMode.Locked;
 
         pauseCounter = false;
+        delayFoodPointerEnter = false;
         _buttonEntered = false;
         _timeEndSFX = false;
         _currentTimer = 60f;
@@ -471,8 +473,10 @@ public class GameManager : MonoBehaviour
             {
                 DisplayHint(_selectedObject);
                 _grabObject = _selectedObject;
+                _selectedObject = null;
+                UpdatePerformedTimes(0);
 
-                if(_grabObject.GetComponent<Renderer>())
+                if (_grabObject.GetComponent<Renderer>())
                     _grabObject.GetComponent<Renderer>().enabled = false;
                 else
                 {
@@ -480,9 +484,7 @@ public class GameManager : MonoBehaviour
                     {
                         obj.enabled = false;
                     }
-                }
-                _selectedObject = null;
-                UpdatePerformedTimes(0);
+                }                
 
                 foreach (var obj in foodPlate)
                 {
@@ -565,6 +567,8 @@ public class GameManager : MonoBehaviour
             pos.y += 0.1f;
             _grabObject.transform.position = pos;
             _grabObject = null;
+
+            StartCoroutine(DelayFoodPointerEnter());
         }        
     }
 
@@ -616,11 +620,9 @@ public class GameManager : MonoBehaviour
         if (mood)
         {
             moodFeedback.Play();
-            Debug.Log("Show mood feedback");
         }            
         else
         {
-            Debug.Log("Show score feedback");
             scoreFeedback.SetActive(true);
         }
               
@@ -632,11 +634,8 @@ public class GameManager : MonoBehaviour
     IEnumerator ShowFoodComment(bool failedOrder)
     {
         pauseCounter = true;
-        Debug.Log("Failed order: " + failedOrder);
-        Debug.Log("Condition Failed order: " + !failedOrder);
         if (!failedOrder)
         {
-            Debug.Log("Show comment");
             string[] foodComment = new string[] { "Food is yummy", "Food tastes great!", "Food is really good!" };
             int rand = Random.Range(0, foodComment.Length);
 
@@ -644,8 +643,6 @@ public class GameManager : MonoBehaviour
             conversation3.SetActive(true);
             conversation3.transform.GetChild(0).GetComponent<Text>().text = foodComment[rand];
         }
-        else
-            Debug.Log("Correct, no show comment");
         yield return new WaitForSeconds(2f);
         conversation3.SetActive(false);
         StartCoroutine(ShowConversation());
@@ -660,6 +657,13 @@ public class GameManager : MonoBehaviour
         _customer.GetComponent<Customer>().MyReset();
         yield return new WaitForSeconds(1.0f);        
         conversation2.SetActive(true);
+    }
+        
+    IEnumerator DelayFoodPointerEnter()
+    {
+        delayFoodPointerEnter = true;
+        yield return new WaitForSeconds(0.1f);
+        delayFoodPointerEnter = false;
     }
 
     public void ConversationOnClick()

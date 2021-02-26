@@ -17,16 +17,17 @@ public class DeepPan : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-/*        if (MyHand.handManager.UpdateWristExercise || collision.gameObject.GetComponent<Food>().cookType != CookType.soup)
-        {
-            Destroy(collision.gameObject);
-            if (SoundManager.soundManager)
-                SoundManager.soundManager.MyPlay(7);
-            return;
-        }*/
+        Debug.Log("deep pan Before Collision");
+        /*        if (MyHand.handManager.UpdateWristExercise || collision.gameObject.GetComponent<Food>().cookType != CookType.soup)
+                {
+                    Destroy(collision.gameObject);
+                    if (SoundManager.soundManager)
+                        SoundManager.soundManager.MyPlay(7);
+                    return;
+                }*/
 
-        MyHand.handManager.UpdateWristExercise = true;
         food = collision.gameObject;
+        MyHand.handManager.UpdateWristExercise = true;
         particleSystem.Play();
         if (SoundManager.soundManager)
             SoundManager.soundManager.boiling.Play();

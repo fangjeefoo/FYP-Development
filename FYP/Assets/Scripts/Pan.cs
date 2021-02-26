@@ -18,17 +18,17 @@ public class Pan : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("pan Before Collision");
         //check whether player putting wrong food type or the pan is already start cooking
-/*        if (MyHand.handManager.UpdateForearmExercise || collision.gameObject.GetComponent<Food>().cookType != CookType.frying)
-        {
-            Destroy(collision.gameObject);
-            if (SoundManager.soundManager)
-                SoundManager.soundManager.MyPlay(7);
-            return;
+        /*        if (MyHand.handManager.UpdateForearmExercise || collision.gameObject.GetComponent<Food>().cookType != CookType.frying)
+                {
+                    Destroy(collision.gameObject);
+                    if (SoundManager.soundManager)
+                        SoundManager.soundManager.MyPlay(7);
+                    return;
         }*/
-
-        MyHand.handManager.UpdateForearmExercise = true;
         food = collision.gameObject;
+        MyHand.handManager.UpdateForearmExercise = true;
         particleSystem.Play();
         if (SoundManager.soundManager)
             SoundManager.soundManager.frying.Play();
