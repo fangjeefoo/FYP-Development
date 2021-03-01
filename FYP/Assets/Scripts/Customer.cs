@@ -178,6 +178,7 @@ public class Customer : MonoBehaviour
             _reset = true;
             _chair.GetComponent<Chair>().MyReset();
             GameManager.gm.UpdateCustomer();
+            GameManager.gm.ResetGame();
         }
 
         if(animation[0].clip.name != "Chair-Idle" && animation[0].clip.name != "Chair-Stand")

@@ -7,9 +7,9 @@ public class LevelData
 {
     public int level;
     public int[] exercisePerformedTimes;
-    public int score;
+    public string score;
 
-    public LevelData(int level, int[] performedTimes, int score)
+    public LevelData(int level, int[] performedTimes, string score)
     {
         exercisePerformedTimes = new int[4];
 

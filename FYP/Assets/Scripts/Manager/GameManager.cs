@@ -180,7 +180,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     void PostData()
     {
-        string key = null;
+        string key;
 
         if (currentLevel == 1)
         {
@@ -194,7 +194,7 @@ public class GameManager : MonoBehaviour
             key = PlayerPrefs.GetString("Database Key");
         }
 
-        _currentLevelData = new LevelData(currentLevel, _performedTimes, _currentScore);
+        _currentLevelData = new LevelData(currentLevel, _performedTimes, _currentScore + "/" + goalScore);
         _database.GetReference(_dbName).Child(key).Push().SetRawJsonValueAsync(JsonUtility.ToJson(_currentLevelData));
 
     }
@@ -590,12 +590,17 @@ public class GameManager : MonoBehaviour
 
     public void CallConversationCoroutine(bool commentFood = false, bool failedOrder = false)
     {
-        StopVideo();
-        ResetKitchenware();
+        ResetGame();
         if (!commentFood)
             StartCoroutine(ShowConversation());
         else
             StartCoroutine(ShowFoodComment(failedOrder));
+    }
+
+    public void ResetGame()
+    {
+        StopVideo();
+        ResetKitchenware();
     }
 
     private void ResetKitchenware()
