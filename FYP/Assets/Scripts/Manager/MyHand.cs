@@ -232,6 +232,7 @@ public class MyHand : MonoBehaviour
                 Debug.Log("Forearm increase");
                 GameManager.gm.UpdatePerformedTimes(1);
                 _forearmCounter++;
+                Pan.pan.EnableParticleSystem();
                 Debug.Log("forearm times");
             }
 
@@ -262,6 +263,7 @@ public class MyHand : MonoBehaviour
                 //Debug.Log("last hand: " + _lastHand.PalmNormal);
                 //Debug.Log("hand: " + _hand.PalmNormal);
                 Debug.Log("wrist times");
+                DeepPan.deepPan.EnableParticleSystem();
                 GameManager.gm.UpdatePerformedTimes(2);
                 _wristCounter++;
             }

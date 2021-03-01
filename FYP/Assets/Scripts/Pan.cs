@@ -9,6 +9,7 @@ public class Pan : MonoBehaviour
 
     public GameObject food;
     public ParticleSystem particleSystem;
+    public ParticleSystem particleSystem2;
 
     public void Start()
     {
@@ -53,5 +54,10 @@ public class Pan : MonoBehaviour
     {
         gameObject.GetComponent<QuickOutline>().enabled = false;
         //gameObject.GetComponent<Renderer>().material.color = new Color(0f, 0f, 0f);
+    }
+
+    public void EnableParticleSystem()
+    {
+        particleSystem2.Play();
     }
 }

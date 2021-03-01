@@ -9,6 +9,7 @@ public class DeepPan : MonoBehaviour
 
     public GameObject food;
     public ParticleSystem particleSystem;
+    public ParticleSystem particleSystem2;
 
     public void Start()
     {
@@ -52,5 +53,10 @@ public class DeepPan : MonoBehaviour
     {
         gameObject.GetComponent<QuickOutline>().enabled = false;
         //gameObject.GetComponent<Renderer>().material.color = new Color(0f, 0f, 0f);
+    }
+
+    public void EnableParticleSystem()
+    {
+        particleSystem2.Play();
     }
 }
