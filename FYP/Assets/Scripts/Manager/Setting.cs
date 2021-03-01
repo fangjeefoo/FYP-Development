@@ -274,7 +274,8 @@ public class Setting : MonoBehaviour
     }
 
     /// <summary>
-    /// Push data to firebase, return back to main menu
+    /// Save data to firebase, return back to main menu
+    /// Reference from: https://www.youtube.com/watch?v=MbIH4QT3xF8&t=332s
     /// </summary>
     public void PostData()
     {
@@ -284,6 +285,7 @@ public class Setting : MonoBehaviour
 
     /// <summary>
     /// Retrieve data from firebase
+    /// Reference from: https://www.youtube.com/watch?v=MbIH4QT3xF8&t=332s
     /// </summary>
     public async void RetrieveData()
     {
