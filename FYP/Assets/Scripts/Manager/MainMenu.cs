@@ -8,9 +8,11 @@ using UnityEngine.UI;
 public class MainMenu : MonoBehaviour
 {
     public Image reticleFilled;
+    public GameObject levelSelectionCanvas;
+    public GameObject mainCanvas;
 
     //private variable
-    private enum Choice { none, start, setting, quit , tutorial};
+    private enum Choice { none, start, setting, quit , tutorial, level1, level2, level3, level4, back};
     private float _counter;
     private bool _click;
     private Choice _choice;
@@ -40,7 +42,10 @@ public class MainMenu : MonoBehaviour
             switch (_choice)
             {
                 case Choice.start:
-                    StartGame();
+                    LevelSelection();
+                    break;
+                case Choice.back:
+                    CloseLevelSelection();
                     break;
                 case Choice.setting:
                     Setting();
@@ -51,26 +56,67 @@ public class MainMenu : MonoBehaviour
                 case Choice.tutorial:
                     Tutorial();
                     break;
+                case Choice.level1:
+                    LoadLevel1();
+                    break;
+                case Choice.level2:
+                    LoadLevel2();
+                    break;
+                case Choice.level3:
+                    LoadLevel3();
+                    break;
+                case Choice.level4:
+                    LoadLevel4();
+                    break;
             }
         }
     }
 
-    public void StartGame()
+    private void LevelSelection()
+    {
+        mainCanvas.SetActive(false);
+        levelSelectionCanvas.SetActive(true);
+        OnExit();
+    }
+
+    private void CloseLevelSelection()
+    {
+        mainCanvas.SetActive(true);
+        levelSelectionCanvas.SetActive(false);
+        OnExit();
+    }
+
+    private void LoadLevel1()
     {
         SceneManager.LoadScene("Level1");
     }
 
-    public void Setting()
+    private void LoadLevel2()
+    {
+        SceneManager.LoadScene("Level2");
+    }
+
+    private void LoadLevel3()
+    {
+        SceneManager.LoadScene("Level3");
+    }
+
+    private void LoadLevel4()
+    {
+        SceneManager.LoadScene("Level4");
+    }
+
+    private void Setting()
     {
         SceneManager.LoadScene("Setting");
     }
 
-    public void Tutorial()
+    private void Tutorial()
     {
         SceneManager.LoadScene("Tutorial");
     }
 
-    public void QuitGame()
+    private void QuitGame()
     {
         Application.Quit();
     }
@@ -97,6 +143,36 @@ public class MainMenu : MonoBehaviour
     {
         OnEnter();
         _choice = Choice.quit;
+    }
+
+    public void BackOnEnter()
+    {
+        OnEnter();
+        _choice = Choice.back;
+    }
+
+    public void Level1OnEnter()
+    {
+        OnEnter();
+        _choice = Choice.level1;
+    }
+
+    public void Level2OnEnter()
+    {
+        OnEnter();
+        _choice = Choice.level2;
+    }
+
+    public void Level3OnEnter()
+    {
+        OnEnter();
+        _choice = Choice.level3;
+    }
+
+    public void Level4OnEnter()
+    {
+        OnEnter();
+        _choice = Choice.level4;
     }
 
     public void OnEnter()

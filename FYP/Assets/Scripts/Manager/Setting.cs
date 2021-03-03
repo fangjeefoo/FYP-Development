@@ -237,7 +237,6 @@ public class Setting : MonoBehaviour
     public Customization PackData()
     {
         int exerciseDuration = (int)exerciseDurationSlider.GetComponent<Slider>().value;
-        //int performedTimes = (int)performedTimesSlider.GetComponent<Slider>().value;
         float vol = volumeSlider.GetComponent<Slider>().value;
         bool[] exerciseArray = new bool[4];
         
@@ -249,7 +248,6 @@ public class Setting : MonoBehaviour
                 exerciseArray[i] = false;
         }
 
-        //Customization customize = new Customization(exerciseDuration, exerciseArray, performedTimes, vol);
         Customization customize = new Customization(exerciseDuration, exerciseArray, vol);
         return customize;
     }
@@ -259,18 +257,21 @@ public class Setting : MonoBehaviour
     /// </summary>
     public void ExtractData()
     {
-        for (int i = 0; i < _customize.exercise.Length; i++)
+        if (_customize != null)
         {
-            if (_customize.exercise[i])
-                exercise[i].GetComponent<Image>().color = _color;
-        }
-        exerciseDurationSlider.GetComponent<Slider>().value = _customize.exerciseDurationPerLevel;
-        //performedTimesSlider.GetComponent<Slider>().value = _customize.exerciseTime;
-        volumeSlider.GetComponent<Slider>().value = _customize.volume;
+            for (int i = 0; i < _customize.exercise.Length; i++)
+            {
+                if (_customize.exercise[i])
+                    exercise[i].GetComponent<Image>().color = _color;
+            }
+            exerciseDurationSlider.GetComponent<Slider>().value = _customize.exerciseDurationPerLevel;
+            //performedTimesSlider.GetComponent<Slider>().value = _customize.exerciseTime;
+            volumeSlider.GetComponent<Slider>().value = _customize.volume;
 
-        exerciseDurationText.text = _exerciseDurationText + exerciseDurationSlider.GetComponent<Slider>().value;
-        //performedTimesText.text = _performedTimesText + performedTimesSlider.GetComponent<Slider>().value;
-        volumeText.text = _volumeText + (float)Math.Round(volumeSlider.GetComponent<Slider>().value * 100f);
+            exerciseDurationText.text = _exerciseDurationText + exerciseDurationSlider.GetComponent<Slider>().value;
+            //performedTimesText.text = _performedTimesText + performedTimesSlider.GetComponent<Slider>().value;
+            volumeText.text = _volumeText + (float)Math.Round(volumeSlider.GetComponent<Slider>().value * 100f);
+        }
     }
 
     /// <summary>
