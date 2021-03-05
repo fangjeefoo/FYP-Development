@@ -44,24 +44,7 @@ public class Food : MonoBehaviour
 
     public void PointerEnter()
     {
-        if (!GameManager.gm.delayFoodPointerEnter)
-        {
-            GameObject customerFood = null;
-            GameObject panFood = Pan.pan.GetComponent<Pan>().food;
-            GameObject boardFood = CuttingBoard.cuttingBoard.GetComponent<CuttingBoard>().food;
-            GameObject deepPanFood = DeepPan.deepPan.GetComponent<DeepPan>().food;
-
-            if (GameManager.gm.GetChair().GetComponent<Chair>().GetCurrentPlate())
-                customerFood = GameManager.gm.GetChair().GetComponent<Chair>().GetCurrentPlate().GetComponent<CustomerPlate>().GetCurrentFood();
-
-            if (GameManager.gm.pauseCounter || gameObject == customerFood || gameObject == panFood || gameObject == boardFood || gameObject == deepPanFood)
-            {
-                return;
-            }
-
-
-            GameManager.gm.SelectObject(gameObject);
-        }
+        GameManager.gm.SelectObject(gameObject);
     }
 
     public void PointerExit()

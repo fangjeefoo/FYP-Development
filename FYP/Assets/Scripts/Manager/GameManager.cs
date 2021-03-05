@@ -50,7 +50,6 @@ public class GameManager : MonoBehaviour
     public TextMesh scoreText;
 
     [HideInInspector] public bool pauseCounter;
-    [HideInInspector] public bool delayFoodPointerEnter;
 
     //private variable
     private GameObject _selectedObject;
@@ -99,7 +98,6 @@ public class GameManager : MonoBehaviour
         //Cursor.lockState = CursorLockMode.Locked;
 
         pauseCounter = false;
-        delayFoodPointerEnter = false;
         _buttonEntered = false;
         _timeEndSFX = false;
         _currentTimer = 60f;
@@ -468,7 +466,16 @@ public class GameManager : MonoBehaviour
     {
         bool check = false;
 
-        if (_selectedObject != null && !pauseCounter)
+        GameObject customerFood = null;
+        GameObject panFood = Pan.pan.GetComponent<Pan>().food;
+        GameObject boardFood = CuttingBoard.cuttingBoard.GetComponent<CuttingBoard>().food;
+        GameObject deepPanFood = DeepPan.deepPan.GetComponent<DeepPan>().food;
+
+        if (_chair.GetComponent<Chair>().GetCurrentPlate())
+            customerFood = _chair.GetComponent<Chair>().GetCurrentPlate().GetComponent<CustomerPlate>().GetCurrentFood();
+
+        if (_selectedObject != null && !pauseCounter && _selectedObject != _grabObject && !_customer.GetComponent<Customer>().Serving &&
+             _selectedObject != customerFood && _selectedObject != panFood && _selectedObject != boardFood && _selectedObject != deepPanFood)
         {    
             if(_customer.GetComponent<Customer>().Order == _selectedObject.gameObject.GetComponent<Food>().foodType)
             {
@@ -568,8 +575,6 @@ public class GameManager : MonoBehaviour
             pos.y += 0.1f;
             _grabObject.transform.position = pos;
             _grabObject = null;
-
-            StartCoroutine(DelayFoodPointerEnter());
         }        
     }
 
@@ -663,13 +668,6 @@ public class GameManager : MonoBehaviour
         _customer.GetComponent<Customer>().MyReset();
         yield return new WaitForSeconds(1.0f);        
         conversation2.SetActive(true);
-    }
-        
-    IEnumerator DelayFoodPointerEnter()
-    {
-        delayFoodPointerEnter = true;
-        yield return new WaitForSeconds(0.1f);
-        delayFoodPointerEnter = false;
     }
 
     public void ConversationOnClick()
