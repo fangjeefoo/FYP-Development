@@ -226,14 +226,11 @@ public class MyHand : MonoBehaviour
     {
         if (!GameManager.gm.pauseCounter)
         {
-            Debug.Log("Forearm getting input");
             if (_forearmExercise && _selectedExercise[1])
             {
-                Debug.Log("Forearm increase");
                 GameManager.gm.UpdatePerformedTimes(1);
                 _forearmCounter++;
                 Pan.pan.EnableParticleSystem();
-                Debug.Log("forearm times");
             }
 
             if (_forearmCounter >= 3)
@@ -243,7 +240,6 @@ public class MyHand : MonoBehaviour
                     SoundManager.soundManager.frying.Stop();
                 Pan.pan.particleSystem.Stop();
                 Pan.pan.food.GetComponent<Food>().GenerateCookedFood();
-                Debug.Log("clear");
                 GameManager.gm.PlayVideo(true);
                 Pan.pan.food.GetComponent<Food>().food = null;
                 _forearmExercise = false;
@@ -255,14 +251,8 @@ public class MyHand : MonoBehaviour
      {
         if(!GameManager.gm.pauseCounter)
         {
-            Debug.Log("Wrist getting input");
             if (_wristExercise && _selectedExercise[3])
             {
-                Debug.Log("wrist increase");
-                //Debug.Log("cook");
-                //Debug.Log("last hand: " + _lastHand.PalmNormal);
-                //Debug.Log("hand: " + _hand.PalmNormal);
-                Debug.Log("wrist times");
                 DeepPan.deepPan.EnableParticleSystem();
                 GameManager.gm.UpdatePerformedTimes(2);
                 _wristCounter++;
@@ -270,7 +260,6 @@ public class MyHand : MonoBehaviour
 
             if (_wristCounter >= 3)
             {
-                Debug.Log("Clear");
                 DeepPan.deepPan.particleSystem.Stop();
                 if (SoundManager.soundManager)
                     SoundManager.soundManager.boiling.Stop();
@@ -287,16 +276,13 @@ public class MyHand : MonoBehaviour
     {
         if (!GameManager.gm.pauseCounter)
         {
-            Debug.Log("Elbow getting input");
-            if (_elbowExercise && _selectedExercise[2]) //if (_elbowExercise && _holdingKnife && _selectedExercise[2])
+            if (_elbowExercise && _selectedExercise[2])
             {
-                Debug.Log("elbow increase");
                 if (SoundManager.soundManager)
                     SoundManager.soundManager.MyPlay(8);
                 CuttingBoard.cuttingBoard.EnableParticleSystem();
                 GameManager.gm.UpdatePerformedTimes(3);
                 _elbowCounter++;
-                Debug.Log("elbow times");
             }
 
             if (_elbowCounter >= 3)

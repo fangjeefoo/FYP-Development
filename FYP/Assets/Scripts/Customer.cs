@@ -52,6 +52,7 @@ public class Customer : MonoBehaviour
     void Update()
     {
         //if is sitting false, means the customer just reach the restaurant
+
         if (!_isSitting && !GameManager.gm.pauseCounter)
         {
             if (Vector3.Distance(_chair.transform.position, transform.position) > 1f)
@@ -59,7 +60,8 @@ public class Customer : MonoBehaviour
                 animator.SetBool("Moving", true);
                 animator.SetFloat("VelocityX", 20f);
                 animator.SetFloat("VelocityY", 150f);
-                transform.position = Vector3.MoveTowards(transform.position, new Vector3(_chair.transform.position.x, transform.position.y, _chair.transform.position.z), _speed * Time.deltaTime);
+                var pos = new Vector3(_chair.transform.position.x, transform.position.y, _chair.transform.position.z);
+                transform.position = Vector3.MoveTowards(transform.position, pos, _speed * Time.deltaTime);
             }
             else
             {
@@ -70,21 +72,15 @@ public class Customer : MonoBehaviour
                 transform.rotation = Quaternion.Euler(0f, 0f, 0f);
             }
         }
-        else if (!GameManager.gm.pauseCounter)//customer waiting to be served
+        else if (!GameManager.gm.pauseCounter)
         {
-            if (_isServing && !_isLeaving) //if serve by player //starts coroutine
+            if (_isServing && !_isLeaving) 
             {
-                /* if (!_coroutineRunning) //if coroutine not run, run it
-                {
-                    StartCoroutine(FinishMeal());
-                }*/
-
                 if (!_startEating)
                 {
                     if (SoundManager.soundManager)
                         SoundManager.soundManager.eating.Play();
                     animator.SetBool("ChairEat", true);
-                    //_coroutineRunning = true;
                     orderCanvas.SetActive(false);
                     GameManager.gm.StopVideo();
                     GameManager.gm.CancelHint();
@@ -103,7 +99,6 @@ public class Customer : MonoBehaviour
                 if(_eatingCounter >= finishMealCounter)
                 {
                     animator.SetBool("ChairEat", false);
-                    Debug.Log("Update score for how many times");
                     GameManager.gm.UpdateScore(_mood * score, true);
                     _mood = 0;
                     _isLeaving = true;
@@ -133,8 +128,9 @@ public class Customer : MonoBehaviour
                     _isLeaving = true;
                 }
             }
+            //display mood indicator
 
-            for (int i = 0; i < moodIndicator.Length; i++) //display mood indicator
+            for (int i = 0; i < moodIndicator.Length; i++) 
             {
                 if (i < _mood)
                 {
@@ -154,16 +150,15 @@ public class Customer : MonoBehaviour
                     orderCanvas.SetActive(false);
                     GameManager.gm.CancelHint();
                     _chair.GetComponent<Chair>().MyReset();
-                    Debug.Log("is serving: " + _isServing); 
                     GameManager.gm.CallConversationCoroutine(true, !_isServing);
                 }                   
                 else
-                    LeaveShop();
+                    LeaveRestaurant();
             }
         }
     }
 
-    public void LeaveShop()
+    public void LeaveRestaurant()
     {
         orderCanvas.SetActive(false);
         animator.SetBool("ChairSit", false);
@@ -185,7 +180,8 @@ public class Customer : MonoBehaviour
         {
             if (Vector3.Distance(door.transform.position, transform.position) > 1.0f)
             {
-                transform.position = Vector3.MoveTowards(transform.position, new Vector3(door.transform.position.x, transform.position.y, door.transform.position.z), _speed * Time.deltaTime);
+                var pos = new Vector3(door.transform.position.x, transform.position.y, door.transform.position.z);
+                transform.position = Vector3.MoveTowards(transform.position, pos, _speed * Time.deltaTime);
             }
             else
             {

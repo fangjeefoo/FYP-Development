@@ -536,6 +536,7 @@
     <Compile Include="Assets\Scripts\Manager\Tutorial.cs" />
     <Compile Include="Assets\Scripts\Manager\Win.cs" />
     <Compile Include="Assets\Scripts\Normal Class\Customization.cs" />
+    <Compile Include="Assets\Scripts\Normal Class\GameData.cs" />
     <Compile Include="Assets\Scripts\Normal Class\LevelData.cs" />
     <Compile Include="Assets\Scripts\Normal Class\PerformanceData.cs" />
     <Compile Include="Assets\Scripts\Pan.cs" />

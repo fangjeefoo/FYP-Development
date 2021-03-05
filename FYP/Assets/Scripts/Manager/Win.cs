@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -29,8 +30,14 @@ public class Win : MonoBehaviour
         _counter = 0;
         _click = false;
 
-        if (!PlayerPrefs.HasKey("level"))
-            nextLevelButton.GetComponent<Button>().interactable = false;
+        int level = PlayerPrefs.GetInt("level");
+
+        if (level + 1 > _maxLevel)
+        {
+            nextLevelButton.GetComponent<EventTrigger>().enabled = false;
+            nextLevelButton.GetComponent<Image>().color = new Color(138/255f, 138/255f, 138f/255f);
+        }
+            
 
         durationText.text = _durationText + PlayerPrefs.GetInt("duration");
         scoreText.text = _scoreText + PlayerPrefs.GetInt("score") + "/" + PlayerPrefs.GetInt("goal");
@@ -49,8 +56,6 @@ public class Win : MonoBehaviour
 
         if (_counter >= 1.5f)
         {
-            _counter = 0;
-
             switch (_choice)
             {
                 case Choice.menu:
@@ -97,11 +102,12 @@ public class Win : MonoBehaviour
     public void NextLevel()
     {
         int level = PlayerPrefs.GetInt("level");
+        SceneManager.LoadScene("Level" + (level + 1));
 
-        if (level + 1 > _maxLevel)
+/*        if (level + 1 > _maxLevel)
             SceneManager.LoadScene("Menu");
-        else
-            SceneManager.LoadScene("Level " + level + 1);
+        else*/
+            
     }
 
     public void MainMenu()
