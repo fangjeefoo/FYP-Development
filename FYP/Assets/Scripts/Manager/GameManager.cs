@@ -339,7 +339,7 @@ public class GameManager : MonoBehaviour
                 continue;
             else
             {
-                //0 = fist exercise, 1 = forearm exercise (frying), , 2 = wrist exercise (soup), 3 = elbow exercise (shredding)
+                //0 = fist exercise, 1 = forearm exercise (frying), 2 = wrist exercise (soup), 3 = elbow exercise (shredding)
                 switch (i)
                 {
                     case 0:
@@ -466,16 +466,12 @@ public class GameManager : MonoBehaviour
     {
         bool check = false;
 
-        GameObject customerFood = null;
         GameObject panFood = Pan.pan.GetComponent<Pan>().food;
         GameObject boardFood = CuttingBoard.cuttingBoard.GetComponent<CuttingBoard>().food;
         GameObject deepPanFood = DeepPan.deepPan.GetComponent<DeepPan>().food;
 
-        if (_chair.GetComponent<Chair>().GetCurrentPlate())
-            customerFood = _chair.GetComponent<Chair>().GetCurrentPlate().GetComponent<CustomerPlate>().GetCurrentFood();
-
-        if (_selectedObject != null && !pauseCounter && _selectedObject != _grabObject && !_customer.GetComponent<Customer>().Serving &&
-             _selectedObject != customerFood && _selectedObject != panFood && _selectedObject != boardFood && _selectedObject != deepPanFood)
+        if (_selectedObject != null && !pauseCounter && _selectedObject != _grabObject && !_customer.GetComponent<Customer>().Serving
+             && _selectedObject != panFood && _selectedObject != boardFood && _selectedObject != deepPanFood)
         {    
             if(_customer.GetComponent<Customer>().Order == _selectedObject.gameObject.GetComponent<Food>().foodType)
             {
@@ -509,7 +505,6 @@ public class GameManager : MonoBehaviour
                     cookedFoodPlate[0].GetComponent<FoodPlate>().EnableParticleSystem();
                 }
 
-                Debug.Log("Grab here: " + _grabObject);
                 if (SoundManager.soundManager)
                     SoundManager.soundManager.MyPlay(5);
             }
@@ -545,7 +540,7 @@ public class GameManager : MonoBehaviour
             }
             else if(_selectedKitchenware == CuttingBoard.cuttingBoard.gameObject)
             {
-                if (MyHand.handManager.UpdateElbowExercise ||_grabObject.GetComponent<Food>().cookType != CookType.shredding)
+                if (MyHand.handManager.UpdateElbowExercise || _grabObject.GetComponent<Food>().cookType != CookType.shredding)
                 {
                     if (SoundManager.soundManager)
                         SoundManager.soundManager.MyPlay(7);
@@ -554,15 +549,14 @@ public class GameManager : MonoBehaviour
             }
             else if(_selectedKitchenware == _chair.GetComponent<Chair>().GetCurrentPlate())
             {
-                if(!(_customer.GetComponent<Customer>().Order == _grabObject.GetComponent<Food>().foodType) && !(_grabObject.GetComponent<Food>().cookType == CookType.cooked))
+                if(!(_customer.GetComponent<Customer>().Order == _grabObject.GetComponent<Food>().foodType) 
+                && !(_grabObject.GetComponent<Food>().cookType == CookType.cooked))
                 {
                     if (SoundManager.soundManager)
                         SoundManager.soundManager.MyPlay(7);
                     return;
                 }
             }
-
-            Debug.Log("Release here: " + _grabObject);
 
             if (_grabObject.GetComponent<Renderer>())
                 _grabObject.GetComponent<Renderer>().enabled = true;

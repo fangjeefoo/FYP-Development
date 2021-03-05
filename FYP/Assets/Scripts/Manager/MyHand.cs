@@ -9,15 +9,10 @@ public class MyHand : MonoBehaviour
     public static MyHand handManager;
 
     //private variable
-    private Hand _lastHand;
-    private Hand _hand;
-    private Controller _controller;
     private bool _forearmExercise;
     private bool _elbowExercise;
     private bool _wristExercise;
     //private bool _holdingKnife;
-    private bool[] _selectedExercise;
-    private bool _called;
     private int _forearmCounter;
     private int _elbowCounter;
     private int _wristCounter;
@@ -26,16 +21,13 @@ public class MyHand : MonoBehaviour
     void Start()
     {
         handManager = this;
-        _controller = new Controller();
         _forearmExercise = false;
         _elbowExercise = false;
         _wristExercise = false;
         //_holdingKnife = true;
-        _called = false;
         _forearmCounter = 0;
         _elbowCounter = 0;
         _wristCounter = 0;
-        _selectedExercise = new bool[4] { true, false, false, false };
     }
 
     // Update is called once per frame
@@ -50,13 +42,7 @@ public class MyHand : MonoBehaviour
         {
             Debug.Log(frame.Hands[0].PalmNormal);
         }*/
-
-        if (GameManager.gm.SelectedExercise != null && !_called)
-        {
-            _selectedExercise = GameManager.gm.SelectedExercise;
-            _called = true;
-        }
-
+/*
         if (_forearmExercise && _selectedExercise[1])
             GameManager.gm.PlayVideo(false);
 
@@ -65,7 +51,15 @@ public class MyHand : MonoBehaviour
 
         if (_elbowExercise && _selectedExercise[3]) //if (_elbowExercise && _holdingKnife && _selectedExercise[2])
             GameManager.gm.PlayVideo(false);
+*/
+        if (_forearmExercise)
+            GameManager.gm.PlayVideo(false);
 
+        if (_wristExercise)
+            GameManager.gm.PlayVideo(false);
+
+        if (_elbowExercise) //if (_elbowExercise && _holdingKnife && _selectedExercise[2])
+            GameManager.gm.PlayVideo(false);
 
 
         /*        if (frame.Hands.Count > 0 && lastFrame.Hands.Count > 0)
@@ -224,11 +218,12 @@ public class MyHand : MonoBehaviour
         set { _forearmExercise = value; }
     }
 
+    //_forearmExercise && _selectedExercise[1]
     public void ForearmExercise()
     {
         if (!GameManager.gm.pauseCounter)
         {
-            if (_forearmExercise && _selectedExercise[1])
+            if (_forearmExercise)                             
             {
                 GameManager.gm.UpdatePerformedTimes(1);
                 _forearmCounter++;
@@ -249,11 +244,12 @@ public class MyHand : MonoBehaviour
         }
     }
 
-     public void WristExercise()
+    //_wristExercise && _selectedExercise[2]
+    public void WristExercise()
      {
         if(!GameManager.gm.pauseCounter)
         {
-            if (_wristExercise && _selectedExercise[2])
+            if (_wristExercise)
             {
                 DeepPan.deepPan.EnableParticleSystem();
                 GameManager.gm.UpdatePerformedTimes(2);
@@ -274,11 +270,13 @@ public class MyHand : MonoBehaviour
             }
         }
      }
+
+    //_elbowExercise && _selectedExercise[3]
     public void ElbowExercise()
     {
         if (!GameManager.gm.pauseCounter)
         {
-            if (_elbowExercise && _selectedExercise[3])
+            if (_elbowExercise)
             {
                 if (SoundManager.soundManager)
                     SoundManager.soundManager.MyPlay(8);
