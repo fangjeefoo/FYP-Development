@@ -60,11 +60,13 @@ public class MyHand : MonoBehaviour
         if (_forearmExercise && _selectedExercise[1])
             GameManager.gm.PlayVideo(false);
 
-        if (_elbowExercise && _selectedExercise[2]) //if (_elbowExercise && _holdingKnife && _selectedExercise[2])
+        if (_wristExercise && _selectedExercise[2])
             GameManager.gm.PlayVideo(false);
 
-        if (_wristExercise && _selectedExercise[3])
+        if (_elbowExercise && _selectedExercise[3]) //if (_elbowExercise && _holdingKnife && _selectedExercise[2])
             GameManager.gm.PlayVideo(false);
+
+
 
         /*        if (frame.Hands.Count > 0 && lastFrame.Hands.Count > 0)
                 {
@@ -251,7 +253,7 @@ public class MyHand : MonoBehaviour
      {
         if(!GameManager.gm.pauseCounter)
         {
-            if (_wristExercise && _selectedExercise[3])
+            if (_wristExercise && _selectedExercise[2])
             {
                 DeepPan.deepPan.EnableParticleSystem();
                 GameManager.gm.UpdatePerformedTimes(2);
@@ -276,7 +278,7 @@ public class MyHand : MonoBehaviour
     {
         if (!GameManager.gm.pauseCounter)
         {
-            if (_elbowExercise && _selectedExercise[2])
+            if (_elbowExercise && _selectedExercise[3])
             {
                 if (SoundManager.soundManager)
                     SoundManager.soundManager.MyPlay(8);

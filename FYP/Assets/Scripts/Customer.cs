@@ -109,12 +109,14 @@ public class Customer : MonoBehaviour
                     }
                 }
             }
-            else //if not serve by player, add time on mood counter
+            //if not serve by player, add time on mood counter
+            //customer wait for too long, decrease one mood indicator
+            else
             {
                 _moodCounter += Time.deltaTime;
             }
 
-            if (_moodCounter > moodCounter && !_isLeaving) //customer wait for too long, decrease one mood indicator
+            if (_moodCounter > moodCounter && !_isLeaving) 
             {
                 _moodCounter = 0;
                 _mood--;

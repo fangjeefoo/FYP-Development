@@ -2250,7 +2250,7 @@ ScriptsOnlyBuild:
     className: SfxPlayer
   - hash:
       serializedVersion: 2
-      Hash: 377d6dd1e4425817d8e489ed3e3e6c90
+      Hash: 78363e0b442f97a88f9f6ca0cb9696a4
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameManager

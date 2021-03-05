@@ -25,7 +25,6 @@ public class DeepPan : MonoBehaviour
                         SoundManager.soundManager.MyPlay(7);
                     return;
                 }*/
-
         food = collision.gameObject;
         MyHand.handManager.UpdateWristExercise = true;
         particleSystem.Play();
