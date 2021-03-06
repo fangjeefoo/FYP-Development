@@ -161,11 +161,8 @@ public class GameManager : MonoBehaviour
 
         if (_counter > spawnCustomer && _currentTimer > 0 && _currentCustomer <= maxCustomer)
         {
-            //if (_currentCustomer <= maxCustomer)
-            //{
-                _customer = Instantiate(customerList[0]);
-                _currentCustomer++;
-            //}
+            _customer = Instantiate(customerList[0]);
+            _currentCustomer++;
             _counter = 0f;
         }
     }
@@ -341,23 +338,23 @@ public class GameManager : MonoBehaviour
                 continue;
             else
             {
-                //0 = fist exercise, 1 = forearm exercise (frying), 2 = wrist exercise (soup), 3 = elbow exercise (shredding)
+                //0 = fist exercise (cooked), 1 = forearm exercise (frying), 2 = wrist exercise (soup), 3 = elbow exercise (shredding)
                 switch (i)
                 {
                     case 0:
-                        temp = foodList.Where(x => x.GetComponent<Food>().cookType == FoodType.CookType.cooked);
+                        temp = foodList.Where(x => x.GetComponent<Food>().cookType == CookType.cooked);
                         possibleFoodList.AddRange(temp);
                         break;
                     case 1:
-                        temp = foodList.Where(x => x.GetComponent<Food>().cookType == FoodType.CookType.frying);
+                        temp = foodList.Where(x => x.GetComponent<Food>().cookType == CookType.frying);
                         possibleFoodList.AddRange(temp);
                         break;
                     case 2:
-                        temp = foodList.Where(x => x.GetComponent<Food>().cookType == FoodType.CookType.soup);
+                        temp = foodList.Where(x => x.GetComponent<Food>().cookType == CookType.soup);
                         possibleFoodList.AddRange(temp);
                         break;
                     case 3:
-                        temp = foodList.Where(x => x.GetComponent<Food>().cookType == FoodType.CookType.shredding);
+                        temp = foodList.Where(x => x.GetComponent<Food>().cookType == CookType.shredding);
                         possibleFoodList.AddRange(temp);
                         break;
                 }
@@ -373,13 +370,13 @@ public class GameManager : MonoBehaviour
                     switch (i)
                     {
                         case 0:
-                            temp = possibleFoodList.Where(x => x.GetComponent<Food>().cookType == FoodType.CookType.cooked);
+                            temp = possibleFoodList.Where(x => x.GetComponent<Food>().cookType == CookType.cooked);
                             break;
                         case 1:
-                            temp = possibleFoodList.Where(x => x.GetComponent<Food>().cookType == FoodType.CookType.frying);
+                            temp = possibleFoodList.Where(x => x.GetComponent<Food>().cookType == CookType.frying);
                             break;
                         case 2:
-                            temp = possibleFoodList.Where(x => x.GetComponent<Food>().cookType == FoodType.CookType.soup);
+                            temp = possibleFoodList.Where(x => x.GetComponent<Food>().cookType == CookType.soup);
                             break;
                         case 3:
                             temp = possibleFoodList.Where(x => x.GetComponent<Food>().cookType == FoodType.CookType.shredding);
@@ -406,36 +403,6 @@ public class GameManager : MonoBehaviour
                     possibleFoodList = possibleFoodList.Except(temp2).ToList();
                 }
             }
-            //temp2 = _currentSelectedExercise.Where(x => x == true);
-            //if(temp2.Count() == 4)
-            //{
-            //    for (int i = 0; i < foodPlate.Length; i++)
-            //    {
-            //        switch (i)
-            //        {
-            //            case 0:
-            //                temp = possibleFoodList.Where(x => x.GetComponent<Food>().cookType == FoodType.CookType.cooked);
-            //                foodPlate[i].GetComponent<FoodPlate>().food = temp.ElementAt(0);
-            //                break;
-            //            case 1:
-            //                temp = possibleFoodList.Where(x => x.GetComponent<Food>().cookType == FoodType.CookType.frying);
-            //                foodPlate[i].GetComponent<FoodPlate>().food = temp.ElementAt(0);
-            //                break;
-            //            case 2:
-            //                temp = possibleFoodList.Where(x => x.GetComponent<Food>().cookType == FoodType.CookType.shredding);
-            //                foodPlate[i].GetComponent<FoodPlate>().food = temp.ElementAt(0);
-            //                break;
-            //            case 3:
-            //                temp = possibleFoodList.Where(x => x.GetComponent<Food>().cookType == FoodType.CookType.soup);
-            //                foodPlate[i].GetComponent<FoodPlate>().food = temp.ElementAt(0);
-            //                break;
-            //        }
-            //    }                    
-            //}
-            //else
-            //{
-
-            //}
         }
         else
         {
@@ -473,7 +440,7 @@ public class GameManager : MonoBehaviour
         GameObject deepPanFood = DeepPan.deepPan.GetComponent<DeepPan>().food;
 
         if (_selectedObject != null && !pauseCounter && _selectedObject != _grabObject && !_customer.GetComponent<Customer>().Serving
-             && _selectedObject != panFood && _selectedObject != boardFood && _selectedObject != deepPanFood &&!isCooking)
+             && _selectedObject != panFood && _selectedObject != boardFood && _selectedObject != deepPanFood && !isCooking)
         {    
             if(_customer.GetComponent<Customer>().Order == _selectedObject.gameObject.GetComponent<Food>().foodType)
             {
@@ -524,7 +491,7 @@ public class GameManager : MonoBehaviour
         {
             if(_selectedKitchenware == Pan.pan.gameObject)
             {
-                if (_grabObject.GetComponent<Food>().cookType != CookType.frying) //MyHand.handManager.UpdateForearmExercise || 
+                if (_grabObject.GetComponent<Food>().cookType != CookType.frying)
                 {
                     if (SoundManager.soundManager)
                         SoundManager.soundManager.MyPlay(7);
@@ -533,7 +500,7 @@ public class GameManager : MonoBehaviour
             }
             else if(_selectedKitchenware == DeepPan.deepPan.gameObject)
             {
-                if (_grabObject.GetComponent<Food>().cookType != CookType.soup) //MyHand.handManager.UpdateWristExercise || 
+                if (_grabObject.GetComponent<Food>().cookType != CookType.soup)
                 {
                     if (SoundManager.soundManager)
                         SoundManager.soundManager.MyPlay(7);
@@ -542,14 +509,14 @@ public class GameManager : MonoBehaviour
             }
             else if(_selectedKitchenware == CuttingBoard.cuttingBoard.gameObject)
             {
-                if (_grabObject.GetComponent<Food>().cookType != CookType.shredding) //MyHand.handManager.UpdateElbowExercise || 
+                if (_grabObject.GetComponent<Food>().cookType != CookType.shredding)
                 {
                     if (SoundManager.soundManager)
                         SoundManager.soundManager.MyPlay(7);
                     return;
                 }
             }
-            else if(_selectedKitchenware == _chair.GetComponent<Chair>().GetCurrentPlate()) //!(_customer.GetComponent<Customer>().Order == _grabObject.GetComponent<Food>().foodType) &&
+            else if(_selectedKitchenware == _chair.GetComponent<Chair>().GetCurrentPlate())
             {
                 if(!(_grabObject.GetComponent<Food>().cookType == CookType.cooked))
                 {

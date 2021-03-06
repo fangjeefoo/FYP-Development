@@ -98,7 +98,7 @@ public class Tutorial : MonoBehaviour
         {
             _exerciseCounter++;
 
-            if(_exerciseCounter >= 2)
+            if(_exerciseCounter >= 3)
             {
                 MyReset();
                 _exerciseCounter = 0;
