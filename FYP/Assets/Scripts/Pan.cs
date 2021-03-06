@@ -29,6 +29,7 @@ public class Pan : MonoBehaviour
         }*/
         food = collision.gameObject;
         MyHand.handManager.UpdateForearmExercise = true;
+        GameManager.gm.isCooking = true;
         particleSystem.Play();
         if (SoundManager.soundManager)
             SoundManager.soundManager.frying.Play();

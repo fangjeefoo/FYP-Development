@@ -240,6 +240,7 @@ public class MyHand : MonoBehaviour
                 GameManager.gm.PlayVideo(true);
                 Pan.pan.food.GetComponent<Food>().food = null;
                 _forearmExercise = false;
+                GameManager.gm.isCooking = false;
             }
         }
     }
@@ -267,6 +268,7 @@ public class MyHand : MonoBehaviour
                 DeepPan.deepPan.food.GetComponent<Food>().food = null;
                 GameManager.gm.PlayVideo(true);
                 _wristExercise = false;
+                GameManager.gm.isCooking = false;
             }
         }
      }
@@ -292,6 +294,7 @@ public class MyHand : MonoBehaviour
                 CuttingBoard.cuttingBoard.food.GetComponent<Food>().food = null;
                 GameManager.gm.PlayVideo(true);
                 _elbowExercise = false;
+                GameManager.gm.isCooking = false;
             }
         }
     }

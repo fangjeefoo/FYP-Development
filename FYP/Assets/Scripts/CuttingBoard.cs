@@ -27,6 +27,7 @@ public class CuttingBoard : MonoBehaviour
 
         food = collision.gameObject;
         MyHand.handManager.UpdateElbowExercise = true;
+        GameManager.gm.isCooking = true;
     }
 
     public void PointerEnter()

@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour
     public TextMesh scoreText;
 
     [HideInInspector] public bool pauseCounter;
+    [HideInInspector] public bool isCooking;
 
     //private variable
     private GameObject _selectedObject;
@@ -97,6 +98,7 @@ public class GameManager : MonoBehaviour
         //Initialize private variables
         //Cursor.lockState = CursorLockMode.Locked;
 
+        isCooking = false;
         pauseCounter = false;
         _buttonEntered = false;
         _timeEndSFX = false;
@@ -471,7 +473,7 @@ public class GameManager : MonoBehaviour
         GameObject deepPanFood = DeepPan.deepPan.GetComponent<DeepPan>().food;
 
         if (_selectedObject != null && !pauseCounter && _selectedObject != _grabObject && !_customer.GetComponent<Customer>().Serving
-             && _selectedObject != panFood && _selectedObject != boardFood && _selectedObject != deepPanFood)
+             && _selectedObject != panFood && _selectedObject != boardFood && _selectedObject != deepPanFood &&!isCooking)
         {    
             if(_customer.GetComponent<Customer>().Order == _selectedObject.gameObject.GetComponent<Food>().foodType)
             {
@@ -522,7 +524,7 @@ public class GameManager : MonoBehaviour
         {
             if(_selectedKitchenware == Pan.pan.gameObject)
             {
-                if (MyHand.handManager.UpdateForearmExercise || _grabObject.GetComponent<Food>().cookType != CookType.frying)
+                if (_grabObject.GetComponent<Food>().cookType != CookType.frying) //MyHand.handManager.UpdateForearmExercise || 
                 {
                     if (SoundManager.soundManager)
                         SoundManager.soundManager.MyPlay(7);
@@ -531,7 +533,7 @@ public class GameManager : MonoBehaviour
             }
             else if(_selectedKitchenware == DeepPan.deepPan.gameObject)
             {
-                if (MyHand.handManager.UpdateWristExercise || _grabObject.GetComponent<Food>().cookType != CookType.soup)
+                if (_grabObject.GetComponent<Food>().cookType != CookType.soup) //MyHand.handManager.UpdateWristExercise || 
                 {
                     if (SoundManager.soundManager)
                         SoundManager.soundManager.MyPlay(7);
@@ -540,17 +542,16 @@ public class GameManager : MonoBehaviour
             }
             else if(_selectedKitchenware == CuttingBoard.cuttingBoard.gameObject)
             {
-                if (MyHand.handManager.UpdateElbowExercise || _grabObject.GetComponent<Food>().cookType != CookType.shredding)
+                if (_grabObject.GetComponent<Food>().cookType != CookType.shredding) //MyHand.handManager.UpdateElbowExercise || 
                 {
                     if (SoundManager.soundManager)
                         SoundManager.soundManager.MyPlay(7);
                     return;
                 }
             }
-            else if(_selectedKitchenware == _chair.GetComponent<Chair>().GetCurrentPlate())
+            else if(_selectedKitchenware == _chair.GetComponent<Chair>().GetCurrentPlate()) //!(_customer.GetComponent<Customer>().Order == _grabObject.GetComponent<Food>().foodType) &&
             {
-                if(!(_customer.GetComponent<Customer>().Order == _grabObject.GetComponent<Food>().foodType) 
-                && !(_grabObject.GetComponent<Food>().cookType == CookType.cooked))
+                if(!(_grabObject.GetComponent<Food>().cookType == CookType.cooked))
                 {
                     if (SoundManager.soundManager)
                         SoundManager.soundManager.MyPlay(7);
