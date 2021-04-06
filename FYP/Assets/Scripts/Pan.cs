@@ -35,6 +35,23 @@ public class Pan : MonoBehaviour
             SoundManager.soundManager.frying.Play();
     }
 
+    public void MyReset()
+    {
+        //check whether player putting wrong food type or the pan is already start cooking
+        /*        if (MyHand.handManager.UpdateForearmExercise || collision.gameObject.GetComponent<Food>().cookType != CookType.frying)
+                {
+                    Destroy(collision.gameObject);
+                    if (SoundManager.soundManager)
+                        SoundManager.soundManager.MyPlay(7);
+                    return;
+        }*/
+        MyHand.handManager.UpdateForearmExercise = false;
+        GameManager.gm.isCooking = false;
+        particleSystem.Stop();
+        if (SoundManager.soundManager)
+            SoundManager.soundManager.frying.Stop();
+    }
+
     public void PointerEnter()
     {
         GameManager.gm.SelectKitchenware(this.gameObject);

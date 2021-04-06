@@ -11,19 +11,15 @@ public class Customer : MonoBehaviour
     public GameObject orderCanvas;
     public GameObject moodCanvas;
     public GameObject order;
-    [Tooltip("time to decrease one star (Mood)")]
-    public float moodCounter; 
+    [Tooltip("time to decrease one heart (Mood)")] public float moodCounter; 
     public float finishMealCounter;
-    [Tooltip("Score per heart")]
-    public int score;
-
+    [Tooltip("Score per heart")] public int score;
 
     //private variable
-    private bool _isSitting; //check if customer is sitting
-    private float _moodCounter; //time to decrease one star (mood)
-    private int _mood; //current star of the customer (max = 5)
-    private bool _isServing; //check customer is serving by player
-    private bool _coroutineRunning; //check coroutine "FinishMeal" is running
+    private bool _isSitting; 
+    private float _moodCounter; 
+    private int _mood; 
+    private bool _isServing; 
     private bool _reset;
     private bool _isLeaving;
     private bool _startEating;
@@ -34,9 +30,7 @@ public class Customer : MonoBehaviour
     private Animator animator;
     private MyFoodType _foodOrder;
 
-    /// <summary>
-    /// Initialize all private variable
-    /// </summary>
+
     void Start()
     {
         _isSitting = false;
@@ -51,8 +45,6 @@ public class Customer : MonoBehaviour
 
     void Update()
     {
-        //if is sitting false, means the customer just reach the restaurant
-
         if (!_isSitting && !GameManager.gm.pauseCounter)
         {
             if (Vector3.Distance(_chair.transform.position, transform.position) > 1f)
@@ -109,8 +101,6 @@ public class Customer : MonoBehaviour
                     }
                 }
             }
-            //if not serve by player, add time on mood counter
-            //customer wait for too long, decrease one mood indicator
             else
             {
                 _moodCounter += Time.deltaTime;
@@ -130,7 +120,6 @@ public class Customer : MonoBehaviour
                     _isLeaving = true;
                 }
             }
-            //display mood indicator
 
             for (int i = 0; i < moodIndicator.Length; i++) 
             {
@@ -193,120 +182,6 @@ public class Customer : MonoBehaviour
         }
     }
 
-    /*
-    void Update()
-    {
-        //if is sitting false, means the customer just reach the restaurant
-        if (!_isSitting)
-        {
-            if (!_chairFound)
-            {
-                //check the chair is available
-                for (int i = 0; i < _chair.Length; i++)
-                {
-                    if (!_chair[i].GetComponent<Chair>().occupied)
-                    {
-                        _chair[i].GetComponent<Chair>().occupied = true;
-                        _chair[i].GetComponent<Chair>().currentCustomer = this.gameObject;
-                        _chairCounter = i;
-                        break;
-                    }
-                }
-                _chairFound = true;
-            }
-            else
-            {
-                Vector3 direction = _chair[_chairCounter].transform.position - transform.position;
-                if(direction.normalized.x > 0.2f)
-                {
-                    transform.position = new Vector3(transform.position.x + _speed * direction.normalized.x * Time.deltaTime, transform.position.y, transform.position.z);                    
-                }
-                else
-                {
-                    transform.GetChild(0).rotation = Quaternion.Euler(0f, 90f, -90f);
-                    _isSitting = true;
-                    GameManager.gm.CallConversationCoroutine();
-                    animator.SetBool("Walk", false);
-                    _chair[_chairCounter].GetComponent<Chair>().GeneratePlate();                    
-                }                
-            }
-        }
-        else if(!GameManager.gm.pauseCounter)//customer waiting to be served
-        {           
-            if (_isServing) //if serve by player, starts coroutine
-            {
-                if (!_coroutineRunning) //if coroutine not run, run it
-                {
-                    StartCoroutine(FinishMeal());
-                }
-            }
-            else //if not serve by player, add time on mood counter
-            {
-                _moodCounter += Time.deltaTime;
-            }
-            
-            if(_moodCounter > moodCounter && !_isLeaving) //customer wait for too long, decrease one mood indicator
-            {
-                _moodCounter = 0;
-                _mood--;         
-                
-                if(_mood <= 0)
-                {
-                    SoundManager.soundManager.MyPlay(4);
-                    GameManager.gm.UpdateScore(score * moodIndicator.Length / 2, false);
-                    _isLeaving = true;
-                }
-            }
-
-            for (int i = 0; i < moodIndicator.Length; i++) //display mood indicator
-            {
-                if (i < _mood)
-                {
-                    moodIndicator[i].SetActive(true);
-                }
-                else
-                {
-                    moodIndicator[i].SetActive(false);
-                }
-            }
-
-            if (_isLeaving)
-            {
-                if(GameManager.gm.GetTimer() > 0)
-                    GameManager.gm.CallConversationCoroutine();
-                else
-                    LeaveShop();
-                //MyReset();
-            }
-        }
-    }
-
-    public void LeaveShop()
-    {
-        orderCanvas.SetActive(false);
-        animator.SetBool("Walk", true);
-        Vector3 direction = door.transform.position - transform.position;
-
-        if (!_reset)
-        {
-            _reset = true;
-            _chair[_chairCounter].GetComponent<Chair>().MyReset();
-            GameManager.gm.UpdateCustomer();            
-        }
-
-        if (direction.normalized.x > 0.2f)
-        {
-            if (transform.GetChild(0).rotation.y != 90f)
-                transform.GetChild(0).rotation = Quaternion.Euler(0f, 0f, -90f);
-            transform.position = new Vector3(transform.position.x + _speed * direction.normalized.x * Time.deltaTime, transform.position.y, transform.position.z);
-        }
-        else
-        {           
-            Destroy(this.gameObject);
-            GameManager.gm.SaveGame();
-        }
-    }*/
-
     public bool Serving
     {
         get { return _isServing; }
@@ -323,40 +198,12 @@ public class Customer : MonoBehaviour
         get { return _foodOrder; }
         set { _foodOrder = value; }
     }
-    /// <summary>
-    /// activate this function when player place the food in front of player
-    /// take time to finish meal and leave
-    /// </summary>
-    IEnumerator FinishMeal()
-    {
-        if (SoundManager.soundManager)
-            SoundManager.soundManager.eating.Play();
-        animator.SetBool("ChairEat", true);
-        _coroutineRunning = true;
-        orderCanvas.SetActive(false);
-        GameManager.gm.StopVideo();
-        GameManager.gm.CancelHint();
-
-        yield return new WaitForSeconds(finishMealCounter / 2);
-        _chair.GetComponent<Chair>().GetCurrentPlate().GetComponent<CustomerPlate>().GetCurrentFood().transform.GetChild(0).localScale /= 2; 
-
-        
-        yield return new WaitForSeconds(finishMealCounter);
-        animator.SetBool("ChairEat", false);
-        GameManager.gm.UpdateScore(_mood * score, true);
-        _mood = 0;
-        _isLeaving = true;
-        if (SoundManager.soundManager)
-        {
-            SoundManager.soundManager.eating.Stop();
-            SoundManager.soundManager.MyPlay(3);
-        }            
-    }
 
     public void MyReset()
     {
         MyReset2();
 
+        Random.InitState(System.DateTime.Now.Millisecond);
         int num = Random.Range(0, 4);
 
         _chair.GetComponent<Chair>().currentCustomer = gameObject;
@@ -377,18 +224,12 @@ public class Customer : MonoBehaviour
     public void MyReset2()
     {
         _isServing = false;
-        _coroutineRunning = false;
         _isLeaving = false;
         _startEating = false;
         _halfEaten = false;
         _moodCounter = 0f;
         _eatingCounter = 0;
         _mood = 5;
-    }
-
-    public GameObject GetChair()
-    {
-        return _chair;
     }
 
     public MyFoodType GetFoodType()

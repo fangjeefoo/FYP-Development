@@ -7,7 +7,7 @@ public class CameraRigMovement : MonoBehaviour
 {
     public static CameraRigMovement cameraRig;
 
-    private float speed = 5.0f;
+    private float speed = 2.0f;
     private float speedH;
     private float speedV;
 

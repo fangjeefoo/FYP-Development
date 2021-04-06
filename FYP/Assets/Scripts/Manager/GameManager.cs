@@ -95,9 +95,6 @@ public class GameManager : MonoBehaviour
     /// </summary>
     void Start()
     {
-        //Initialize private variables
-        //Cursor.lockState = CursorLockMode.Locked;
-
         isCooking = false;
         pauseCounter = false;
         _buttonEntered = false;
@@ -113,8 +110,7 @@ public class GameManager : MonoBehaviour
         _database = FirebaseDatabase.DefaultInstance;
         _performedTimes = new int[4] { 0, 0, 0, 0 };
         _chair = GameObject.FindGameObjectWithTag("Chair");
-
-        //Initialize the HUD        
+    
         goalText.text = _scoreText + goalScore;
         scoreText.text = _scoreText + _currentScore;
        
@@ -198,8 +194,7 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// Retrieve data from firebase
     /// </summary>
-    /// 
-    
+    ///     
     public async void RetrieveData()
     {
         Customization customize;
@@ -239,50 +234,6 @@ public class GameManager : MonoBehaviour
 
         GenerateFood();
     }
-    
-
-    /*
-    public async void RetrieveData()
-    {
-        DataSnapshot dataSnapshot = null;
-
-        await _database.GetReference(_retrieveDbName).GetValueAsync().ContinueWith(task =>
-        {
-            if (task.IsFaulted)
-            {
-                Debug.Log("Failed to retrieve data");
-            }
-            else if (task.IsCompleted)
-            {
-                dataSnapshot = task.Result;
-                _customize = JsonUtility.FromJson<Customization>(dataSnapshot.GetRawJsonValue());
-            }
-        });
-
-        Debug.Log("all: ");
-        foreach (var mybool in _customize.exercise)
-            Debug.Log(mybool);
-
-        _selectedExercise = new bool[4];
-        _currentSelectedExercise = new bool[4];
-        _selectedExercise = _customize.exercise;
-        _levelDuration = _customize.exerciseDurationPerLevel;
-        _currentTimer = _levelDuration * 60f;
-
-        for (int i = 0; i < 4; i++)
-        {
-            if (_selectedExercise[i])
-                _currentSelectedExercise[i] = true;
-            else
-                _currentSelectedExercise[i] = false;
-        }
-
-        for (int i = currentLevel; i < _currentSelectedExercise.Length; i++)
-            _currentSelectedExercise[i] = false;
-
-        GenerateFood();
-    }
-    */
 
     public void OnDestroy()
     {
@@ -294,8 +245,6 @@ public class GameManager : MonoBehaviour
         if (increase)
         {
             scoreFeedback.GetComponent<TextMesh>().text = "+$" + score;
-            Debug.Log("+ score: " + score);
-            Debug.Log("Text: " + scoreFeedback.GetComponent<TextMesh>().text);
             _currentScore += score;            
         }
 
@@ -310,6 +259,7 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
+    /// Update exercise performed times
     /// 0 = fist exercise, 1 = forearm exercise, 2 = wrist exercise, 3 = elbow exercise
     /// </summary>
     /// <param name="exercise"></param>
@@ -326,6 +276,10 @@ public class GameManager : MonoBehaviour
         get { return _currentSelectedExercise; }
     }
 
+    /// <summary>
+    /// Generate food for each plate in the game
+    /// 0 = fist exercise (cooked), 1 = forearm exercise (frying), 2 = wrist exercise (soup), 3 = elbow exercise (shredding)
+    /// </summary>
     public void GenerateFood()
     {
         List<GameObject> possibleFoodList = new List<GameObject>();
@@ -337,8 +291,7 @@ public class GameManager : MonoBehaviour
             if (!_currentSelectedExercise[i])
                 continue;
             else
-            {
-                //0 = fist exercise (cooked), 1 = forearm exercise (frying), 2 = wrist exercise (soup), 3 = elbow exercise (shredding)
+            {               
                 switch (i)
                 {
                     case 0:
@@ -541,12 +494,14 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
+    /// Shuffle the food list in the game
     /// Reference from: https://answers.unity.com/questions/1189736/im-trying-to-shuffle-an-arrays-order.html
     /// </summary>
     public void Shuffle()
     {
         for (int i = 0; i < foodList.Length - 1; i++)
         {
+            Random.InitState(System.DateTime.Now.Millisecond);
             int rnd = Random.Range(i, foodList.Length);
             var temp = foodList[rnd];
             foodList[rnd] = foodList[i];
@@ -565,6 +520,10 @@ public class GameManager : MonoBehaviour
 
     public void ResetGame()
     {
+        isCooking = false;
+        DeepPan.deepPan.MyReset();
+        Pan.pan.MyReset();
+        CuttingBoard.cuttingBoard.MyReset();
         StopVideo();
         ResetKitchenware();
     }
@@ -830,10 +789,5 @@ public class GameManager : MonoBehaviour
     {
         PointerExit();
         SceneManager.LoadScene("Menu");
-    }
-
-    public GameObject GetChair()
-    {
-        return _chair;
     }
 }

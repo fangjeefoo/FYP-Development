@@ -64,7 +64,6 @@ ScriptsOnlyBuild:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.EventTrigger
     - UnityEngine.EventSystems.StandaloneInputModule
-    - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.GridLayoutGroup
@@ -728,8 +727,6 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11568}
     - Class: 114
-      Script: {instanceID: 11570}
-    - Class: 114
       Script: {instanceID: 11574}
     - Class: 114
       Script: {instanceID: 11576}
@@ -1167,8 +1164,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 11566}
     - Class: 114
       Script: {instanceID: 11568}
-    - Class: 114
-      Script: {instanceID: 11570}
     - Class: 114
       Script: {instanceID: 11574}
     - Class: 114
@@ -2250,7 +2245,7 @@ ScriptsOnlyBuild:
     className: SfxPlayer
   - hash:
       serializedVersion: 2
-      Hash: 78363e0b442f97a88f9f6ca0cb9696a4
+      Hash: 5dc912437ad6fecb9511a6e245f7f7d1
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameManager

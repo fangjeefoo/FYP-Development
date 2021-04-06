@@ -10,9 +10,7 @@ public class Setting : MonoBehaviour
     public GameObject[] exercise;
     public GameObject volumeSlider;
     public GameObject exerciseDurationSlider;
-    //public GameObject performedTimesSlider;
     public Text exerciseDurationText;
-    //public Text performedTimesText;
     public Text volumeText;
     public Camera cam;
     public Image reticleFilled;
@@ -24,7 +22,6 @@ public class Setting : MonoBehaviour
     private float _counter;
     private Choice _choice;
     private string _dbName;
-    //private string _performedTimesText;
     private string _exerciseDurationText;
     private string _volumeText;
     private Customization _customize;
@@ -33,14 +30,11 @@ public class Setting : MonoBehaviour
 
     void Start()
     {
-        //Cursor.lockState = CursorLockMode.Locked;
-
         _color = new Color(241f, 255f, 0f);
         _click = false;
         _counter = 0f;
         _database = FirebaseDatabase.DefaultInstance;
         _dbName = "Customization";        
-       // _performedTimesText = "Exercise Performed Times: ";
         _exerciseDurationText = "Exercise Duration Per Level: ";
         _volumeText = "Volume: ";
         
@@ -120,27 +114,6 @@ public class Setting : MonoBehaviour
 
                 exerciseDurationText.text = _exerciseDurationText + exerciseDurationSlider.GetComponent<Slider>().value;
                 break;
-/*            case Choice.performedTimes:
-                child = performedTimesSlider.transform.GetChild(2).transform.GetChild(0);
-                knobPosition = child.position.x / 1.4f;
-
-                if (Mathf.Abs(knobPosition - cameraPos.x) <= 2)
-                {
-                    if ((153f - cameraPos.x) <= 3)
-                        performedTimesSlider.GetComponent<Slider>().value = performedTimesSlider.GetComponent<Slider>().maxValue;
-                    else if ((cameraPos.x - 53f) <= 3)
-                        performedTimesSlider.GetComponent<Slider>().value = performedTimesSlider.GetComponent<Slider>().minValue;
-
-                    performedTimesText.text = _performedTimesText + performedTimesSlider.GetComponent<Slider>().value;
-                    OnExit();
-                }
-                else if (cameraPos.x > knobPosition)
-                    performedTimesSlider.GetComponent<Slider>().value += 1f;
-                else if (cameraPos.x < knobPosition)
-                    performedTimesSlider.GetComponent<Slider>().value -= 1f;
-
-                performedTimesText.text = _performedTimesText + performedTimesSlider.GetComponent<Slider>().value;
-                break;*/
             case Choice.volume:
                 child = volumeSlider.transform.GetChild(2).transform.GetChild(0);
                 knobPosition = child.position.x / 1.4f;
@@ -199,11 +172,6 @@ public class Setting : MonoBehaviour
     {
         _choice = Choice.exerciseDuration;
     }
-
-/*    public void PerformedTimesSliderOnEnter()
-    {
-        _choice = Choice.performedTimes;
-    }*/
 
     public void VolumeSliderOnEnter()
     {

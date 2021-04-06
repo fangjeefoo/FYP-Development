@@ -30,6 +30,19 @@ public class CuttingBoard : MonoBehaviour
         GameManager.gm.isCooking = true;
     }
 
+    public void MyReset()
+    {
+        /*        if (MyHand.handManager.UpdateElbowExercise || collision.gameObject.GetComponent<Food>().cookType != CookType.shredding)
+                {
+                    Destroy(collision.gameObject);
+                    if (SoundManager.soundManager)
+                        SoundManager.soundManager.MyPlay(7);
+                    return;
+                }*/
+
+        MyHand.handManager.UpdateElbowExercise = false;
+        GameManager.gm.isCooking = false;
+    }
     public void PointerEnter()
     {
         GameManager.gm.SelectKitchenware(this.gameObject);

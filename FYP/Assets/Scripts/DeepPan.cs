@@ -33,6 +33,22 @@ public class DeepPan : MonoBehaviour
             SoundManager.soundManager.boiling.Play();
     }
 
+    public void MyReset()
+    {
+        /*        if (MyHand.handManager.UpdateWristExercise || collision.gameObject.GetComponent<Food>().cookType != CookType.soup)
+                {
+                    Destroy(collision.gameObject);
+                    if (SoundManager.soundManager)
+                        SoundManager.soundManager.MyPlay(7);
+                    return;
+                }*/
+        MyHand.handManager.UpdateWristExercise = false;
+        GameManager.gm.isCooking = false;
+        particleSystem.Stop();
+        if (SoundManager.soundManager)
+            SoundManager.soundManager.boiling.Stop();
+    }
+
     public void PointerEnter()
     {
         GameManager.gm.SelectKitchenware(this.gameObject);
