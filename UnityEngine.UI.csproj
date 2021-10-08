@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{AC9F5E2C-0EFB-EF8D-AD46-DF5B24FB7AD1}</ProjectGuid>
+    <ProjectGuid>{AB5A419A-110B-7BA5-0F5D-1A9911694251}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>UnityEngine.UI</AssemblyName>
@@ -349,58 +349,58 @@
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/16.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
     <Reference Include="Google.ProtocolBuffers">
-      <HintPath>C:/Github/FYP-Development/FYP/Assets/GoogleVR/Plugins/Google.ProtocolBuffers.dll</HintPath>
+      <HintPath>C:/Github/FYP-Development/Assets/GoogleVR/Plugins/Google.ProtocolBuffers.dll</HintPath>
     </Reference>
     <Reference Include="JMOAssets_CartoonFXFreeWelcome">
-      <HintPath>C:/Github/FYP-Development/FYP/Assets/JMO Assets/Editor/JMOAssets_CartoonFXFreeWelcome.dll</HintPath>
+      <HintPath>C:/Github/FYP-Development/Assets/JMO Assets/Editor/JMOAssets_CartoonFXFreeWelcome.dll</HintPath>
     </Reference>
     <Reference Include="InteractionEngineUtility">
-      <HintPath>C:/Github/FYP-Development/FYP/Assets/LMC/InteractionEngine/Modules/InteractionEngine/Plugins/InteractionEngineUtility.dll</HintPath>
+      <HintPath>C:/Github/FYP-Development/Assets/LMC/InteractionEngine/Modules/InteractionEngine/Plugins/InteractionEngineUtility.dll</HintPath>
     </Reference>
     <Reference Include="Google.IOSResolver_v1.2.161">
-      <HintPath>C:/Github/FYP-Development/FYP/Library/PackageCache/com.google.external-dependency-manager@1.2.161/ExternalDependencyManager/Editor/Google.IOSResolver_v1.2.161.dll</HintPath>
+      <HintPath>C:/Github/FYP-Development/Library/PackageCache/com.google.external-dependency-manager@1.2.161/ExternalDependencyManager/Editor/Google.IOSResolver_v1.2.161.dll</HintPath>
     </Reference>
     <Reference Include="Google.JarResolver_v1.2.161">
-      <HintPath>C:/Github/FYP-Development/FYP/Library/PackageCache/com.google.external-dependency-manager@1.2.161/ExternalDependencyManager/Editor/Google.JarResolver_v1.2.161.dll</HintPath>
+      <HintPath>C:/Github/FYP-Development/Library/PackageCache/com.google.external-dependency-manager@1.2.161/ExternalDependencyManager/Editor/Google.JarResolver_v1.2.161.dll</HintPath>
     </Reference>
     <Reference Include="Google.PackageManagerResolver_v1.2.161">
-      <HintPath>C:/Github/FYP-Development/FYP/Library/PackageCache/com.google.external-dependency-manager@1.2.161/ExternalDependencyManager/Editor/Google.PackageManagerResolver_v1.2.161.dll</HintPath>
+      <HintPath>C:/Github/FYP-Development/Library/PackageCache/com.google.external-dependency-manager@1.2.161/ExternalDependencyManager/Editor/Google.PackageManagerResolver_v1.2.161.dll</HintPath>
     </Reference>
     <Reference Include="Google.VersionHandler">
-      <HintPath>C:/Github/FYP-Development/FYP/Library/PackageCache/com.google.external-dependency-manager@1.2.161/ExternalDependencyManager/Editor/Google.VersionHandler.dll</HintPath>
+      <HintPath>C:/Github/FYP-Development/Library/PackageCache/com.google.external-dependency-manager@1.2.161/ExternalDependencyManager/Editor/Google.VersionHandler.dll</HintPath>
     </Reference>
     <Reference Include="Google.VersionHandlerImpl_v1.2.161">
-      <HintPath>C:/Github/FYP-Development/FYP/Library/PackageCache/com.google.external-dependency-manager@1.2.161/ExternalDependencyManager/Editor/Google.VersionHandlerImpl_v1.2.161.dll</HintPath>
+      <HintPath>C:/Github/FYP-Development/Library/PackageCache/com.google.external-dependency-manager@1.2.161/ExternalDependencyManager/Editor/Google.VersionHandlerImpl_v1.2.161.dll</HintPath>
     </Reference>
     <Reference Include="Firebase.Analytics">
-      <HintPath>C:/Github/FYP-Development/FYP/Library/PackageCache/com.google.firebase.analytics@6.16.1/Firebase/Plugins/Firebase.Analytics.dll</HintPath>
+      <HintPath>C:/Github/FYP-Development/Library/PackageCache/com.google.firebase.analytics@6.16.1/Firebase/Plugins/Firebase.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="Firebase.Editor">
-      <HintPath>C:/Github/FYP-Development/FYP/Library/PackageCache/com.google.firebase.app@6.16.1/Firebase/Editor/Firebase.Editor.dll</HintPath>
+      <HintPath>C:/Github/FYP-Development/Library/PackageCache/com.google.firebase.app@6.16.1/Firebase/Editor/Firebase.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Firebase.App">
-      <HintPath>C:/Github/FYP-Development/FYP/Library/PackageCache/com.google.firebase.app@6.16.1/Firebase/Plugins/Firebase.App.dll</HintPath>
+      <HintPath>C:/Github/FYP-Development/Library/PackageCache/com.google.firebase.app@6.16.1/Firebase/Plugins/Firebase.App.dll</HintPath>
     </Reference>
     <Reference Include="Firebase.Platform">
-      <HintPath>C:/Github/FYP-Development/FYP/Library/PackageCache/com.google.firebase.app@6.16.1/Firebase/Plugins/Firebase.Platform.dll</HintPath>
+      <HintPath>C:/Github/FYP-Development/Library/PackageCache/com.google.firebase.app@6.16.1/Firebase/Plugins/Firebase.Platform.dll</HintPath>
     </Reference>
     <Reference Include="Firebase.TaskExtension">
-      <HintPath>C:/Github/FYP-Development/FYP/Library/PackageCache/com.google.firebase.app@6.16.1/Firebase/Plugins/Firebase.TaskExtension.dll</HintPath>
+      <HintPath>C:/Github/FYP-Development/Library/PackageCache/com.google.firebase.app@6.16.1/Firebase/Plugins/Firebase.TaskExtension.dll</HintPath>
     </Reference>
     <Reference Include="Google.MiniJson">
-      <HintPath>C:/Github/FYP-Development/FYP/Library/PackageCache/com.google.firebase.app@6.16.1/Firebase/Plugins/Google.MiniJson.dll</HintPath>
+      <HintPath>C:/Github/FYP-Development/Library/PackageCache/com.google.firebase.app@6.16.1/Firebase/Plugins/Google.MiniJson.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Compat">
-      <HintPath>C:/Github/FYP-Development/FYP/Library/PackageCache/com.google.firebase.app@6.16.1/Parse/Plugins/dotNet45/Unity.Compat.dll</HintPath>
+      <HintPath>C:/Github/FYP-Development/Library/PackageCache/com.google.firebase.app@6.16.1/Parse/Plugins/dotNet45/Unity.Compat.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Tasks">
-      <HintPath>C:/Github/FYP-Development/FYP/Library/PackageCache/com.google.firebase.app@6.16.1/Parse/Plugins/dotNet45/Unity.Tasks.dll</HintPath>
+      <HintPath>C:/Github/FYP-Development/Library/PackageCache/com.google.firebase.app@6.16.1/Parse/Plugins/dotNet45/Unity.Tasks.dll</HintPath>
     </Reference>
     <Reference Include="Firebase.Auth">
-      <HintPath>C:/Github/FYP-Development/FYP/Library/PackageCache/com.google.firebase.auth@6.16.1/Firebase/Plugins/Firebase.Auth.dll</HintPath>
+      <HintPath>C:/Github/FYP-Development/Library/PackageCache/com.google.firebase.auth@6.16.1/Firebase/Plugins/Firebase.Auth.dll</HintPath>
     </Reference>
     <Reference Include="Firebase.Database">
-      <HintPath>C:/Github/FYP-Development/FYP/Library/PackageCache/com.google.firebase.database@6.16.1/Firebase/Plugins/Firebase.Database.dll</HintPath>
+      <HintPath>C:/Github/FYP-Development/Library/PackageCache/com.google.firebase.database@6.16.1/Firebase/Plugins/Firebase.Database.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.11f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>

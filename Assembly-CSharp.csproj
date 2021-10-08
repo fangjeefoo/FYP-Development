@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{4C363F3F-15D1-DCA8-F7C9-3AF0D0F4CB5F}</ProjectGuid>
+    <ProjectGuid>{1738AAE3-ECA7-60D5-B7AB-E17CFD3FB667}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -768,37 +768,37 @@
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.11f1/Editor/Data/Managed/UnityEditor.dll</HintPath>
     </Reference>
     <Reference Include="Google.ProtocolBuffers">
-      <HintPath>C:/Github/FYP-Development/FYP/Assets/GoogleVR/Plugins/Google.ProtocolBuffers.dll</HintPath>
+      <HintPath>C:/Github/FYP-Development/Assets/GoogleVR/Plugins/Google.ProtocolBuffers.dll</HintPath>
     </Reference>
     <Reference Include="InteractionEngineUtility">
-      <HintPath>C:/Github/FYP-Development/FYP/Assets/LMC/InteractionEngine/Modules/InteractionEngine/Plugins/InteractionEngineUtility.dll</HintPath>
+      <HintPath>C:/Github/FYP-Development/Assets/LMC/InteractionEngine/Modules/InteractionEngine/Plugins/InteractionEngineUtility.dll</HintPath>
     </Reference>
     <Reference Include="Firebase.Analytics">
-      <HintPath>C:/Github/FYP-Development/FYP/Library/PackageCache/com.google.firebase.analytics@6.16.1/Firebase/Plugins/Firebase.Analytics.dll</HintPath>
+      <HintPath>C:/Github/FYP-Development/Library/PackageCache/com.google.firebase.analytics@6.16.1/Firebase/Plugins/Firebase.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="Firebase.App">
-      <HintPath>C:/Github/FYP-Development/FYP/Library/PackageCache/com.google.firebase.app@6.16.1/Firebase/Plugins/Firebase.App.dll</HintPath>
+      <HintPath>C:/Github/FYP-Development/Library/PackageCache/com.google.firebase.app@6.16.1/Firebase/Plugins/Firebase.App.dll</HintPath>
     </Reference>
     <Reference Include="Firebase.Platform">
-      <HintPath>C:/Github/FYP-Development/FYP/Library/PackageCache/com.google.firebase.app@6.16.1/Firebase/Plugins/Firebase.Platform.dll</HintPath>
+      <HintPath>C:/Github/FYP-Development/Library/PackageCache/com.google.firebase.app@6.16.1/Firebase/Plugins/Firebase.Platform.dll</HintPath>
     </Reference>
     <Reference Include="Firebase.TaskExtension">
-      <HintPath>C:/Github/FYP-Development/FYP/Library/PackageCache/com.google.firebase.app@6.16.1/Firebase/Plugins/Firebase.TaskExtension.dll</HintPath>
+      <HintPath>C:/Github/FYP-Development/Library/PackageCache/com.google.firebase.app@6.16.1/Firebase/Plugins/Firebase.TaskExtension.dll</HintPath>
     </Reference>
     <Reference Include="Google.MiniJson">
-      <HintPath>C:/Github/FYP-Development/FYP/Library/PackageCache/com.google.firebase.app@6.16.1/Firebase/Plugins/Google.MiniJson.dll</HintPath>
+      <HintPath>C:/Github/FYP-Development/Library/PackageCache/com.google.firebase.app@6.16.1/Firebase/Plugins/Google.MiniJson.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Compat">
-      <HintPath>C:/Github/FYP-Development/FYP/Library/PackageCache/com.google.firebase.app@6.16.1/Parse/Plugins/dotNet45/Unity.Compat.dll</HintPath>
+      <HintPath>C:/Github/FYP-Development/Library/PackageCache/com.google.firebase.app@6.16.1/Parse/Plugins/dotNet45/Unity.Compat.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Tasks">
-      <HintPath>C:/Github/FYP-Development/FYP/Library/PackageCache/com.google.firebase.app@6.16.1/Parse/Plugins/dotNet45/Unity.Tasks.dll</HintPath>
+      <HintPath>C:/Github/FYP-Development/Library/PackageCache/com.google.firebase.app@6.16.1/Parse/Plugins/dotNet45/Unity.Tasks.dll</HintPath>
     </Reference>
     <Reference Include="Firebase.Auth">
-      <HintPath>C:/Github/FYP-Development/FYP/Library/PackageCache/com.google.firebase.auth@6.16.1/Firebase/Plugins/Firebase.Auth.dll</HintPath>
+      <HintPath>C:/Github/FYP-Development/Library/PackageCache/com.google.firebase.auth@6.16.1/Firebase/Plugins/Firebase.Auth.dll</HintPath>
     </Reference>
     <Reference Include="Firebase.Database">
-      <HintPath>C:/Github/FYP-Development/FYP/Library/PackageCache/com.google.firebase.database@6.16.1/Firebase/Plugins/Firebase.Database.dll</HintPath>
+      <HintPath>C:/Github/FYP-Development/Library/PackageCache/com.google.firebase.database@6.16.1/Firebase/Plugins/Firebase.Database.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.11f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -1155,44 +1155,44 @@
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.11f1/Editor/Data/MonoBleedingEdge/lib/mono/unityscript/Boo.Lang.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>C:/Github/FYP-Development/FYP/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>C:/Github/FYP-Development/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>C:/Github/FYP-Development/FYP/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>C:/Github/FYP-Development/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Github/FYP-Development/FYP/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Github/FYP-Development/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>C:/Github/FYP-Development/FYP/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>C:/Github/FYP-Development/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>C:/Github/FYP-Development/FYP/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>C:/Github/FYP-Development/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Postprocessing.Editor">
-      <HintPath>C:/Github/FYP-Development/FYP/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
+      <HintPath>C:/Github/FYP-Development/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>C:/Github/FYP-Development/FYP/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>C:/Github/FYP-Development/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Postprocessing.Runtime">
-      <HintPath>C:/Github/FYP-Development/FYP/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
+      <HintPath>C:/Github/FYP-Development/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Github/FYP-Development/FYP/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Github/FYP-Development/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="LeapMotion.LeapCSharp.csproj">
-      <Project>{0CC5C43C-ED5D-0C20-D422-0C69D08878D9}</Project>
+      <Project>{B33FBBD3-7FFD-0D71-6341-3CA3950DDB45}</Project>
       <Name>LeapMotion.LeapCSharp</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.UI.csproj">
-      <Project>{AC9F5E2C-0EFB-EF8D-AD46-DF5B24FB7AD1}</Project>
+      <Project>{AB5A419A-110B-7BA5-0F5D-1A9911694251}</Project>
       <Name>UnityEngine.UI</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEditor.UI.csproj">
-      <Project>{C8D79369-A603-9774-2FB7-F46970E71640}</Project>
+      <Project>{4B3A5930-3E81-64BD-D81C-15BC6DD6F7AC}</Project>
       <Name>UnityEditor.UI</Name>
     </ProjectReference>
   </ItemGroup>
