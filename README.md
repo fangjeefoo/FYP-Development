@@ -14,3 +14,9 @@
 
 
 >If notice the position of the camera is changed after playing some time, press **Escape** key to reset the camera position
+
+## Citation
+Instructional video taken from Youtube:
+Fist/wrist/forearm exercises: https://www.youtube.com/watch?v=i0JYsLyJEnE
+wrist exercise: https://www.youtube.com/watch?v=ZKR1nOtCNKU&t=281s
+elbow exercise: https://www.youtube.com/watch?v=ZCywA3DoExo&t=348s
