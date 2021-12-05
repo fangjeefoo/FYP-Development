@@ -17,6 +17,6 @@
 
 ## Citation
 Instructional video taken from Youtube:
-Fist/wrist/forearm exercises: https://www.youtube.com/watch?v=i0JYsLyJEnE
-wrist exercise: https://www.youtube.com/watch?v=ZKR1nOtCNKU&t=281s
-elbow exercise: https://www.youtube.com/watch?v=ZCywA3DoExo&t=348s
+1. Fist/wrist/forearm exercises: https://www.youtube.com/watch?v=i0JYsLyJEnE
+2. Wrist exercise: https://www.youtube.com/watch?v=ZKR1nOtCNKU&t=281s
+3. Elbow exercise: https://www.youtube.com/watch?v=ZCywA3DoExo&t=348s
