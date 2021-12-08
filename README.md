@@ -1,5 +1,7 @@
 # Let’s Cook (FYP Development)
 
+[![DOI](https://zenodo.org/badge/304405070.svg)](https://zenodo.org/badge/latestdoi/304405070)
+
 ## Setup
 
 **Unity version: 2019.4.11**
