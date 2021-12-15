@@ -3,6 +3,7 @@
 [![DOI](https://zenodo.org/badge/304405070.svg)](https://zenodo.org/badge/latestdoi/304405070)
 
 ## Setup
+>This project is using Git-LFS. Please clone the project (and setup Git-LFS) instead of downloading it.
 
 **Unity version: 2019.4.11**
 >This project using personal Firebase, please refer to [Firebase Setup](https://firebase.google.com/docs/unity/setup) to change it
